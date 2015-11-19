@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" language="javascript" ></script>
+		<script src="js/app.js" type="text/javascript" language="javascript" ></script>
+		<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="css/style.css" type="text/css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<h1>Chat with Parse REST API</h1>
+				<table class="table table-bordered table-striped">
+					<caption>Messages</caption>
+					<thead>
+						<tr>
+							<th>
+								Username
+							</th>
+							<th>
+								Message
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="2">No messages</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row-fluid">
+				<form id="new-user">
+					<input type="text" name="username" placeholder="Username" />
+					<input type="text" name="message" placeholder="Message" />
+					<a id="send" class="btn btn-primary">SEND</a>
+				</form>		
+			</div>
+		</div>
+	</body>
+</html>

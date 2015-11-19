@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+	.row {padding-top:1.5em;}
+	</style>
+	<script>
+			/*
+			Rapid Prototyping with JS is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. — Read more at
+			http://rapidprototypingwithjs.com.
+			*/
+	
+		$(document).ready(function(){
+			$("#btn").click(function() {				
+				//replace loading image
+				var username=$("#username").val();
+				//make ajax call, callback 
+				var url='https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name='+username+'&count=1000';
+				if (username!=''){
+					list=[]; //unique global list of words
+					counter={};
+					var pages=0;
+					getData(url);
+				}
+				else {
+					alert('Please enter Twitter username')
+				}
+			})
+		});
+		function getData (url) {
+			var request = $.ajax({
+				url: url,
+				dataType: "jsonp",
+				data: {page:0},
+				jsonpCallback: "fetchData",
+				type: "GET"	
+			});
+		}
+		//ajax callback
+		var list=[]; //unique global list of words
+		var counter={};
+		var pages=0;
+
+		function fetchData (m) {
+			for (i=0;i<m.length;i++){
+				var words=m[i].text.split(' ');
+				for (j=0;j<words.length;j++){
+			        words[j] = words[j].replace(/\,/g,"");
+				        words[j] = words[j].replace(/\"/g,"");
+				        words[j] = words[j].replace(/\'/g,"");
+				        words[j] =  words[j].replace(/\./g,"");
+				        words[j] =  words[j].replace(/#/g,"");
+				        words[j] =  words[j].replace(/@/g,"");
+					if (words[j].substring(0,4)!="http"&&words[j]!='') {
+						if (list.indexOf(words[j])<0) {
+							list.push(words[j]);
+							counter[words[j]]=1;
+						}
+						else {
+							//add plus one to word couter
+							counter[words[j]]++;
+
+						}
+					}
+				}
+			}
+			//sort by number of repetitions
+			for (i=0;i<list.length;i++){
+				var max=counter[list[i]];
+				var p=0;
+				for (j=i;j<list.length;j++) {
+					if (counter[list[i]]<counter[list[j]]) {
+						p=list[i];
+						list[i]=list[j];
+						list[j]=p;
+						maxC=i;
+					}
+				}			
+			}
+			//print sorted
+
+			console.log(list);
+
+			//print nicely with number of repetition
+			var str='';
+			for (i=0;i<list.length;i++){
+				str+=counter[list[i]]+": "+list[i]+'\n';
+			}
+			$('#log').val(str);
+			$('#info').html('Analyzed: '+list.length+ 'word(s) form '+m.length +' tweet(s).');
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="span6  offset1"><input class="span4" type="text" placeholder="Enter Twitter username, eg: square" id="username" value=""/>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="span6 offset1"><input type="button" class="primary btn" id="btn" value="Show words in last 1000 tweets"/>
+			</div>
+			<div class="span3">
+				<p id="info"></p>
+			</div>
+		</div>
+		
+
+
+		<div class="row">
+			<div class="span6 offset1">				
+				<textarea id="log" cols="20" rows="20">Nothing to show yet</textarea>
+			</div>
+			<div class="span4 offset 3">
+				<h2>Task</h2>
+				<p>This page prints the words in a given twitter user’s last 0-200 tweets sorted by frequency of use.  For example, if @jack had tweeted: “hello world”, “hello everyone and world” and “hi world”  The result could be: world, hello, and, hi, everyone.</p>
+				<hr/>
+				<p>Requests are broken into 5 pieces. Please open console for more information.</p>				
+				<p>Azat Mardanov (<a href="http://twitter.com/azat_co">@azat_co</a>)</p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
