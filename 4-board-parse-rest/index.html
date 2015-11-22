@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" language="javascript" ></script>
+		<script src="js/jquery.js" type="text/javascript" language="javascript" ></script>
 		<script src="js/app.js" type="text/javascript" language="javascript" ></script>
 		<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 		<link href="css/style.css" type="text/css" rel="stylesheet" />
-
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -25,7 +26,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="2">No messages</td>
+							<td colspan="2"><img src="img/spinner.gif" width="20"/></td>
 						</tr>
 					</tbody>
 				</table>
@@ -35,7 +36,7 @@
 					<input type="text" name="username" placeholder="Username" />
 					<input type="text" name="message" placeholder="Message" />
 					<a id="send" class="btn btn-primary">SEND</a>
-				</form>		
+				</form>
 			</div>
 		</div>
 	</body>

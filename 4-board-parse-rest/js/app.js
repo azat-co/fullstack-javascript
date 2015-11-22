@@ -8,6 +8,8 @@ parseKey='1LKZVd4KG6PFpldvCha5RDY8Z5EZeJhy2Bl4vgJ3'
 $(document).ready(function(){
 	getMessages()
 	$('#send').click(function(){
+		var $sendButton = $(this)
+		$sendButton.html('<img src="img/spinner.gif" width="20"/>')
 		var username = $('input[name=username]').val()
 		var message = $('input[name=message]').val()
 		$.ajax({
@@ -27,9 +29,11 @@ $(document).ready(function(){
 			success: function() {
 				console.log('sent')
 				getMessages()
+				$sendButton.html('SEND')
 			},
 			error: function() {
 				console.log('error')
+				$sendButton.html('SEND')
 			}
 		})
 
