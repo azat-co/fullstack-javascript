@@ -12,13 +12,13 @@ Fullstack JavaScript is a JavaScript and Node.js book that will teach you how to
 
 	[jQuery], Twitter API and JSONP example
 
-* [parse](https://github.com/azat-co/rpjs/tree/master/parse)
+* [parse-sdk](https://github.com/azat-co/rpjs/tree/master/parse)
 
 	Simple example of [Parse.com] JavaScript SDK
 
-* [rest](https://github.com/azat-co/rpjs/tree/master/rest)
+* [chat-board-rest](https://github.com/azat-co/rpjs/tree/master/rest)
 
-	Chat front-end: [jQuery] and [Parse.com] REST API; ready for deployment.
+	Message board front-end: [jQuery] and [Parse.com] REST API; ready for deployment.
 
 * [backbone](https://github.com/azat-co/rpjs/tree/master/backbone)
 
