@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+<head>
+  <script src="jquery.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+
+  <script>
+  
+    var app;
+    var router = Backbone.Router.extend({
+      routes: {
+        '': 'home'
+      },
+      initialize: function(){
+        
+      },
+      home: function(){
+        this.homeView = new homeView;
+        this.homeView.render();
+      }
+    });
+
+    var homeView = Backbone.View.extend({
+      el: 'body',
+      template: _.template('Hello World'),
+      render: function(){
+        this.$el.html(this.template({}));
+      }
+    });
+
+
+    $(document).ready(function(){
+      app = new router;
+      Backbone.history.start();      
+    })
+
+
+  </script>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
