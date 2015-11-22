@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-	<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
 		.row {
@@ -20,66 +20,87 @@
 			Rapid Prototyping with JS is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. — Read more at
 			http://rapidprototypingwithjs.com.
 			*/
-
+		var prepareData = function(units) {
+			//replace loading image
+			var cityName = $('#city-name').val()
+			//make ajax call, callback
+			if (cityName && cityName != ''){
+				cityName = cityName.trim()
+				getData(openWeatherUrl, cityName, openWeatherAppId, units)
+			}
+			else {
+				alert('Please enter the city name')
+			}
+		}
 		$(document).ready(function(){
-			$('#btn').click(function() {
-				//replace loading image
-				var cityName = $('#city-name').val()
-				//make ajax call, callback
-				debugger
-				if (cityName && cityName != ''){
-					cityName = cityName.trim()
-					getData(openWeatherUrl, cityName, openWeatherAppId)
-				}
-				else {
-					alert('Please enter the city name')
-				}
+			$('.btn-metric').click(function() {
+				prepareData('metric')
 			})
+			$('.btn-imperial').click(function() {
+				prepareData('imperial')
+			})
+
 		})
-		function getData (url, cityName, appId) {
+		function getData (url, cityName, appId, units) {
 			var request = $.ajax({
 				url: url,
-				dataType: "json",
-				data: {q: cityName, appid: appId, units: 'metric'},
+				dataType: "jsonp",
+				data: {q: cityName, appid: appId, units: units},
 				jsonpCallback: "fetchData",
 				type: "GET"
+			}).fail(function(error){
+				console.error(error)
+				alert('Error sending request')
 			})
 		}
-		function fetchData (m) {
-			console.log(m)
+		function fetchData (forecast) {
+			console.log(forecast)
+			var html = '',
+			  cityName = forecast.city.name,
+				country = forecast.city.country
+
+			html += '<h3> Weather Forecast for ' + cityName + ', ' + country + '</h3>'
+			forecast.list.forEach(function(forecastEntry, index, list){
+				html += '<p>' + forecastEntry.dt_txt + ': ' + forecastEntry.main.temp + '</p>'
+			})
+
+			$('#log').html(html)
 		}
 	</script>
 </head>
 <body>
 	<div class="container">
+
 		<div class="row">
+			<div class="span4 offset 3">
+				<h2>Weather App</h2>
+				<p>Enter city name to get the weather forecast</p>
+			</div>
 			<div class="span6  offset1"><input class="span4" type="text" placeholder="Enter the city name" id="city-name" value=""/>
 			</div>
 
 		</div>
 		<div class="row">
-			<div class="span6 offset1"><input type="button" class="primary btn" id="btn" value="Show words in last 1000 tweets"/>
+			<div class="span6 offset1"><input type="button" class="btn-primary btn btn-metric" value="Get forecast in metric"/>
+			<div class="span6 offset1"><input type="button" class="btn-danger btn btn-imperial" value="Get forecast in imperial"/>
 			</div>
 			<div class="span3">
 				<p id="info"></p>
 			</div>
 		</div>
 
-
-
 		<div class="row">
 			<div class="span6 offset1">
-				<textarea id="log" cols="20" rows="20">Nothing to show yet</textarea>
-			</div>
-			<div class="span4 offset 3">
-				<h2>Task</h2>
-				<p>This page prints the words in a given twitter user’s last 0-200 tweets sorted by frequency of use.  For example, if @jack had tweeted: “hello world”, “hello everyone and world” and “hi world”  The result could be: world, hello, and, hi, everyone.</p>
-				<hr/>
-				<p>Requests are broken into 5 pieces. Please open console for more information.</p>
-				<p>Azat Mardanov (<a href="http://twitter.com/azat_co">@azat_co</a>)</p>
+				<div id="log">Nothing to show yet</div>
 			</div>
 		</div>
 
+		<div class="row">
+			<hr/>
+			<p>Azat Mardan (<a href="http://twitter.com/azat_co">@azat_co</a>)</p>
+		</div>
+
 	</div>
+
 </body>
 </html>
