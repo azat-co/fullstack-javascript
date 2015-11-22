@@ -4,39 +4,40 @@
   <script src="jquery.js"></script>
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
-    <script>
-  (function(){
+  <script>
+    ;(function(){
 
-    var router = Backbone.Router.extend({
-      routes: {
-        "":"home",
-        "*actions": "home"
-      },
-      initialize: function(){
-        this.homeView = new homeView();      
-      },
-      home: function() {
-        this.homeView.render();
-      }  
-    });
+      var router = Backbone.Router.extend({
+        routes: {
+          "": "home",
+          "*actions": "home"
+        },
+        initialize: function(){
+          this.homeView = new homeView()
+        },
+        home: function() {
+          this.homeView.render()
+        }
+      })
 
 
-    var homeView = Backbone.View.extend({
-      el: ".message",
-      render: function (){
-        this.$el.html('Hellow World');
-      } 
+      var homeView = Backbone.View.extend({
+        el: ".message",
+        render: function (){
+          this.$el.html('Hellow World')
+        }
+      })
+      window.ourClasses = {}
+      window.ourClasses.router = router
+
+    }())
+
+    var app // becomes window.app
+    $(document).ready(function(){
+      app = new window.ourClasses.router()
+      Backbone.history.start()
     })
-    window.ourClasses={};
-    window.ourClasses.router = router;
-  }())
-  var app;
-  $(document).ready(function(){
-    app = new window.ourClasses.router();
-    Backbone.history.start();  
-  })
-  
-  
+
   </script>
 </head>
 <body>
