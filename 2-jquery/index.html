@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+	<script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		.row {
+			padding-top:1.5em;
+		}
+	</style>
+	<script>
+
+	//Kazan: 551487
+	//SF: 5391959
+
+		var openWeatherAppId = '2de143494c0b295cca9337e1e96b00e0',
+		  openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
+			/*
+			Rapid Prototyping with JS is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. — Read more at
+			http://rapidprototypingwithjs.com.
+			*/
+
+		$(document).ready(function(){
+			$('#btn').click(function() {
+				//replace loading image
+				var cityName = $('#city-name').val()
+				//make ajax call, callback
+				debugger
+				if (cityName && cityName != ''){
+					cityName = cityName.trim()
+					getData(openWeatherUrl, cityName, openWeatherAppId)
+				}
+				else {
+					alert('Please enter the city name')
+				}
+			})
+		})
+		function getData (url, cityName, appId) {
+			var request = $.ajax({
+				url: url,
+				dataType: "json",
+				data: {q: cityName, appid: appId, units: 'metric'},
+				jsonpCallback: "fetchData",
+				type: "GET"
+			})
+		}
+		function fetchData (m) {
+			console.log(m)
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="span6  offset1"><input class="span4" type="text" placeholder="Enter the city name" id="city-name" value=""/>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="span6 offset1"><input type="button" class="primary btn" id="btn" value="Show words in last 1000 tweets"/>
+			</div>
+			<div class="span3">
+				<p id="info"></p>
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<div class="span6 offset1">
+				<textarea id="log" cols="20" rows="20">Nothing to show yet</textarea>
+			</div>
+			<div class="span4 offset 3">
+				<h2>Task</h2>
+				<p>This page prints the words in a given twitter user’s last 0-200 tweets sorted by frequency of use.  For example, if @jack had tweeted: “hello world”, “hello everyone and world” and “hi world”  The result could be: world, hello, and, hi, everyone.</p>
+				<hr/>
+				<p>Requests are broken into 5 pieces. Please open console for more information.</p>
+				<p>Azat Mardanov (<a href="http://twitter.com/azat_co">@azat_co</a>)</p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
