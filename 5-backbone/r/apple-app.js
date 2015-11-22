@@ -1,6 +1,6 @@
 requirejs.config({
-  urlArgs: "bust=" +  (new Date()).getTime()
-}); 
+  urlArgs: 'bust=' +  (new Date()).getTime()
+});
   require([
     'apple-item.tpl', //shim, change to test files
     'apple-home.tpl',
@@ -9,7 +9,7 @@ requirejs.config({
     'apple-item.view',
     'apple-home.view',
     'apple.view',
-    'apples'  
+    'apples'
   ],function(
     appleItemTpl,
     appleHomeTpl,
@@ -22,13 +22,13 @@ requirejs.config({
     ){
    var appleData = [
       {
-        name: "fuji",
-        url: "img/fuji.jpg"
+        name: 'fuji',
+        url: 'img/fuji.jpg'
       },
       {
-        name: "gala",
-        url: "img/gala.jpg"
-      }      
+        name: 'gala',
+        url: 'img/gala.jpg'
+      }
     ];
     var app;
     var router = Backbone.Router.extend({ //check if need to be required
@@ -42,7 +42,7 @@ requirejs.config({
         this.homeView = new homeView({collection: apples});
         this.appleView = new appleView({collection: apples});
       },
-      home: function(){        
+      home: function(){
         this.homeView.render();
       },
       loadApple: function(appleName){
@@ -53,6 +53,6 @@ requirejs.config({
 
     $(document).ready(function(){
       app = new router;
-      Backbone.history.start();      
+      Backbone.history.start();
     })
-});    
+});

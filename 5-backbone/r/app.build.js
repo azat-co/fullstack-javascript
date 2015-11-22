@@ -1,11 +1,11 @@
 ({
-    appDir: "./js",
-    baseUrl: "./",
-    dir: "build",
-    optimize: "uglify2",
+    appDir: './js',
+    baseUrl: './',
+    dir: 'build',
+    optimize: 'uglify2',
     modules: [
         {
-            name: "apple-app"
+            name: 'apple-app'
         }
     ]
 })

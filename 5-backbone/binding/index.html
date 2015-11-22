@@ -8,13 +8,13 @@
   <script>
    var appleData = [
       {
-        name: "fuji",
-        url: "img/fuji.jpg"
+        name: 'fuji',
+        url: 'img/fuji.jpg'
       },
       {
-        name: "gala",
-        url: "img/gala.jpg"
-      }      
+        name: 'gala',
+        url: 'img/gala.jpg'
+      }
     ];
     var app;
     var router = Backbone.Router.extend({
@@ -28,7 +28,7 @@
         this.homeView = new homeView({collection: apples});
         this.appleView = new appleView({collection: apples});
       },
-      home: function(){        
+      home: function(){
         this.homeView.render();
       },
       loadApple: function(appleName){
@@ -64,9 +64,9 @@
         this.trigger('spinner');
         var view = this; //we'll need to access that inside of a closure
         setTimeout(function(){ //simulates real time lag when fetching data from the remote server
-          view.model.set(view.collection.where({name:appleName})[0].attributes);  
+          view.model.set(view.collection.where({name:appleName})[0].attributes);
         },1000);
-        
+
       },
 
       render: function(appleName){
@@ -74,13 +74,13 @@
         $('body').html(appleHtml);
       },
       showSpinner: function(){
-        $('body').html(this.templateSpinner);        
+        $('body').html(this.templateSpinner);
       }
 
     });
     $(document).ready(function(){
       app = new router;
-      Backbone.history.start();      
+      Backbone.history.start();
     })
 
   </script>
