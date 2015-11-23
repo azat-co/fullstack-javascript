@@ -17,16 +17,23 @@ $(document).ready(function() {
 
 	var Test = Parse.Object.extend('Test')
 	var test = new Test()
-	test.save({
-    name: 'John',
-    text: 'hi'
-	}, {
-    success: function(object) {
-      console.log('Parse.com object is saved: ', object)
-      //alternatively you could use alert('Parse.com object is saved')
-    },
-    error: function(object) {
-      console.log('Error! Parse.com object is not saved: ', object)
-    }
+	$('.btn-save').click(function(){
+		try {
+			var data = JSON.parse($('textarea').val())
+		} catch (e) {
+			alert('Invalid JSON')
+		}
+		if (!data) return false
+		test.save(data, {
+	    success: function(object) {
+	      console.log('Parse.com object is saved: ', object)
+				$('.log').html(JSON.stringify(object,null,2))
+	      //alternatively you could use alert('Parse.com object is saved')
+	    },
+	    error: function(object) {
+	      console.log('Error! Parse.com object is not saved: ', object)
+	    }
+		})
 	})
+
 })
