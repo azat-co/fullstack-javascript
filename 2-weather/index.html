@@ -16,7 +16,10 @@
 
 		var openWeatherAppId = '2de143494c0b295cca9337e1e96b00e0',
 		  openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
-
+			/*
+			Rapid Prototyping with JS is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. — Read more at
+			http://rapidprototypingwithjs.com.
+			*/
 		var prepareData = function(units) {
 			//replace loading image
 			var cityName = $('#city-name').val()
@@ -36,6 +39,7 @@
 			$('.btn-imperial').click(function() {
 				prepareData('imperial')
 			})
+
 		})
 		function getData (url, cityName, appId, units) {
 			var request = $.ajax({
