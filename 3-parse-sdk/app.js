@@ -1,11 +1,6 @@
-/*
-Rapid Prototyping with JS is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. — Read more at
-http://rapidprototypingwithjs.com.
-*/
-
 $(document).ready(function() {
-	var parseApplicationId=''
-	var parseJavaScriptKey=''
+	var parseApplicationId = 'GET-YOUR-KEYS-AT-PARSE.COM'
+	var parseJavaScriptKey = 'GET-YOUR-KEYS-AT-PARSE.COM'
 
 	// Azat's app, please don't use it! Get your own keys at Parse.com
 
@@ -27,7 +22,7 @@ $(document).ready(function() {
 		test.save(data, {
 	    success: function(object) {
 	      console.log('Parse.com object is saved: ', object)
-				$('.log').html(JSON.stringify(object,null,2))
+				$('.log').html(JSON.stringify(object, null, 2))
 	      //alternatively you could use alert('Parse.com object is saved')
 	    },
 	    error: function(object) {
