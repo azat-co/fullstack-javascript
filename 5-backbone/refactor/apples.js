@@ -1,4 +1,3 @@
- 
-    var Apples = Backbone.Collection.extend({
+var Apples = Backbone.Collection.extend({
 
-    });
+})

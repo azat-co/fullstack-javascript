@@ -10,9 +10,9 @@
         'click .add-to-cart': 'addToCart'
       },
       render: function() {
-        this.$el.html(this.template(this.model.attributes));
+        this.$el.html(this.template(this.model.attributes))
       },
       addToCart: function(){
-        this.model.collection.trigger('addToCart', this.model);
+        this.model.collection.trigger('addToCart', this.model)
       }
-    });
+    })
