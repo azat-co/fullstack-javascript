@@ -9,8 +9,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% if (models && models.length>0) {
-					_.each(models, function (value,key, list) { %>
+				<%
+				if (typeof models != 'undefined' && models.length > 0) {
+					_.each(models, function (value, key, list) { %>
 						<tr>
 							<td><%= value.attributes.username %></td>
 							<td><%= value.attributes.message %></td>

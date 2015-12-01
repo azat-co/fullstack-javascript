@@ -85,9 +85,7 @@ require([
 				})
 		},
 		render: function() {
-			console.log(this.collection)
-			window.c = this.collection
-			if (this.collection.length > 0) $(this.el).html(_.template(this.template, {models: [1,2]}))
+		  $(this.el).html(_.template(this.template)(this.collection))
 		}
 	})
 
