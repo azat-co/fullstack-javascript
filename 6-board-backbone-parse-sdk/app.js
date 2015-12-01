@@ -1,8 +1,3 @@
-/*
-Rapid Prototyping with JS is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. — Read more at
-http://rapidprototypingwithjs.com.
-*/
-
 require([
 	'libs/text!header.html',
 	'libs/text!home.html',
@@ -10,10 +5,10 @@ require([
 		headerTpl,
 		homeTpl,
 		footerTpl) {
-	Parse.initialize('your-parse-app-id', 'your-parse-js-sdk-key')
+	// Parse.initialize('your-parse-app-id', 'your-parse-js-sdk-key')
 
 	//Azat's keys, please don't use )
-	// Parse.initialize('Zc36GIp6WyzKIB9HvqRBEGnIeMO0X21rDbVwGPvp', 'r5zTZ9eydAcnRhAUI6k3XazS1JSnOPLbiaT1cWY6')
+	Parse.initialize('Zc36GIp6WyzKIB9HvqRBEGnIeMO0X21rDbVwGPvp', 'r5zTZ9eydAcnRhAUI6k3XazS1JSnOPLbiaT1cWY6')
 
 	var ApplicationRouter = Backbone.Router.extend({
 		routes: {
@@ -81,9 +76,9 @@ require([
 			})
 		},
 		saveMessage: function(){
-			var newMessageForm=$('#new-message')
-			var username=newMessageForm.find('[name="username"]').val()
-			var message=newMessageForm.find('[name="message"]').val()
+			var newMessageForm = $('#new-message')
+			var username = newMessageForm.find('[name="username"]').val()
+			var message = newMessageForm.find('[name="message"]').val()
 			this.collection.add({
 				'username': username,
 				'message': message
@@ -91,7 +86,8 @@ require([
 		},
 		render: function() {
 			console.log(this.collection)
-			$(this.el).html(_.template(this.template, this.collection))
+			window.c = this.collection
+			if (this.collection.length > 0) $(this.el).html(_.template(this.template, {models: [1,2]}))
 		}
 	})
 

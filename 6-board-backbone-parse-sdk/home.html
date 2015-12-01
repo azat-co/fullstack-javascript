@@ -9,19 +9,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% if (models.length>0) {
+				<% if (models && models.length>0) {
 					_.each(models, function (value,key, list) { %>
 						<tr>
 							<td><%= value.attributes.username %></td>
 							<td><%= value.attributes.message %></td>
 						</tr>
-					<% });
+					<% })
 				}
 				else { %>
 				<tr>
-					<td colspan="2">No messages yet</td>						
+					<td colspan="2">No messages yet</td>
 				</tr>
-				<%}%>
+				<% } %>
 			</tbody>
 		</table>
 	</div>
