@@ -35,7 +35,7 @@ exports.server=http.createServer(function (req, res) {
       // Out put message, should add object id
     })
   } else
-  if (req.method=="GET"&&req.url=='/messages/list.json') {
+  if (req.method == 'GET' && req.url == '/messages/list.json') {
   // If method is GET and URL is /messages output list of messages
     var body=exports.getMessages()
     // Body will hold our output
