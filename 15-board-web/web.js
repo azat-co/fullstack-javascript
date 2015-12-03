@@ -58,10 +58,10 @@ client.connect(uri, function(error, db) {
       })
     } else {
       var uri = url.parse(request.url).pathname
-      console.log('**', uri)
+      console.log('Processing URI: ', uri)
       if (uri == '' || uri == '/') uri = 'index.html'
       filename = path.join(__dirname, staticFolder, uri)
-      console.log('**', filename)
+      console.log('Processing file: ', filename)
       stats = fs.statSync(filename)
       if (error) {
         console.error(error)
@@ -69,7 +69,6 @@ client.connect(uri, function(error, db) {
           'Content-Type': 'text/plain'})
         response.write('404 Not Found\n')
         return response.end()
-
       }
       if(!stats.isFile()) {
         response.writeHead(404, {
@@ -77,8 +76,6 @@ client.connect(uri, function(error, db) {
         response.write('404 Not Found\n')
         return response.end()
       } else {
-        // if (stats.isDirectory())
-          // filename += '/index.html'
         var file = fs.readFileSync(filename)
         if (!file) {
           response.writeHead(500,

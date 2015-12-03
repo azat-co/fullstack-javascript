@@ -87,9 +87,9 @@ require([
 			})
 		},
 		saveMessage: function(){
-			var newMessageForm=$('#new-message')
-			var username=newMessageForm.find('[name="username"]').val()
-			var message=newMessageForm.find('[name="message"]').val()
+			var newMessageForm = $('#new-message')
+			var username = newMessageForm.find('[name="username"]').val()
+			var message = newMessageForm.find('[name="message"]').val()
 			this.collection.add({
 				'username': username,
 				'message': message
