@@ -5,6 +5,8 @@ var util= require('util')
 var querystring = require('querystring')
 // Loads querystring module, we'll need it to serialize and deserialize objects and query strings
 
+var port = process.env.PORT || 1337
+
 var messages=[]
 // This array will hold our messages
 messages.push({
@@ -17,13 +19,12 @@ exports.server=http.createServer(function (req, res) {
 // Creates server
   if (req.method == 'POST' && req.url == '/messages/create.json') {
     // If method is POST and URL is messages/ add message to the array
-    var message=''
+    var message = ''
     req.on('data', function(data, msg){
       console.log(data.toString('utf-8'))
       message=exports.addMessage(data.toString('utf-8'))
       // Data is type of Buffer and must be converted to string with encoding UTF-8 first
       // Adds message to the array
-
     })
     req.on('end', function(){
       console.log('message', util.inspect(message, true, null))
@@ -37,25 +38,23 @@ exports.server=http.createServer(function (req, res) {
   } else
   if (req.method == 'GET' && req.url == '/messages/list.json') {
   // If method is GET and URL is /messages output list of messages
-    var body=exports.getMessages()
+    var body = exports.getMessages()
     // Body will hold our output
     res.writeHead(200, {
       'Content-Length': body.length,
       'Content-Type': 'text/plain'
     })
     res.end(body)
-  }
-  else {
+  } else {
     res.writeHead(200, {'Content-Type': 'text/plain'})
     // Sets the right header and status code
     res.end('Hello World\n')
+    // Outputs string with line end symbol
   }
-  console.log(req.method)
 
-  // Outputs string with line end symbol
-}).listen(process.env.PORT || 1337)
+}).listen(port)
 // Sets port and IP address of the server
-console.log('Server running at http://127.0.0.1:1337/')
+console.log('Server running at http://127.0.0.1:%s/', port)
 
 
 exports.getMessages = function() {
