@@ -4,7 +4,7 @@ Fullstack JavaScript is a JavaScript and Node.js book that will teach you how to
 
 ## Projects
 
-* [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/01-bootstrap): [Twitter Bootstrap] scaffolding example
+* [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/01-bootstrap): Twitter Bootstrap scaffolding example
 * [02-weather](https://github.com/azat-co/fullstack-javascript/tree/master/02-weather): jQuery, OpenWeatherMap API and JSONP example
 * [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/03-parse-sdk): A simple example of [Parse.com] JavaScript SDK
 * [04-board-parse-rest](https://github.com/azat-co/fullstack-javascript/tree/master/04-board-parse-rest): Message board front-end: jQuery and Parse.com REST API; ready for deployment.
