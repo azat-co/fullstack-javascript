@@ -22,7 +22,8 @@ Fullstack JavaScript is a JavaScript and Node.js book that will teach you how to
 
 ## Work in Progress
 
-* [board-react](https://github.com/azat-co/fullstack-javascript/tree/master/board-react): Message Board with React.js view layer
+* [board-react](https://github.com/azat-co/fullstack-javascript/tree/master/board-react): Message Board with React.js view layer (UI only)
+* [board-react-meteor](https://github.com/azat-co/fullstack-javascript/tree/master/board-react-meteor): Message Board with React.js view layer (back-end and front-end)
 
 
 ## Contribute
