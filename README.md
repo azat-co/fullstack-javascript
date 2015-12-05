@@ -1,92 +1,30 @@
 # Fullstack JavaScript Book
 
-Fullstack JavaScript is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. —
+Fullstack JavaScript is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast.
 
-## Part II — Building Front-End Application
+## Projects
 
-* [bootstrap](https://github.com/azat-co/rpjs/tree/master/bootstrap)
+* [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/01-bootstrap): [Twitter Bootstrap] scaffolding example
+* [02-weather](https://github.com/azat-co/fullstack-javascript/tree/master/02-weather): jQuery, OpenWeatherMap API and JSONP example
+* [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/03-parse-sdk): A simple example of [Parse.com] JavaScript SDK
+* [04-board-parse-rest](https://github.com/azat-co/fullstack-javascript/tree/master/04-board-parse-rest): Message board front-end: jQuery and Parse.com REST API; ready for deployment.
+* [05-backbone](https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone): Diving Deeper into Backbone.js
+* [06-board-backbone-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/06-board-backbone-parse-sdk): BackboneJS and Parse.com SDK Message Board
+* [07-hello](https://github.com/azat-co/fullstack-javascript/tree/master/07-hello): NodeJS "Hello World" app
+* [08-test](https://github.com/azat-co/fullstack-javascript/tree/master/08-test): Message Board back-end TDD with run-time storage
+* [09-db-connect](https://github.com/azat-co/fullstack-javascript/tree/master/09-db-connect):  Local database connection test with MongoDB Native Driver
+* [10-db-connect-heroku](https://github.com/azat-co/fullstack-javascript/tree/master/10-db-connect-heroku): Heroku database connection test with MongoDB Native Driver
+* [11-db-server](https://github.com/azat-co/fullstack-javascript/tree/master/11-db-server): Server to list MongoDB collections
+* [12-board-api-mongo](https://github.com/azat-co/fullstack-javascript/tree/master/12-board-api-mongo): Message Board API with MongoDB
+* [13-board-ui](https://github.com/azat-co/fullstack-javascript/tree/master/13-board-ui): Message Board UI (front-end) without back end
+* [14-board-api](https://github.com/azat-co/fullstack-javascript/tree/master/14-board-api): Message Board back-end with CORS
+* [15-board-react](https://github.com/azat-co/fullstack-javascript/tree/master/board-react): Message Board with React.js view layer
 
- 	[Twitter Bootstrap] scaffolding example
+## Work in Progress
 
-* [jQuery](https://github.com/azat-co/rpjs/tree/master/jquery)
+* [board-react](https://github.com/azat-co/fullstack-javascript/tree/master/board-react): Message Board with React.js view layer
 
-	[jQuery], Twitter API and JSONP example
 
-* [parse-sdk](https://github.com/azat-co/rpjs/tree/master/parse)
+## Contribute
 
-	Simple example of [Parse.com] JavaScript SDK
-
-* [chat-board-rest](https://github.com/azat-co/rpjs/tree/master/rest)
-
-	Message board front-end: [jQuery] and [Parse.com] REST API; ready for deployment.
-
-* [backbone](https://github.com/azat-co/rpjs/tree/master/backbone)
-
-	Diving Deeper into Backbone.js
-
-* [sdk](https://github.com/azat-co/rpjs/tree/master/sdk)
-
-	[BackboneJS] and [Parse.com] SDK Chat
-
-## Part III — Building Back-End Application
-
-* [hello](https://github.com/azat-co/rpjs/tree/master/hello)
-
-	[NodeJS] "Hello World" app, ready for deployment
-
-* [test](https://github.com/azat-co/rpjs/tree/master/test)
-
-	Chat back-end: TDD with run-time storage
-
-* [db](https://github.com/azat-co/rpjs/tree/master/db)
-
-	Simple app to test local database connection with MongoDB Native Driver
-
-* [mongo](https://github.com/azat-co/rpjs/tree/master/mongo)
-
-	Chat back-end: [MongoDB] storage, ready for deployment
-
-## Part IV — Putting it All Together
-
-* [board](https://github.com/azat-co/rpjs/tree/master/board)
-
-	Chat front-end without back end
-
-* [node](https://github.com/azat-co/rpjs/tree/master/node)
-
-	Chat back-end with CORS
-
-### Part V — Beyond Core Modules
-
-* [board-react](https://github.com/azat-co/rpjs/tree/master/board-react)
-
-	Chat with React.js view layer
-
-[BackboneJS]: http://backbonejs.org
-[UnderscoreJS]: http://underscorejs.org
-[jQuery]: http://jquery.com
-[Parse.com]: http://parse.com
-[LESS]: http://lesscss.org
-[LESS app]: http://incident57.com/less/
-[Twitter Bootstrap]: http://twitter.github.com/bootstrap
-[Heroku]: http://heroku.com
-[Windows Azure]: http://windowsazure.com
-[Git]: http://git-scm.com
-[GitHub]: http://github.com
-[NodeJS]: http://nodejs.org "NodeJS"
-[MongoDB]: http://mongodb.org
-[Chrome]:	http://www.google.com/chrome
-[Safari]:	http://www.apple.com/safari/
-[Firefox]:	http://www.mozilla.org/en-US/firefox/new/
-[Firebug]: http://getfirebug.com/
-[WebStorm]: http://www.jetbrains.com/webstorm/
-[Cygwin]:	http://www.cygwin.com/
-[PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/
-[NPM]: https://npmjs.org
-[MongoHQ]: https://addons.heroku.com/mongohq
-[Foreman]: https://github.com/ddollar/foreman
-[MAMP]:	http://www.mamp.info/en/index.html
-[XAMPP]:	http://www.apachefriends.org/en/xampp.html
-[CORS]: http://www.w3.org/TR/cors/
-[MongoHQ]: https://www.mongohq.com/home
-[MongoHQ add-on]: https://addons.heroku.com/mongohq
+Fork the repo, push the changes and submit a pull request. ;-)
