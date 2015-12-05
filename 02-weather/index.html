@@ -10,20 +10,13 @@
 		}
 	</style>
 	<script>
-
-	//Kazan: 551487
-	//SF: 5391959
-
 		var openWeatherAppId = '2de143494c0b295cca9337e1e96b00e0',
 		  openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
-			/*
-			Rapid Prototyping with JS is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast. — Read more at
-			http://rapidprototypingwithjs.com.
-			*/
+
 		var prepareData = function(units) {
-			//replace loading image
+			// Replace loading image
 			var cityName = $('#city-name').val()
-			//make ajax call, callback
+			// Make ajax call, callback
 			if (cityName && cityName != ''){
 				cityName = cityName.trim()
 				getData(openWeatherUrl, cityName, openWeatherAppId, units)
@@ -83,10 +76,7 @@
 		<div class="row">
 			<div class="span6 offset1"><input type="button" class="btn-primary btn btn-metric" value="Get forecast in metric"/>
 			<div class="span6 offset1"><input type="button" class="btn-danger btn btn-imperial" value="Get forecast in imperial"/>
-			</div>
-			<div class="span3">
-				<p id="info"></p>
-			</div>
+			</div>			
 		</div>
 
 		<div class="row">
