@@ -6,7 +6,7 @@ Fullstack JavaScript is a JavaScript and Node.js book that will teach you how to
 
 * [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/01-bootstrap): Twitter Bootstrap scaffolding example
 * [02-weather](https://github.com/azat-co/fullstack-javascript/tree/master/02-weather): jQuery, OpenWeatherMap API and JSONP example
-* [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/03-parse-sdk): A simple example of [Parse.com] JavaScript SDK
+* [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/03-parse-sdk):  Parse.com JavaScript SDK example
 * [04-board-parse-rest](https://github.com/azat-co/fullstack-javascript/tree/master/04-board-parse-rest): Message board front-end: jQuery and Parse.com REST API; ready for deployment.
 * [05-backbone](https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone): Diving Deeper into Backbone.js
 * [06-board-backbone-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/06-board-backbone-parse-sdk): BackboneJS and Parse.com SDK Message Board
