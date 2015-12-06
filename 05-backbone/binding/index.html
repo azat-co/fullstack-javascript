@@ -6,6 +6,7 @@
   <script src="backbone.js"></script>
 
   <script>
+
    var appleData = [
       {
         name: 'fuji',
@@ -16,7 +17,9 @@
         url: 'img/gala.jpg'
       }
     ]
+
     var app
+
     var router = Backbone.Router.extend({
       routes: {
         '': 'home',
@@ -33,7 +36,6 @@
       },
       loadApple: function(appleName){
         this.appleView.loadApple(appleName)
-
       }
     })
 
@@ -43,11 +45,11 @@
       render: function(){
         this.$el.html(this.template({data: JSON.stringify(this.collection.models)}))
       }
-      //TODO subviews
     })
 
     var Apples = Backbone.Collection.extend({
     })
+
     var appleView = Backbone.View.extend({
       initialize: function(){
         this.model = new (Backbone.Model.extend({}))
@@ -59,16 +61,13 @@
                               <figcaption><%= attributes.name %></figcaption>\
                             </figure>'),
       templateSpinner: '<img src="img/spinner.gif" width="30"/>',
-
-      loadApple:function(appleName){
+      loadApple: function(appleName){
         this.trigger('spinner')
-        var view = this //we'll need to access that inside of a closure
-        setTimeout(function(){ //simulates real time lag when fetching data from the remote server
+        var view = this // We'll need to access that inside of a closure
+        setTimeout(function(){ // Simulates real time lag when fetching data from the remote server
           view.model.set(view.collection.where({name: appleName})[0].attributes)
-        },1000)
-
+        }, 1000)
       },
-
       render: function(appleName){
         var appleHtml = this.template(this.model)
         $('body').html(appleHtml)
@@ -76,8 +75,8 @@
       showSpinner: function(){
         $('body').html(this.templateSpinner)
       }
-
     })
+    
     $(document).ready(function(){
       app = new router
       Backbone.history.start()

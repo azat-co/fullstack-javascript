@@ -6,6 +6,7 @@
   <script src="backbone.js"></script>
 
   <script>
+
     var appleData = [
       {
         name: 'fuji',
@@ -16,7 +17,9 @@
         url: 'img/gala.jpg'
       }
     ]
+
     var app
+
     var router = Backbone.Router.extend({
       routes: {
         '': 'home',
@@ -42,29 +45,28 @@
       render: function(){
         this.$el.html(this.template({data: JSON.stringify(this.collection.models)}))
       }
-      //TODO subviews
     })
 
     var Apples = Backbone.Collection.extend({
-
     })
+
     var appleView = Backbone.View.extend({
       template: _.template('<figure>\
                               <img src="<%= attributes.url%>"/>\
                               <figcaption><%= attributes.name %></figcaption>\
                             </figure>'),
-      //re-write with load apple and event binding
+      // Re-write with load apple and event binding
       render: function(appleName){
         var appleModel = this.collection.where({name: appleName})[0]
         var appleHtml = this.template(appleModel)
         $('body').html(appleHtml)
       }
     })
+
     $(document).ready(function(){
       app = new router
       Backbone.history.start()
     })
-
 
   </script>
 </head>
