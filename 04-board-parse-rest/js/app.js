@@ -1,9 +1,9 @@
-var parseAppID='your-parse-app-id'
-var parseRestKey='your-rest-api-key'
+var parseAppID = 'your-parse-app-id'
+var parseRestKey = 'your-rest-api-key'
 
 // Azat's app, change these values to your own keys
-parseAppID='Zc36GIp6WyzKIB9HvqRBEGnIeMO0X21rDbVwGPvp'
-parseRestKey='1LKZVd4KG6PFpldvCha5RDY8Z5EZeJhy2Bl4vgJ3'
+parseAppID = 'Zc36GIp6WyzKIB9HvqRBEGnIeMO0X21rDbVwGPvp'
+parseRestKey = '1LKZVd4KG6PFpldvCha5RDY8Z5EZeJhy2Bl4vgJ3'
 
 $(document).ready(function(){
 	getMessages()
@@ -61,10 +61,10 @@ function getMessages() {
 
 function updateView(messages) {
 	// messages.results = messages.results.reverse()
-	var table=$('.table tbody')
+	var table = $('.table tbody')
 	table.html('')
 	$.each(messages.results, function (index, value) {
-		var trEl=('<tr><td>'
+		var trEl = ('<tr><td>'
 		  + value.username
 			+ '</td><td>'
 			+ value.message
