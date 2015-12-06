@@ -2,6 +2,8 @@
 
 Fullstack JavaScript is a JavaScript and Node.js book that will teach you how to build mobile and web apps fast.
 
+[Watch on YouTube!](https://www.youtube.com/playlist?list=PLguYmmjtxbWHfRTSK5jDS8M4vHCCggW3T)
+
 ## Projects
 
 * [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/01-bootstrap): Twitter Bootstrap scaffolding example
