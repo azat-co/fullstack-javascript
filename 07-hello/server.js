@@ -7,5 +7,5 @@ var server = http.createServer(function (req, res) { // Creates server
   res.end('Hello World\n')  // Outputs string with line end symbol
 })
 server.listen(port, function() {
-	console.log('Server is running at %s:%s ', server.address().address, server.address().port) //sets port and IP address of the server
+	console.log('Server is running at %s:%s ', server.address().address, server.address().port) // Sets port and IP address of the server
 })
