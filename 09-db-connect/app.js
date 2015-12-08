@@ -6,7 +6,7 @@ var Server = mongodb.Server
 var host = '127.0.0.1'
 var port = 27017
 
-var db=new Db ('test', new Server(host, port, {}))
+var db = new Db ('test', new Server(host, port, {}))
 db.open(function(error, connection){
 	console.log('error: ', error)
 	var adminDb = db.admin()
