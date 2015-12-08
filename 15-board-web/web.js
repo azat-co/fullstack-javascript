@@ -62,13 +62,16 @@ client.connect(uri, function(error, db) {
       if (uri == '' || uri == '/') uri = 'index.html'
       filename = path.join(__dirname, staticFolder, uri)
       console.log('Processing file: ', filename)
-      stats = fs.statSync(filename)
-      if (error) {
-        console.error(error)
-        response.writeHead(404, {
-          'Content-Type': 'text/plain'})
-        response.write('404 Not Found\n')
-        return response.end()
+      try {
+        stats = fs.statSync(filename)
+      } catch (error) {
+        if (error) {
+          console.error(error)
+          response.writeHead(404, {
+            'Content-Type': 'text/plain'})
+          response.write('404 Not Found\n')
+          return response.end()
+        }
       }
       if(!stats.isFile()) {
         response.writeHead(404, {
