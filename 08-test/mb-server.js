@@ -15,14 +15,14 @@ messages.push({
 })
 // Sample message to test list method
 
-exports.server=http.createServer(function (req, res) {
+exports.server = http.createServer(function (req, res) {
 // Creates server
   if (req.method == 'POST' && req.url == '/messages/create.json') {
     // If method is POST and URL is messages/ add message to the array
     var message = ''
     req.on('data', function(data, msg){
       console.log(data.toString('utf-8'))
-      message=exports.addMessage(data.toString('utf-8'))
+      message = exports.addMessage(data.toString('utf-8'))
       // Data is type of Buffer and must be converted to string with encoding UTF-8 first
       // Adds message to the array
     })
@@ -35,8 +35,7 @@ exports.server=http.createServer(function (req, res) {
       res.end(message)
       // Out put message, should add object id
     })
-  } else
-  if (req.method == 'GET' && req.url == '/messages/list.json') {
+  } else if (req.method == 'GET' && req.url == '/messages/list.json') {
   // If method is GET and URL is /messages output list of messages
     var body = exports.getMessages()
     // Body will hold our output
@@ -48,7 +47,7 @@ exports.server=http.createServer(function (req, res) {
   } else {
     res.writeHead(200, {'Content-Type': 'text/plain'})
     // Sets the right header and status code
-    res.end('Hello World\n')
+		res.end('Supported endpoints: \n/messages/list.json\n/messages/create.json')
     // Outputs string with line end symbol
   }
 
