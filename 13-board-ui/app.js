@@ -1,5 +1,5 @@
-// var URL = 'http://localhost:1337/'
-var URL ='https://afternoon-river-6535.herokuapp.com/'
+var URL = 'http://localhost:1337/'
+// var URL ='http://your-app-name.herokuapp.com/'
 
 require([
 	'libs/text!header.html',
