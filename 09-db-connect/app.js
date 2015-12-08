@@ -10,7 +10,7 @@ var db = new Db ('test', new Server(host, port, {}))
 db.open(function(error, connection){
 	console.log('error: ', error)
 	var adminDb = db.admin()
-	adminDb.listDatabases(function(err, dbs) {
+	adminDb.listDatabases(function(error, dbs) {
     console.log('error: ', error)
 		console.log('databases: ', dbs.databases)
     db.close()
