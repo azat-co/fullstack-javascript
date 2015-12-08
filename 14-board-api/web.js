@@ -52,6 +52,8 @@ client.connect(uri, function(error, db) {
           response.end(body)
         })
       })
+    } else {
+    	response.end('Supported endpoints: \n/messages/list.json\n/messages/create.json')
     }
   })
   var port = process.env.PORT || 1337
