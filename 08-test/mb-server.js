@@ -7,7 +7,7 @@ var querystring = require('querystring')
 
 var port = process.env.PORT || 1337
 
-var messages=[]
+var messages = []
 // This array will hold our messages
 messages.push({
   'name': 'John',
@@ -54,7 +54,6 @@ exports.server = http.createServer(function (req, res) {
 }).listen(port)
 // Sets port and IP address of the server
 console.log('Server running at http://127.0.0.1:%s/', port)
-
 
 exports.getMessages = function() {
   return JSON.stringify(messages)
