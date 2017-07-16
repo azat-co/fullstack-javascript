@@ -166,7 +166,7 @@ one string broken into multiple lines for readability):
       &callback=jQuery16207184716751798987_1368412972614&_=1368412984735
 
 The second approach is to use cross-origin resource sharing
-([CORS](http://www.w3.org/TR/cors/) ( http://www.w3.org/TR/cors )),
+([CORS](http://www.w3.org/TR/cors) (<http://www.w3.org/TR/cors>),
 which is a better solution, but it requires control over the server side
 to modify response headers. We use this technique in the final version
 of the Message Board example application. Here is an example of a CORS
@@ -185,7 +185,7 @@ jQuery Functions
 ================
 
 During the training we'll be using jQuery
-([`http://jquery.com/`](http://jquery.com/)) for DOM manipulations, HTTP
+([http://jquery.com](http://jquery.com)) for DOM manipulations, HTTP
 Requests, and JSONP calls. jQuery became a de facto standard because of
 its `$` object or function, which provides a simple yet efficient way to
 access any HTML DOM element on a page by its ID, class, tag name,
@@ -255,7 +255,7 @@ Twitter Bootstrap
 
 <span id="OLE_LINK26" class="anchor"><span id="OLE_LINK27"
 class="anchor"></span></span>Supplemental video which walks you through
-the implementation and demonstrates the project: http://bit.ly/1RKx9uY.
+the implementation and demonstrates the project: <http://bit.ly/1RKx9uY>.
 
 [Twitter Bootstrap](http://getbootstrap.com) (http://getbootstrap.com)
 is a collection of CSS/LESS rules and JavaScript plug-ins for creating a
@@ -625,7 +625,7 @@ An Example Using a Third-Party API (OpenWeatherMap) and jQuery
 ==============================================================
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1RKxyxA.
+demonstrates the project: <http://bit.ly/1RKxyxA>.
 
 This example is for purely demonstrative purposes. It is not a part of
 the main Message Board application covered in later chapters. The goal
@@ -957,7 +957,7 @@ Parse.com
 =========
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1SU8imX.
+demonstrates the project: <http://bit.ly/1SU8imX>.
 
 [Parse.com](http://parse.com) (http://parse.com) is a service that can
 be a substitute for a database and a server. It started as means to
@@ -1182,7 +1182,7 @@ Message Board with Parse.com Overview
 =====================================
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1SU8pyS.
+demonstrates the project: <http://bit.ly/1SU8pyS>.
 
 The Message Board will consist of an input field, a list of messages,
 and a send button. We need to display a list of existing messages and be
@@ -1361,7 +1361,7 @@ with the `jQuery.ajax` function. A full list of parameters for the
 The most important ones are URL, headers, and type parameters.
 
         $.ajax({
-          url: ' https://api.parse.com/1/classes/MessageBoard',
+          url: 'https://api.parse.com/1/classes/MessageBoard',
           headers: {
             'X-Parse-Application-Id': parseAppID,
             'X-Parse-REST-API-Key': parseRestKey
@@ -1405,7 +1405,7 @@ the limit at 1,000:
 
     function getMessages() {
         $.ajax({
-            url: ' https://api.parse.com/1/classes/MessageBoard?limit=1000',
+            url: 'https://api.parse.com/1/classes/MessageBoard?limit=1000',
 
 We need to pass the keys in a header:
 
@@ -1488,7 +1488,7 @@ For your reference, here is the entire `app.js`:
             var username = $('input[name=username]').val()
             var message = $('input[name=message]').val()
             $.ajax({
-                url: ' https://api.parse.com/1/classes/MessageBoard',
+                url: 'https://api.parse.com/1/classes/MessageBoard',
                 headers: {
                     'X-Parse-Application-Id': parseAppID,
                     'X-Parse-REST-API-Key': parseRestKey
@@ -1516,7 +1516,7 @@ For your reference, here is the entire `app.js`:
     })
     function getMessages() {
         $.ajax({
-            url: ' https://api.parse.com/1/classes/MessageBoard?limit=1000',
+            url: 'https://api.parse.com/1/classes/MessageBoard?limit=1000',
             headers: {
                 'X-Parse-Application-Id': parseAppID,
                 'X-Parse-REST-API-Key': parseRestKey
@@ -1681,7 +1681,7 @@ Deployment to Heroku
 <span id="OLE_LINK28" class="anchor"><span id="OLE_LINK29"
 class="anchor"></span></span>Supplemental video which walks you through
 the deployment of the project (Git and Heroku part starts at 9minute and
-57 seconds ): http://bit.ly/1SU8K4I.
+57 seconds ): <http://bit.ly/1SU8K4I>.
 
 The only major difference is that Heroku uses Cedar Stack, which doesn't
 support static projects, including plain HTML applications like our

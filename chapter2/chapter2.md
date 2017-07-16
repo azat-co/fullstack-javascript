@@ -84,15 +84,15 @@ Browsers
 We recommend downloading the latest version of the
 [WebKit](http://en.wikipedia.org/wiki/WebKit)
 (http://en.wikipedia.org/wiki/WebKit) or Gecko at
-http://en.wikipedia.org/wiki/Gecko\_(layout\_engine) browser of your
+http://en.wikipedia.org/wiki/Gecko_(layout_engine) browser of your
 choice:
 
--   [Chrome](http://www.google.com/chrome) (http://www.google.com/chrome)
+-   [Chrome](http://www.google.com/chrome) (<http://www.google.com/chrome>)
     (recommended)
 
--   [Safari](http://www.apple.com/safari/) (http://www.apple.com/safari/)
+-   [Safari](http://www.apple.com/safari) (<http://www.apple.com/safari>)
 
--   [Firefox](http://www.mozilla.org/en-US/firefox/new) (http://www.mozilla.org/en-US/firefox/new)
+-   [Firefox](http://www.mozilla.org/en-US/firefox/new) (<http://www.mozilla.org/en-US/firefox/new>)
 
 Whereas Chrome and Safari already come with built-in developer tools,
 you'll need the Firebug plug-in for Firefox (Figure 2-2).
@@ -127,11 +127,10 @@ as the following and those shown in Figures 2-3 and 2-4:
 -   Explore and Master Chrome DevTools
     (<http://discover->devtools.codeschool.com/ ) with Code School
 
--   Chrome DevTools videos (https://developers.google.com/  
-    chrome-developer-tools/docs/videos )
+-   Chrome DevTools videos (<https://developers.google.com/chrome-developer-tools/docs/videos>)
 
 -   Chrome DevTools overview
-    (https://developers.google.com/chrome-developer-tools )
+    (<https://developers.google.com/chrome-developer-tools>)
 
 ![alt](media/image4.png)
 
@@ -145,43 +144,42 @@ compile the code. Because JS lives in and is run in a browser, you can
 do debugging right there, in a browser! It's an interpreted language,
 not a compiled one. Therefore, we highly recommend a lightweight text
 editor instead of a full-blown integrated development environment
-(http://en.wikipedia.org/wiki/Integrated\_development\_environment ), or
+(<http://en.wikipedia.org/wiki/Integrated_development_environment>), or
 IDE, but if you are already familiar and comfortable with the IDE of
-your choice like Eclipse, (http://www.eclipse.org/) NetBeans (
-http://netbeans.org/) or Aptana (http://aptana.com/), feel free to stick
+your choice like Eclipse, (<http://www.eclipse.org>) NetBeans (<http://netbeans.org>) or Aptana (<http://aptana.com>), feel free to stick
 with it.
 
 Here is the list of the most popular text editors and IDEs used in web
 development:
 
--   [*TextMate*](http://macromates.com/) (http://macromates.com/): Mac OS X version only, free
+-   [*TextMate*](http://macromates.com) (<http://macromates.com>): Mac OS X version only, free
     30-day trial for v1.5, dubbed The Missing Editor for Mac OS X.
 
--   [*Sublime Text*](http://www.sublimetext.com/)
-    (http://www.sublimetext.com/ ): Mac OS X and Windows versions
+-   [*Sublime Text*](http://www.sublimetext.com)
+    (<http://www.sublimetext.com>): Mac OS X and Windows versions
     are available. This is an even better alternative to TextMate, with
     an unlimited evaluation period  
     (Figure  2-5 ).
 
--   [*Coda*](http://panic.com/coda/) ( http://panic.com/coda/ ):
+-   [*Coda*](http://panic.com/coda) (<http://panic.com/coda>):
     All-in-one editor with FTP browser and preview, has support for
     development with and on an iPad.
 
--   [*Aptana Studio*](http://aptana.com/) ( http://aptana.com/ ):
+-   [*Aptana Studio*](http://aptana.com) (<http://aptana.com>):
     Full-sized IDE with a built-in terminal and many other tools.
 
--   [*Notepad ++*](http://notepad-plus-plus.org/)
-    (http:notepad-plus-plus.org/): Free Windows-only lightweight text
+-   [*Notepad ++*](http://notepad-plus-plus.org)
+    (<http://notepad-plus-plus.org>): Free Windows-only lightweight text
     editor with the support of many languages.
 
--   [*WebStorm IDE*](http://www.jetbrains.com/webstorm/)
-    (http://www.jetbrains.com/webstorm/ ): Feature- rich IDE that allows
+-   [*WebStorm IDE*](http://www.jetbrains.com/webstorm)
+    (<http://www.jetbrains.com/webstorm>): Feature- rich IDE that allows
     for Node.js debugging. It is developed by JetBrains and marketed as
     the smartest JavaScript IDE (Figure  2-6 ).
 
     [*MS Visual
     Studio*](https://www.visualstudio.com/features/node-js-vs)
-    (https://www.visualstudio.com/features/node-js-vs ): Node.js tools
+    (<https://www.visualstudio.com/features/node-js-vs>): Node.js tools
     for the famous Visual Studio environment from a small
     Redmond company.
 
@@ -197,16 +195,16 @@ Version Control Systems
 -----------------------
 
 A version control system (
-http://en.wikipedia.org/wiki/Revision\_control ) is a must-have even in
+<http://en.wikipedia.org/wiki/Revision_control>) is a must-have even in
 an only-one-developer situation. Also many cloud services (e.g., Heroku)
 require Git for deployment. We also highly recommend getting used to Git
 and Git terminal commands instead of using Git visual clients and apps
-with a GUI: GitX (http://gitx.frim.nl/), Gitbox
-(http://www.gitboxapp.com/) or GitHub for Mac (http://mac.github.com/ ).
+with a GUI: GitX (<http://gitx.frim.nl>), Gitbox
+(<http://www.gitboxapp.com>) or GitHub for Mac (<http://mac.github.com>).
 
 Subversion is a nondistributed version control system. This article
 compares Git vs. Subversion  
-(https://git.wiki.kernel.org/index.php/GitSvnComparison).
+(<https://git.wiki.kernel.org/index.php/GitSvnComparison>).
 
 Here are the steps to install and set up Git on your machine:
 
@@ -223,9 +221,9 @@ Here are the steps to install and set up Git on your machine:
 
 3.  Find the terminal app by using Command + Space, a.k.a. Spotlight
     (Figure 2-8), on OS X. For Windows you could use
-    [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
-    (http://www.chiark.greenend.org.uk/~sgtatham/putty/)  
-    or Cygwin (http://www.cygwin.com/).
+    [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty)
+    (<http://www.chiark.greenend.org.uk/~sgtatham/putty>)  
+    or Cygwin (<http://www.cygwin.com>).
 
 
 	![alt](media/image8.png) 
@@ -273,11 +271,11 @@ GUIs, but they are simple and fast. You can install them with npm (comes
 with Node.js; instructions are later in this chapter):
 
 -   [*node-static*](https://github.com/cloudhead/node-static) (
-    https://github.com/cloudhead/node-static): Static file server with
+    <https://github.com/cloudhead/node-static>): Static file server with
     built-in caching.
 
 -   [*http-server*](https://www.npmjs.com/package/http-server)
-    (https://www.npmjs.com/package/http-server): Zero-configuration
+    (<https://www.npmjs.com/package/http-server>): Zero-configuration
     command-line HTTP server.
 
 If you prefer something with GUIs to a command-line interface (CLI), you
@@ -285,16 +283,16 @@ might want to consider the following modifications of the Apache web
 server. MAMP, MAMP Stack, and XAMPP have intuitive GUIs that allow you
 to change configurations and host file settings.
 
--   [*MAMP*]( http://www.mamp.info/en/index.html) ( http://www.mamp.info/en/index.html ): Mac, Apache, MySQL,
+-   [*MAMP*](<http://www.mamp.info/en/index.html>) (<http://www.mamp.info/en/index.html>): Mac, Apache, MySQL,
     PHP personal web server for Mac OS X.
 
 -   [*MAMP Stack*](http://bitnami.com/stack/mamp)
-    (http://bitnami.com/stack/mamp ): Mac app with PHP, Apache, MySQL,
+    (<http://bitnami.com/stack/mamp>): Mac app with PHP, Apache, MySQL,
     and phpMyAdmin stack build by BitNami (Apple App Store)  
-    (https://itunes.apple.com/es/app/mamp-stack/id571310406?l=en ).
+    (<https://itunes.apple.com/es/app/mamp-stack/id571310406?l=en>).
 
 -   [*XAMPP*](http://www.apachefriends.org/en/xampp.html)
-    (http://www.apachefriends.org/en/xampp.html): Apache distribution
+    (<http://www.apachefriends.org/en/xampp.html>): Apache distribution
     containing MySQL, PHP and Perl for Windows, Mac, Linux, and Solaris.
 
 The MAMP for Mac home page is shown in Figure 2-10.
@@ -311,14 +309,13 @@ but with some modification they can be used for Windows systems as well
 (i.e., $PATH variable, Step 3). Here we describe the MongoDB
 installation from the official package, because we found that this
 approach is more robust and leads to less conflicts. However, there are
-many other ways to install it on Mac (http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/), for
-example using Brew, as well as on other systems ( http://docs.
-mongodb.org/manual/installation/).
+many other ways to install it on Mac (<http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x>), for
+example using Brew, as well as on other systems (<http://docs.mongodb.org/manual/installation>).
 
-1.  MongoDB can be download ed at (http://www.mongodb.org/downloads).
+1.  MongoDB can be download ed at (<http://www.mongodb.org/downloads>).
     For the latest Apple laptops, like MacBook Air, select OS X
     64-bit version. The owners of older Macs shouldbrowse the link at
-    (http://dl.mongodb.org/dl/osx/i386 ).
+    (<http://dl.mongodb.org/dl/osx/i386>).
 
 		Tip To figure out the architecture type of your processor, type the $ uname -p at the command line.
 
@@ -346,7 +343,7 @@ mongodb.org/manual/installation/).
     2-11):
 
 	`$ sudo mkdir -p /data/db`  
-	` $ sudo chown `id -u` /data/db`
+	`$ sudo chown `id -u` /data/db`
 
 	![alt](media/image11.png)
 
@@ -411,9 +408,9 @@ Commands `find` and `save` do exactly what you might think they do.
 
 Detailed instructions are also available at MongoDB.org: Install MongoDB
 on OS X  
-(http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x). For
+(<http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x>). For
 Windows users there is a good walk-through article at Installing MongoDB
-( http://www.tuanleaded.com/blog/2011/10/installing-mongodb).
+(<http://www.tuanleaded.com/blog/2011/10/installing-mongodb>).
 
 	Note MAMP and XAMPP applications come with MySQL—an open source traditional SQL database—and phpMyAdmin—a web interface for MySQL database.
 
@@ -438,7 +435,7 @@ proceeding to the next chapter.
 
 ### Node.js Installation
 
-Node.js is available at http://nodejs.org/\#download (Figure 2-14). The
+Node.js is available at <http://nodejs.org/#download> (Figure 2-14). The
 installation is trivial: Download the archive and run the \*.pkg package
 installer. To check the installation of Node.js, you could type and
 execute:
@@ -461,7 +458,7 @@ solutions for that:
 -   [*Nave*](https://github.com/isaacs/nave)
     (https://github.com/isaacs/nave): Virtual environments for Node.js
 
--   [*n*](https://github.com/tj/n) ( https://github.com/tj/n ): Node.js
+-   [*n*](https://github.com/tj/n) ( <https://github.com/tj/n> ): Node.js
     version management
 
 The Node.js package already includes [Node Package
@@ -485,17 +482,17 @@ Another approach is to hot-link these scripts from CDNs such as [Google
 Hosted
 Libraries](https://developers.google.com/speed/libraries/devguide)  
 (https://developers.google.com/speed/libraries/devguide), CDNJS
-(http://cdnjs.com/ ), Microsoft Ajax Content Delivery Network
-(<http://www.asp.net/> ajaxlibrary/cdn.ashx ), and others. By doing so
+(http://cdnjs.com ), Microsoft Ajax Content Delivery Network
+(<http://www.asp.net> ajaxlibrary/cdn.ashx ), and others. By doing so
 the apps will be faster for some users, but won’t work locally at all
 without the Internet.
 
 -   LESS as a front-end interpreter is available at
-    [lesscss.org](http://lesscss.org/). You could unpack it into your
+    [lesscss.org](http://lesscss.org). You could unpack it into your
     development folder (~/Documents/Development) or any other folder.
 
 -   Twitter Bootstrap is a CSS/LESS framework. It's available at
-    [twitter.github.com/bootstrap](http://twitter.github.com/bootstrap/).
+    [twitter.github.com/bootstrap](http://twitter.github.com/bootstrap).
 
 -   jQuery is available at [jquery.com](http://jquery.com).
 
@@ -529,7 +526,7 @@ SSH Keys
 SSH keys provide a secure connection without the need to enter user name
 and password every time. For GitHub repositories, the latter approach is
 used with HTTPS URLs; for example,
-https://github.com/azat-co/fullstack-javascript.git; and the former with
+<https://github.com/azat-co/fullstack-javascript.git>; and the former with
 SSH URLs; for example, git@github.com:azat-co/fullstack-javascript.git.
 
 To generate SSH keys for GitHub on Mac OS X/UNIX machines do the
@@ -540,7 +537,7 @@ following:
     $ cd ~/.ssh
     $ ls -lah
 
-2.  If you see some files like id\_rsa (please refer to Figure 2-16 for
+2.  If you see some files like id_rsa (please refer to Figure 2-16 for
     an example), you could delete them or back them up into a separate
     folder by using the following commands:
 
@@ -551,10 +548,10 @@ following:
 3.  Now we can generate a new SSH key pair using the ssh-keygen command,
     assuming we are in the ~/.ssh folder:
 
-	$ ssh-keygen -t rsa -C "your\_email@youremail.com"
+	$ ssh-keygen -t rsa -C "your_email@youremail.com"
 
 4.  Answer the questions; it is better to keep the default name
-    of id\_rsa. Then copy the content of the id\_rsa.pub file to your
+    of id_rsa. Then copy the content of the id_rsa.pub file to your
     clipboard (Figure 2-16):
 
     $ pbcopy < ~/.ssh/id_rsa.pub
@@ -563,7 +560,7 @@ following:
 
 	***Figure 2-16.** Generating RSA key for SSH and copying public key to clipboard*
 
-5.  Alternatively, open id\_rsa.pub file in the default editor:
+5.  Alternatively, open id_rsa.pub file in the default editor:
 
 	`$ open id_rsa.pub`
 
@@ -609,11 +606,11 @@ If for some reason you have a different message, please repeat Steps 3
 and 4 from the previous section on SSH keys or reupload the content of
 your \*.pub file to GitHub.
 
-	Warning Keep your id\_rsa file private and don't share it with anybody!
+	Warning Keep your id_rsa file private and don't share it with anybody!
 
 More instructions are available at GitHub: [Generating SSH
 Keys](https://help.github.com/articles/generating-ssh-keys)  
-( https://helpgithub.com/articles/generating-ssh-keys).
+(<https://helpgithub.com/articles/generating-ssh-keys>).
 
 Windows users might find the SSH key generator feature in \[PuTTY\]
 useful.
@@ -625,13 +622,13 @@ Here are the steps to set up a Windows Azure account:
 
 1.  You'll need to sign up for Windows Azure Web Site and Virtual
     Machine previews. Currently they have a 90-day free trial available
-    at <https://azure.microsoft.com/en-us/>.
+    at <https://azure.microsoft.com/en-us>.
 
 2.  Enable Git Deployment and create a user name and password, then
     upload the SSH public key to Windows Azure.
 
 3.  Install the Node.js SDK, which is available at
-    <https://azure.microsoft.com/en-us/develop/nodejs/>.
+    <https://azure.microsoft.com/en-us/develop/nodejs>.
 
 4.  To check your installation type:
 
@@ -641,7 +638,7 @@ Here are the steps to set up a Windows Azure account:
 
 	`Windows Azure: Microsoft's Cloud Platform... Tool Version 0.6.0`
 
-5.  Log in to Windows Azure Portal at <https://windows.azure.com/>
+5.  Log in to Windows Azure Portal at <https://windows.azure.com>
     (Figure 2-18).
 
 	![alt](media/image18.png)
@@ -667,14 +664,14 @@ Here are the steps to set up a Windows Azure account:
 
 9.  Advanced user option: Follow this tutorial to create a virtual
     machine and install MongoDB on it: [Install MongoDB on a virtual
-    machine running CentOS Linux in Windows Azure](https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/) (https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/).
+    machine running CentOS Linux in Windows Azure](https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm) (https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm).
 
 
 Heroku
 ------
 
 Heroku is a polyglot agile application deployment platform (see
-<http://www.heroku.com/>). Heroku works similarly to Windows Azure in
+<http://www.heroku.com>). Heroku works similarly to Windows Azure in
 the sense that you can use Git to deploy applications. There is no need
 to install Virtual Machine for MongoDB because [Heroku has a MongoHQ
 add-on](https://addons.heroku.com/mongohq)
@@ -687,8 +684,8 @@ To set up Heroku, follow these steps:
 
 2.  Download Heroku Toolbelt at (https://toolbelt.heroku.com) Toolbelt
     is a package of tools; that is, libraries that consist of Heroku,
-    Git, and Foreman ( <https://github.com/ddollar/> foreman). For users
-    of older Macs, get this client ( https://github.com/heroku/heroku )
+    Git, and Foreman ( <https://github.com/ddollar> foreman). For users
+    of older Macs, get this client ( <https://github.com/heroku/heroku> )
     directly. If you utilize another OS, browse Heroku Client
     GitHub (https://github.com/heroku/heroku) .
 
@@ -714,8 +711,8 @@ To set up Heroku, follow these steps:
 
 
 More [^1]detailed step-by-step instructions are available at Heroku:
-Quickstart ( <https://devcenter.heroku.com/> articles/quickstart ) and
-Heroku: Node.js ( https://devcenter.heroku.com/articles/nodejs).
+Quickstart ( <https://devcenter.heroku.com> articles/quickstart ) and
+Heroku: Node.js ( <https://devcenter.heroku.com/articles/nodejs>).
 
 Summary
 =======

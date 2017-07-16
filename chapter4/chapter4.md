@@ -72,18 +72,18 @@ class="anchor"><span id="OLE_LINK52" class="anchor"><span
 id="dependices"
 class="anchor"></span></span></span></span></span></span></span>Supplemental
 video which walks you through the implementation and demonstrates the
-project: http://bit.ly/1O7xRCY.
+project: <http://bit.ly/1O7xRCY>.
 
 Download the following libraries:
 
 -   jQuery v2.1.4 development source file
-    http://code.jquery.com/jquery-2.1.4.js
+    <http://code.jquery.com/jquery-2.1.4.js>
 
 -   Underscore.js v1.8.3 development source file
-    http://underscorejs.org/underscore.js
+    <http://underscorejs.org/underscore.js>
 
 -   Backbone.js v1.2.3 development source file
-    http://backbonejs.org/backbone.js
+    <http://backbonejs.org/backbone.js>
 
 Obviously by the time this book is in print, these versions won't be the most recent. I recommend sticking with the versions in this book, because that's what I used to test all the examples and projects. Using different, newer versions might cause some unexpected conflicts.
 
@@ -132,7 +132,7 @@ Next, set up a special `routes` property inside of an `extend` call:
 The Backbone.js `routes` property needs to be in the following format:
 `'path/``:``param'``:'action``'`
 
-This will result in the `filename#path``/``param` URL triggering a
+This will result in the `filename#path/``param` URL triggering a
 function named `action` (defined in the `Router` object). For now, we'll
 add a single `home` route:
 
@@ -231,7 +231,7 @@ Working with Backbone.js Collections
 ====================================
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1O7xRCY.
+demonstrates the project: <http://bit.ly/1O7xRCY>.
 
 The full source code of this example is under
 `05``-backbone/collections`. It's built on top of the "Hello World"
@@ -271,7 +271,7 @@ route to the `routes` object in the Backbone route:
           },
       ...
 
-This will allow users to go to `index.html#apples``/SOMENAME` and expect
+This will allow users to go to `index.html#apples/SOMENAME` and expect
 to see some information about an apple. This information will be fetched
 and rendered by the `loadApple` function in the Backbone router
 definition:
@@ -482,8 +482,8 @@ Open `collections/index.html` file in your browser. You should see the
 data from our database; that is,
 `Apple data: [{"name":"fuji","url":"img/fuji.jpg"}``,{``"name":"gala","url":"img/gala.jpg"}]`.
 
-Now, let' go to `collections/``index.html#apples``/``fuji` or
-`collections/``index.html#apples``/gala` in your browser. We expect to
+Now, let' go to `collections/``index.html#apples/``fuji` or
+`collections/``index.html#apples/gala` in your browser. We expect to
 see an image with a caption. It's a detailed view of an item, which in
 this case is an apple. Nice work!
 
@@ -492,7 +492,7 @@ this case is an apple. Nice work!
 
 <span id="OLE_LINK53" class="anchor"><span id="OLE_LINK54"
 class="anchor"></span></span>Supplemental video which walks you through
-the implementation and demonstrates the project: http://bit.ly/1k0ZnUB.
+the implementation and demonstrates the project: <http://bit.ly/1k0ZnUB>.
 
 In real life, getting data does not happen instantaneously, so let's
 refactor our code to simulate it. For a better user experience (UX),
@@ -527,7 +527,7 @@ Everything else remains the same until we get to the `appleView` class.
 We'll need to add a constructor or an `initialize` method, which is a
 special word or property in the Backbone.js framework. It's called each
 time we create an instance of an object, such as
-`var`` ``someObj`` = new ``SomeObject``(``)`. We can also pass extra
+`var`` ``someObj`` = new ``SomeObject()`. We can also pass extra
 parameters to the `initialize` function, as we did with our views (we
 passed an object with the key `collection` and the value of `apples`
 Backbone Collection). Read more on Backbone.js constructors at
@@ -564,7 +564,7 @@ The preceding code basically boils down to two simple things:
 1.  Call the `render(``)` function of the `appleView` object when the
     model has changed.
 
-2.  Call the `showSpinner``(``)` method of the `appleView` object when
+2.  Call the `showSpinner()` method of the `appleView` object when
     event `spinner` has been fired.
 
 So far, so good, right? But what about the spinner, a GIF icon? Let's
@@ -590,7 +590,7 @@ like to use a meaningful name instead of `_this` or `self`, so:
 
         var view = this
 
-Next, you would have an XHR call (e.g., `$.``ajax``(``)`) to the server
+Next, you would have an XHR call (e.g., `$.ajax()`) to the server
 to get the data. We'll simulate the real time lag when fetching data
 from the remote server with:
 
@@ -610,7 +610,7 @@ use `appleView` inside of the closure).
 
 The `setTimeout` function is simulating a time lag of a real remote
 server response. Inside of it, we assign attributes of a selected model
-to our view's model by using a `model.set``(``)` function and a
+to our view's model by using a `model.set()` function and a
 `model.attributes` property (which returns the properties of a model).
 
 Now we can remove an extra code from the `render` method and implement
@@ -625,12 +625,12 @@ the `showSpinner` function:
       }
       ...
 
-That's all! Open `index.html#apples``/gala` or
-`index.html#apples``/``fuji` in your browser and enjoy the loading
+That's all! Open `index.html#apples/gala` or
+`index.html#apples/fuji` in your browser and enjoy the loading
 animation while waiting for an apple image to load.
 
 Here is the full code of the `index.html` file (also in
-`05``-backbone/binding/index.html` and
+`05-backbone/binding/index.html` and
 <https://github.com/azat-co/fullstack-javascript/blob/master/5-backbone/binding/index.html>):
 
     <!DOCTYPE>
@@ -725,9 +725,9 @@ Backbone.js Views and Subviews with Underscore.js
 =================================================
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1k0ZnUB. And this example is
+demonstrates the project: <http://bit.ly/1k0ZnUB>. And this example i>s
 available at
-https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/subview.
+<https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/subview>.
 
 Subviews are Backbone Views that are created and used inside of another
 Backbone View. A subviews concept is a great way to abstract (separate)
@@ -879,7 +879,7 @@ them (we'll refactor our code later) in `homeView`:
       ...
 
 The `initialize` function will be called when `homeView` is created
-(`new ``homeView``(``)`). There we render our template (with our
+(`new ``homeView()`). There we render our template (with our
 favorite `html(``)` function), and attach an event listener to the
 collection, which is a set of apple models:
 
@@ -891,9 +891,9 @@ collection, which is a set of apple models:
       ...
 
 The syntax for the binding event is covered in the previous section. In
-essence, it is calling the `showCart``(``)` function of `homeView`. In
+essence, it is calling the `showCart()` function of `homeView`. In
 this function, we append `appleName` to the cart (along with a line
-break, a `<``br``/>` element):
+break, a `<``br/>` element):
 
       ...
         showCart: function(appleModel) {
@@ -1094,14 +1094,14 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
     </html>
 
 The link to an individual item, for example,
-`collections/``index.html#apples``/``fuji`, also should work
+`collections/``index.html#apples/``fuji`, also should work
 independently, by typing it in the browser address bar.
 
 <span id="refactoring-backbone.js-code" class="anchor"><span id="refactoring" class="anchor"></span></span>Refactoring Backbone.js Code
 =======================================================================================================================================
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1k0ZnUB.
+demonstrates the project: <http://bit.ly/1k0ZnUB>.
 
 At this point you are probably wondering what the benefit is of using
 the framework and still having multiple classes, objects, and elements
@@ -1402,7 +1402,7 @@ AMD and Require.js for Backbone.js Development
 ==============================================
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1k0ZnUB.
+demonstrates the project: <http://bit.ly/1k0ZnUB>.
 
 AMD allows us to organize development code into modules, manage
 dependencies, and load them asynchronously. This article does a great
@@ -1685,7 +1685,7 @@ loads them in parallel.
 ***Figure 4-3.*** *The new 05-backbone/amd/index.html file*
 
 Require.js has a lot of configuration options that are defined through
-the `requirejs.config``(``)` call in the top level of an HTML page. More
+the `requirejs.config()` call in the top level of an HTML page. More
 information can be found at
 [`requirejs.org/docs/``api.html#config`](http://requirejs.org/docs/api.html#config).
 
@@ -1822,12 +1822,12 @@ Kit](https://github.com/azat-co/super-simple-backbone-starter-kit)
 similar projects:
 
 -   [Backbone Boilerplate](http://backboneboilerplate.com/) available at
-    http://backboneboilerplate.com/
+    <http://backboneboilerplate.com>
 
 -   [Sample App with Backbone.js and Twitter
     Bootstrap](http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap/)
     available at
-    http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap/
+    <http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap>
 
 -   More Backbone.js tutorials available at
     [`github.com/documentcloud/backbone/wiki/Tutorials%2C-blog-posts-and-example-sites`](https://github.com/documentcloud/backbone/wiki/Tutorials%2C-blog-posts-and-example-sites)
