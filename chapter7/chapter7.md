@@ -71,32 +71,32 @@ Database:MongoDB section of Chapter 2.
 Some other useful MongoDB shell commands from MongoDB and Mongoose
 cheatsheet (https://gum.co/mongodb/git-874e6fb4):
 
--   `> show ``dbs`: show databases on the server
+-   `> show dbs`: show databases on the server
 
 -   `> use DB_NAME`: select database `DB_NAME`
 
 -   `> show collections`: show collections in the selected database
 
--   `> ``db.COLLECTION_NAME.find``()`: perform the find query on
+-   `> db.COLLECTION_NAME.find()`: perform the find query on
     collection with the COLLECTION\_NAME name to find any items
 
--   `> ``db.COLLECTION_NAME.find``({"_id": ``ObjectId``("549d9a3081d0f07866fdaac6")})`:
+-   `> db.COLLECTION_NAME.find({"_id": ObjectId("549d9a3081d0f07866fdaac6")})`:
     perform the find query on collection with the COLLECTION\_NAME name
     to find item with ID 549d9a3081d0f07866fdaac6
 
--   `> ``db.COLLECTION_NAME.find``({"email": /``gmail``/})`: perform the
-    find query on collection with the COLLECTION\_NAME name to find
-    items with e-mail property matching `/``gmail`
+-   `> db.COLLECTION_NAME.find({"email": /gmail/})`: perform the
+    find query on collection with the COLLECTION_NAME name to find
+    items with e-mail property matching `/gmail/` regular expression, e.g., bob@gmail.com or john@gmail.in 
 
--   `> ``db.COLLECTION_NAME.update``(QUERY_OBJECT, SET_OBJECT)`: perform
+-   `> db.COLLECTION_NAME.update(QUERY_OBJECT, SET_OBJECT)`: perform
     the update query on collection with the COLLECTION\_NAME name to
     update items that match QUERY\_OBJECT with SET\_OBJECT
 
--   `> ``db.COLLECTION_NAME.remove``(QUERY_OBJECT)`: perform remove
+-   `> db.COLLECTION_NAME.remove(QUERY_OBJECT)`: perform remove
     query for items matching QUERY\_OBJECT criteria on the
     COLLECTION\_NAME collection
 
--   `> ``db.COLLECTION_NAME.insert``(OBJECT)`: add OBJECT to the
+-   `> db.COLLECTION_NAME.insert(OBJECT)`: add OBJECT to the
     collection with the COLLECTION\_NAME name
 
 So starting from a fresh shell session, you can execute these commands
@@ -170,17 +170,19 @@ More details are at <http://www.mongodb.org/display/DOCS/node.JS>.
 Don't forget to include the dependency in the `package.json` file as
 well:
 
-`{`  
-`  "name": "node-example",`  
-`  "version": "0.0.1",`  
-`  "dependencies": {`  
-`    "mongodb":"",`  
-`    ...`  
-`  },`  
-`  "engines": {`  
-`    "node": ">=0.6.x"`  
-`  }`  
-`}`
+```
+{  
+  "name": "node-example",  
+  "version": "0.0.1",
+  "dependencies": {
+    "mongodb":"",
+    ...
+  },
+  "engines": {
+    "node": ">=0.6.x"
+  }
+}
+```
 
 Alternatively, for your own development you could use other mappers,
 which are available as an extension of the Native Driver:
@@ -207,45 +209,53 @@ from a Node.js script.
 After we install the library, we can include the `mongodb` library in
 our `app.js` file:
 
-`var util = require('util')`  
-`var mongodb = require ('mongodb')`
+```
+var util = require('util')
+var mongodb = require ('mongodb')
+```
 
 This is one of the ways to establish connection to the MongoDB server in
 which the db variable will hold reference to the database at a specified
 host and port:
 
-`var Db = mongodb.Db`  
-`var Connection = mongodb.Connection`  
-`var Server = mongodb.Server`  
-`var host = '127.0.0.1'`  
-`var port = 27017`  
-  
-`var db=new Db ('test', new Server(host,port, {}))`
+```
+var Db = mongodb.Db
+var Connection = mongodb.Connection
+var Server = mongodb.Server
+var host = '127.0.0.1'
+var port = 27017
+
+var db=new Db ('test', new Server(host,port, {}))
+```
 
 To actually open a connection:
 
-`db.open(function(error, connection){`  
-`  // Do something with the database here`  
-`  db.close()`  
-`})`
+```
+db.open(function(error, connection) {
+  // Do something with the database here
+  db.close()
+})
+```
 
 To check that we have the connection, we need to handle `error`. Also,
 let's get the admin object with `db.admin``(``)` and fetch the list of
 databases with `listDatabases``()`:
 
-`var db=new Db ('test', new Server(host, port, {}))`  
-`db.open(function(error, connection){`  
-`    console.log('error: ', error)`  
-`    var adminDb = db.admin()`  
-`    adminDb.listDatabases(function(error, dbs) {`  
-`    console.log('error: ', error)`  
-`        console.log('databases: ', dbs.databases)`  
-`    db.close()`  
-`  })`  
-`})`
+```
+var db=new Db ('test', new Server(host, port, {}))
+db.open(function(error, connection){
+    console.log('error: ', error)
+    var adminDb = db.admin()
+    adminDb.listDatabases(function(error, dbs) {
+    console.log('error: ', error)
+        console.log('databases: ', dbs.databases)
+    db.close()
+  })
+})
+```
 
 This code snippet is available at
-https://github.com/mongodb/node-mongodb- native/\#data-types. If we run
+<https://github.com/mongodb/node-mongodb-native/\#data-types>. If we run
 it, it should output "connected" in the terminal. When you're in doubt
 and need to check the properties of an object, there is a useful method
 in the `util` module:
@@ -304,9 +314,11 @@ To make our code work both locally and on Heroku, we can use the logical
 OR operator `||` and assign a local host and port if environment
 variables are undefined:
 
-`var port = process.env.PORT || 1337`  
-`var dbConnUrl = process.env.MONGOLAB_URI ||`  
-`  'mongodb://127.0.0.1:27017/test'`
+```
+var port = process.env.PORT || 1337
+var dbConnUrl = process.env.MONGOLAB_URI ||
+  'mongodb://127.0.0.1:27017/test'
+```
 
 Here is our updated cross-environment ready `app.js` file
 (https://github.com/azat-co/fullstack-javascript/tree/master/10-db-connect-heroku).
@@ -314,23 +326,25 @@ I added a method to get the list of collections `listCollections`
 instead of getting the list of the databases (we have only one database
 in MongoLab right now):
 
-`var util = require('util')`  
-`var url = require('url')`  
-`var client = require ('mongodb').MongoClient`  
+```
+var util = require('util')
+var url = require('url')
+var client = require ('mongodb').MongoClient
   
-`var dbConnUrl = process.env.MONGOLAB_URI ||`  
-`  'mongodb://127.0.0.1:27017/test'`  
+var dbConnUrl = process.env.MONGOLAB_URI ||
+  'mongodb://127.0.0.1:27017/test'
   
-`console.log('db server: ', dbConnUrl)`  
+console.log('db server: ', dbConnUrl)  
   
-`client.connect(dbConnUrl, {}, function(error, db){`  
-`    console.log('error: ', error)`  
-`    db.listCollections().toArray(function(err, collections) {`  
-`    console.log('error: ', error)`  
-`        console.log('collections: ', collections)`  
-`    db.close()`  
-`    })`  
-`})`
+client.connect(dbConnUrl, {}, function(error, db){  
+    console.log('error: ', error)  
+    db.listCollections().toArray(function(err, collections) {  
+    console.log('error: ', error)  
+        console.log('collections: ', collections)  
+    db.close()  
+    })  
+})
+```
 
 Following the modification of `app.js` by addition of `MONGOLAB_URI`, we
 can now initialize Git repository, create a Heroku app, add the MongoLab
@@ -339,9 +353,11 @@ add-on to it, and deploy the app with Git.
 Utilize the same steps as in the previous examples to create a new git
 repository:
 
-`$ git init`  
-`$ git add .`  
-`$ git commit -am 'initial commit'`
+```
+$ git init  
+$ git add .  
+$ git commit -am 'initial commit'
+```
 
 Create the Cedar stack Heroku app:
 
@@ -378,46 +394,50 @@ Now see the output with this command:
 
 The result will be something like this:
 
-`2015-12-01T12:34:51.438633+00:00 app[web.1]: db server:  mongodb://heroku_cxgh54g6:9d76gspc45v899i44sm6bn790c@ds035617.mongolab.com:34457/heroku_cxgh54g6`  
-`2015-12-01T12:34:53.264530+00:00 app[web.1]: error:  null`  
-`2015-12-01T12:34:53.236398+00:00 app[web.1]: error:  null`  
-`2015-12-01T12:34:53.271775+00:00 app[web.1]: collections:  [ { name: 'system.indexes', options: {} },`  
-`2015-12-01T12:34:53.271778+00:00 app[web.1]:   { name: 'test', options: { autoIndexId: true } } ]`
+```
+2015-12-01T12:34:51.438633+00:00 app[web.1]: db server:  mongodb://heroku_cxgh54g6:9d76gspc45v899i44sm6bn790c@ds035617.mongolab.com:34457/heroku_cxgh54g6  
+2015-12-01T12:34:53.264530+00:00 app[web.1]: error:  null  
+2015-12-01T12:34:53.236398+00:00 app[web.1]: error:  null  
+2015-12-01T12:34:53.271775+00:00 app[web.1]: collections:  [ { name: 'system.indexes', options: {} },  
+2015-12-01T12:34:53.271778+00:00 app[web.1]:   { name: 'test', options: { autoIndexId: true } } ]
+```
 
 If you get `app.js` and modified `app.js` files working, let's enhance
 by adding a HTTP server, so the 'connected' message will be displayed in
 the browser instead of the terminal window. To do so, we'll wrap the
 server object instantiation in a database connection callback (file
 11-db-server/app.js at
-https://github.com/azat-co/fullstack-javascript/blob/master/11-db/app.js).
+<https://github.com/azat-co/fullstack-javascript/blob/master/11-db/app.js>).
 
 Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1Qnrmwr.
+demonstrates the project: <http://bit.ly/1Qnrmwr>.
 
-`var util = require('util')`  
-`var url = require('url')`  
-`var http = require('http')`  
-`var mongodb = require ('mongodb')`  
-`var client = require ('mongodb').MongoClient`  
+```
+var util = require('util')
+var url = require('url')  
+var http = require('http')  
+var mongodb = require ('mongodb')  
+var client = require ('mongodb').MongoClient  
   
-`var port = process.env.PORT || 1337`  
-`var dbConnUrl = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/test'`  
+var port = process.env.PORT || 1337  
+var dbConnUrl = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/test'  
   
-`client.connect(dbConnUrl, {}, function(error, db) {`  
-`    console.log('error: ', error)`  
-`    db.listCollections().toArray(function(error, collections) {`  
-`    console.log('error: ', error)`  
-`        console.log('collections: ', collections)`  
-`        var server = http.createServer(function (request, response) { // Creates server`  
-`          response.writeHead(200, {'Content-Type': 'text/plain'})   // Sets ``the right header and status code`  
-`          response.end(util.inspect(collections))  // Outputs string with line end symbol`  
-`        })`  
-`        server.listen(port, function() {`  
-`            console.log('Server is running at %s:%s ', server.address().address, server.address().port) // Sets port and IP address of the server`  
-`        })`  
-`    db.close()`  
-`    })`  
-`})`
+client.connect(dbConnUrl, {}, function(error, db) {  
+    console.log('error: ', error)  
+    db.listCollections().toArray(function(error, collections) {  
+    console.log('error: ', error)  
+        console.log('collections: ', collections)  
+        var server = http.createServer(function (request, response) { // Creates server  
+          response.writeHead(200, {'Content-Type': 'text/plain'})   // Sets the right header and status code  
+          response.end(util.inspect(collections))  // Outputs string with line end symbol  
+        })  
+        server.listen(port, function() {  
+            console.log('Server is running at %s:%s ', server.address().address, server.address().port) // Sets port and IP address of the server  
+        })  
+    db.close()  
+    })  
+})
+```
 
 The final Heroku-deployment-ready project is located at
 https://github.com/azat-co/fullstack-javascript/tree/master/11-db-serverunder.
@@ -443,17 +463,21 @@ at
 https://github.com/azat-co/fullstack-javascript/tree/master/12-board-api-mongonder.
 The structure of the application is simple:
 
-`/``12-board-api-``mongo`  
-`  -web.js`  
-`  -Procfile`  
-`  -package.json`
+```
+/12-board-api-mongo
+  web.js  
+  Procfile
+  package.json
+```
 
 This is what `web.js` looks like; first we include our libraries:
 
-`var http = require('http')`  
-`var util = require('util')`  
-`var querystring = require('querystring')`  
-`var client = require('mongodb').MongoClient`
+```
+var http = require('http')  
+var util = require('util')  
+var querystring = require('querystring')  
+var client = require('mongodb').MongoClient
+```
 
 Then put out a magic string to connect to MongoDB:
 
@@ -466,8 +490,10 @@ for example, 'rpjs' or 'test'.
 We put all the logic inside of an open connection in the form of a
 callback function:
 
-`client.connect(uri, function(error, db) {`  
-`  if (error) return console.error(error)`
+```
+client.connect(uri, function(error, db) {
+  if (error) return console.error(error)
+```
 
 We are getting the collection with the next statement:
 
@@ -477,36 +503,42 @@ Now we can instantiate the server and set up logic to process our
 endpoints/routes. We need to fetch the documents on GET
 `/messages/``list.json`:
 
-`    var app = http.createServer( function (request, response) {`  
-`        if (request.method === 'GET' && request.url === '/messages/list.json') {`  
-`            collection.find().toArray(function(error,results) {`  
-`                response.writeHead(200,{ 'Content-Type': 'text/plain'})`  
-`                console.dir(results)`  
-`                response.end(JSON.stringify(results))`  
-`            })`
+```
+    var app = http.createServer( function (request, response) {  
+        if (request.method === 'GET' && request.url === '/messages/list.json') {  
+            collection.find().toArray(function(error,results) {  
+                response.writeHead(200,{ 'Content-Type': 'text/plain'})  
+                console.dir(results)  
+                response.end(JSON.stringify(results))  
+            })
+```
 
 On the POST `/messages/``create.json`, we inserting the document:
 
-`        } else if (request.method === 'POST' && request.url === '/messages/create.json') {`  
-`            request.on('data', function(data) {`  
-`                collection.insert(querystring.parse(data.toString('utf-8')), {safe:true}, function(error, obj) {`  
-`                    if (error) throw error`  
-`                    response.end(JSON.stringify(obj))`  
-`                })`  
-`            })`  
-`        } else {`
+```
+        } else if (request.method === 'POST' && request.url === '/messages/create.json') {  
+            request.on('data', function(data) {  
+                collection.insert(querystring.parse(data.toString('utf-8')), {safe:true}, function(error, obj) {  
+                    if (error) throw error  
+                    response.end(JSON.stringify(obj))  
+                })  
+            })  
+        } else {
+```
 
 This will be shown in the event that the client request is not matching
 any of the conditions above. This is a good reminder for us when we try
 to go to the http://localhost:1337 instead of
 http://localhost:1337/messages/list.json:
 
-`            response.end('Supported endpoints: \n/messages/list.json\n/messages/create.json')`  
-`        }`  
-`    })`  
-`    var port = process.env.PORT || 1337`  
-`    app.listen(port)`  
-`})`
+```
+            response.end('Supported endpoints: \n/messages/list.json\n/messages/create.json')  
+        }  
+    })  
+    var port = process.env.PORT || 1337  
+    app.listen(port)  
+})
+```
 
 Note: We don't have to use additional words after the collection/entity
 name; that is, instead of `/`messages/list.json and
@@ -529,26 +561,28 @@ new message:
 
 Now we must see a response containing an ObjectID of a newly created
 element, for example:
-\[{"username":"BOB","message":"test","\_id":"51edcad45862430000000001"}\].
+[{"username":"BOB","message":"test","_id":"51edcad45862430000000001"}].
 Your ObjectId might vary.
 
 If everything works as it should locally, try to deploy it to Heroku.
 
 To test the application on Heroku, you could use the same
 [CURL](http://curl.haxx.se/docs/manpage.html) commands
-(http://curl.haxx.se/docs/manpage.html), substituting http://localhost/
+(http://curl.haxx.se/docs/manpage.html), substituting http://localhost
 or "http://127.0.0.1" with your unique Heroku app's host/URL:
 
-`$ curl http://your-app-name.herokuapp.com/messages/list.json`  
-`$ curl -d "username=BOB&message=test"`  
-`  http://your-app-name.herokuapp.com/messages/create.json`
+```
+$ curl http://your-app-name.herokuapp.com/messages/list.json  
+$ curl -d "username=BOB&message=test"  
+  http://your-app-name.herokuapp.com/messages/create.json
+```
 
 It's also nice to double check the database either via Mongo shell:
 `$ mongo` terminal command and then `use twitter-clone` and
-`db.messages.find``(``)`; or via MongoHub
-(https://github.com/bububa/MongoHub-Mac), mongoui
-(https://github.com/azat-co/mongoui),
-mongo-express(https://github.com/andzdroid/mongo-express) or in case of
+`db.messages.find()`; or via MongoHub
+(<https://github.com/bububa/MongoHub-Mac>), mongoui
+(<https://github.com/azat-co/mongoui>),
+mongo-express (<https://github.com/andzdroid/mongo-express>) or in case of
 MongoLab through its web interface accessible at the heroku.com web
 site.
 
