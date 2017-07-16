@@ -16,14 +16,14 @@ If you'd like to contribute financially towards the effort (or any of my other o
 
 # *Full Stack JavaScript, 3rd Edition* Table of Contents
 
-* [Basics](https://github.com/azat-co/fullstack-javascript/tree/master/chapter1/chapter1.md)
-* [Setup](https://github.com/azat-co/fullstack-javascript/tree/master/chapter2/chapter2.md)
-* [jQuery and Parse.com](https://github.com/azat-co/fullstack-javascript/tree/master/chapter3/chapter3.md)
-* [Intro to Backbone.js](https://github.com/azat-co/fullstack-javascript/tree/master/chapter4/chapter4.md)
-* [Backbone.js and Parse.com](https://github.com/azat-co/fullstack-javascript/tree/master/chapter5/chapter5.md)
-* [Intro to Node.js](https://github.com/azat-co/fullstack-javascript/tree/master/chapter6/chapter6.md)
-* [Intro to MongoDB](https://github.com/azat-co/fullstack-javascript/tree/master/chapter7/chapter7.md)
-* [Putting It All Together](https://github.com/azat-co/fullstack-javascript/tree/master/chapter8/chapter8.md)
+* [Chapter 1: Basics](https://github.com/azat-co/fullstack-javascript/tree/master/chapter1/chapter1.md)
+* [Chapter 2: Setup](https://github.com/azat-co/fullstack-javascript/tree/master/chapter2/chapter2.md)
+* [Chapter 3: jQuery and Parse.com](https://github.com/azat-co/fullstack-javascript/tree/master/chapter3/chapter3.md)
+* [Chapter 4: Intro to Backbone.js](https://github.com/azat-co/fullstack-javascript/tree/master/chapter4/chapter4.md)
+* [Chapter 5: Backbone.js and Parse.com](https://github.com/azat-co/fullstack-javascript/tree/master/chapter5/chapter5.md)
+* [Chapter 6: Intro to Node.js](https://github.com/azat-co/fullstack-javascript/tree/master/chapter6/chapter6.md)
+* [Chapter 7: Intro to MongoDB](https://github.com/azat-co/fullstack-javascript/tree/master/chapter7/chapter7.md)
+* [Chapter 8: Putting It All Together](https://github.com/azat-co/fullstack-javascript/tree/master/chapter8/chapter8.md)
 * Conclusion and Further Reading
 
 (It's work in progress and the draft will be completed in the end of 2017.)
