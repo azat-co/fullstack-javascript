@@ -179,10 +179,6 @@ TBD
 * [board-react](https://github.com/azat-co/fullstack-javascript/tree/master/code/board-react): Message Board with React.js view layer (UI only)
 * [board-react-meteor](https://github.com/azat-co/fullstack-javascript/tree/master/code/board-react-meteor): Message Board with React.js view layer (back-end and front-end)
 
-## Contribute
-
-Fork the repo, push the changes and submit a pull request. ;-)
-
 # *Full Stack JavaScript, 2nd Edition*
 
 * [2nd Edition Manuscript (starting point for 3rd Edition)](https://github.com/azat-co/fullstack-javascript/releases/tag/2nd-edition)
