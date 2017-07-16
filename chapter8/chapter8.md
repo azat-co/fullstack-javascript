@@ -835,21 +835,21 @@ To install npm, run:
 More information on using yum can be found at the following locations:
 
 -   [Managing Software with
-    yum](https://www.centos.org/docs/5/html/yum/)
-    (https://www.centos.org/docs/5/html/yum/)
+    yum](https://www.centos.org/docs/5/html/yum)
+    (<https://www.centos.org/docs/5/html/yum>)
 
 -   [Installing Node.js via package
     managers](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager)
-    (https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager)
+    (<https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager>)
 
 -   [Tips on securing your EC2
     instance](http://aws.amazon.com/articles/1233)
-    (http://aws.amazon.com/articles/1233)
+    (<http://aws.amazon.com/articles/1233>)
 
 Once you have Git and npm and Node, you are good to deploy your code
 (manually). Pull the code from the repository. You might need to provide
 credentials or upload your SSH keys to the AWS. Then start the Node
-server with [pm2](https://github.com/Unitech/pm2) (https://github.com/Unitech/pm2) or similar process manager (Figure 8-1). `pm2` is good because it has a lot of features not only to keep
+server with [pm2](https://github.com/Unitech/pm2) (<https://github.com/Unitech/pm2>) or similar process manager (Figure 8-1). `pm2` is good because it has a lot of features not only to keep
 the process running but also to scale it; it even has load balancing.
 
 To install pm2:
@@ -904,12 +904,12 @@ instance’s description. For example,
     $ curl XXX.XXX.XXX.XXX –v
 
 It’s worth mentioning that AWS supports many other operating systems via
-its AWS Marketplace (https://aws.amazon.com/marketplace). Although AWS
+its AWS Marketplace (<https://aws.amazon.com/marketplace>). Although AWS
 EC2 is a very popular and affordable choice, there other alternatives as
-well: [Joyent](http://www.joyent.com) (https://www.joyent.com/),
-[Windows Azure](https://azure.microsoft.com/en-us/)
+well: [Joyent](http://www.joyent.com) (<https://www.joyent.com>),
+[Windows Azure](https://azure.microsoft.com/en-us)
 (https://azure.microsoft.com/en-us/), [Rackspace Open
-Cloud](http://www.rackspace.com/cloud) (http://www.rackspace.com/cloud),
+Cloud](http://www.rackspace.com/cloud) (<http://www.rackspace.com/cloud>),
 and others.
 
 Summary

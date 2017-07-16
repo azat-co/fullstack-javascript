@@ -69,7 +69,7 @@ More detailed step-by-step instructions are available in the
 Database:MongoDB section of Chapter 2.
 
 Some other useful MongoDB shell commands from MongoDB and Mongoose
-cheatsheet (https://gum.co/mongodb/git-874e6fb4):
+cheatsheet (<https://gum.co/mongodb/git-874e6fb4>):
 
 -   `> show dbs`: show databases on the server
 
@@ -188,18 +188,18 @@ Alternatively, for your own development you could use other mappers,
 which are available as an extension of the Native Driver:
 
 -   [Mongoskin](https://github.com/guileen/node-mongoskin)
-    (https://github.com/guileen/node-mongoskin): a future layer for
+    (<https://github.com/guileen/node-mongoskin>): a future layer for
     node-mongodb-native
 
 -   [Mongoose](http://mongoosejs.com/) (http://mongoosejs.com/): an
     asynchronous JavaScript driver with optional support for modeling
 
 -   [Mongolia](https://github.com/masylum/mongolia)
-    (https://github.com/masylum/mongolia): a lightweight MongoDB
+    (<https://github.com/masylum/mongolia>): a lightweight MongoDB
     ORM/driver wrapper
 
 -   [Monk](https://github.com/LearnBoost/monk)
-    (https://github.com/Automattic/monk): a tiny layer that provides
+    (<https://github.com/Automattic/monk>): a tiny layer that provides
     simple yet substantial usability improvements for MongoDB usage
     within Node.js
 
@@ -375,7 +375,7 @@ per app basis), use:
 
 `$ heroku addons:create mongolab:sandbox`
 
-Or log on to Heroku (https://elements.heroku.com/addons/mongolab) with
+Or log on to Heroku (<https://elements.heroku.com/addons/mongolab>) with
 your Heroku credentials and choose MongoLab Free for that particular
 Heroku app, if you know the name of that app.
 
