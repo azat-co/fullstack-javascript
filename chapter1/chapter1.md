@@ -121,7 +121,7 @@ In this example, each line is an HTML element:
 ```html
 <h2>Overview of HTML</h2>
 <div>HTML is a …</div>
-<link rel=“stylesheet” type=“text/css” href=“style.css” />
+<link rel="stylesheet" type="text/css" href="style.css" />
 ```
 
 An HTML document itself is an element of the &lt;html&gt; tag, and all
@@ -129,9 +129,9 @@ other elements are children of that &lt;html&gt; tag:
 
 ```html
 <!DOCTYPE html>
-<html lang=“en”>
+<html lang="en">
     <head>
-    <link rel=“stylesheet” type=“text/css” href=“style.css”/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
     <h2>Overview of HTML</h2>
@@ -157,7 +157,7 @@ The class attribute defines a class that is used for styling in CSS or
 Domain Object Model (DOM) manipulation; for example:
 
 ```html
-<p class=“normal”>…</p>
+<p class="normal">…</p>
 ```
 
 ### `id`
@@ -174,7 +174,7 @@ class, but it has to be unique; for example:
 The style attribute defines inline CSS to style an element; for example:
 
 ```html
-<font style=“font-size:20px”>…</font>
+<font style="font-size:20px">…</font>
 ```
 
 ### `title`
@@ -183,7 +183,7 @@ The title attribute specifies additional information that is usually
 presented in tooltips by most browsers; for example:
 
 ```html
-<a title=“Up-vote the answer”>…</a>
+<a title="Up-vote the answer">…</a>
 ```
 
 ### `data-name`
@@ -192,7 +192,7 @@ The data-name attribute allows for metadata to be stored in the DOM; for
 example:
 
 ```html
-<tr data-token=“fa10a70c–21ca–4e73-aaf5-d889c7263a0e”>…</tr>
+<tr data-token="fa10a70c–21ca–4e73-aaf5-d889c7263a0e">…</tr>
 ```
 
 ### `onclick`
@@ -201,8 +201,8 @@ The onclick attribute calls inline JavaScript code when a click event
 happens; for example:
 
 ```html
-<input type=“button”
-  onclick=“validateForm();”>…</a>
+<input type="button"
+  onclick="validateForm();">…</a>
 ```
 
 ### `onmouseover`
@@ -211,8 +211,8 @@ The onmouseover attribute is similar to onclick but for mouse hover
 events; for example:
 
 ```html
-<a onmouseover=“javascript:
-  this.setAttribute(‘css’,‘color:red’)”>
+<a onmouseover="javascript:
+  this.setAttribute(‘css’,‘color:red’)">
   …
 </a>
 ```
@@ -271,7 +271,7 @@ it can have CSS code directly inside of a `<style>` tag:
 Each HTML element can have id attributes, class attributes, or both:
 
 ```html
-<div id=“main” class=“large”>
+<div id="main" class="large">
   Lorem ipsum dolor sit amet,
   Duis sit amet neque eu.
 </div>
@@ -321,7 +321,7 @@ This sets the width to 150 pixels for input which the name attribute is
 email:
 
 ```css
-input[name=“email”] {
+input[name="email"] {
   width: 150px;
 }
 ```
@@ -359,8 +359,8 @@ Let's start with JavaScript in HTML. Putting JS code into a
 document:
 
 ```html
-<script type=“text/javascript” language=“javascript”>
-  alert(“Hello world!”) //simple alert dialog window
+<script type="text/javascript" language="javascript">
+  alert("Hello world!") //simple alert dialog window
 </script>
 ```
 
@@ -370,8 +370,8 @@ by setting source attribute `src="filename.js"` on a `<script/>` tag, for
 example, for the app.js resource:
 
 ```html
-<script src=“js/app.js” type=“text/javascript”
-  language=“javascript”>
+<script src="js/app.js" type="text/javascript"
+  language="javascript">
 </script>
 ```
 
