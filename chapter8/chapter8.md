@@ -79,7 +79,7 @@ or
       ...
 
 The need for the OPTIONS method is outlined in [HTTP access control
-(https://developer.mozilla.org/en-US/docs/Web/HTTP/Access\_control\_CORS)](https://developer.mozilla.org/en-US/docs/HTTP_access_control).
+(https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)](https://developer.mozilla.org/en-US/docs/HTTP_access_control).
 The OPTIONS request can be dealt with in the following manner:
 
       ...
@@ -908,7 +908,7 @@ its AWS Marketplace (<https://aws.amazon.com/marketplace>). Although AWS
 EC2 is a very popular and affordable choice, there other alternatives as
 well: [Joyent](http://www.joyent.com) (<https://www.joyent.com>),
 [Windows Azure](https://azure.microsoft.com/en-us)
-(https://azure.microsoft.com/en-us/), [Rackspace Open
+(https://azure.microsoft.com/en-us), [Rackspace Open
 Cloud](http://www.rackspace.com/cloud) (<http://www.rackspace.com/cloud>),
 and others.
 
