@@ -44,7 +44,7 @@ execute this command in your terminal:
 
 As of this writing, the latest version is 5.1.0. If you don't have
 Node.js installed, or if your version is behind, you can download the
-latest version at [nodejs.org/\#download](http://nodejs.org/#download).
+latest version at [nodejs.org/#download](http://nodejs.org/#download).
 You can use one of these tools for version management (i.e., switching
 between Node.js versions):
 
@@ -412,7 +412,7 @@ demonstrates the project: http://bit.ly/1QnqO9P.
 
 The first version of the Message Board back-end application will store
 messages only in runtime memory storage for the sake of KISS
-(http://en.wikipedia.org/wiki/KISS\_principle). That means that each
+(http://en.wikipedia.org/wiki/KISS_principle). That means that each
 time we start/reset the server, the data will be lost.
 
 We'll start with a simple test case first to illustrate the Test-Driven

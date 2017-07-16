@@ -61,7 +61,7 @@ Please submit a GitHub issue if you have any feedback; comments;
 suggestions; or you've found typos, bugs, mistakes, or other errata:
 <https://github.com/azat-co/fullstack-javascript/issues>.
 
-Other ways to connect are via: @azat\_co (http://twitter.com/azat\_co),
+Other ways to connect are via: @azat_co (http://twitter.com/azat_co),
 <http://webapplog.com>, <http://azat.co>.
 
 In case you enjoyed Node.js and want to find out more about building
@@ -163,7 +163,7 @@ reading.
     Guide](http://nodeguide.com/style.html) (http://nodeguide.com/style.html)
 
 -   [Felix's Node.js Convincing the Boss
-    Guide](http://nodeguide.com/convincing_the_boss.html) (http://nodeguide.com/convincing\_the\_boss.html)
+    Guide](http://nodeguide.com/convincing_the_boss.html) (http://nodeguide.com/convincing_the_boss.html)
 
 -   [Introduction to
     NPM](http://howtonode.org/introduction-to-npm) (http://howtonode.org/introduction-to-npm)

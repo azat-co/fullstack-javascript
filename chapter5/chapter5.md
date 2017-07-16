@@ -339,7 +339,7 @@ the models variable is defined and not empty:
           if (typeof models != 'undefined' && models.length > 0) {
 
 `_.each()` is an iteration function from the UnderscoreJS library
-([underscorejs.org/\#each](http://underscorejs.org/#each)), which does
+([underscorejs.org/#each](http://underscorejs.org/#each)), which does
 exactly what it sounds like—iterates through elements of an
 object/array:
 

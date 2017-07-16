@@ -248,7 +248,7 @@ and, of course, plain JavaScript. To convert the list of attributes to a
 list of JS events, just remove the prefixes on; for example, onclick
 attribute means click event.
 
-More information is available at Example: [Catching a mouse click](https://developer.mozilla.org/en-US/docs/JavaScript/Getting\_Started\#Example:\_Catching\_a\_mouse\_click) (https://developer.mozilla.org/en-US/docs/JavaScript/Getting\_Started\#Example:\_Catching\_a\_mouse\_click),
+More information is available at Example: [Catching a mouse click](https://developer.mozilla.org/en-US/docs/JavaScript/Getting_Started\#Example:_Catching_a_mouse_click) (https://developer.mozilla.org/en-US/docs/JavaScript/Getting_Started\#Example:_Catching_a_mouse_click),
 [Wikipedia](http://en.wikipedia.org/wiki/HTML) (http://en.wikipedia.org/wiki/HTML) and
 [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML)(https://developer.mozilla.org/en-US/docs/Web/HTML).
 
@@ -328,7 +328,7 @@ input[name="email"] {
 
 
 More information is available at Wikipedia
-(http://en.wikipedia.org/wiki/Cascading\_Style\_Sheets) and MDN
+(http://en.wikipedia.org/wiki/Cascading_Style_Sheets) and MDN
 (https://developer.mozilla.org/en-US/docs/Web/CSS).
 
 CSS3 is an upgrade to CSS that includes new ways of doing things such as
@@ -390,7 +390,7 @@ Other ways to run JavaScript include the following:
 
 One of the advantages of the JavaScript language is that it's loosely
 typed. This loose or weak typing, as opposed to strong typing
-(http://en.wikipedia.org/wiki/Strong\_typing) in languages like C and
+(http://en.wikipedia.org/wiki/Strong_typing) in languages like C and
 Java, makes JavaScript a better programming language for prototyping.
 Here are some of the main types of JavaScript objects or classes (there
 are not classes per se; objects inherit from objects).
@@ -407,7 +407,7 @@ var num = 1
 
 This is the
 [Number](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number)
-https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global\_Objects/Number
+https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number
 
 object and its methods; for example:
 
@@ -429,7 +429,7 @@ var newStr = "abcde".substr(1,2)
 
 For convenience, JavaScript automatically wraps string primitives with
 String object methods, but they are not quite the same
-(https://developer.mozilla.org/enUS/docs/JavaScript/Reference/Global\_Objects/String\#Distinction\_between\_string\_primitives\_and\_String\_objects).
+(https://developer.mozilla.org/enUS/docs/JavaScript/Reference/Global_Objects/String\#Distinction_between_string_primitives_and_String_objects).
 
 ### String Object
 
@@ -536,7 +536,7 @@ var d = new Date() //Sun May 12 2013 18:17:11 GMT-0700 (PDT)
 ### Math Object
 
 These are used for mathematical constants and functions
-https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global\_Objects/Math;
+https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math;
 for example:
 
 ```js
@@ -578,51 +578,51 @@ In addition to classes such as `String`, `Array`, `Number`, and `Math`, which
 have a lot of useful methods, you can call the following methods known
 as globals, meaning you can invoke them from anywhere in your code:
 
--   encodeURI (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/encodeURI):
+-   encodeURI (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI):
     Encodes a Uniform Resource Identifier (URI) to give you a URL, e.g.,
     encodeURI ('http://www.webapplog.com/js is awesome')
 
 -   decodeURI
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/decodeURI):
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI):
     Decodes a URI
 
 -   encodeURIComponent
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/encodeURIComponent):
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent):
     Encode URI for URL parameters (don’t use it for the entire
     URL string)
 
 -   decodeURIComponent
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/decodeURIComponent):
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent):
     Decodes the fragment
 
 -   isNaN (
-    <https://developer.mozilla.org/en/docs/Web/>JavaScript/Reference/Global\_Objects/  
+    <https://developer.mozilla.org/en/docs/Web/>JavaScript/Reference/Global_Objects/  
     isNaN): Determines whether a value is a number or not
 
 -   [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/JSON):
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON):
     Parsing (parse()) and serializing (stringify()) of JSON data
 
 -   [parseFloat](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)
     (
-    https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global\_Objects/parseFloat):
+    https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/parseFloat):
     Converts a string to a floating number
 
 -   [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/parseInt):
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt):
     Converts a string to a number
 
 -   [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Intl):
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl):
     Language-specific string comparison methods
 
 -   Error
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Error):
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error):
     An error object that you can use to instantiate your own error
     objects; for example, throw new Error('This book rocks!')
 
 -   [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Date): Various methods to work with dates
+    (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date): Various methods to work with dates
 
 ### Conventions
 
@@ -646,7 +646,7 @@ function Sum(a,b) {
 console.log(Sum(1, 2))
 ```
 
-Functions in JavaScript are first-class citizens (http://en.wikipedia.org/wiki/First-class\_function) due to the functional programming (http://en.wikipedia.org/wiki/Functional\_programming) nature of the language. Therefore, functions can be used as other variables or objects; for example, functions can be passed to other functions as arguments:
+Functions in JavaScript are first-class citizens (http://en.wikipedia.org/wiki/First-class_function) due to the functional programming (http://en.wikipedia.org/wiki/Functional_programming) nature of the language. Therefore, functions can be used as other variables or objects; for example, functions can be passed to other functions as arguments:
 
 ```js
 var f = function (str1){
@@ -667,7 +667,7 @@ It's good to know that there are several ways to instantiate an object in JS:
     (http://javascript.info/tutorial/pseudo-classical-pattern) pattern
 -   Functional inheritance pattern
 
-For further reading on inheritance patterns, check out Inheritance Patterns in JavaScript (http://bolinfest.com/javascript/inheritance.php) and Inheritance revisited (https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Inheritance\_Revisited).
+For further reading on inheritance patterns, check out Inheritance Patterns in JavaScript (http://bolinfest.com/javascript/inheritance.php) and Inheritance revisited (https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Inheritance_Revisited).
 
 More information about browser-run JavaScript is available at Mozilla Developer Network (https://developer.mozilla.org/en-US/docs/JavaScript/Reference), Wikipedia (http://en.wikipedia.org/wiki/JavaScript), and w3schools (http://www.w3schools.com/js/default.asp).
 
@@ -754,7 +754,7 @@ In those cases where you still need your own custom server code, Node.js is the 
 Node.js
 -------
 
-Node.js is an open source, event-driven asynchronous I/O technology for building scalable and efficient web servers. Node.js consists of Google’s V8 JavaScript engine (http://en.wikipedia.org/wiki/V8\_(JavaScript\_engine)). It was maintained by cloud company Joyent (http://joyent.com), but moved to the Technical Steering Committee governance.
+Node.js is an open source, event-driven asynchronous I/O technology for building scalable and efficient web servers. Node.js consists of Google’s V8 JavaScript engine (http://en.wikipedia.org/wiki/V8_(JavaScript_engine)). It was maintained by cloud company Joyent (http://joyent.com), but moved to the Technical Steering Committee governance.
 
 The purpose and use of Node.js is similar to Twisted (<http://twistedmatrix.com/trac>) for Python and EventMachine (<http://rubyeventmachine.com>) for Ruby. The JavaScript implementation of Node was the third one after attempts at using Ruby and C++ programming languages languages.
 
@@ -849,12 +849,12 @@ Table 1-1 is an example of a simple Create, Read, Update and Delete (CRUD) RESTf
 
 REST is not a protocol; it is an architecture in the sense that it's more flexible than SOAP, which is a protocol. Therefore, REST API URLs could look like /messages/list.html or /messages/list.xml in case we want to support these formats.
 
-PUT and DELETE are idempotent methods (http://en.wikipedia.org/wiki/Hypertext\_Transfer\_Protocol\#Idempotent\_methods\_and\_web\_applications),
+PUT and DELETE are idempotent methods (http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol\#Idempotent_methods_and_web_applications),
 which means that if the server receives two or more similar requests, the end result will be the same.
 
 GET is nullipotent and POST is not idempotent and might affect state and cause side effects.
 
-Further reading on REST API can be found at Wikipedia (http://en.wikipedia. org/wiki/Representational\_state\_transfer) and A Brief Introduction to REST article(http://www.infoq.com/articles/rest-introduction).
+Further reading on REST API can be found at Wikipedia (http://en.wikipedia. org/wiki/Representational_state_transfer) and A Brief Introduction to REST article(http://www.infoq.com/articles/rest-introduction).
 
 Summary
 =======

@@ -78,10 +78,10 @@ cheatsheet (<https://gum.co/mongodb/git-874e6fb4>):
 -   `> show collections`: show collections in the selected database
 
 -   `> db.COLLECTION_NAME.find()`: perform the find query on
-    collection with the COLLECTION\_NAME name to find any items
+    collection with the COLLECTION_NAME name to find any items
 
 -   `> db.COLLECTION_NAME.find({"_id": ObjectId("549d9a3081d0f07866fdaac6")})`:
-    perform the find query on collection with the COLLECTION\_NAME name
+    perform the find query on collection with the COLLECTION_NAME name
     to find item with ID 549d9a3081d0f07866fdaac6
 
 -   `> db.COLLECTION_NAME.find({"email": /gmail/})`: perform the
@@ -89,15 +89,15 @@ cheatsheet (<https://gum.co/mongodb/git-874e6fb4>):
     items with e-mail property matching `/gmail/` regular expression, e.g., bob@gmail.com or john@gmail.in 
 
 -   `> db.COLLECTION_NAME.update(QUERY_OBJECT, SET_OBJECT)`: perform
-    the update query on collection with the COLLECTION\_NAME name to
-    update items that match QUERY\_OBJECT with SET\_OBJECT
+    the update query on collection with the COLLECTION_NAME name to
+    update items that match QUERY_OBJECT with SET_OBJECT
 
 -   `> db.COLLECTION_NAME.remove(QUERY_OBJECT)`: perform remove
-    query for items matching QUERY\_OBJECT criteria on the
-    COLLECTION\_NAME collection
+    query for items matching QUERY_OBJECT criteria on the
+    COLLECTION_NAME collection
 
 -   `> db.COLLECTION_NAME.insert(OBJECT)`: add OBJECT to the
-    collection with the COLLECTION\_NAME name
+    collection with the COLLECTION_NAME name
 
 So starting from a fresh shell session, you can execute these commands
 to create a document, change it, and remove:
@@ -121,7 +121,7 @@ You can download the MongoDB and Mongoose cheatsheet as a
 [PDF](https://gum.co/mongodb/fsjs-CB07C579)
 (https://gumroad.com/l/mongodb/fsjs-CB07C579\#) or view it
 [online](https://github.com/azat-co/cheatsheets/tree/master/mongodb-mongoose)
-at https://github.com/mongodb/node-mongodb-native/\#data-types.
+at https://github.com/mongodb/node-mongodb-native/#data-types.
 
 A full overview of the MongoDB interactive shell is available at
 mongodb.org: [Overview – The MongoDB Interactive
@@ -142,10 +142,10 @@ proper case). Otherwise you'll get an error. More on the types:
 (http://www.mongodb.org/ display/DOCS/Object+IDs) vs [Data Types in
 MongoDB Native Node.js
 Drier](https://github.com/mongodb/node-mongodb-native/#data-types)
-(https://github.com/mongodb/node-mongodb-native/\#data-types ). Example
-of Node.js code with mongodb.ObjectID() : collection.findOne({\_id: new
+(https://github.com/mongodb/node-mongodb-native/#data-types ). Example
+of Node.js code with mongodb.ObjectID() : collection.findOne({_id: new
 ObjectID(idString)}, console.log) // ok . On the other hand, in the
-MongoDB shell, we employ: db.messages.findOne({\_id:ObjectId(idStr)}); .
+MongoDB shell, we employ: db.messages.findOne({_id:ObjectId(idStr)}); .
 
 MongoDB Native Driver
 =====================
@@ -255,7 +255,7 @@ db.open(function(error, connection){
 ```
 
 This code snippet is available at
-<https://github.com/mongodb/node-mongodb-native/\#data-types>. If we run
+<https://github.com/mongodb/node-mongodb-native/#data-types>. If we run
 it, it should output "connected" in the terminal. When you're in doubt
 and need to check the properties of an object, there is a useful method
 in the `util` module:
