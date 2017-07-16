@@ -238,8 +238,8 @@ db.open(function(error, connection) {
 ```
 
 To check that we have the connection, we need to handle `error`. Also,
-let's get the admin object with `db.admin``(``)` and fetch the list of
-databases with `listDatabases``()`:
+let's get the admin object with `db.admin()` and fetch the list of
+databases with `listDatabases()`:
 
 ```
 var db=new Db ('test', new Server(host, port, {}))
@@ -513,7 +513,7 @@ endpoints/routes. We need to fetch the documents on GET
             })
 ```
 
-On the POST `/messages/``create.json`, we inserting the document:
+On the POST `/messages/create.json`, we inserting the document:
 
 ```
         } else if (request.method === 'POST' && request.url === '/messages/create.json') {  
@@ -554,7 +554,7 @@ To test via CURL terminal commands run:
 Or open your browser at the http://locahost:1337/messages/list.json
 location.
 
-It should give you an empty array: `[]``,` which is fine. Then POST a
+It should give you an empty array: `[]`, which is fine. Then POST a
 new message:
 
 `$ curl  -d "username=BOB&message=test" http://localhost:5000/messages/create.json`
