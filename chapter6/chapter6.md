@@ -304,8 +304,8 @@ book.
 
 Heroku will need `package.json` to run NPM on the server.
 
-For more information on NPM, take a look at the article “[Tour of
-NPM](http://tobyho.com/2012/02/09/tour-of-npm/)”
+For more information on NPM, take a look at the article "[Tour of
+NPM](http://tobyho.com/2012/02/09/tour-of-npm/)"
 (http://tobyho.com/2012/02/09/tour-of-npm)
 
 Deploying "Hello World" to PaaS

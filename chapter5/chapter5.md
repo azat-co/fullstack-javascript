@@ -19,7 +19,7 @@ way to organize your logic into a Model-View-Controller (MVC) type of
 structure. It also has nice features like URL routing, REST API support,
 event listeners, and triggers. For more information and step-by-step
 examples of building Backbone.js applications from scratch, please refer
-to the chapter “Intro to Backbone.js.”
+to the chapter "Intro to Backbone.js."
 
 Message Board with Parse.com: JavaScript SDK and Backbone.js Version
 ====================================================================
@@ -130,7 +130,7 @@ And here's our JS application inclusion:
       </head>
 
 Populate the `<body>` element with Twitter Bootstrap scaffolding (more
-about it in the “Basics” chapter):
+about it in the "Basics" chapter):
 
       <body>
       <div class="container-fluid">
@@ -642,7 +642,7 @@ Taking Message Board Further
 Once you are comfortable that your front-end application works well
 locally, with or without a local HTTP server like MAMP or XAMPP, deploy
 it to Windows Azure or Heroku. In-depth deployment instructions are
-described in the “jQuery and Parse.com” chapter.
+described in the "jQuery and Parse.com" chapter.
 
 In the last two examples, Message Board had very basic functionality.
 You could enhance the application by adding more features.

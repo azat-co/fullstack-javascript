@@ -508,7 +508,7 @@ without the Internet.
 
 ### LESS App
 
-The LESS App is a Mac OS X application for “on-the-fly” compilation of
+The LESS App is a Mac OS X application for "on-the-fly" compilation of
 LESS to CSS. It's available at
 [incident57.com/less](http://incident57.com/less/) (Figure 2-15).
 
