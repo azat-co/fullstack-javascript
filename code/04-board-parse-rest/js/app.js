@@ -1,19 +1,20 @@
-var parseAppID = 'your-parse-app-id'
-var parseRestKey = 'your-rest-api-key'
+// const parseAppID = 'your-parse-app-id'
+// const parseRestKey = 'your-rest-api-key'
 
 // Azat's app, change these values to your own keys
-parseAppID = 'Zc36GIp6WyzKIB9HvqRBEGnIeMO0X21rDbVwGPvp'
-parseRestKey = '1LKZVd4KG6PFpldvCha5RDY8Z5EZeJhy2Bl4vgJ3'
+const parseAppID = 'APPLICATION_ID'
+const parseRestKey = 'MASTER_KEY'
+const apiBase = `http://localhost:1337/parse`
 
 $(document).ready(function(){
 	getMessages()
 	$('#send').click(function(){
-		var $sendButton = $(this)
+		const $sendButton = $(this)
 		$sendButton.html('<img src="img/spinner.gif" width="20"/>')
-		var username = $('input[name=username]').val()
-		var message = $('input[name=message]').val()
+		const username = $('input[name=username]').val()
+		const message = $('input[name=message]').val()
 		$.ajax({
-			url: ' https://api.parse.com/1/classes/MessageBoard',
+			url: `${apiBase}/classes/MessageBoard`,
 			headers: {
 				'X-Parse-Application-Id': parseAppID,
 				'X-Parse-REST-API-Key': parseRestKey
@@ -36,12 +37,12 @@ $(document).ready(function(){
 				$sendButton.html('SEND')
 			}
 		})
-
 	})
 })
+
 function getMessages() {
 	$.ajax({
-		url: ' https://api.parse.com/1/classes/MessageBoard?limit=1000',
+		url: `${apiBase}/classes/MessageBoard?limit=1000`,
 		headers: {
 			'X-Parse-Application-Id': parseAppID,
 			'X-Parse-REST-API-Key': parseRestKey
@@ -49,11 +50,11 @@ function getMessages() {
 		contentType: 'application/json',
 		dataType: 'json',
 		type: 'GET',
-		success: function(data) {
+		success: (data) => {
 			console.log('get')
 			updateView(data)
 		},
-		error: function() {
+		error: () => {
 			console.log('error')
 		}
 	})
@@ -61,16 +62,15 @@ function getMessages() {
 
 function updateView(messages) {
 	// messages.results = messages.results.reverse()
-	var table = $('.table tbody')
+	const table = $('.table tbody')
 	table.html('')
-	$.each(messages.results, function (index, value) {
-		var trEl = ('<tr><td>'
-		  + value.username
-			+ '</td><td>'
-			+ value.message
-			+ '</td></tr>')
+	$.each(messages.results, (index, value) => {
+		const trEl = (`<tr><td>
+		  ${value.username}
+			</td><td>
+			${value.message}
+			</td></tr>`)
 		table.append(trEl)
 	})
-
 	console.log(messages)
 }
