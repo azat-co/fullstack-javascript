@@ -152,9 +152,12 @@ with it.
 Here is the list of the most popular text editors and IDEs used in web
 development:
 
--   [*TextMate*](http://macromates.com) (<http://macromates.com>): Mac OS X version only, free
-    30-day trial for v1.5, dubbed The Missing Editor for Mac OS X.
-
+-   [*MS Visual
+    Studio*](https://www.visualstudio.com/features/node-js-vs)
+    (<https://www.visualstudio.com/features/node-js-vs>): Node.js tools
+    for the famous Visual Studio environment from a small
+    Redmond, Washington-based software startup company.
+- [*Atom*](https://atom.io) (https://atom.io): A web editor built on web technologies from the creators of GitHub the world's largest code storage and collaboration space.
 -   [*Sublime Text*](http://www.sublimetext.com)
     (<http://www.sublimetext.com>): Mac OS X and Windows versions
     are available. This is an even better alternative to TextMate, with
@@ -168,20 +171,13 @@ development:
 -   [*Aptana Studio*](http://aptana.com) (<http://aptana.com>):
     Full-sized IDE with a built-in terminal and many other tools.
 
--   [*Notepad ++*](http://notepad-plus-plus.org)
-    (<http://notepad-plus-plus.org>): Free Windows-only lightweight text
-    editor with the support of many languages.
-
 -   [*WebStorm IDE*](http://www.jetbrains.com/webstorm)
     (<http://www.jetbrains.com/webstorm>): Feature- rich IDE that allows
     for Node.js debugging. It is developed by JetBrains and marketed as
     the smartest JavaScript IDE (Figure  2-6 ).
 
-    [*MS Visual
-    Studio*](https://www.visualstudio.com/features/node-js-vs)
-    (<https://www.visualstudio.com/features/node-js-vs>): Node.js tools
-    for the famous Visual Studio environment from a small
-    Redmond company.
+
+Please, please, please don't use TextEdit or Notepad++! Having code coloring and parenthesis matching will make a great difference when typing and debugging.
 
 ![alt](media/image5.png)
 
@@ -272,11 +268,11 @@ with Node.js; instructions are later in this chapter):
 
 -   [*node-static*](https://github.com/cloudhead/node-static) (
     <https://github.com/cloudhead/node-static>): Static file server with
-    built-in caching.
+    built-in caching. Run `npm i -g node-static` to install.
 
 -   [*http-server*](https://www.npmjs.com/package/http-server)
     (<https://www.npmjs.com/package/http-server>): Zero-configuration
-    command-line HTTP server.
+    command-line HTTP server. Run `npm i -g htt-server` to install.
 
 If you prefer something with GUIs to a command-line interface (CLI), you
 might want to consider the following modifications of the Apache web
@@ -427,11 +423,10 @@ Other Components
 These are required technologies. Please make sure you have them before
 proceeding to the next chapter.
 
-1.  *Node.js:* We need it for build tools and back-end apps.
-
+1.  *Node.js:* We need it for build tools and back-end apps. Get version which has LTS even if the number is lower because LTS is the version which will be supported longer. <https://nodejs.org>
 2.  *Browser JS libraries:* We need them for front-end apps.
-
 3.  *LESS app:* We need it to compile LESS into CSS (Mac OS X only).
+4.  *Compass*: A desktop client GUI app for working with MongoDB as a replacement of the Mongo shell/REPL. <https://www.mongodb.com/products/compass>
 
 ### Node.js Installation
 
@@ -442,13 +437,13 @@ execute:
 
 `$ node -v`
 
-I use v5.1.0 for this book and tested all examples with v5.1.0. If you
+I use v8.11.1 for this book and tested all examples with v8.11.1. If you
 use another version, do so at your own risk. I cannot guarantee that the
 examples will run.
 
-Assuming you have 5.1.0, it should show something similar to this:
+Assuming you have 8.11.1, it should show something similar to this:
 
-`v5.1.0`
+`v8.11.1`
 
 If you want to switch between multiple versions of Node.js, there are
 solutions for that:
