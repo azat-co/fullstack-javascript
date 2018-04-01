@@ -1,16 +1,16 @@
-var http = require('http')
-var util = require('util')
-var querystring = require('querystring')
-var client = require('mongodb').MongoClient
+const http = require('http')
+const util = require('util')
+const querystring = require('querystring')
+const client = require('mongodb').MongoClient
 
-var uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'
+const uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'
 //MONGOLAB_URI=mongodb://user:pass@server.mongohq.com:port/db_name
 
 client.connect(uri, function(error, db) {
   if (error) return console.error(error)
-  var collection = db.collection('messages')
-  var app = http.createServer(function (request, response) {
-    var origin = (request.headers.origin || '*')
+  const collection = db.collection('messages')
+  const app = http.createServer(function (request, response) {
+    const origin = (request.headers.origin || '*')
     if (request.method == 'OPTIONS') {
       response.writeHead('204', 'No Content', {
         'Access-Control-Allow-Origin': origin,
@@ -21,10 +21,10 @@ client.connect(uri, function(error, db) {
         'Content-Length': 0
       })
       response.end()
-    } else if (request.method === 'GET' && request.url === '/messages/list.json') {
+    } else if (request.method === 'GET' && request.url === '/messages.json') {
       collection.find().toArray(function(error,results) {
         if (error) return console.error(error)
-        var body = JSON.stringify(results)
+        const body = JSON.stringify(results)
         response.writeHead(200,{
           'Access-Control-Allow-Origin': origin,
           'Content-Type':'text/plain',
@@ -34,7 +34,7 @@ client.connect(uri, function(error, db) {
         console.dir(results)
         response.end(body)
       })
-    } else if (request.method === 'POST' && request.url === '/messages/create.json') {
+    } else if (request.method === 'POST' && request.url === '/messages.json') {
       request.on('data', function(data) {
         console.log('RECEIVED DATA:')
         console.log(data.toString('utf-8'))
@@ -43,7 +43,7 @@ client.connect(uri, function(error, db) {
           if (error) return console.error(error)
           console.log('OBJECT IS SAVED: ')
           console.log(JSON.stringify(obj))
-          var body = JSON.stringify(obj)
+          const body = JSON.stringify(obj)
           response.writeHead(200,{
             'Access-Control-Allow-Origin': origin,
             'Content-Type':'text/plain',
@@ -53,9 +53,9 @@ client.connect(uri, function(error, db) {
         })
       })
     } else {
-    	response.end('Supported endpoints: \n/messages/list.json\n/messages/create.json')
+    	response.end('Supported endpoints: \n/messages.json\n/messages.json')
     }
   })
-  var port = process.env.PORT || 1337
+  const port = process.env.PORT || 1337
   app.listen(port)
 })

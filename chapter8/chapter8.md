@@ -47,7 +47,7 @@ Back-end applications are usually deployed at the `http://app.` or
 One way to make a different domain deployment work is to overcome the
 same-domain limitation of AJAX technology with JSONP:
 
-    var request = $.ajax({
+    const request = $.ajax({
       url: url,
       dataType: 'jsonp',
       data: {...},
@@ -93,7 +93,7 @@ The OPTIONS request can be dealt with in the following manner:
           "Content-Length": 0
         })
         response.end();
-      };
+      }
       ...
 
 Message Board UI
@@ -116,8 +116,8 @@ In the beginning of the `app.js` file, uncomment the first line for
 running locally, or replace the URL values with your Heroku or Windows
 Azure back-end application public URLs:
 
-    // var URL = 'http://localhost:1337/'
-    var URL ='http://your-app-name.herokuapp.com/'
+    // const URL = 'http://localhost:1337/'
+    const URL ='http://your-app-name.herokuapp.com/'
 
 Most of the code in `app.js` and the folder structure remained intact
 from the `06-board-backbone-parse-sdk` project, with the exception of
@@ -144,11 +144,11 @@ Backbone.js looks up for REST API URLs corresponding to the specific
 collection and model:
 
         Message = Backbone.Model.extend({
-            url: URL + 'messages/create.json'
+            url: URL + 'messages.json'
         })
         MessageBoard = Backbone.Collection.extend ({
             model: Message,
-            url: URL + 'messages/list.json'
+            url: URL + 'messages.json'
         })
 
 Next is the `HomeView` where most of the logic resides. I made a few
@@ -169,7 +169,7 @@ can use `this` later by the name inside of the closures (otherwise,
 `this` can mutate inside of the closures):
 
             initialize: function() {
-                var homeView = this
+                const homeView = this
 
 Then, I attached an event listener `refresh` that will do the rendering.
 Prior to that we had the `all` event, which wasn't very good, because it
@@ -227,9 +227,9 @@ collection with `collection.add()`. This will call the event listener
 `add``,` which we implemented in the `initialize`.
 
             saveMessage: function(){
-                var newMessageForm = $('#new-message')
-                var username = newMessageForm.find('[name="username"]').val()
-                var message = newMessageForm.find('[name="message"]').val()
+                const newMessageForm = $('#new-message')
+                const username = newMessageForm.find('[name="username"]').val()
+                const message = newMessageForm.find('[name="message"]').val()
                 this.collection.add({
                     'username': username,
                     'message': message
@@ -251,12 +251,12 @@ content (`this.el`):
     })
 
 Here is the full source code of the
-[13-board-ui/app.js](https://github.com/azat-co/fullstack-javascript/blob/master/13-board-ui/app.js)
+[08-board-ui/app.js](https://github.com/azat-co/fullstack-javascript/blob/master/code/08-board-ui/app.js)
 file
-(https://github.com/azat-co/fullstack-javascript/blob/master/13-board-ui/app.js):
+(https://github.com/azat-co/fullstack-javascript/blob/master/code/08-board-ui/app.js):
 
-    var URL = 'http://localhost:1337/'
-    // var URL ='http://your-app-name.herokuapp.com/'
+    const URL = 'http://localhost:1337/'
+    // const URL ='http://your-app-name.herokuapp.com/'
 
     require([
         'libs/text!header.html',
@@ -267,7 +267,7 @@ file
             homeTpl,
             footerTpl) {
 
-        var ApplicationRouter = Backbone.Router.extend({
+        const ApplicationRouter = Backbone.Router.extend({
             routes: {
                 '': 'home',
                 '*actions': 'home'
@@ -284,7 +284,7 @@ file
             }
         })
 
-        HeaderView = Backbone.View.extend({
+        const HeaderView = Backbone.View.extend({
             el: '#header',
             templateFileName: 'header.html',
             template: headerTpl,
@@ -295,22 +295,22 @@ file
             }
         })
 
-        FooterView = Backbone.View.extend({
+        const FooterView = Backbone.View.extend({
             el: '#footer',
             template: footerTpl,
             render: function() {
                 this.$el.html(_.template(this.template))
             }
         })
-        Message = Backbone.Model.extend({
-            url: URL + 'messages/create.json'
+        const Message = Backbone.Model.extend({
+            url: URL + 'messages.json'
         })
-        MessageBoard = Backbone.Collection.extend ({
+        const MessageBoard = Backbone.Collection.extend ({
             model: Message,
-            url: URL + 'messages/list.json'
+            url: URL + 'messages.json'
         })
 
-        HomeView = Backbone.View.extend({
+        const HomeView = Backbone.View.extend({
             el: '#content',
             template: homeTpl,
             events: {
@@ -334,9 +334,9 @@ file
                 })
             },
             saveMessage: function(){
-                var newMessageForm=$('#new-message')
-                var username=newMessageForm.find('[name="username"]').val()
-                var message=newMessageForm.find('[name="message"]').val()
+                const newMessageForm=$('#new-message')
+                const username=newMessageForm.find('[name="username"]').val()
+                const message=newMessageForm.find('[name="message"]').val()
                 this.collection.add({
                     'username': username,
                     'message': message
@@ -348,12 +348,12 @@ file
             }
         })
 
-        app = new ApplicationRouter()
+        window.app = new ApplicationRouter()
         Backbone.history.start()
     })
 
 This is it. For your reference, the front-end app source code is at
-[https://github.com/azat-co/fullstack-javascript/tree/master/code/13-board-u](https://github.com/azat-co/fullstack-javascript/tree/master/code/13-board-ui)
+[https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-u](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-ui)
 in the GitHub folder. I won't list it here because we had only a few
 changes comparing with the Parse SDK project. The next piece of the
 puzzle is the back end.
@@ -366,10 +366,10 @@ through the implementation and demonstrates the project:
 http://bit.ly/1QnsvEb.
 
 The back-end Node.js application source code is at
-<https://github.com/azat-co/fullstack-javascript/tree/master/code/14-board-api>
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-api>
 in the GitHub folder, which has this structure:
 
-    /14-board-api
+    /08-board-api
         -web.js
         -Procfile
         -package.json
@@ -377,18 +377,18 @@ in the GitHub folder, which has this structure:
 The Procfile is for the Heroku deployment, and the `package.json` is for
 project metadata as well as for Hekoru deployment.
 
-The `web.js` file is very similar to the `12-board-api-mongo,` but has
+The `web.js` file is very similar to the `08-board-api-mongo,` but has
 CORS headers and OPTIONS request handler code. The file starts with
 importation of dependencies:
 
-    var http = require('http')
-    var util = require('util')
-    var querystring = require('querystring')
-    var client = require('mongodb').MongoClient
+    const http = require('http')
+    const util = require('util')
+    const querystring = require('querystring')
+    const client = require('mongodb').MongoClient
 
 Then we set the MongoDB connection string:
 
-    var uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'
+    const uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'
     //MONGOLAB_URI=mongodb://user:pass@server.mongohq.com:port/db_name
 
 We connect to the database using the string and `client.connect` method.
@@ -402,15 +402,15 @@ After we are sure that there were no errors (otherwise the execution
 flow won't come to the next line), we select the collection, which is
 `messages` in this case:
 
-      var collection = db.collection('messages')
+      const collection = db.collection('messages')
 
 The server code follows. We create the server instance and set up the
 origin variable based on the information from the request. This value
 will be in the `Access-Control-Allow-Origin`. The idea is that the
 response will have the value of the client's URL:
 
-      var app = http.createServer(function (request, response) {
-        var origin = (request.headers.origin || '*')
+      const app = http.createServer(function (request, response) {
+        const origin = (request.headers.origin || '*')
 
 Check for the HTTP method verb. If it's `OPTIONS`, which we must
 implement for CORS, we start writing headers to the response object:
@@ -432,10 +432,10 @@ The next header will tell what methods are supported:
 We are done with `OPTIONS`, but we still need to implement `GET` and
 `POST`:
 
-        } else if (request.method === 'GET' && request.url === '/messages/list.json') {
+        } else if (request.method === 'GET' && request.url === '/messages.json') {
           collection.find().toArray(function(error,results) {
             if (error) return console.error(error)
-            var body = JSON.stringify(results)
+            const body = JSON.stringify(results)
 
 We need to add a few headers to the response of the `GET`:
 
@@ -451,7 +451,7 @@ We need to add a few headers to the response of the `GET`:
 
 Last but not least, we process `POST`:
 
-        } else if (request.method === 'POST' && request.url === '/messages/create.json') {
+        } else if (request.method === 'POST' && request.url === '/messages.json') {
           request.on('data', function(data) {
             console.log('RECEIVED DATA:')
             console.log(data.toString('utf-8'))
@@ -466,7 +466,7 @@ to use the same format on the browser and server:
               if (error) return console.error(error)
               console.log('OBJECT IS SAVED: ')
               console.log(JSON.stringify(obj))
-              var body = JSON.stringify(obj)
+              const body = JSON.stringify(obj)
 
 We add the headers again. Maybe we should write a function and call it
 instead of writing the headers manually. Wait? Express.js is actually
@@ -483,26 +483,26 @@ book](http://proexpressjs.com):
           })
         }
       })
-      var port = process.env.PORT || 1337
+      const port = process.env.PORT || 1337
       app.listen(port)
     })
 
 Here is a source code of `web.js`, our Node.js application implemented
 with CORS headers:
 
-    var http = require('http')
-    var util = require('util')
-    var querystring = require('querystring')
-    var client = require('mongodb').MongoClient
+    const http = require('http')
+    const util = require('util')
+    const querystring = require('querystring')
+    const client = require('mongodb').MongoClient
 
-    var uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'
+    const uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'
     //MONGOLAB_URI = mongodb://user:pass@server.mongohq.com:port/db_name
 
     client.connect(uri, function(error, db) {
       if (error) return console.error(error)
-      var collection = db.collection('messages')
-      var app = http.createServer(function (request, response) {
-        var origin = (request.headers.origin || '*')
+      const collection = db.collection('messages')
+      const app = http.createServer(function (request, response) {
+        const origin = (request.headers.origin || '*')
         if (request.method == 'OPTIONS') {
           response.writeHead('204', 'No Content', {
             'Access-Control-Allow-Origin': origin,
@@ -513,10 +513,10 @@ with CORS headers:
             'Content-Length': 0
           })
           response.end()
-        } else if (request.method === 'GET' && request.url === '/messages/list.json') {
+        } else if (request.method === 'GET' && request.url === '/messages.json') {
           collection.find().toArray(function(error,results) {
             if (error) return console.error(error)
-            var body = JSON.stringify(results)
+            const body = JSON.stringify(results)
             response.writeHead(200,{
               'Access-Control-Allow-Origin': origin,
               'Content-Type': 'text/plain',
@@ -526,7 +526,7 @@ with CORS headers:
             console.dir(results)
             response.end(body)
           })
-        } else if (request.method === 'POST' && request.url === '/messages/create.json') {
+        } else if (request.method === 'POST' && request.url === '/messages.json') {
           request.on('data', function(data) {
             console.log('RECEIVED DATA:')
             console.log(data.toString('utf-8'))
@@ -535,7 +535,7 @@ with CORS headers:
               if (error) return console.error(error)
               console.log('OBJECT IS SAVED: ')
               console.log(JSON.stringify(obj))
-              var body = JSON.stringify(obj)
+              const body = JSON.stringify(obj)
               response.writeHead(200,{
                 'Access-Control-Allow-Origin': origin,
                 'Content-Type': 'text/plain',
@@ -546,7 +546,7 @@ with CORS headers:
           })
         }
       })
-      var port = process.env.PORT || 1337
+      const port = process.env.PORT || 1337
       app.listen(port)
     })
 
@@ -558,13 +558,13 @@ you through the implementation and demonstrates the project:
 http://bit.ly/1QnsvEb.
 
 For your convenience, we have the front-end app at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/13-board-ui
+https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-ui
 and the back-end app with CORS is located at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/14-board-api.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-api.
 By now, you probably know what to do, but as a reference, below are the
 steps to deploy these examples to Heroku.
 
-We'll start with the API. In the `14-board-api` folder, execute the
+We'll start with the API. In the `08-board-api` folder, execute the
 following code (`$ heroku login` is optional):
 
     $ git init
@@ -578,8 +578,8 @@ following code (`$ heroku login` is optional):
 Watch the terminal messages. If the API is successfully deployed, you
 can test it with CURL or Postman. Then copy the URL from Heroku (e.g.,
 https://guarded-waters-1780.herokuapp.com), and paste it into the
-`13-board-ui/app.js` file, assigning the value to the URL variable.
-Then, in the `13-board-ui` folder, execute:
+`08-board-ui/app.js` file, assigning the value to the URL variable.
+Then, in the `08-board-ui` folder, execute:
 
     $ git init
     $ git add .
@@ -612,7 +612,7 @@ apps.
 
 The idea is that API serves static files for the browser app as well,
 not just handling dynamic requests to its routes. So you can copy the
-14-board-api code into a new folder 15-board-web. The beginning of the
+08-board-api code into a new folder 15-board-web. The beginning of the
 new server file is the same; we have GET and POST logic (this time CORS
 is not needed). The last condition in the chain of `if/else` needs to
 process the static files. Here's how we can do it.
@@ -627,7 +627,7 @@ the URL. The path name is everything after the domain; for example, in
 <http://webapplog.com/es6> the path name is `/es6`. This will be our
 folder and file names.
 
-          var uri = url.parse(request.url).pathname
+          const uri = url.parse(request.url).pathname
 
 It's good to have some logging to know that our system is working as it
 should:
@@ -680,7 +680,7 @@ so this code will serve the files!
 Finally, we read the file. We use the synchronous function again for the
 reasons mentioned above.
 
-            var file = fs.readFileSync(filename)
+            const file = fs.readFileSync(filename)
             if (!file) {
               response.writeHead(500,
                 {'Content-Type': 'text/plain'})
@@ -693,8 +693,8 @@ to determine the right content type for the response header. Most
 browsers will understand the content type okay if you omit the
 `Content-Type` header, but why not go an extra mile?
 
-            var extname = path.extname(filename)
-            var contentType = 'text/html'
+            const extname = path.extname(filename)
+            const contentType = 'text/html'
             switch (extname) {
                 case '.js':
                     contentType = 'text/javascript'
@@ -783,7 +783,8 @@ you should see something like this (your results may vary):
 You probably know this, but just in case, to check installations, type
 the following:
 
-    $ node –V$ npm –v
+    $ node –V
+    $ npm –v
 
 If the yum Node installation fails, see if you have EPEL (just see if
 the command below says `epel`):
@@ -854,7 +855,7 @@ the process running but also to scale it; it even has load balancing.
 
 To install pm2:
 
-    $ npm install pm2 -g
+    $ npm i -g pm2
 
 To start your application:
 

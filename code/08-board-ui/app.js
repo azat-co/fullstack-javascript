@@ -1,5 +1,5 @@
-var URL = 'http://localhost:1337/'
-// var URL ='http://your-app-name.herokuapp.com/'
+const URL = 'http://localhost:1337/'
+// const URL ='http://your-app-name.herokuapp.com/'
 
 require([
 	'libs/text!header.html',
@@ -10,7 +10,7 @@ require([
 		homeTpl,
 		footerTpl) {
 
-	var ApplicationRouter = Backbone.Router.extend({
+	const ApplicationRouter = Backbone.Router.extend({
 		routes: {
 			'': 'home',
 			'*actions': 'home'
@@ -27,7 +27,7 @@ require([
 		}
 	})
 
-	HeaderView = Backbone.View.extend({
+	const HeaderView = Backbone.View.extend({
 		el: '#header',
 		templateFileName: 'header.html',
 		template: headerTpl,
@@ -38,22 +38,22 @@ require([
 		}
 	})
 
-	FooterView = Backbone.View.extend({
+	const FooterView = Backbone.View.extend({
 		el: '#footer',
 		template: footerTpl,
 		render: function() {
 			this.$el.html(_.template(this.template))
 		}
 	})
-	Message = Backbone.Model.extend({
-		url: URL + 'messages/create.json'
+	const Message = Backbone.Model.extend({
+		url: URL + 'messages.json'
 	})
-	MessageBoard = Backbone.Collection.extend ({
+	const MessageBoard = Backbone.Collection.extend ({
 		model: Message,
-		url: URL + 'messages/list.json'
+		url: URL + 'messages.json'
 	})
 
-	HomeView = Backbone.View.extend({
+	const HomeView = Backbone.View.extend({
 		el: '#content',
 		template: homeTpl,
 		events: {
@@ -61,7 +61,7 @@ require([
 		},
 
 		initialize: function() {
-			var homeView = this
+			const homeView = this
 			homeView.collection = new MessageBoard()
 			homeView.collection.bind('refresh', homeView.render, homeView)
 			homeView.collection.fetch({
@@ -87,9 +87,9 @@ require([
 			})
 		},
 		saveMessage: function(){
-			var newMessageForm = $('#new-message')
-			var username = newMessageForm.find('[name="username"]').val()
-			var message = newMessageForm.find('[name="message"]').val()
+			const newMessageForm = $('#new-message')
+			const username = newMessageForm.find('[name="username"]').val()
+			const message = newMessageForm.find('[name="message"]').val()
 			this.collection.add({
 				'username': username,
 				'message': message
@@ -101,6 +101,6 @@ require([
 		}
 	})
 
-	app = new ApplicationRouter()
+	window.app = new ApplicationRouter()
 	Backbone.history.start()
 })
