@@ -67,7 +67,7 @@ and web include data transfer limitation due to carrier bandwidth,
 smaller screens, and the more efficient use of local storage. Most
 likely you, my reader, are a web developer aspiring to use your web
 chops in mobile. With JavaScript and HTML5 it's possible, so it's worth
-covering web development closer.
+covering mobile development closer.
 
 Mobile Development
 ------------------
@@ -105,7 +105,7 @@ approach doesn't require a different code base. A minimal viable product
 (MVP) can be built across multiple platforms by sharing a lot of the code. I recommend React Native. Check out [my book](https://amzn.to/2H2Rhbk) and [course](https://node.university/p/react-native-quickly) React Native Quickly to get started with mobile development using the abstracted approach. 
 
 The fourth approach is more powerful and provides more scalable (in a
-development sence) UIs. This is better suited for complex apps. Code
+development sense) UIs. This is better suited for complex apps. Code
 reuse between cross-platform mobile and web is easy because most of the
 times you're writing in JavaScript.
 
