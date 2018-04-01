@@ -632,22 +632,33 @@ the main Message Board application covered in later chapters. The goal
 is to just illustrate the combination of jQuery, JSONP, and REST API
 technologies.
 
+
+The idea of this weather application is to show you an input field for
+the city name and buttons for metric and imperial systems. The first page of the Weather application has the input field for the city name and two buttons for metric and imperial forecasts (Figure 3-1).
+
+![alt](media/weather-1.png)
+
+***Figure 3-1.** Weather App has a text input field and two button for the forecasts.*
+
+Once you enter the city name and click one of the buttons, the app will fetch the
+forecast from OpenWeatherMap. Depending on what button is pressed, the app will fetch the forecast in metric (C) or imperial (F) degrees. For example, I like in the heart of tech innovation, San Francisco and we use imperial F degrees here so my result will be similar to the one shown in Figure 3-2. The forecast will be for several days with a 3-hour difference between predictions.
+
+![alt](media/weather-2.png)
+
+***Figure 3-2.** Weather App show the forecast for San Francisco.*
+
+
 Note that this example uses [OpenWeatherMap
 API](http://openweathermap.org) 2.5. The API requires an authentication
 (an app ID) for REST calls. You can get the necessary keys at
-[`openweathermap.org/``appid`](http://openweathermap.org/appid). The API
+<http://openweathermap.org/appid>. The API
 documentation is available at
-[`openweathermap.org/``api`](http://openweathermap.org/api).
+<http://openweathermap.org/api>. If you are starting the weather app from the code folder of the repository for this book, then make sure you update the API key as you might have my API key there which might not work in the future.
 
-The idea of this weather application is to show you an input field for
-the city name and buttons for metric and imperial systems. Once you
-enter the city name and click one of the buttons, the app will fetch the
-forecast from OpenWeatherMap.
-
-In this example, we'll use jQuery's `$.``ajax``()` function. It has
+In this example, we'll use jQuery's `$.ajax()` function. It has
 the following syntax:
 
-    var request = $.ajax({
+    const request = $.ajax({
         url: url,
         dataType: 'jsonp',
         data: {q: cityName, appid: appId, units: units},
@@ -678,7 +689,7 @@ the following parameters:
 There is also a chained method `.fail`, which has logic for what to do
 when the request has an error (i.e., it fails).
 
-For more parameters and examples of the `ajax``(``)` function, go to
+For more parameters and examples of the `ajax()` function, go to
 [`api.jquery.com/``jQuery.ajax`](http://api.jquery.com/jQuery.ajax/).
 
 To assign our function to a user-triggered event, we need to use the
@@ -688,7 +699,7 @@ To assign our function to a user-triggered event, we need to use the
       ...
     }
 
-`$(``'``#``btn``'``)` is a jQuery object that points to an HTML element
+`$('#btn')` is a jQuery object that points to an HTML element
 in the DOM with the `id` of `btn`.
 
 To make sure that all of the elements we want to access and use are in
@@ -739,10 +750,10 @@ The idea is simple: We have button and event listeners to do something
 once a user clicks the buttons. The aforementioned buttons call the
 `prepareData``()` method. This is its definition:
 
-    var openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP',
+    const openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP',
       openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
 
-    var prepareData = function(units) {
+    const prepareData = function(units) {
       var cityName = $('#city-name').val()
       if (cityName && cityName != ''){
         cityName = cityName.trim()
@@ -762,7 +773,7 @@ the browser gets the response from the OpenWeatherMap API. Needless to
 say, we must pass the city name, app ID, and units as follows:
 
     function getData (url, cityName, appId, units) {
-      var request = $.ajax({
+      const request = $.ajax({
         url: url,
         dataType: 'jsonp',
         data: {
@@ -790,24 +801,16 @@ found is the same as the one we requested in the input box.
 
     function fetchData (forecast) {
         console.log(forecast)
-        var html = '',
+        let html = '',
           cityName = forecast.city.name,
           country = forecast.city.country
 
 Now we form the HTML by iterating over the forecast and concatenating
 the string:
 
-    html += '<h3> Weather Forecast for '
-      + cityName
-      + ', '
-      + country
-      + '</h3>'
+    html += `<h3> Weather Forecast for ${cityName}, ${country}</h3>`
     forecast.list.forEach(function(forecastEntry, index, list){
-      html += '<p>'
-        + forecastEntry.dt_txt
-        + ': '
-        + forecastEntry.main.temp
-        + '</p>'
+        html += `<p>${forecastEntry.dt_txt}:${forecastEntry.main.temp}</p>`
     })
 
 Finally, we get a jQuery object for the div with ID `log`, and inject
@@ -820,113 +823,106 @@ In a nutshell, there is a button element that triggers
 is `fetchData``()`. If you found that confusing, here's the full code of
 the `index.html` file:
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-        <script src="js/jquery.js" type="text/javascript"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
-            var openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP',
-              openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		.row {
+			padding-top:1.5em;
+		}
+	</style>
+	<script>
+		const openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP',
+		  openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
 
-            var prepareData = function(units) {
-                var cityName = $('#city-name').val()
-                if (cityName && cityName != ''){
-                    cityName = cityName.trim()
-                    getData(openWeatherUrl, cityName, openWeatherAppId, units)
-                }
-                else {
-                    alert('Please enter the city name')
-                }
-            }
+		const prepareData = function(units) {
+			// Replace loading image
+			let cityName = $('#city-name').val()
+			// Make ajax call, callback
+			if (cityName && cityName != ''){
+				cityName = cityName.trim()
+				getData(openWeatherUrl, cityName, openWeatherAppId, units)
+			}
+			else {
+				alert('Please enter the city name')
+			}
+		}
+		$(document).ready(function(){
+			$('.btn-metric').click(function() {
+				prepareData('metric')
+			})
+			$('.btn-imperial').click(function() {
+				prepareData('imperial')
+			})
 
-            $(document).ready(function(){
-                $('.btn-metric').click(function() {
-                    prepareData('metric')
-                })
-                $('.btn-imperial').click(function() {
-                    prepareData('imperial')
-                })
-            })
+		})
+		function getData (url, cityName, appId, units) {
+			const request = $.ajax({
+				url: url,
+				dataType: "jsonp",
+				data: {q: cityName, appid: appId, units: units},
+				jsonpCallback: "fetchData",
+				type: "GET"
+			}).fail(function(error){
+				console.error(error)
+				alert('Error sending request')
+			})
+		}
+		function fetchData (forecast) {
+			console.log(forecast)
+			let html = '',
+			  cityName = forecast.city.name,
+				country = forecast.city.country
 
-            function getData (url, cityName, appId, units) {
-                var request = $.ajax({
-                    url: url,
-                    dataType: 'jsonp',
-                    data: {
-                        q: cityName,
-                        appid: appId,
-                        units: units
-                    },
-                    jsonpCallback: 'fetchData',
-                    type: 'GET'
-                }).fail(function(error){
-                    console.error(error)
-                    alert('Error sending request')
-                })
-            }
+			html += `<h3> Weather Forecast for ${cityName}, ${country}</h3>`
+			forecast.list.forEach(function(forecastEntry, index, list){
+				html += `<p>${forecastEntry.dt_txt}:${forecastEntry.main.temp}</p>`
+			})
 
-            function fetchData (forecast) {
-                console.log(forecast)
-                var html = '',
-                  cityName = forecast.city.name,
-                    country = forecast.city.country
+			$('#log').html(html)
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
 
-                html += '<h3> Weather Forecast for '
-                  + cityName
-                    + ', '
-                    + country
-                    + '</h3>'
-                forecast.list.forEach(function(forecastEntry, index, list){
-                    html += '<p>'
-                      + forecastEntry.dt_txt
-                        + ': '
-                        + forecastEntry.main.temp
-                        + '</p>'
-                })
+		<div class="row">
+			<div class="span4 offset 3">
+				<h2>Weather App</h2>
+				<p>Enter city name to get the weather forecast</p>
+			</div>
+			<div class="span6  offset1"><input class="span4" type="text" placeholder="Enter the city name" id="city-name" value=""/>
+			</div>
 
-                $('#log').html(html)
-            }
-        </script>
-    </head>
-    <body>
+		</div>
+		<div class="row">
+			<div class="span6 offset1">
+                <input type="button" class="btn-primary btn btn-metric" value="Get forecast in metric"/>
+			<div class="span6 offset1">
+                <input type="button" class="btn-danger btn btn-imperial" value="Get forecast in imperial"/>
+			</div>			
+		</div>
 
-        <div class="container">
+		<div class="row">
+			<div class="span6 offset1">
+				<div id="log">Nothing to show yet</div>
+			</div>
+		</div>
 
-            <div class="row">
-                <div class="span4 offset 3">
-                    <h2>Weather App</h2>
-                    <p>Enter city name to get the weather forecast</p>
-                </div>
-                <div class="span6  offset1"><input class="span4" type="text" placeholder="Enter the city name" id="city-name" value=""/>
-                </div>
+		<div class="row">
+			<hr/>
+			<p>Azat Mardan (<a href="http://twitter.com/azat_co">@azat_co</a>)</p>
+		</div>
 
-            </div>
-            <div class="row">
-                <div class="span6 offset1"><input type="button" class="btn-primary btn btn-metric" value="Get forecast in metric"/>
-                <div class="span6 offset1"><input type="button" class="btn-danger btn btn-imperial" value="Get forecast in imperial"/>
-                </div>
-                <div class="span3">
-                    <p id="info"></p>
-                </div>
-            </div>
+	</div>
 
-            <div class="row">
-                <div class="span6 offset1">
-                    <div id="log">Nothing to show yet</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <hr/>
-                <p>Azat Mardan (<a href="http://twitter.com/azat_co">@azat_co</a>)</p>
-            </div>
-
-        </div>
-
-    </body>
-    </html>
+</body>
+</html>
+```
 
 Try launching it and see if it works with or without the local HTTP
 server (just opening `index.html` in the browser). It should not work
@@ -935,11 +931,8 @@ can get `http-static` or `http-server` command-line tools as described
 in Chapter 2.
 
 The source code is available in the
-0[`2-weather`](https://github.com/azat-co/fullstack-javascript/tree/master/2-weather)
-folder and on GitHub (
-https://github.com/azat-co/fullstack-javascript/tree/master/02-weather
-). There's a [screencast video on YouTube](http://bit.ly/1RKxyxA) which
-walks you through the implementation and demonstrates the app.
+[`03-weather`](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather)
+folder and on GitHub (https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather). Don't forget that there's a [screencast video on YouTube](http://bit.ly/1RKxyxA) which walks you through the implementation and demonstrates the app.
 
 This example was built with OpenWeatherMap API v2.5 and might not work
 with later versions. Also, you need the API key called app ID. You can

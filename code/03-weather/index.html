@@ -10,12 +10,12 @@
 		}
 	</style>
 	<script>
-		var openWeatherAppId = '2de143494c0b295cca9337e1e96b00e0',
+		const openWeatherAppId = '6ea35fbcd51d5e917b7d8309292bc51c',
 		  openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
 
-		var prepareData = function(units) {
+		const prepareData = function(units) {
 			// Replace loading image
-			var cityName = $('#city-name').val()
+			let cityName = $('#city-name').val()
 			// Make ajax call, callback
 			if (cityName && cityName != ''){
 				cityName = cityName.trim()
@@ -35,7 +35,7 @@
 
 		})
 		function getData (url, cityName, appId, units) {
-			var request = $.ajax({
+			const request = $.ajax({
 				url: url,
 				dataType: "jsonp",
 				data: {q: cityName, appid: appId, units: units},
@@ -48,13 +48,13 @@
 		}
 		function fetchData (forecast) {
 			console.log(forecast)
-			var html = '',
+			let html = '',
 			  cityName = forecast.city.name,
 				country = forecast.city.country
 
-			html += '<h3> Weather Forecast for ' + cityName + ', ' + country + '</h3>'
+			html += `<h3> Weather Forecast for ${cityName}, ${country}</h3>`
 			forecast.list.forEach(function(forecastEntry, index, list){
-				html += '<p>' + forecastEntry.dt_txt + ': ' + forecastEntry.main.temp + '</p>'
+				html += `<p>${forecastEntry.dt_txt}:${forecastEntry.main.temp}</p>`
 			})
 
 			$('#log').html(html)
