@@ -161,18 +161,18 @@ TBD
 * [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap): Twitter Bootstrap scaffolding example
 * [03-weather](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather): jQuery, OpenWeatherMap API and JSONP example
 * [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-parse-sdk):  Parse JavaScript SDK example
-* [04-board-parse-rest](https://github.com/azat-co/fullstack-javascript/tree/master/code/04-board-parse-rest): Message board front-end: jQuery and Parse.com REST API; ready for deployment.
-* [05-backbone](https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone): Diving Deeper into Backbone.js
-* [06-board-backbone-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/code/06-board-backbone-parse-sdk): BackboneJS and Parse.com SDK Message Board
-* [07-hello](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-hello): NodeJS "Hello World" app
-* [08-test](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-test): Message Board back-end TDD with run-time storage
-* [09-db-connect](https://github.com/azat-co/fullstack-javascript/tree/master/code/09-db-connect):  Local database connection test with MongoDB Native Driver
-* [10-db-connect-heroku](https://github.com/azat-co/fullstack-javascript/tree/master/code/10-db-connect-heroku): Heroku database connection test with MongoDB Native Driver
-* [11-db-server](https://github.com/azat-co/fullstack-javascript/tree/master/code/11-db-server): Server to list MongoDB collections
-* [12-board-api-mongo](https://github.com/azat-co/fullstack-javascript/tree/master/code/12-board-api-mongo): Message Board API with MongoDB
-* [13-board-ui](https://github.com/azat-co/fullstack-javascript/tree/master/code/13-board-ui): Message Board UI (front-end) without back end
-* [14-board-api](https://github.com/azat-co/fullstack-javascript/tree/master/code/14-board-api): Message Board back-end with CORS
-* [15-board-react](https://github.com/azat-co/fullstack-javascript/tree/master/code/board-react): Message Board with React.js view layer
+* [03-board-parse-rest](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-board-parse-rest): Message board front-end: jQuery and Parse.com REST API; ready for deployment.
+* [04-backbone](https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone): Diving Deeper into Backbone.js
+* [05-board-backbone-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/code/05-board-backbone-parse-sdk): BackboneJS and Parse.com SDK Message Board
+* [06-hello](https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello): NodeJS "Hello World" app
+* [06-test](https://github.com/azat-co/fullstack-javascript/tree/master/code/06-test): Message Board back-end TDD with run-time storage
+* [07-db-connect](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect):  Local database connection test with MongoDB Native Driver
+* [07-db-connect-heroku](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect-heroku): Heroku database connection test with MongoDB Native Driver
+* [07-db-server](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-server): Server to list MongoDB collections
+* [07-board-api-mongo](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-board-api-mongo): Message Board API with MongoDB
+* [08-board-ui](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-ui): Message Board UI (front-end) without back end
+* [08-board-api](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-api): Message Board back-end with CORS
+* [board-react](https://github.com/azat-co/fullstack-javascript/tree/master/code/board-react): Message Board with React.js view layer - BONUS PROJECT
 
 ## Work in Progress
 

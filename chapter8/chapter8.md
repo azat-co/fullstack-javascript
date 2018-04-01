@@ -612,7 +612,7 @@ apps.
 
 The idea is that API serves static files for the browser app as well,
 not just handling dynamic requests to its routes. So you can copy the
-08-board-api code into a new folder 15-board-web. The beginning of the
+08-board-api code into a new folder 08-board-web. The beginning of the
 new server file is the same; we have GET and POST logic (this time CORS
 is not needed). The last condition in the chain of `if/else` needs to
 process the static files. Here's how we can do it.
@@ -731,7 +731,7 @@ Another header that we send back with the response is `Content-Length`:
 So this piece of code goes into the request handler of the server, which
 is inside of the database connect call. Just like the Russian Matreshka
 dolls. Confusing? Just refer to the full source code at
-<https://github.com/azat-co/fullstack-javascript/tree/master/code/15-board-web>.
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-web>.
 
 Another, more elegant way is to use Node.js frameworks as Connect
 (<http://www.senchalabs.org/connect/static.html>), or Express
