@@ -402,8 +402,8 @@ different methods.
 
 For your convenience, here's the whole app, which is in the
 04-backbone/collections/index.html and
-[GitHub](https://github.com/azat-co/fullstack-javascript/blob/master/5-backbone/collections/index.html)
-(https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/collections/index.html)
+[GitHub](https://github.com/azat-co/fullstack-javascript/blob/master/code/04-backbone/collections/index.html)
+(https://github.com/azat-co/fullstack-javascript/blob/master/code/04-backbone/collections/index.html)
 folder:
 
     <!DOCTYPE>
@@ -512,8 +512,8 @@ multiple and even custom events).
 
 For your information, if you don't feel like typing out the code (which
 I recommend), it's in `04-backbone/binding` and
-[GitHub](https://github.com/azat-co/fullstack-javascript/blob/master/5-backbone/binding/index.html)
-(https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/binding/index.html).
+[GitHub](https://github.com/azat-co/fullstack-javascript/blob/master/code/04-backbone/binding/index.html)
+(https://github.com/azat-co/fullstack-javascript/blob/master/code/04-backbone/binding/index.html).
 
 Let's change the code in the router:
 
@@ -631,7 +631,7 @@ animation while waiting for an apple image to load.
 
 Here is the full code of the `index.html` file (also in
 `04-backbone/binding/index.html` and
-<https://github.com/azat-co/fullstack-javascript/blob/master/5-backbone/binding/index.html>):
+<https://github.com/azat-co/fullstack-javascript/blob/master/code/04-backbone/binding/index.html>):
 
     <!DOCTYPE>
     <html>
