@@ -209,29 +209,29 @@ from a Node.js script.
 After we install the library, we can include the `mongodb` library in
 our `app.js` file:
 
-```
-var util = require('util')
-var mongodb = require ('mongodb')
+```js
+const util = require('util')
+const mongodb = require ('mongodb')
 ```
 
 This is one of the ways to establish connection to the MongoDB server in
 which the db variable will hold reference to the database at a specified
 host and port:
 
-```
-var Db = mongodb.Db
-var Connection = mongodb.Connection
-var Server = mongodb.Server
-var host = '127.0.0.1'
-var port = 27017
+```js
+const Db = mongodb.Db
+const Connection = mongodb.Connection
+const Server = mongodb.Server
+const host = '127.0.0.1'
+const port = 27017
 
-var db=new Db ('test', new Server(host,port, {}))
+const db = new Db ('test', new Server(host,port, {}))
 ```
 
 To actually open a connection:
 
-```
-db.open(function(error, connection) {
+```js
+db.open((error, connection) => {
   // Do something with the database here
   db.close()
 })
@@ -241,14 +241,14 @@ To check that we have the connection, we need to handle `error`. Also,
 let's get the admin object with `db.admin()` and fetch the list of
 databases with `listDatabases()`:
 
-```
-var db=new Db ('test', new Server(host, port, {}))
-db.open(function(error, connection){
+```js
+const db = new Db ('test', new Server(host, port, {}))
+db.open((error, connection) => {
+  console.log('error: ', error)
+  const adminDb = db.admin()
+  adminDb.listDatabases((error, dbs) => {
     console.log('error: ', error)
-    var adminDb = db.admin()
-    adminDb.listDatabases(function(error, dbs) {
-    console.log('error: ', error)
-        console.log('databases: ', dbs.databases)
+    console.log('databases: ', dbs.databases)
     db.close()
   })
 })
@@ -303,7 +303,7 @@ object:
 
 or
 
-`var connectionUri = url.parse(process.env.MONGOLAB_URI)`
+`const connectionUri = url.parse(process.env.MONGOLAB_URI)`
 
 The global object process gives access to environment variables via
 `process.env`. Those variables conventionally used to pass database host
@@ -314,35 +314,35 @@ To make our code work both locally and on Heroku, we can use the logical
 OR operator `||` and assign a local host and port if environment
 variables are undefined:
 
-```
-var port = process.env.PORT || 1337
-var dbConnUrl = process.env.MONGOLAB_URI ||
+```js
+const port = process.env.PORT || 1337
+const dbConnUrl = process.env.MONGOLAB_URI ||
   'mongodb://127.0.0.1:27017/test'
 ```
 
 Here is our updated cross-environment ready `app.js` file
-(https://github.com/azat-co/fullstack-javascript/tree/master/code/10-db-connect-heroku).
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect-heroku).
 I added a method to get the list of collections `listCollections`
 instead of getting the list of the databases (we have only one database
 in MongoLab right now):
 
-```
-var util = require('util')
-var url = require('url')
-var client = require ('mongodb').MongoClient
+```js
+const util = require('util')
+const url = require('url')
+const client = require ('mongodb').MongoClient
   
-var dbConnUrl = process.env.MONGOLAB_URI ||
+const dbConnUrl = process.env.MONGOLAB_URI ||
   'mongodb://127.0.0.1:27017/test'
   
 console.log('db server: ', dbConnUrl)  
   
-client.connect(dbConnUrl, {}, function(error, db){  
+client.connect(dbConnUrl, {}, (error, db) => {  
+  console.log('error: ', error)  
+  db.listCollections().toArray((err, collections) => {  
     console.log('error: ', error)  
-    db.listCollections().toArray(function(err, collections) {  
-    console.log('error: ', error)  
-        console.log('collections: ', collections)  
+    console.log('collections: ', collections)  
     db.close()  
-    })  
+  })  
 })
 ```
 
@@ -381,7 +381,7 @@ Heroku app, if you know the name of that app.
 
 The project folder needs to have `Procfile` and `package.json`. You can
 copy them from
-https://github.com/azat-co/fullstack-javascript/tree/master/code/10-db-connect-heroku.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect-heroku.
 
 Now you can push you code to Heroku with:
 
@@ -412,22 +412,22 @@ server object instantiation in a database connection callback (file
 Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1Qnrmwr>.
 
-```
-var util = require('util')
-var url = require('url')  
-var http = require('http')  
-var mongodb = require ('mongodb')  
-var client = require ('mongodb').MongoClient  
+```js
+const util = require('util')
+const url = require('url')  
+const http = require('http')  
+const mongodb = require ('mongodb')  
+const client = require ('mongodb').MongoClient  
   
-var port = process.env.PORT || 1337  
-var dbConnUrl = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/test'  
+const port = process.env.PORT || 1337  
+const dbConnUrl = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/test'  
   
 client.connect(dbConnUrl, {}, function(error, db) {  
     console.log('error: ', error)  
     db.listCollections().toArray(function(error, collections) {  
     console.log('error: ', error)  
         console.log('collections: ', collections)  
-        var server = http.createServer(function (request, response) { // Creates server  
+        const server = http.createServer(function (request, response) { // Creates server  
           response.writeHead(200, {'Content-Type': 'text/plain'})   // Sets the right header and status code  
           response.end(util.inspect(collections))  // Outputs string with line end symbol  
         })  
@@ -440,7 +440,7 @@ client.connect(dbConnUrl, {}, function(error, db) {
 ```
 
 The final Heroku-deployment-ready project is located at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/11-db-serverunder.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-serverunder.
 
 After the deployment you should be able to open the URL provided by
 Heroku and see the list of collections. If it's a newly created app with
@@ -460,11 +460,11 @@ http://bit.ly/1QnsfoE.
 We should have everything set up for writing the Node.js application
 that will work both locally and on Heroku. The source code is available
 at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/12-board-api-mongonder.
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/07-board-api-mongo>.
 The structure of the application is simple:
 
 ```
-/12-board-api-mongo
+/07-board-api-mongo
   web.js  
   Procfile
   package.json
@@ -472,16 +472,16 @@ The structure of the application is simple:
 
 This is what `web.js` looks like; first we include our libraries:
 
-```
-var http = require('http')  
-var util = require('util')  
-var querystring = require('querystring')  
-var client = require('mongodb').MongoClient
+```js
+const http = require('http')  
+const util = require('util')  
+const querystring = require('querystring')  
+const client = require('mongodb').MongoClient
 ```
 
 Then put out a magic string to connect to MongoDB:
 
-`var uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'`
+`const uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'`
 
 Note: The URI/URL format contains the optional database name in which
 our collection will be stored. Feel free to change it to something else:
@@ -490,79 +490,80 @@ for example, 'rpjs' or 'test'.
 We put all the logic inside of an open connection in the form of a
 callback function:
 
-```
-client.connect(uri, function(error, db) {
+```js
+client.connect(uri, (error, db) => {
   if (error) return console.error(error)
 ```
 
 We are getting the collection with the next statement:
 
-`var collection = db.collection('messages')`
+`const collection = db.collection('messages')`
 
 Now we can instantiate the server and set up logic to process our
 endpoints/routes. We need to fetch the documents on GET
-`/messages/``list.json`:
+`/messages/list.json`:
 
-```
-    var app = http.createServer( function (request, response) {  
-        if (request.method === 'GET' && request.url === '/messages/list.json') {  
-            collection.find().toArray(function(error,results) {  
-                response.writeHead(200,{ 'Content-Type': 'text/plain'})  
-                console.dir(results)  
-                response.end(JSON.stringify(results))  
-            })
+```js
+  const app = http.createServer((request, response) => {  
+    if (request.method === 'GET' && request.url === '/messages.json') {  
+      collection.find().toArray((error,results) => {  
+        response.writeHead(200,{ 'Content-Type': 'text/plain'})  
+          console.dir(results)  
+          response.end(JSON.stringify(results))  
+      })
 ```
 
-On the POST `/messages/create.json`, we inserting the document:
+On the POST `/messages.json`, we inserting the document:
 
-```
-        } else if (request.method === 'POST' && request.url === '/messages/create.json') {  
-            request.on('data', function(data) {  
-                collection.insert(querystring.parse(data.toString('utf-8')), {safe:true}, function(error, obj) {  
-                    if (error) throw error  
-                    response.end(JSON.stringify(obj))  
-                })  
-            })  
-        } else {
+```js
+    } else if (request.method === 'POST' && request.url === '/messages.json') {  
+      request.on('data', function(data) {  
+        collection.insert(querystring.parse(data.toString('utf-8')), {safe:true}, function     (error, obj) {  
+            if (error) throw error  
+            response.end(JSON.stringify(obj))  
+          })  
+        })  
+    } else {
 ```
 
 This will be shown in the event that the client request is not matching
 any of the conditions above. This is a good reminder for us when we try
 to go to the http://localhost:1337 instead of
-http://localhost:1337/messages/list.json:
+<http://localhost:1337/messages.json>:
 
-```
-            response.end('Supported endpoints: \n/messages/list.json\n/messages/create.json')  
-        }  
-    })  
-    var port = process.env.PORT || 1337  
-    app.listen(port)  
+```js
+      response.end('Supported endpoints: \n/messages.json\n/messages.json')  
+    }  
+  })  
+  const port = process.env.PORT || 1337  
+  app.listen(port)  
 })
 ```
 
 Note: We don't have to use additional words after the collection/entity
-name; that is, instead of `/`messages/list.json and
-/messages/create.json it's perfectly fine to have just `/messages` for
-all the HTTP methods such as GET, POST, PUT, DELETE. If you change them
-in your application code make sure to use the updated CURL commands and
+name; that is, instead of `/messages.json` it's perfectly fine to have just `/messages` for
+all the HTTP methods such as GET, POST, PUT, DELETE. The main reason why many developers and I use `.json` is to be explicit with the format which needs to be returned back. If you change them in your application code make sure to use the updated CURL commands and
 front-end code.
 
 To test via CURL terminal commands run:
 
-`$ curl http://localhost:5000/messages/list.json`
+`$ curl http://localhost:5000/messages.json`
 
-Or open your browser at the http://locahost:1337/messages/list.json
-location.
+Or open your browser at the <http://locahost:1337/messages.json> location.
 
 It should give you an empty array: `[]`, which is fine. Then POST a
 new message:
 
-`$ curl  -d "username=BOB&message=test" http://localhost:5000/messages/create.json`
+`$ curl  -d "username=BOB&message=test" http://localhost:5000/messages.json`
 
 Now we must see a response containing an ObjectID of a newly created
 element, for example:
-[{"username":"BOB","message":"test","_id":"51edcad45862430000000001"}].
-Your ObjectId might vary.
+
+```
+[{"username":"BOB","message":"test","_id":"51edcad45862430000000001"}]
+```
+
+Your ObjectId will be different. :-)
 
 If everything works as it should locally, try to deploy it to Heroku.
 
@@ -572,9 +573,9 @@ To test the application on Heroku, you could use the same
 or "http://127.0.0.1" with your unique Heroku app's host/URL:
 
 ```
-$ curl http://your-app-name.herokuapp.com/messages/list.json  
+$ curl http://your-app-name.herokuapp.com/messages.json  
 $ curl -d "username=BOB&message=test"  
-  http://your-app-name.herokuapp.com/messages/create.json
+  http://your-app-name.herokuapp.com/messages.json
 ```
 
 It's also nice to double check the database either via Mongo shell:
