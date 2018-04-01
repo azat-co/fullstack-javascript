@@ -42,7 +42,7 @@ execute this command in your terminal:
 
     $ node -v
 
-As of this writing, the latest version is 5.1.0. If you don't have
+As of this writing, the latest version is 8.11.1. If you don't have
 Node.js installed, or if your version is behind, you can download the
 latest version at [nodejs.org/#download](http://nodejs.org/#download).
 You can use one of these tools for version management (i.e., switching
@@ -55,7 +55,7 @@ between Node.js versions):
 -   [nvm](https://github.com/creationix/nvm) (<https://github.com/creationix/nvm>)
 
 As usual, you could copy example code at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/07-hello, or
+https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello, or
 write your own program from scratch. If you wish to do the latter,
 create a folder `hello` for your "Hello World" Node.js application. Then
 create file a `server.js` and line by line type the code below.
@@ -63,17 +63,17 @@ create file a `server.js` and line by line type the code below.
 This will load the core `http` module for the server (more on the
 modules later):
 
-    var http = require('http')
+    const http = require('http')
 
 We'll need a port number for our Node.js server. To get it from the
 environment or assign 1337 if the environment is not set, use:
 
-    var port = process.env.PORT || 1337
+    const port = process.env.PORT || 1337
 
 This will create a server, and a callback function will contain the
 response handler code:
 
-    var server = http.createServer(function (req, res) {
+    const server = http.createServer(function (req, res) {
 
 To set the right header and status code, use:
 
@@ -208,7 +208,7 @@ Some of the methods include:
 There is no need to install or download core modules. To include them in
 your application, all you need is to follow the syntax:
 
-    var http = require('http')
+    const http = require('http')
 
 The lists of non-core modules can be found at:
 
@@ -359,12 +359,12 @@ Deploying to Heroku
 
 For Heroku deployment, we need to create two extra files: `Procfile` and
 `package.json`. You could get the source code from
-https://github.com/azat-co/fullstack-javascript/tree/master/code/07-hello or
+https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello or
 write your own one.
 
 The structure of the "Hello World" application looks like this:
 
-    /07-hello
+    /06-hello
       -package.json
       -Procfile
       -server.js
@@ -417,7 +417,7 @@ time we start/reset the server, the data will be lost.
 
 We'll start with a simple test case first to illustrate the Test-Driven
 Development approach. The full code is available at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/08-test.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/06-test.
 
 Unit Testing Node.js
 --------------------
@@ -434,12 +434,12 @@ We'll start by creating an empty `mb-server.js` file. After it's there,
 let's switch to tests and create the `test.js` file with the following
 content:
 
-    var http = require('http')
-    var assert = require('assert')
-    var querystring = require('querystring')
-    var util = require('util')
+    const http = require('http')
+    const assert = require('assert')
+    const querystring = require('querystring')
+    const util = require('util')
 
-    var messageBoard = require('./mb-server')
+    const messageBoard = require('./mb-server')
 
     assert.deepEqual('[{"name":"John","message":"hi"}]',
       messageBoard.getMessages())
@@ -529,22 +529,22 @@ add a new message to the collection.
 
 We import dependencies:
 
-    var http = require('http')
+    const http = require('http')
     // Loads http module
-    var util= require('util')
+    const util= require('util')
     // Usefull functions
-    var querystring = require('querystring')
+    const querystring = require('querystring')
     // Loads querystring module, we'll need it to serialize and deserialize objects and query strings
 
 And set the port. If it's set in the env var, we use that value; and if
 it's not set, we use a hard-coded value of 1337:
 
-    var port = process.env.PORT || 1337
+    const port = process.env.PORT || 1337
 
 So far, nothing fancy, right? To store the list of messages, we'll use
 an array:
 
-    var messages=[]
+    const messages=[]
     // This array will hold our messages
     messages.push({
       'name': 'John',
@@ -563,14 +563,14 @@ So in our createServer object, we should add `req.method()` and
 
 Let's load the http module:
 
-    var http = require('http')
+    const http = require('http')
 
 We'll need some of the handy functions from the `util` and `querystring`
 modules (to serialize and deserialize objects and query strings):
 
-    var util= require('util')
+    const util= require('util')
     // Usefull functions
-    var querystring = require('querystring')
+    const querystring = require('querystring')
     // Loads querystring module, we'll need it to serialize and deserialize objects and query strings
 
 To create a server and expose it to outside modules (i.e., `test.js`):
@@ -588,7 +588,7 @@ If the condition above is true, we add a message to the array. However,
 `data` must be converted to a string type (with encoding UTF-8) prior to
 the adding, because it is a type of Buffer:
 
-        var message = ''
+        let message = ''
         req.on('data', function(data, msg){
           console.log(data.toString('utf-8'))
           message=exports.addMessage(data.toString('utf-8'))
@@ -623,7 +623,7 @@ list of messages:
 
 Fetch a list of messages:
 
-        var body = exports.getMessages()
+        const body = exports.getMessages()
         // Body will hold our output
 
 The response body will hold our output:
@@ -677,18 +677,18 @@ Also returning a new message in a JSON-as-a-string format:
 
 Here is the full code of `mb-server.js` minus the comments. It's
 also available at
-[08-test](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-test):
+[06-test](https://github.com/azat-co/fullstack-javascript/tree/master/code/06-test):
 
-    var http = require('http')
+    const http = require('http')
     // Loads http module
-    var util= require('util')
+    const util= require('util')
     // Usefull functions
-    var querystring = require('querystring')
+    const querystring = require('querystring')
     // Loads querystring module, we'll need it to serialize and deserialize objects and query strings
 
-    var port = process.env.PORT || 1337
+    const port = process.env.PORT || 1337
 
-    var messages=[]
+    const messages=[]
     // This array will hold our messages
     messages.push({
       'name': 'John',
@@ -700,7 +700,7 @@ also available at
     // Creates server
       if (req.method == 'POST' && req.url == '/messages/create.json') {
         // If method is POST and URL is messages/ add message to the array
-        var message = ''
+        let message = ''
         req.on('data', function(data, msg){
           console.log(data.toString('utf-8'))
           message=exports.addMessage(data.toString('utf-8'))
@@ -719,7 +719,7 @@ also available at
       } else
       if (req.method == 'GET' && req.url == '/messages/list.json') {
       // If method is GET and URL is /messages output list of messages
-        var body = exports.getMessages()
+        const body = exports.getMessages()
         // Body will hold our output
         res.writeHead(200, {
           'Content-Length': body.length,
@@ -788,7 +788,7 @@ frameworks:
 -   [Sails.js](http://sailsjs.org) (<http://sailsjs.org>): MVC Node.js
     framework
 
--   [hapi](http://spumko.github.io) (<http://spumko.github.io>): Node.js
+-   [hapi](https://hapijs.com) (<https://hapijs.com>): Node.js
     framework built on top of Express.js
 
 -   [Connect](http://www.senchalabs.org/connect)

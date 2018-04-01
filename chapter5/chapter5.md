@@ -1,15 +1,15 @@
-<span id="backbone.js-and-parse.com" class="anchor"></span>
+<span id="backbone.js-and-Parse" class="anchor"></span>
 CHAPTER 5
 ---------
-Backbone.js and Parse.com
+Backbone.js and Parse
 =========================
 > *Java is to JavaScript what Car is to Carpet.*
 >
 > — [Chris Heilmann](http://christianheilmann.com/)
 
 In this chapter, we'll explore the practical aspect of leveraging
-Parse.com for a Backbone.js app. The chapter will illustrate the
-Backbone.js uses with Parse.com and its JavaScript SDK on the modified
+Parse for a Backbone.js app. The chapter will illustrate the
+Backbone.js uses with Parse and its JavaScript SDK on the modified
 Message Board app.
 
 If you've written some complex client-side applications, you might have
@@ -21,7 +21,7 @@ event listeners, and triggers. For more information and step-by-step
 examples of building Backbone.js applications from scratch, please refer
 to the chapter "Intro to Backbone.js."
 
-Message Board with Parse.com: JavaScript SDK and Backbone.js Version
+Message Board with Parse: JavaScript SDK and Backbone.js Version
 ====================================================================
 
 <span id="OLE_LINK27" class="anchor"><span id="OLE_LINK26"
@@ -38,9 +38,15 @@ not there were changes to the data. The Backbone.js
 Model-View-Controller (MVC) framework can be used to make complex
 applications more manageable and easier to maintain.
 
+![alt](media/board-1.png)
+
+***Figure 5-1.** Message Board powered by local Parse server.*
+
+
+
 If you felt comfortable with the previous example, let's build upon it
 with the use of the Backbone.js framework. Here we'll go step by step,
-creating a Message Board application using Backbone.js and Parse.com
+creating a Message Board application using Backbone.js and Parse
 JavaScript SDK. If you feel familiar enough with it, you could download
 the Super Simple Backbone Starter Kit at
 [github.com/azat-co/super-simple-backbone-starter-kit](http://github.com/azat-co/super-simple-backbone-starter-kit).
@@ -53,7 +59,7 @@ The application is available at
 but again you are encouraged to start from scratch and try to write your
 own code using the example only as a reference.
 
-The following shows the structure of Message Board with Parse.com,
+The following shows the structure of Message Board with Parse,
 JavaScript SDK, and Backbone.js version:
 
     /06-board-backbone-parse-sdk
@@ -110,11 +116,11 @@ Do the same for Underscore v1.8.3 and Backbone v1.2.3:
       <script src="js/underscore.js"></script>
       <script src="js/backbone.js"></script>
 
-The Parse JavaScript SDK v1.5.0 is hot-linked from Parse.com CDN. Note
-the version number, because the older versions might not work properly
+The Parse JavaScript SDK v1.5.0 is patched meaning its modifide to work with the local Parse serve. In this version, I commented or delete the `/1` in the URL path. The file is in the js folder of this project. Note
+this, because other versions might not work properly
 with this example:
 
-      <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+      <script src="js/parse-1.5.0.js"></script>
 
 Twitter Bootstrap CSS inclusion:
 
@@ -175,7 +181,7 @@ We use Require.js syntax and shim plugin for HTML templates:
 
 The application router with a single index route:
 
-          var ApplicationRouter = Backbone.Router.extend({
+          const ApplicationRouter = Backbone.Router.extend({
             routes: {
               "": "home",
               "*actions": "home"
@@ -254,7 +260,7 @@ The full code of the `app.js` file:
         headerTpl,
         homeTpl,
         footerTpl) {
-      var ApplicationRouter = Backbone.Router.extend({
+      const ApplicationRouter = Backbone.Router.extend({
         routes: {
           '': 'home',
           '*actions': 'home'
@@ -451,23 +457,23 @@ For your convenience, here's the full code of the `home.html` template file:
 
 Now we can add the following components to:
 
--   Parse.com collection
+-   Parse collection
 
--   Parse.com model
+-   Parse model
 
 -   Send/add message event
 
 -   Getting/displaying messages functions
 
-Backbone-compatible model object/class from Parse.com JS SDK with a
+Backbone-compatible model object/class from Parse JS SDK with a
 mandatory `className` attribute (this is the name of the collection that
-will appear in the Data Browser of the Parse.com web interface):
+will appear in the Data Browser of the Parse web interface):
 
     Message = Parse.Object.extend({
         className: 'MessageBoard'
     })
 
-Backbone-compatible collection object from Parse.com JavaScript SDK that
+Backbone-compatible collection object from Parse JavaScript SDK that
 points to the model:
 
     MessageBoard = Parse.Collection.extend ({
@@ -512,13 +518,13 @@ Firstly, we get the form object by its ID (`#new-message`) because it's
 more effective and readable to use a stored object rather than use
 jQuery selector every time.
 
-          var newMessageForm = $('#new-message')
+          const newMessageForm = $('#new-message')
 
 The next two lines will get the values of the input fields with names
 `username` and `message`:
 
-          var username = newMessageForm.find('[name="username"]').val()
-          var message = newMessageForm.find('[name="message"]').val()      
+          const username = newMessageForm.find('[name="username"]').val()
+          const message = newMessageForm.find('[name="message"]').val()      
 
 Once we have the values of a new message (text and author), we can
 invoke the `this.collection.add`:
@@ -549,7 +555,7 @@ something like this:
         
         Parse.initialize('your-parse-app-id', 'your-parse-js-sdk-key')
 
-        var ApplicationRouter = Backbone.Router.extend({
+        const ApplicationRouter = Backbone.Router.extend({
             routes: {
                 '': 'home',
                 '*actions': 'home'
@@ -615,9 +621,9 @@ something like this:
                 })
             },
             saveMessage: function(){
-                var newMessageForm = $('#new-message')
-                var username = newMessageForm.find('[name="username"]').val()
-                var message = newMessageForm.find('[name="message"]').val()
+                const newMessageForm = $('#new-message')
+                const username = newMessageForm.find('[name="username"]').val()
+                const message = newMessageForm.find('[name="message"]').val()
                 this.collection.add({
                     'username': username,
                     'message': message
@@ -628,11 +634,11 @@ something like this:
             }
         })
 
-        app = new ApplicationRouter ()
+        window.app = new ApplicationRouter ()
         Backbone.history.start()
     })
 
-The full source code of the Backbone.js and Parse.com Message Board
+The full source code of the Backbone.js and Parse Message Board
 application is available at
 <https://github.com/azat-co/fullstack-javascript/tree/master/code/06-board-backbone-parse-sdk>.
 
@@ -642,7 +648,7 @@ Taking Message Board Further
 Once you are comfortable that your front-end application works well
 locally, with or without a local HTTP server like MAMP or XAMPP, deploy
 it to Windows Azure or Heroku. In-depth deployment instructions are
-described in the "jQuery and Parse.com" chapter.
+described in the "jQuery and Parse" chapter.
 
 In the last two examples, Message Board had very basic functionality.
 You could enhance the application by adding more features.
@@ -667,7 +673,7 @@ Additional features for **advanced** level developers:
 
 -   Prevent the same user from voting multiple times.
 
--   Add user sign-up and log-in actions by using Parse.com functions.
+-   Add user sign-up and log-in actions by using Parse functions.
 
 -   Add a *Delete Message* button next to each message created by
     a user.
@@ -678,14 +684,14 @@ Summary
 =======
 
 This short chapter gives you yet another way of building apps with
-nothing but JavaScript (and HTML and CSS, obviously). With Parse.com or
+nothing but JavaScript (and HTML and CSS, obviously). With Parse or
 a similar back-end-as-a-service (BaaS) solution, it is straightforward
 to persist the data without having to code your own back end. BaaS
 solutions event takes it a step further by allowing for access-level
 controls, authentications, server-side logic, and third-party
 integrations.
 
-In addition to Parse.com, in this chapter we saw how Backbone can be
+In addition to Parse, in this chapter we saw how Backbone can be
 flexible in terms that you can overload its classes to build your own
 custom ones. This is a way to use Backbone to build your own framework.
 This is what we did at DocuSign where we had base Backbone models and

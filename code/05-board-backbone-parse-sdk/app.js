@@ -5,12 +5,17 @@ require([
 		headerTpl,
 		homeTpl,
 		footerTpl) {
-	// Parse.initialize('your-parse-app-id', 'your-parse-js-sdk-key')
+	
 
-	//Azat's keys, please don't use )
-	Parse.initialize('Zc36GIp6WyzKIB9HvqRBEGnIeMO0X21rDbVwGPvp', 'r5zTZ9eydAcnRhAUI6k3XazS1JSnOPLbiaT1cWY6')
+	// Define them when you start the Parse server
+	const parseAppID = 'APPLICATION_ID'
+	const parseMasterKey = 'MASTER_KEY'
+	const apiBase = `http://localhost:1337/parse`
 
-	var ApplicationRouter = Backbone.Router.extend({
+	Parse.initialize(parseAppID, parseMasterKey)
+	Parse.serverURL = apiBase
+	
+	const ApplicationRouter = Backbone.Router.extend({
 		routes: {
 			'': 'home',
 			'*actions': 'home'
@@ -27,7 +32,7 @@ require([
 		}
 	})
 
-	HeaderView = Backbone.View.extend({
+	const HeaderView = Backbone.View.extend({
 		el: '#header',
 		templateFileName: 'header.html',
 		template: headerTpl,
@@ -38,21 +43,21 @@ require([
 		}
 	})
 
-	FooterView = Backbone.View.extend({
+	const FooterView = Backbone.View.extend({
 		el: '#footer',
 		template: footerTpl,
 		render: function() {
 			this.$el.html(_.template(this.template))
 		}
 	})
-	Message = Parse.Object.extend({
+	const Message = Parse.Object.extend({
 		className: 'MessageBoard'
 	})
-	MessageBoard = Parse.Collection.extend ({
+	const MessageBoard = Parse.Collection.extend ({
 		model: Message
 	})
 
-	HomeView = Backbone.View.extend({
+	const HomeView = Backbone.View.extend({
 		el: '#content',
 		template: homeTpl,
 		events: {
@@ -76,9 +81,9 @@ require([
 			})
 		},
 		saveMessage: function(){
-			var newMessageForm = $('#new-message')
-			var username = newMessageForm.find('[name="username"]').val()
-			var message = newMessageForm.find('[name="message"]').val()
+			const newMessageForm = $('#new-message')
+			const username = newMessageForm.find('[name="username"]').val()
+			const message = newMessageForm.find('[name="message"]').val()
 			this.collection.add({
 				'username': username,
 				'message': message
@@ -89,6 +94,6 @@ require([
 		}
 	})
 
-	app = new ApplicationRouter()
+	window.app = new ApplicationRouter()
 	Backbone.history.start()
 })
