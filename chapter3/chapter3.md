@@ -57,7 +57,7 @@ JavaScript Object Notation
 --------------------------
 
 Here is the definition of JavaScript Object Notation (JSON) from
-www.[json.org](http://www.json.org/)
+<http://www.json.org>.
 
 > JavaScript Object Notation, or JSON, is a lightweight data-interchange
 > format. It is easy for humans to read and write. It is easy for
@@ -110,18 +110,13 @@ another object; for example:
           "comments": []
           }
         ],
-        "totalPost": 2,
-        "getData": function () {
-          return new Data().getDate();
-        }
+        "totalPosts": 2
       }
 
 In this example, we have an object with the `posts` property. The
 value of the `posts` property is an array of objects with each one of
 them having `title`, `votes`, and `comments` keys. The `votes` property
-holds a number primitive, whereas `comments` is an array of strings. We
-also can have functions as values; in this case, the key is called a
-method; that is, `getData`.
+holds a number primitive, whereas `comments` is an array of strings. We cannot have function as fields. JSON is strictly a data structure. (We can have function in JS objects though.)
 
 JSON is much more flexible and compact than XML or other data formats,
 as outlined in this article: [JSON: The Fat-Free Alternative to
@@ -753,8 +748,7 @@ once a user clicks the buttons. The aforementioned buttons call the
     }
 
 The code should be straightforward. We get the value of the city name
-from the input box, check that it's not empty, and call `getDada()`,
-which will make the XHR request to the server. You've already seen an
+from the input box (ID `city-name`). Then, we check that the city name is NOT empty, and call `getDada()`. This function `getData()` will make the XHR request to the server (Open Weather API). You've already seen an
 example of the `$.ajax` request. Please note that the callback
 function is named `fetchData`. This function will be called after
 the browser gets the response from the OpenWeatherMap API. Needless to

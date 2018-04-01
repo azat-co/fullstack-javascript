@@ -9,7 +9,7 @@ Setup
 >
 > —[Ken Thompson](http://en.wikipedia.org/wiki/Ken_Thompson)
 
-In this chapter, we1 cover the following topics:
+In this chapter, we'll cover the following topics:
 
 -   Suggestions for the toolset
 

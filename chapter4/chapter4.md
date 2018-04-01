@@ -106,7 +106,7 @@ like this:
     </body>
     </html>
 
-We can also put `<script>` tags right after the `</body>` tag at the end
+We can also put `<script>` tags right before the `</body>` tag at the end
 of the file. This will change the order in which scripts and the rest of
 the HTML is loaded, and affect performance in large files.
 
