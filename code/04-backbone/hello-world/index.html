@@ -7,8 +7,8 @@
 
   <script>
 
-    var app // Becomes window.app
-    var router = Backbone.Router.extend({
+    let app // Becomes window.app
+    const router = Backbone.Router.extend({
       routes: {
         '': 'home'
       },
@@ -21,7 +21,7 @@
       }
     })
 
-    var homeView = Backbone.View.extend({
+    const homeView = Backbone.View.extend({
       el: 'body',
       template: _.template('Hello World'),
       render: function(){

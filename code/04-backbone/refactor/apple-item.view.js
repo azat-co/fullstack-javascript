@@ -1,4 +1,4 @@
-    var appleItemView = Backbone.View.extend({
+    const appleItemView = Backbone.View.extend({
       tagName: 'li',
       // template: _.template(''
       //        +'<a href="#apples/<%=name%>" target="_blank">'

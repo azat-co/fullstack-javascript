@@ -7,7 +7,7 @@
 
   <script>
 
-   var appleData = [
+    const appleData = [
       {
         name: 'fuji',
         url: 'img/fuji.jpg'
@@ -18,15 +18,15 @@
       }
     ]
 
-    var app
+    let app
 
-    var router = Backbone.Router.extend({
+    const router = Backbone.Router.extend({
       routes: {
         '': 'home',
         'apples/:appleName': 'loadApple'
       },
       initialize: function(){
-        var apples = new Apples()
+        const apples = new Apples()
         apples.reset(appleData)
         this.homeView = new homeView({collection: apples})
         this.appleView = new appleView({collection: apples})
@@ -35,11 +35,11 @@
         this.homeView.render()
       },
       loadApple: function(appleName){
-        this.appleView.loadApple(appleName)
+        this.appleView.render(appleName)
       }
     })
 
-    var homeView = Backbone.View.extend({
+    const homeView = Backbone.View.extend({
       el: 'body',
       template: _.template('Apple data: <%= data %>'),
       render: function(){
@@ -47,36 +47,22 @@
       }
     })
 
-    var Apples = Backbone.Collection.extend({
+    const Apples = Backbone.Collection.extend({
     })
 
-    var appleView = Backbone.View.extend({
-      initialize: function(){
-        this.model = new (Backbone.Model.extend({}))
-        this.model.on('change', this.render, this)
-        this.on('spinner', this.showSpinner, this)
-      },
+    const appleView = Backbone.View.extend({
       template: _.template('<figure>\
                               <img src="<%= attributes.url%>"/>\
                               <figcaption><%= attributes.name %></figcaption>\
                             </figure>'),
-      templateSpinner: '<img src="img/spinner.gif" width="30"/>',
-      loadApple: function(appleName){
-        this.trigger('spinner')
-        var view = this // We'll need to access that inside of a closure
-        setTimeout(function(){ // Simulates real time lag when fetching data from the remote server
-          view.model.set(view.collection.where({name: appleName})[0].attributes)
-        }, 1000)
-      },
+      // Re-write with load apple and event binding
       render: function(appleName){
-        var appleHtml = this.template(this.model)
+        const appleModel = this.collection.where({name: appleName})[0]
+        const appleHtml = this.template(appleModel)
         $('body').html(appleHtml)
-      },
-      showSpinner: function(){
-        $('body').html(this.templateSpinner)
       }
     })
-    
+
     $(document).ready(function(){
       app = new router
       Backbone.history.start()

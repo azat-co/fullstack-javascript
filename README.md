@@ -160,7 +160,7 @@ TBD
 
 * [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap): Twitter Bootstrap scaffolding example
 * [03-weather](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather): jQuery, OpenWeatherMap API and JSONP example
-* [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-parse-sdk):  Parse.com JavaScript SDK example
+* [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-parse-sdk):  Parse JavaScript SDK example
 * [04-board-parse-rest](https://github.com/azat-co/fullstack-javascript/tree/master/code/04-board-parse-rest): Message board front-end: jQuery and Parse.com REST API; ready for deployment.
 * [05-backbone](https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone): Diving Deeper into Backbone.js
 * [06-board-backbone-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/code/06-board-backbone-parse-sdk): BackboneJS and Parse.com SDK Message Board

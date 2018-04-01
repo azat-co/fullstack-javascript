@@ -1,4 +1,4 @@
-var homeView = Backbone.View.extend({
+const homeView = Backbone.View.extend({
   el: 'body',
   listEl: '.apples-list',
   cartEl: '.cart-box',

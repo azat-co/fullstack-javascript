@@ -30,12 +30,12 @@ This chapter will demonstrate:
 
 Backbone.js has been around for a while so it's very mature and can be
 trusted to be used in serious front-end development projects. This
-framework is decidedly minimalistic and unopinionated. You can use
+framework is decidedly minimalistic and un-opinionated. You can use
 Backbone.js with a lot of other libraries and modules. I think of
 Backbone.js as the foundation to build a custom framework that will be
 tightly suited to your particular use case.
 
-Some people are turned off by the fact that Backbone.js is unopinionated
+Some people are turned off by the fact that Backbone.js is un-opinionated
 and minimalistic. They prefer frameworks that do more for them and
 enforce a particular way of doing things (e.g., [the Angular best
 practices](https://github.com/johnpapa/angular-styleguide)
@@ -43,7 +43,7 @@ practices](https://github.com/johnpapa/angular-styleguide)
 with me, and you can pursue the study of a more complex front-end
 framework. They all fit nicely into the Node.js stack and the ecosystem.
 For the purpose of this book, Backbone.js is ideal because it provides
-some much needed sanity to the plain nonframework jQuery code, and at
+some much needed sanity to the plain non-framework jQuery code, and at
 the same time it doesn't have a steep learning curve. All you need to
 know is a few classes and methods, which we cover in this book.
 Everything else is JavaScript, not a domain-specific language.
@@ -58,9 +58,9 @@ the beginning, but as we go along we'll add more and more complexity,
 including models, subviews, and collections.
 
 Full source code for the Hello World app is available under
-`05``-backbone/hello-world` and on
-[GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/hello-world)
-(https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/hello-world).
+`04-backbone/hello-world` and on
+[GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/hello-world)
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/hello-world).
 
 Backbone.js Dependencies
 ------------------------
@@ -113,7 +113,7 @@ the HTML is loaded, and affect performance in large files.
 Let's define a simple Backbone.js router inside of a `<script>` tag:
 
       ...
-      var router = Backbone.Router.extend({
+      const router = Backbone.Router.extend({
       })
       ...
 
@@ -124,19 +124,19 @@ we'll refactor it later.
 
 Next, set up a special `routes` property inside of an `extend` call:
 
-      var router = Backbone.Router.extend({
+      const router = Backbone.Router.extend({
         routes: {
         }
       })
 
 The Backbone.js `routes` property needs to be in the following format:
-`'path/``:``param'``:'action``'`
+`'path/:param':'action'`
 
-This will result in the `filename#path/``param` URL triggering a
+This will result in the `filename#path/param` URL triggering a
 function named `action` (defined in the `Router` object). For now, we'll
 add a single `home` route:
 
-      var router = Backbone.Router.extend({
+      const router = Backbone.Router.extend({
         routes: {
           '': 'home'
         }
@@ -144,7 +144,7 @@ add a single `home` route:
 
 This is good, but now we need to add a `home` function:
 
-      var router = Backbone.Router.extend({
+      const router = Backbone.Router.extend({
         routes: {
           '': 'home'
         },
@@ -157,7 +157,7 @@ We'll come back to the `home` function later to add more logic for
 creating and rendering of a View. Right now we should define our
 `homeView`:
 
-      var homeView = Backbone.View.extend({
+      const homeView = Backbone.View.extend({
       })
 
 It looks familiar, right? Backbone.js uses similar syntax for all of its
@@ -168,7 +168,7 @@ There are a multiple ways to proceed from now on, but the best practice
 is to use the `el` and `template` properties, which are special in
 Backbone.js:
 
-      var homeView = Backbone.View.extend({
+      const homeView = Backbone.View.extend({
         el: 'body',
         template: _.template('Hello World')
       })
@@ -178,12 +178,12 @@ can use class name with '.' and id name with '\#'). The template
 property has been assigned an `Underscore.js` function `template` with
 just a plain text 'Hello World'.
 
-To render our `homeView` we use `this``.$``el`, which is a compiled
+To render our `homeView` we use `this.$el`, which is a compiled
 jQuery object referencing element in an `el` property, and the jQuery
-`.html()` function to replace HTML with `this.template``()` value. Here
+`.html()` function to replace HTML with `this.template()` value. Here
 is what the full code for our Backbone.js View looks like:
 
-      var homeView = Backbone.View.extend({
+      const homeView = Backbone.View.extend({
         el: 'body',
         template: _.template('Hello World'),
         render: function(){
@@ -194,7 +194,7 @@ is what the full code for our Backbone.js View looks like:
 Now, if we go back to the `router` we can add these two lines to the
 `home` function:
 
-      var router = Backbone.Router.extend({
+      const router = Backbone.Router.extend({
         routes: {
           '': 'home'
         },
@@ -209,13 +209,13 @@ Now, if we go back to the `router` we can add these two lines to the
 
 The first line creates the `homeView` object and assigns it to the
 `homeView` property of the router. The second line will call the
-`render(``)` method in the `homeView` object, triggering the 'Hello
+`render()` method in the `homeView` object, triggering the 'Hello
 World' output.
 
 Finally, to start a Backbone app, we call `new Router` inside of a
 document-ready wrapper to make sure that the file's DOM is fully loaded:
 
-    var app
+    let app
     $(document).ready(function(){
       app = new router
       Backbone.history.start()
@@ -234,15 +234,15 @@ Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1O7xRCY>.
 
 The full source code of this example is under
-`05``-backbone/collections`. It's built on top of the "Hello World"
+`04-backbone/collections`. It's built on top of the "Hello World"
 example from the Setting up Backbone.js App from Scratch exercise, which
-is available for download at [GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/collections) (https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/collections).
+is available for download at [GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/collections) (https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/collections).
 
 We should add some data to play around with, and to hydrate our views.
 To do this, add this right after the `<script>` tag and before the
 other code:
 
-       var appleData = [
+       const appleData = [
           {
             name: 'fuji',
             url: 'img/fuji.jpg'
@@ -282,7 +282,7 @@ definition:
 
 Have you noticed an `appleName` variable? It's exactly the same name as
 the one that we've used in `route`. This is how we can access query
-string parameters (e.g., `?``param``=``value&q``=search`) in
+string parameters (e.g., `?param=value&q=search`) in
 Backbone.js.
 
 Now we'll need to refactor some more code to create a Backbone
@@ -291,7 +291,7 @@ the collection to `homeView` and `appleView`. Conveniently enough, we do
 it all in the router constructor method `initialize`:
 
           initialize: function(){
-            var apples = new Apples()
+            const apples = new Apples()
             apples.reset(appleData)
             this.homeView = new homeView({collection: apples})
             this.appleView = new appleView({collection: apples})
@@ -300,13 +300,13 @@ it all in the router constructor method `initialize`:
 At this point, we're pretty much done with the `Router` class and it
 should look like this:
 
-        var router = Backbone.Router.extend({
+        const router = Backbone.Router.extend({
           routes: {
             '': 'home',
             'apples/:appleName': 'loadApple'
           },
           initialize: function(){
-            var apples = new Apples()
+            const apples = new Apples()
             apples.reset(appleData)
             this.homeView = new homeView({collection: apples})
             this.appleView = new appleView({collection: apples})
@@ -321,7 +321,7 @@ should look like this:
 
 Let's modify our `homeView` a bit to see the whole database:
 
-        var homeView = Backbone.View.extend({
+        const homeView = Backbone.View.extend({
           el: 'body',
           template: _.template('Apple data: <%= data %>'),
           render: function(){
@@ -336,11 +336,11 @@ it by using a list and subviews.
 
 Our apple Backbone Collection is very clean and simple:
 
-      var Apples = Backbone.Collection.extend({
+      const Apples = Backbone.Collection.extend({
       })
 
 Backbone automatically creates models inside of a collection when we use
-the `fetch(``)` or `reset()` functions from its API. I find using
+the `fetch()` or `reset()` functions from its API. I find using
 these functions to be very useful.
 
 Apple View is not any more complex; it has only two properties:
@@ -348,7 +348,7 @@ Apple View is not any more complex; it has only two properties:
 `img`, and `figcaption` tags with specific values. The Underscore.js
 template engine is handy at this task:
 
-      var appleView = Backbone.View.extend({
+      const appleView = Backbone.View.extend({
         template: _.template(
           '<figure>\
              <img src="<%= attributes.url %>"/>\
@@ -362,7 +362,7 @@ can use the backslash line breaker escape (`\`) symbol, or close strings
 and concatenate them with a plus sign (`+`). This is an example of
 `appleView` earlier, which is refactored using the latter approach:
 
-      var appleView = Backbone.View.extend({
+      const appleView = Backbone.View.extend({
         template: _.template(
           '<figure>'+
             +'<img src="<%= attributes.url %>"/>'+
@@ -384,26 +384,26 @@ the `Collection` class. We just need the very first item in that array
 and because arrays in JavaScript are zero-based (they start with a 0
 rather than 1 index), the syntax to get the apple model by name is this:
 
-        var appleModel = this.collection.where({name: appleName})[0]
+        const appleModel = this.collection.where({name: appleName})[0]
 
 Once we have our model, all we need to do is to pass the model to the
 template (also called hydrating templates). The result is some HTML that
 we inject into the `<body>`:
 
-        var appleHtml = this.template(appleModel)
+        const appleHtml = this.template(appleModel)
         $('body').html(appleHtml)
       }
 
-So we find a model within the collection via `where(``)` method and
+So we find a model within the collection via `where()` method and
 use `[]` to pick the first element. Right now, the `render` function
 is responsible for both loading the data and rendering it. Later we'll
 refactor the function to separate these two functionalities into
 different methods.
 
 For your convenience, here's the whole app, which is in the
-05-backbone/collections/index.html and
+04-backbone/collections/index.html and
 [GitHub](https://github.com/azat-co/fullstack-javascript/blob/master/5-backbone/collections/index.html)
-(https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/collections/index.html)
+(https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/collections/index.html)
 folder:
 
     <!DOCTYPE>
@@ -414,7 +414,7 @@ folder:
       <script src="backbone.js"></script>
 
       <script>
-        var appleData = [
+        const appleData = [
           {
             name: 'fuji',
             url: 'img/fuji.jpg'
@@ -424,14 +424,14 @@ folder:
             url: 'img/gala.jpg'
           }
         ]
-        var app
-        var router = Backbone.Router.extend({
+        let app
+        const router = Backbone.Router.extend({
           routes: {
             '': 'home',
             'apples/:appleName': 'loadApple'
           },
           initialize: function(){
-            var apples = new Apples()
+            const apples = new Apples()
             apples.reset(appleData)
             this.homeView = new homeView({collection: apples})
             this.appleView = new appleView({collection: apples})
@@ -444,7 +444,7 @@ folder:
           }
         })
 
-        var homeView = Backbone.View.extend({
+        const homeView = Backbone.View.extend({
           el: 'body',
           template: _.template('Apple data: <%= data %>'),
           render: function(){
@@ -452,17 +452,17 @@ folder:
           }
         })
 
-        var Apples = Backbone.Collection.extend({
+        const Apples = Backbone.Collection.extend({
 
         })
-        var appleView = Backbone.View.extend({
+        const appleView = Backbone.View.extend({
           template: _.template('<figure>\
                                   <img src="<%= attributes.url%>"/>\
                                   <figcaption><%= attributes.name %></figcaption>\
                                 </figure>'),
           render: function(appleName){
-            var appleModel = this.collection.where({name: appleName})[0]
-            var appleHtml = this.template(appleModel)
+            const appleModel = this.collection.where({name: appleName})[0]
+            const appleHtml = this.template(appleModel)
             $('body').html(appleHtml)
           }
         })
@@ -480,10 +480,10 @@ folder:
 
 Open `collections/index.html` file in your browser. You should see the
 data from our database; that is,
-`Apple data: [{"name":"fuji","url":"img/fuji.jpg"}``,{``"name":"gala","url":"img/gala.jpg"}]`.
+`Apple data: [{"name":"fuji","url":"img/fuji.jpg"},{"name":"gala","url":"img/gala.jpg"}]`.
 
-Now, let' go to `collections/``index.html#apples/``fuji` or
-`collections/``index.html#apples/gala` in your browser. We expect to
+Now, let' go to `collections/index.html#apples/fuji` or
+`collections/index.html#apples/gala` in your browser. We expect to
 see an image with a caption. It's a detailed view of an item, which in
 this case is an apple. Nice work!
 
@@ -504,16 +504,16 @@ would have to pass a function that renders HTML as a callback to the
 data loading function, to make sure that the rendering function is not
 executed before we have the actual data to display.
 
-Therefore, when a user goes to detailed view (`apples/``:id`) we only
+Therefore, when a user goes to detailed view (`apples/:id`) we only
 call the function that loads the data. Then, with the proper event
 listeners, our view will automagically (this is not a typo) update
 itself when there is new data (or on a data change; Backbone.js supports
 multiple and even custom events).
 
 For your information, if you don't feel like typing out the code (which
-I recommend), it's in `05``-backbone/binding` and
+I recommend), it's in `04-backbone/binding` and
 [GitHub](https://github.com/azat-co/fullstack-javascript/blob/master/5-backbone/binding/index.html)
-(https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/binding/index.html).
+(https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/binding/index.html).
 
 Let's change the code in the router:
 
@@ -527,14 +527,14 @@ Everything else remains the same until we get to the `appleView` class.
 We'll need to add a constructor or an `initialize` method, which is a
 special word or property in the Backbone.js framework. It's called each
 time we create an instance of an object, such as
-`var`` ``someObj`` = new ``SomeObject()`. We can also pass extra
+`const someObj = new SomeObject()`. We can also pass extra
 parameters to the `initialize` function, as we did with our views (we
 passed an object with the key `collection` and the value of `apples`
 Backbone Collection). Read more on Backbone.js constructors at
 [`backbonejs.org/#View-constructor`](http://backbonejs.org/#View-constructor).
 
       ...
-      var appleView = Backbone.View.extend({
+      const appleView = Backbone.View.extend({
         initialize: function(){
           // TODO: create and setup model (aka an apple)
         },
@@ -543,13 +543,13 @@ Backbone Collection). Read more on Backbone.js constructors at
 We have our `initialize` function; now we need to create a model that
 will represent a single apple and set up proper event listeners on the
 model. We'll use two types of events, `change` and a custom event called
-`spinner`. To do that, we are going to use the `on(``)` function, which
-takes these properties: `on(event, actions, context)``.` You can read
+`spinner`. To do that, we are going to use the `on()` function, which
+takes these properties: `on(event, actions, context).` You can read
 more about it at
 [`backbonejs.org/#Events-on`](http://backbonejs.org/#Events-on).
 
       ...
-      var appleView = Backbone.View.extend({
+      const appleView = Backbone.View.extend({
         initialize: function(){
           this.model = new (Backbone.Model.extend({}))
           this.model.bind('change', this.render, this)
@@ -561,7 +561,7 @@ more about it at
 
 The preceding code basically boils down to two simple things:
 
-1.  Call the `render(``)` function of the `appleView` object when the
+1.  Call the `render()` function of the `appleView` object when the
     model has changed.
 
 2.  Call the `showSpinner()` method of the `appleView` object when
@@ -588,7 +588,7 @@ the `showSpinner`:
 Next, we'll need to access the context inside of a closure. Sometimes I
 like to use a meaningful name instead of `_this` or `self`, so:
 
-        var view = this
+        const view = this
 
 Next, you would have an XHR call (e.g., `$.ajax()`) to the server
 to get the data. We'll simulate the real time lag when fetching data
@@ -617,7 +617,7 @@ Now we can remove an extra code from the `render` method and implement
 the `showSpinner` function:
 
       render: function(appleName){
-        var appleHtml = this.template(this.model)
+        const appleHtml = this.template(this.model)
         $('body').html(appleHtml)
       },
       showSpinner: function(){
@@ -630,7 +630,7 @@ That's all! Open `index.html#apples/gala` or
 animation while waiting for an apple image to load.
 
 Here is the full code of the `index.html` file (also in
-`05-backbone/binding/index.html` and
+`04-backbone/binding/index.html` and
 <https://github.com/azat-co/fullstack-javascript/blob/master/5-backbone/binding/index.html>):
 
     <!DOCTYPE>
@@ -641,7 +641,7 @@ Here is the full code of the `index.html` file (also in
       <script src="backbone.js"></script>
 
       <script>
-        var appleData = [
+        const appleData = [
           {
             name: 'fuji',
             url: 'img/fuji.jpg'
@@ -651,14 +651,14 @@ Here is the full code of the `index.html` file (also in
             url: 'img/gala.jpg'
           }
         ]
-        var app
-        var router = Backbone.Router.extend({
+        let app
+        const router = Backbone.Router.extend({
           routes: {
             '': 'home',
             'apples/:appleName': 'loadApple'
           },
           initialize: function(){
-            var apples = new Apples()
+            const apples = new Apples()
             apples.reset(appleData)
             this.homeView = new homeView({collection: apples})
             this.appleView = new appleView({collection: apples})
@@ -672,7 +672,7 @@ Here is the full code of the `index.html` file (also in
           }
         })
 
-        var homeView = Backbone.View.extend({
+        const homeView = Backbone.View.extend({
           el: 'body',
           template: _.template('Apple data: <%= data %>'),
           render: function(){
@@ -680,9 +680,9 @@ Here is the full code of the `index.html` file (also in
           }
         })
 
-        var Apples = Backbone.Collection.extend({
+        const Apples = Backbone.Collection.extend({
         })
-        var appleView = Backbone.View.extend({
+        const appleView = Backbone.View.extend({
           initialize: function(){
             this.model = new (Backbone.Model.extend({}))
             this.model.on('change', this.render, this)
@@ -695,13 +695,13 @@ Here is the full code of the `index.html` file (also in
           templateSpinner: '<img src="img/spinner.gif" width="30"/>',
           loadApple:function(appleName){
             this.trigger('spinner')
-            var view = this
+            const view = this
             setTimeout(function() {
               view.model.set(view.collection.where({name: appleName})[0].attributes)
             }, 1000)
           },
           render: function(appleName){
-            var appleHtml = this.template(this.model)
+            const appleHtml = this.template(this.model)
             $('body').html(appleHtml)
           },
           showSpinner: function(){
@@ -727,7 +727,7 @@ Backbone.js Views and Subviews with Underscore.js
 Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1k0ZnUB>. And this example i>s
 available at
-<https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/subview>.
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/subview>.
 
 Subviews are Backbone Views that are created and used inside of another
 Backbone View. A subviews concept is a great way to abstract (separate)
@@ -740,10 +740,10 @@ list, a paragraph, or a new line.
 We'll refactor our home page to show a nice list of apples. Each list
 item will have an apple name and a Buy link with an `onClick` event.
 Let's start by creating a subview for a single apple with our standard
-Backbone `extend(``)` function:
+Backbone `extend()` function:
 
       ...
-      var appleItemView = Backbone.View.extend({
+      const appleItemView = Backbone.View.extend({
         tagName: 'li',
         template: _.template(''
                +'<a href="#apples/<%=name%>" target="_blank">'
@@ -769,7 +769,7 @@ Now we can populate the object with `tagName`, `template`, `events`,
       ...
 
 `tagName` automatically allows Backbone.js to create an HTML
-element with the specified tag name, in this case `<``li``>` for list
+element with the specified tag name, in this case `<li>` for list
 item. This will be a representation of a single apple, a row in our
 list.
 
@@ -792,8 +792,8 @@ same code can be written with backslash escapes:
             '),
       ...
 
-Each `<``li``>` will have two anchor elements (`<a>`), links to a
-detailed apple view (`#apples/``:``appleName`), and a Buy button. Now
+Each `<li>` will have two anchor elements (`<a>`), links to a
+detailed apple view (`#apples/:appleName`), and a Buy button. Now
 we're going to attach an event listener to the Buy button:
 
       ...
@@ -815,8 +815,8 @@ or
 
     'click #load-more': 'loadMoreData'
 
-To render each item in the list, we'll use the jQuery `html(``)`
-function on the `this.$el` jQuery object, which is the `<``li``>` HTML
+To render each item in the list, we'll use the jQuery `html()`
+function on the `this.$el` jQuery object, which is the `<li>` HTML
 element based on our `tagName` attribute:
 
       ...
@@ -837,7 +837,7 @@ that this particular model (apple) is up for the purchase by the user:
 Here is the full code of the `appleItemView` Backbone View class:
 
       ...
-      var appleItemView = Backbone.View.extend({
+      const appleItemView = Backbone.View.extend({
         tagName: 'li',
         template: _.template(''
                + '<a href="#apples/<%=name%>" target="_blank">'
@@ -856,7 +856,7 @@ Here is the full code of the `appleItemView` Backbone View class:
       ...
 
 Easy peasy! But what about the master view, which is supposed to render
-all of our items (apples) and provide a wrapper `<``ul``>` container for
+all of our items (apples) and provide a wrapper `<ul>` container for
 `li` HTML elements? We need to modify and enhance our `homeView`.
 
 To begin with, we can add extra properties of `string` type
@@ -879,8 +879,8 @@ them (we'll refactor our code later) in `homeView`:
       ...
 
 The `initialize` function will be called when `homeView` is created
-(`new ``homeView()`). There we render our template (with our
-favorite `html(``)` function), and attach an event listener to the
+(`new homeView()`). There we render our template (with our
+favorite `html()` function), and attach an event listener to the
 collection, which is a set of apple models:
 
       ...
@@ -893,7 +893,7 @@ collection, which is a set of apple models:
 The syntax for the binding event is covered in the previous section. In
 essence, it is calling the `showCart()` function of `homeView`. In
 this function, we append `appleName` to the cart (along with a line
-break, a `<``br/>` element):
+break, a `<br/>` element):
 
       ...
         showCart: function(appleModel) {
@@ -901,10 +901,10 @@ break, a `<``br/>` element):
         },
       ...
 
-Finally, here is our long-awaited `render(``)` method, in which we
+Finally, here is our long-awaited `render()` method, in which we
 iterate through each model in the collection (each apple), create an
-`appleItemView` for each apple, create an `<``li``>` element for each
-apple, and append that element to `view.listEl` — `<``ul``>` element
+`appleItemView` for each apple, create an `<li>` element for each
+apple, and append that element to `view.listEl` — `<ul>` element
 with a class `apples-list` in the DOM:
 
       ...
@@ -912,7 +912,7 @@ with a class `apples-list` in the DOM:
         view = this
         // So we can use view inside of closure
         this.collection.each(function(apple){
-          var appleSubView = new appleItemView({model:apple})
+          const appleSubView = new appleItemView({model:apple})
           // Creates subview with model apple
           appleSubView.render()
           // Compiles template and single apple data
@@ -927,7 +927,7 @@ Let's make sure we didn't miss anything in the `homeView` Backbone
 View. Here's the full code sans the inline comments:
 
       ...
-      var homeView = Backbone.View.extend({
+      const homeView = Backbone.View.extend({
         el: 'body',
         listEl: '.apples-list',
         cartEl: '.cart-box',
@@ -945,7 +945,7 @@ View. Here's the full code sans the inline comments:
         render: function(){
           view = this
           this.collection.each(function(apple){
-            var appleSubView = new appleItemView({model: apple})
+            const appleSubView = new appleItemView({model: apple})
             appleSubView.render()
             $(view.listEl).append(appleSubView.$el)
           })
@@ -969,7 +969,7 @@ objects: views and collections.
 
 Just in case, here is the full code for the subviews example, which is
 also available at
-https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/index.html:
+https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/subview/index.html:
 
     <!DOCTYPE>
     <html>
@@ -979,7 +979,7 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
       <script src="backbone.js"></script>
 
       <script>
-       var appleData = [
+       const appleData = [
           {
             name: 'fuji',
             url: 'img/fuji.jpg'
@@ -989,14 +989,14 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
             url: 'img/gala.jpg'
           }
         ] 
-        var app
-        var router = Backbone.Router.extend({
+        let app
+        const router = Backbone.Router.extend({
           routes: {
             '': 'home',
             'apples/:appleName': 'loadApple'
           },
           initialize: function(){
-            var apples = new Apples()
+            const apples = new Apples()
             apples.reset(appleData)
             this.homeView = new homeView({collection: apples})
             this.appleView = new appleView({collection: apples})
@@ -1009,7 +1009,7 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
 
           }
         })
-        var appleItemView = Backbone.View.extend({
+        const appleItemView = Backbone.View.extend({
           tagName: 'li',
           template: _.template('\
                  <a href="#apples/<%=name%>" target="_blank">\
@@ -1028,7 +1028,7 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
           }
         })
 
-        var homeView = Backbone.View.extend({
+        const homeView = Backbone.View.extend({
           el: 'body',
           listEl: '.apples-list',
           cartEl: '.cart-box',
@@ -1046,15 +1046,15 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
           render: function(){
             view = this
             this.collection.each(function(apple){
-              var appleSubView = new appleItemView({model: apple})
+              const appleSubView = new appleItemView({model: apple})
               appleSubView.render()
               $(view.listEl).append(appleSubView.$el)   
             })
           }
         })
-        var Apples = Backbone.Collection.extend({
+        const Apples = Backbone.Collection.extend({
         })
-        var appleView = Backbone.View.extend({
+        const appleView = Backbone.View.extend({
           initialize: function(){
             this.model = new (Backbone.Model.extend({}))
             this.model.on('change', this.render, this)
@@ -1067,13 +1067,13 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
           templateSpinner: '<img src="img/spinner.gif" width="30"/>',
           loadApple:function(appleName){
             this.trigger('spinner')
-            var view = this
+            const view = this
             setTimeout(function(){
               view.model.set(view.collection.where({name: appleName})[0].attributes)
             }, 1000)
           },
           render: function(appleName){
-            var appleHtml = this.template(this.model)
+            const appleHtml = this.template(this.model)
             $('body').html(appleHtml)
           },
           showSpinner: function(){
@@ -1094,7 +1094,7 @@ https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/subview/
     </html>
 
 The link to an individual item, for example,
-`collections/``index.html#apples/``fuji`, also should work
+`collections/index.html#apples/fuji`, also should work
 independently, by typing it in the browser address bar.
 
 <span id="refactoring-backbone.js-code" class="anchor"><span id="refactoring" class="anchor"></span></span>Refactoring Backbone.js Code
@@ -1159,9 +1159,9 @@ Our main `index.html` file should look very minimalistic:
 
 The other files just have the code that corresponds to their file names.
 
-The content of `apple-``item.view.js` will have the `appleView` object:
+The content of `apple-item.view.js` will have the `appleView` object:
 
-      var appleView = Backbone.View.extend({
+      const appleView = Backbone.View.extend({
         initialize: function(){
           this.model = new (Backbone.Model.extend({}))
           this.model.on('change', this.render, this)
@@ -1175,7 +1175,7 @@ The content of `apple-``item.view.js` will have the `appleView` object:
 
         loadApple:function(appleName){
           this.trigger('spinner')
-          var view = this
+          const view = this
           // We'll need to access that inside of a closure
           setTimeout(function(){
           // Simulates real time lag when fetching
@@ -1187,7 +1187,7 @@ The content of `apple-``item.view.js` will have the `appleView` object:
         },
 
         render: function(appleName){
-          var appleHtml = this.template(this.model)
+          const appleHtml = this.template(this.model)
           $('body').html(appleHtml)
         },
         showSpinner: function(){
@@ -1195,9 +1195,9 @@ The content of `apple-``item.view.js` will have the `appleView` object:
         }
       })
 
-The `apple-``home.view.js` file has the `homeView` object:
+The `apple-home.view.js` file has the `homeView` object:
 
-      var homeView = Backbone.View.extend({
+      const homeView = Backbone.View.extend({
         el: 'body',
         listEl: '.apples-list',
         cartEl: '.cart-box',
@@ -1215,7 +1215,7 @@ The `apple-``home.view.js` file has the `homeView` object:
         render: function(){
           view = this // So we can use view inside of closure
           this.collection.each(function(apple){
-            var appleSubView = new appleItemView({model:apple})
+            const appleSubView = new appleItemView({model:apple})
             // Create subview with model apple
             appleSubView.render()
             // Compiles template and single apple data
@@ -1228,7 +1228,7 @@ The `apple-``home.view.js` file has the `homeView` object:
 
 The `apple.view.js` file contains the master apples list:
 
-      var appleView = Backbone.View.extend({
+      const appleView = Backbone.View.extend({
         initialize: function(){
           this.model = new (Backbone.Model.extend({}))
           this.model.on('change', this.render, this)
@@ -1241,7 +1241,7 @@ The `apple.view.js` file contains the master apples list:
         templateSpinner: '<img src="img/spinner.gif" width="30"/>',
         loadApple:function(appleName){
           this.trigger('spinner')
-          var view = this
+          const view = this
           // We'll need to access that inside of a closure
           setTimeout(function(){
           // Simulates real time lag when
@@ -1252,7 +1252,7 @@ The `apple.view.js` file contains the master apples list:
           }, 1000)
         },
         render: function(appleName){
-          var appleHtml = this.template(this.model)
+          const appleHtml = this.template(this.model)
           $('body').html(appleHtml)
         },
         showSpinner: function(){
@@ -1262,13 +1262,13 @@ The `apple.view.js` file contains the master apples list:
 
 `apples.js` is an empty collection:
 
-        var Apples = Backbone.Collection.extend({
+        const Apples = Backbone.Collection.extend({
         })
 
 `apple-app.js` is the main application file with the data, the router,
 and the starting command:
 
-       var appleData = [
+       const appleData = [
           {
             name: 'fuji',
             url: 'img/fuji.jpg'
@@ -1278,14 +1278,14 @@ and the starting command:
             url: 'img/gala.jpg'
           }
         ]
-        var app
-        var router = Backbone.Router.extend({
+        let app
+        const router = Backbone.Router.extend({
           routes: {
             '': 'home',
             'apples/:appleName': 'loadApple'
           },
           initialize: function(){
-            var apples = new Apples()
+            const apples = new Apples()
             apples.reset(appleData)
             this.homeView = new homeView({collection: apples})
             this.appleView = new appleView({collection: apples})
@@ -1324,36 +1324,36 @@ have a spinner, a "loading" GIF animation.
 
 The contents of the files are just global variables that are assigned
 some string values. Later we can use these variables in our views, when
-we call the Underscore.js helper method `_.``template(``)`.
+we call the Underscore.js helper method `_.template()`.
 
-Here is the `apple-``item.tpl.js` file:
+Here is the `apple-item.tpl.js` file:
 
-    var appleItemTpl = '\
+    const appleItemTpl = '\
          <a href="#apples/<%=name%>" target="_blank">\
         <%=name%>\
         </a>&nbsp;<a class="add-to-cart" href="#">buy</a>\
         '
 
-This is the `apple-``home.tpl.js` file:
+This is the `apple-home.tpl.js` file:
 
-    var appleHomeTpl = 'Apple data: \
+    const appleHomeTpl = 'Apple data: \
             <ul class="apples-list">\
             </ul>\
             <div class="cart-box"></div>'
 
-Here is the `apple-``spinner.tpl.js` file:
+Here is the `apple-spinner.tpl.js` file:
 
-    var appleSpinnerTpl = '<img src="img/spinner.gif" width="30"/>'
+    const appleSpinnerTpl = '<img src="img/spinner.gif" width="30"/>'
 
 This is the `apple.tpl.js` file:
 
-    var appleTpl = '<figure>\
+    const appleTpl = '<figure>\
                     <img src="<%= attributes.url %>"/>\
                     <figcaption><%= attributes.name %></figcaption>\
                   </figure>'
 
 Try to start the application now. The full code is at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/refactor.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/refactor.
 
 
 
@@ -1374,7 +1374,7 @@ Here is an example of using closure and a global variable module
 definition:
 
     ;(function() {
-      var apple= function() {
+      const apple = function() {
       ...// Do something useful like return apple object
       }
       window.Apple = apple
@@ -1384,7 +1384,7 @@ In a case when we need to access the app object (which creates a
 dependency on that object):
 
     ;(function() {
-      var app = this.app
+      let app = this.app
       // Equivalent of window.appliation
       // in case we need a dependency (app)
       this.apple = function() {
@@ -1448,7 +1448,7 @@ In a more explanatory way:
     })
 
 Basically, we tell a browser to load the files from the array of file
-names—the first parameter of the `require(``)` function—and then pass
+names—the first parameter of the `require()` function—and then pass
 our modules from those files to the anonymous callback function (second
 argument) as variables. Inside of the main function (anonymous callback)
 we can use our modules by referencing those variables. Therefore, our
@@ -1473,7 +1473,7 @@ we can use our modules by referencing those variables. Therefore, our
         appleView,
         Apples
         ){
-       var appleData = [
+       const appleData = [
           {
             name: 'fuji',
             url: 'img/fuji.jpg'
@@ -1483,15 +1483,15 @@ we can use our modules by referencing those variables. Therefore, our
             url: 'img/gala.jpg'
           }
         ]
-        var app
-        var router = Backbone.Router.extend({
+        let app
+        const router = Backbone.Router.extend({
         // Check if need to be required
           routes: {
             '': 'home',
             'apples/:appleName': 'loadApple'
           },
           initialize: function(){
-            var apples = new Apples()
+            const apples = new Apples()
             apples.reset(appleData)
             this.homeView = new homeView({collection: apples})
             this.appleView = new appleView({collection: apples})
@@ -1511,31 +1511,31 @@ we can use our modules by referencing those variables. Therefore, our
     })
 
 We put all of the code inside the function that is a second argument of
-`require(``)`, mentioned modules by their file names, and used
+`require()`, mentioned modules by their file names, and used
 dependencies via corresponding parameters. Now we should define the
-module itself. This is how we can do it with the `define(``)` method:
+module itself. This is how we can do it with the `define()` method:
 
     define([...],function(...){...})
 
-The meaning is similar to the `require(``)` function: Dependencies are
+The meaning is similar to the `require()` function: Dependencies are
 strings of file names (and paths) in the array that is passed as the
 first argument. The second argument is the main function that accepts
 other libraries as parameters (the order of parameters and modules in
 the array is important):
 
     define(['name-of-the-module'],function(nameOfModule){
-      var b = nameOfModule.render()
+      const b = nameOfModule.render()
       return b
     })
 
-Note that there is no need to append `.``js` to file names. Require.js
+Note that there is no need to append `.js` to file names. Require.js
 does it automatically. The Shim plug-in is used for importing text files
 such as HTML templates.
 
 Let's start with the templates and convert them into the Require.js
 modules.
 
-Here is the new `apple-``item.tpl.js` file:
+Here is the new `apple-item.tpl.js` file:
 
     define(function() {
       return '\
@@ -1554,7 +1554,7 @@ This is the `apple-home.tpl` file:
             <div class="cart-box"></div>'
     })
 
-Here is the `apple-``spinner.tpl.js` file:
+Here is the `apple-spinner.tpl.js` file:
 
     define(function(){
       return '<img src="img/spinner.gif" width="30"/>'
@@ -1569,7 +1569,7 @@ This is the `apple.tpl.js` file:
             </figure>'
      })
 
-Here is the `apple-``item.view.js` file:
+Here is the `apple-item.view.js` file:
 
     define(function() {
       return '\
@@ -1579,8 +1579,8 @@ Here is the `apple-``item.view.js` file:
                 '
     })
 
-In the `apple-``home.view.js` file, we need to declare dependencies on
-`apple-home.tpl` and `apple-``item.view.js` files:
+In the `apple-home.view.js` file, we need to declare dependencies on
+`apple-home.tpl` and `apple-item.view.js` files:
 
     define(['apple-home.tpl', 'apple-item.view'], function(
       appleHomeTpl,
@@ -1600,7 +1600,7 @@ In the `apple-``home.view.js` file, we need to declare dependencies on
           render: function(){
             view = this // So we can use view inside of closure
             this.collection.each(function(apple){
-              var appleSubView = new appleItemView({model:apple})
+              const appleSubView = new appleItemView({model:apple})
               // Create subview with model apple
               appleSubView.render()
               // Compiles template and single apple data
@@ -1628,7 +1628,7 @@ The `apple.view.js` file depends on two templates:
         templateSpinner: appleSpinnerTpl,
         loadApple:function(appleName){
           this.trigger('spinner')
-          var view = this
+          const view = this
           // We'll need to access that inside of a closure
           setTimeout(function(){
           // Simulates real time lag when
@@ -1639,7 +1639,7 @@ The `apple.view.js` file depends on two templates:
           }, 1000)
         },
         render: function(appleName){
-          var appleHtml = this.template(this.model)
+          const appleHtml = this.template(this.model)
           $('body').html(appleHtml)
         },
         showSpinner: function(){
@@ -1657,37 +1657,37 @@ This is the `apples.js` file:
 I hope you can see the pattern by now. All of our code is split into the
 separate files based on the logic (e.g., view class, collection class,
 template). The main file loads all of the dependencies with the
-`require(``)` function. If we need some module in a nonmain file, then
-we can ask for it in the `define(``)` method. Usually, in modules we
+`require()` function. If we need some module in a nonmain file, then
+we can ask for it in the `define()` method. Usually, in modules we
 want to return an object; for example, in templates we return strings
 and in views we return Backbone View classes and objects.
 
 Try launching the example located at
-https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/amd/.
+https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/amd/.
 Visually, there shouldn't be any changes. If you open the Network tab in
 the Developers Tool, you can see a difference in how the files are
 loaded.
 
 The old file shown in Figure 4-2
-(https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/refactor/index.html)
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/refactor/index.html)
 loads our JavaScript scripts in a serial manner, whereas the new file
 shown in Figure 4-3
-(https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/amd/index.html)
+(https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/amd/index.html)
 loads them in parallel.
 
 
 ![alt](media/image2.png)
 
-***Figure 4-2.*** *The old 05-backbone/refactor/index.html file*
+***Figure 4-2.*** *The old 04-backbone/refactor/index.html file*
 
 ![alt](media/image3.png)
 
-***Figure 4-3.*** *The new 05-backbone/amd/index.html file*
+***Figure 4-3.*** *The new 04-backbone/amd/index.html file*
 
 Require.js has a lot of configuration options that are defined through
 the `requirejs.config()` call in the top level of an HTML page. More
 information can be found at
-[`requirejs.org/docs/``api.html#config`](http://requirejs.org/docs/api.html#config).
+[`requirejs.org/docs/api.html#config`](http://requirejs.org/docs/api.html#config).
 
 Let's add a bust parameter to our example. The bust argument will be
 appended to the URL of each file, preventing a browser from caching the
@@ -1773,10 +1773,10 @@ For more information, check out the official r.js documentation at
 [`requirejs.org/docs/optimization.html`](http://requirejs.org/docs/optimization.html).
 
 The example code is available at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/r
+https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/r
 
 and
-https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/r/build.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/r/build.
 
 For uglification of JS files (which decreases the file sizes), we can
 use the [Uglify2](https://github.com/mishoo/UglifyJS2) module. To
@@ -1784,7 +1784,7 @@ install it with NPM, use:
 
     $ npm install uglify-js
 
-Then update the `app.build.js` file with the `optimize``: "uglify2"`
+Then update the `app.build.js` file with the `optimize: "uglify2"`
 property:
 
     ({
@@ -1805,7 +1805,7 @@ Run r.js with:
 
 You should get something like this:
 
-    define("apple-item.tpl",[],function(){return'             <a href="#apples/<%=name%>" target="_blank">            <%=name%>            </a>&nbsp;<a class="add-to-cart" href="#">buy</a>            '}),define("apple-home.tpl",[],function(){return'Apple data:         <ul class="apples-list">        </ul>        <div class="cart-box"></div>'}),define("apple-spinner.tpl",[],function(){return'<img src="img/spinner.gif" width="30"/>'}),define("apple.tpl",[],function(){return'<figure>                              <img src="<%= attributes.url %>"/>                              <figcaption><%= attributes.name %></figcaption>                            </figure>'}),define("apple-item.view",["apple-item.tpl"],function(e){return Backbone.View.extend({tagName:"li",template:_.template(e),events:{"click .add-to-cart":"addToCart"},render:function(){this.$el.html(this.template(this.model.attributes))},addToCart:function(){this.model.collection.trigger("addToCart",this.model)}})}),define("apple-home.view",["apple-home.tpl","apple-item.view"],function(e,t){return Backbone.View.extend({el:"body",listEl:".apples-list",cartEl:".cart-box",template:_.template(e),initialize:function(){this.$el.html(this.template),this.collection.on("addToCart",this.showCart,this)},showCart:function(e){$(this.cartEl).append(e.attributes.name+"<br/>")},render:function(){view=this,this.collection.each(function(e){var i=new t({model:e});i.render(),$(view.listEl).append(i.$el)})}})}),define("apple.view",["apple.tpl","apple-spinner.tpl"],function(e,t){return Backbone.View.extend({initialize:function(){this.model=new(Backbone.Model.extend({})),this.model.on("change",this.render,this),this.on("spinner",this.showSpinner,this)},template:_.template(e),templateSpinner:t,loadApple:function(e){this.trigger("spinner");var t=this;setTimeout(function(){t.model.set(t.collection.where({name:e})[0].attributes)},1e3)},render:function(){var e=this.template(this.model);$("body").html(e)},showSpinner:function(){$("body").html(this.templateSpinner)}})}),define("apples",[],function(){return Backbone.Collection.extend({})}),requirejs.config({urlArgs:"bust="+(new Date).getTime()}),require(["apple-item.tpl","apple-home.tpl","apple-spinner.tpl","apple.tpl","apple-item.view","apple-home.view","apple.view","apples"],function(e,t,i,n,a,l,p,o){var r,s=[{name:"fuji",url:"img/fuji.jpg"},{name:"gala",url:"img/gala.jpg"}],c=Backbone.Router.extend({routes:{"":"home","apples/:appleName":"loadApple"},initialize:function(){var e=new o;e.reset(s),this.homeView=new l({collection:e}),this.appleView=new p({collection:e})},home:function(){this.homeView.render()},loadApple:function(e){this.appleView.loadApple(e)}});$(document).ready(function(){r=new c,Backbone.history.start()})}),define("apple-app",function(){});
+    define("apple-item.tpl",[],function(){return'             <a href="#apples/<%=name%>" target="_blank">            <%=name%>            </a>&nbsp;<a class="add-to-cart" href="#">buy</a>            '}),define("apple-home.tpl",[],function(){return'Apple data:         <ul class="apples-list">        </ul>        <div class="cart-box"></div>'}),define("apple-spinner.tpl",[],function(){return'<img src="img/spinner.gif" width="30"/>'}),define("apple.tpl",[],function(){return'<figure>                              <img src="<%= attributes.url %>"/>                              <figcaption><%= attributes.name %></figcaption>                            </figure>'}),define("apple-item.view",["apple-item.tpl"],function(e){return Backbone.View.extend({tagName:"li",template:_.template(e),events:{"click .add-to-cart":"addToCart"},render:function(){this.$el.html(this.template(this.model.attributes))},addToCart:function(){this.model.collection.trigger("addToCart",this.model)}})}),define("apple-home.view",["apple-home.tpl","apple-item.view"],function(e,t){return Backbone.View.extend({el:"body",listEl:".apples-list",cartEl:".cart-box",template:_.template(e),initialize:function(){this.$el.html(this.template),this.collection.on("addToCart",this.showCart,this)},showCart:function(e){$(this.cartEl).append(e.attributes.name+"<br/>")},render:function(){view=this,this.collection.each(function(e){const i=new t({model:e});i.render(),$(view.listEl).append(i.$el)})}})}),define("apple.view",["apple.tpl","apple-spinner.tpl"],function(e,t){return Backbone.View.extend({initialize:function(){this.model=new(Backbone.Model.extend({})),this.model.on("change",this.render,this),this.on("spinner",this.showSpinner,this)},template:_.template(e),templateSpinner:t,loadApple:function(e){this.trigger("spinner");const t=this;setTimeout(function(){t.model.set(t.collection.where({name:e})[0].attributes)},1e3)},render:function(){const e=this.template(this.model);$("body").html(e)},showSpinner:function(){$("body").html(this.templateSpinner)}})}),define("apples",[],function(){return Backbone.Collection.extend({})}),requirejs.config({urlArgs:"bust="+(new Date).getTime()}),require(["apple-item.tpl","apple-home.tpl","apple-spinner.tpl","apple.tpl","apple-item.view","apple-home.view","apple.view","apples"],function(e,t,i,n,a,l,p,o){const r,s=[{name:"fuji",url:"img/fuji.jpg"},{name:"gala",url:"img/gala.jpg"}],c=Backbone.Router.extend({routes:{"":"home","apples/:appleName":"loadApple"},initialize:function(){const e=new o;e.reset(s),this.homeView=new l({collection:e}),this.appleView=new p({collection:e})},home:function(){this.homeView.render()},loadApple:function(e){this.appleView.loadApple(e)}});$(document).ready(function(){r=new c,Backbone.history.start()})}),define("apple-app",function(){});
 
 The file is intentionally not formatted to show how Uglify2
 (https://github.com/mishoo/UglifyJS2 ) works. Without the line break
