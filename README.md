@@ -30,7 +30,7 @@ If you'd like to contribute financially towards the effort (or any of my other o
 
 # Live Corporate Training
 
-Practical Node is a work of 30+ in-person courses, workshops and classes delivered by me in-person at various companies (Walmart Labs, Cisco, Intuit, Starbucks, Capital One, OnDeck, HubSpot, VMWare to name just a few), dev schools (Hack Reactor, DevBootcamp, Flat Iron NY, etc.) and conferences (ForwardJS, Node Interactive and others). If you need a corporate remote/online or onsite in-person training delivered by me, then [send me a message](https://webapplog.com/azat).
+Full Stack JavaScript, 3rd Edition is a work of 30+ in-person courses, workshops and classes delivered by me in-person at various companies (Walmart Labs, Cisco, Intuit, Starbucks, Capital One, OnDeck, HubSpot, VMWare to name just a few), dev schools (Hack Reactor, DevBootcamp, Flat Iron NY, etc.) and conferences (ForwardJS, Node Interactive and others). If you need a corporate remote/online or onsite in-person training delivered by me, then [send me a message](https://webapplog.com/azat).
 
 # Live Public Training
 
