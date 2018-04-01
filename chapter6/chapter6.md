@@ -73,7 +73,7 @@ environment or assign 1337 if the environment is not set, use:
 This will create a server, and a callback function will contain the
 response handler code:
 
-    const server = http.createServer(function (req, res) {
+    const server = http.createServer((req, res) => { 
 
 To set the right header and status code, use:
 
@@ -87,7 +87,7 @@ To output "Hello World" with the line end symbol, use:
 To set a port and display the address of the server and the port number,
 use:
 
-    server.listen(port, function() {
+    server.listen(port, () => {
       console.log('Server is running at %s:%s ',
         server.address().address, server.address().port)
     })
@@ -179,7 +179,7 @@ include:
 -   `util.inspect()`: Return a string representation of an object,
     which is useful for debugging
 
-###querystring
+### querystring
 
 This module provides utilities for dealing with query strings. Some of
 the methods include:
@@ -215,7 +215,7 @@ The lists of non-core modules can be found at:
 -   [npmjs.org](https://npmjs.org): Node Package Manager registry
 
 -   Nipster (http://eirikb.github.io/nipster): NPM search
-    [Nipster](http://eirikb.github.com/nipster/): NPM search tool for
+    [Nipster](http://eirikb.github.com/nipster): NPM search tool for
     Node.js
 
 -   [node-modules(http://node-modules.com): npm search engine
@@ -223,14 +223,14 @@ The lists of non-core modules can be found at:
 
 If you would like to know how to code your own modules, take a look at
 the article located here:
-https://quickleft.com/blog/creating-and-publishing-a-node-js-module/ .
+<https://quickleft.com/blog/creating-and-publishing-a-node-js-module>.
 
 npm Node Package Manager
 ------------------------
 
 <span id="manager" class="anchor"></span>Node Package Manager, or NPM,
 manages dependencies and installs modules for you. Node.js installation
-comes with NPM, whose web site is [npmjs.org](http://npmjs.org/).
+comes with NPM, whose web site is [npmjs.org](http://npmjs.org).
 
 `package.json` contains meta information about our Node.js application
 such as a version number; author name; and, most important, what

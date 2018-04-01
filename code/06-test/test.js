@@ -1,9 +1,9 @@
-var http = require('http')
-var assert = require('assert')
-var querystring = require('querystring')
-var util = require('util')
+const http = require('http')
+const assert = require('assert')
+const querystring = require('querystring')
+const util = require('util')
 
-var messageBoard = require('./mb-server')
+const messageBoard = require('./mb-server')
 
 assert.deepEqual('[{"name":"John","message":"hi"}]',
   messageBoard.getMessages())

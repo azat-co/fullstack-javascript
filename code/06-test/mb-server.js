@@ -1,13 +1,13 @@
-var http = require('http')
+const http = require('http')
 // Loads http module
-var util= require('util')
+const util= require('util')
 // Usefull functions
-var querystring = require('querystring')
+const querystring = require('querystring')
 // Loads querystring module, we'll need it to serialize and deserialize objects and query strings
 
-var port = process.env.PORT || 1337
+const port = process.env.PORT || 1337
 
-var messages = []
+const messages = []
 // This array will hold our messages
 messages.push({
   'name': 'John',
@@ -19,7 +19,7 @@ exports.server = http.createServer(function (req, res) {
 // Creates server
   if (req.method == 'POST' && req.url == '/messages/create.json') {
     // If method is POST and URL is messages/ add message to the array
-    var message = ''
+    let message = ''
     req.on('data', function(data, msg){
       console.log(data.toString('utf-8'))
       message = exports.addMessage(data.toString('utf-8'))
@@ -37,7 +37,7 @@ exports.server = http.createServer(function (req, res) {
     })
   } else if (req.method == 'GET' && req.url == '/messages/list.json') {
   // If method is GET and URL is /messages output list of messages
-    var body = exports.getMessages()
+    const body = exports.getMessages()
     // Body will hold our output
     res.writeHead(200, {
       'Content-Length': body.length,
