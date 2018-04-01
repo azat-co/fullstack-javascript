@@ -468,7 +468,7 @@ extensively to install Node.js modules.
 
 Front-end JavaScript libraries are downloaded and unpacked from their
 respective web sites. Those files are usually put in the Development
-folder (e.g., ∼/Documents/Development) for future use. Often, there is a
+folder (e.g., `∼/Documents/Development`) for future use. Often, there is a
 choice between the minified production version (more on that in the AMD
 and Require.js section of Chapter 4) and the extensively rich in
 comments development one.
@@ -478,7 +478,7 @@ Hosted
 Libraries](https://developers.google.com/speed/libraries/devguide)  
 (https://developers.google.com/speed/libraries/devguide), CDNJS
 (http://cdnjs.com ), Microsoft Ajax Content Delivery Network
-(<http://www.asp.net> ajaxlibrary/cdn.ashx ), and others. By doing so
+(<http://www.asp.net/ajaxlibrary/cdn.ashx> ), and others. By doing so
 the apps will be faster for some users, but won’t work locally at all
 without the Internet.
 
@@ -522,7 +522,7 @@ SSH keys provide a secure connection without the need to enter user name
 and password every time. For GitHub repositories, the latter approach is
 used with HTTPS URLs; for example,
 <https://github.com/azat-co/fullstack-javascript.git>; and the former with
-SSH URLs; for example, git@github.com:azat-co/fullstack-javascript.git.
+SSH URLs; for example, `git@github.com:azat-co/fullstack-javascript.git`.
 
 To generate SSH keys for GitHub on Mac OS X/UNIX machines do the
 following:
