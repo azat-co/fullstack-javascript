@@ -4,29 +4,28 @@ $(document).ready(function() {
 	const parseApplicationId = 'APPLICATION_ID'
 	const parseJavaScriptKey = 'MASTER_KEY'
 	
-	//change parseApplicationId and parseJavaScriptKey to values from Parse.com application dashboard
 	Parse.initialize(parseApplicationId, parseJavaScriptKey)
 	Parse.serverURL = 'http://localhost:1337/parse'
 
-	var Test = Parse.Object.extend('Test')
-	var test = new Test()
-	var query = new Parse.Query(Test);
+	const Test = Parse.Object.extend('Test')
+	const test = new Test()
+	const query = new Parse.Query(Test)
 
 	$('.btn-save').click(function(){
 		try {
-			var data = JSON.parse($('textarea').val())
+			const data = JSON.parse($('textarea').val())
 		} catch (e) {
 			alert('Invalid JSON')
 		}
 		if (!data) return false
 		test.save(data, {
-	    success: function(object) {
-	      console.log('Parse.com object is saved: ', object)
-				$('.log').html(JSON.stringify(object, null, 2))
-	      //alternatively you could use alert('Parse.com object is saved')
+	    success: (result) => {
+	      console.log('Parse.com object is saved: ', result)
+				$('.log').html(JSON.stringify(result, null, 2))
+	      //alternatively you could use alert('Parse object is saved')
 	    },
-	    error: function(object) {
-	      console.log('Error! Parse.com object is not saved: ', object)
+	    error: (error) => {
+	      console.log(`Error! Parse.com object is not saved: ${error}`)
 	    }
 		})
 	})
@@ -37,8 +36,9 @@ $(document).ready(function() {
 				$('.log').html(JSON.stringify(results, null, 2))
 			},
 			error: function(error) {
-				alert("Error: " + error.code + " " + error.message);
+				alert(`Error: ${error.code} ${error.message}`)
 			}
-		});		
+		})		
 	})
+
 })

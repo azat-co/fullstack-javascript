@@ -55,7 +55,7 @@ between Node.js versions):
 -   [nvm](https://github.com/creationix/nvm) (<https://github.com/creationix/nvm>)
 
 As usual, you could copy example code at
-https://github.com/azat-co/fullstack-javascript/tree/master/07-hello, or
+https://github.com/azat-co/fullstack-javascript/tree/master/code/07-hello, or
 write your own program from scratch. If you wish to do the latter,
 create a folder `hello` for your "Hello World" Node.js application. Then
 create file a `server.js` and line by line type the code below.
@@ -359,7 +359,7 @@ Deploying to Heroku
 
 For Heroku deployment, we need to create two extra files: `Procfile` and
 `package.json`. You could get the source code from
-https://github.com/azat-co/fullstack-javascript/tree/master/07-hello or
+https://github.com/azat-co/fullstack-javascript/tree/master/code/07-hello or
 write your own one.
 
 The structure of the "Hello World" application looks like this:
@@ -417,7 +417,7 @@ time we start/reset the server, the data will be lost.
 
 We'll start with a simple test case first to illustrate the Test-Driven
 Development approach. The full code is available at
-https://github.com/azat-co/fullstack-javascript/tree/master/08-test.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/08-test.
 
 Unit Testing Node.js
 --------------------
@@ -677,7 +677,7 @@ Also returning a new message in a JSON-as-a-string format:
 
 Here is the full code of `mb-server.js` minus the comments. It's
 also available at
-[08-test](https://github.com/azat-co/fullstack-javascript/tree/master/08-test):
+[08-test](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-test):
 
     var http = require('http')
     // Loads http module

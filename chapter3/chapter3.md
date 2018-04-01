@@ -1,7 +1,7 @@
 CHAPTER 3 
 --------
 
-jQuery and Parse.com
+Getting Data from Backend Using jQuery and Parse
 ====================
 
 > *There are two ways of constructing a software design: One way is to
@@ -24,10 +24,10 @@ This chapter covers the following topics:
 
 -   Illustrations of JSONP calls on OpenWeatherMap API example
 
--   Parse.com overview
+-   Parse overview
 
 -   Explanations on how to build a Message Board front-end only
-    application with jQuery and Parse.com
+    application with jQuery and Parse
 
 -   Step-by-step instructions on deployment to Windows Azure and Heroku
 
@@ -41,10 +41,10 @@ nice user interface in no time.
 It covers the terminology and explains JSON, AJAX, and CORS. We then
 explore the example of a weather app.
 
-We use Parse.com as our back end to streamline things and make
+We use Parse as our back end to streamline things and make
 development faster while still keeping it realistic. The cornerstone of
 this chapter is a persistent message board application built with
-Parse.com and jQuery.
+Parse and jQuery.
 
 Definitions
 ===========
@@ -92,8 +92,8 @@ array (depending on the particular language). The only big difference
 between JSON and JS object literal notation (native JS objects) is that
 the former is more stringent and requires double quotes (`"`) for key
 identifiers and string values. Both types can be serialized into a
-string representation with `JSON.stringify``(``)` and deserialized with
-`JSON.parse``()`, assuming we have a valid JSON object in a string
+string representation with `JSON.stringify()` and deserialized with
+`JSON.parse()`, assuming we have a valid JSON object in a string
 format.
 
 However, every member of an object can be an array, primitive, or
@@ -199,43 +199,43 @@ selection. For example:
 
 Here is the list of most commonly used jQuery API functions:
 
--   `find()``(http://api.jquery.com/find)`: Selects elements based on
+-   `find()(http://api.jquery.com/find)`: Selects elements based on
     the provided selector string
 
--   `hide()``(http://api.jquery.com/hide)`: Hides an element if it was
+-   `hide()(http://api.jquery.com/hide)`: Hides an element if it was
     visible
 
--   `show()``(http://api.jquery.com/show)`: Shows an element if it was
+-   `show()(http://api.jquery.com/show)`: Shows an element if it was
     hidden
 
--   `html()``(http://api.jquery.com/html)`: Gets or sets an inner HTML
+-   `html()(http://api.jquery.com/html)`: Gets or sets an inner HTML
     of an element
 
--   `append()``(http://api.jquery.com/append)` Injects an element into
+-   `append()(http://api.jquery.com/append)` Injects an element into
     the DOM after the selected element
 
--   `prepend``()``(http://api.jquery.com/prepend)` Injects an element
+-   `prepend()(http://api.jquery.com/prepend)` Injects an element
     into the DOM before the selected element
 
--   `on()``(http://api.jquery.com/on)`: Attaches an event listener to an
+-   `on()(http://api.jquery.com/on)`: Attaches an event listener to an
     element
 
--   `off()``(http://api.jquery.com/off)` Detaches an event listener from
+-   `off()(http://api.jquery.com/off)` Detaches an event listener from
     an element
 
--   `css``()``(http://api.jquery.com/css)`: Gets or sets the style
+-   `css()(http://api.jquery.com/css)`: Gets or sets the style
     attribute value of an element
 
--   `attr``()``(http://api.jquery.com/attr)` Gets or sets any attribute
+-   `attr()(http://api.jquery.com/attr)` Gets or sets any attribute
     of an element
 
--   `val``()``(http://api.jquery.com/val)`: Gets or sets the value
+-   `val()(http://api.jquery.com/val)`: Gets or sets the value
     attribute of an element
 
--   `text(``)``(http://api.jquery.com/text)`: Gets the combined text of
+-   `text()(http://api.jquery.com/text)`: Gets the combined text of
     an element and its children
 
--   `each()``(http://api.jquery.com/each)`: Iterates over a set of
+-   `each()(http://api.jquery.com/each)`: Iterates over a set of
     matched elements
 
 Most jQuery functions act not only on a single element, on which they
@@ -246,9 +246,8 @@ bugs, and it usually happens when a jQuery selector is too broad.
 Also, jQuery has many available plug-ins and libraries that provide a
 rich user interface or other functionality. For example:
 
--   [jQuery UI](http://jqueryui.com/) (http://jqueryui.com/)
-
--   [jQuery Mobile](http://jquerymobile.com/) (http://jquerymobile.com/)
+-   [jQuery UI](http://jqueryui.com/) (http://jqueryui.com)
+-   [jQuery Mobile](http://jquerymobile.com/) (http://jquerymobile.com)
 
 Twitter Bootstrap
 =================
@@ -390,8 +389,8 @@ This example is available for downloading and pulling from the GitHub
 public [repository at
 `github.com/azat-co/fullstack-javascript`](https://github.com/azat-co/fullstack-javascript)
 under the [01-bootstrap
-folder](https://github.com/azat-co/fullstack-javascript/tree/master/01-bootstrap)
-(https://github.com/azat-co/fullstack-javascript/tree/master/01-bootstrap).
+folder](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap)
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap).
 If you prefer to watch screencasts, I recorded one on YouTube
 (http://bit.ly/1RKx9uY).
 
@@ -439,7 +438,7 @@ ways:
     module](https://npmjs.org/package/less) (https://www.npmjs.com/package/less)
 
 3.  Locally on your machine by command line (installed with npm by
-    running `$ ``npm`` install -g less`), [WinLess](http://winless.org)
+    running `$ npm install -g less`), [WinLess](http://winless.org)
     (http://winless.org/), [LESS App](http://incident57.com/less)
     (http://incident57.com/codekit/index.html),
     [SimpLESS](http://wearekiss.com/simpless)
@@ -447,17 +446,6 @@ ways:
 
 The browser option is suitable for a development environment, but
 suboptimal for a production environment.
-
-Here are some online tools for compilation:
-
--   [*LESS2CSS*](http://less2css.org/) (http://less2css.org/): A slick,
-    browser-based LESS to CSS converter built on Express.js
-
--   [*lessphp*](http://leafo.net/lessphp/)(http://leafo.net/lessphp/):
-    An online demo compiler
-
--   [*Dopefly*](http://www.dopefly.com/LESS-Converter/less-converter.html)(http://www.dopefly.com/LESS-Converter/less-converter.html):
-    An online LESS converter
 
 LESS has variables, mix-ins, and operators that make it faster for
 developers to reuse CSS rules.
@@ -669,7 +657,7 @@ the following syntax:
         alert('Error sending request')
       })
 
-In the code fragment of an `ajax``()` function just shown, we used
+In the code fragment of an `ajax()` function just shown, we used
 the following parameters:
 
 -   `url` is an endpoint of the API.
@@ -690,7 +678,7 @@ There is also a chained method `.fail`, which has logic for what to do
 when the request has an error (i.e., it fails).
 
 For more parameters and examples of the `ajax()` function, go to
-[`api.jquery.com/``jQuery.ajax`](http://api.jquery.com/jQuery.ajax/).
+[`api.jquery.com/jQuery.ajax`](http://api.jquery.com/jQuery.ajax/).
 
 To assign our function to a user-triggered event, we need to use the
 `click` function from the jQuery library. The syntax is very simple:
@@ -715,9 +703,9 @@ are not available before they have been created and injected into the
 DOM.
 
 We must put the event handlers for the buttons in the
-`$(document).``ready()` callback. Otherwise, the code might try to
+`$(document).ready()` callback. Otherwise, the code might try to
 attach an event listener to a nonexisting DOM element. The
-`$(document).``ready()` ensures that the browser rendered all the DOM
+`$(document).ready()` ensures that the browser rendered all the DOM
 elements.
 
     $(document).ready(function(){
@@ -748,7 +736,7 @@ The last container with the ID `info` is where we'll put the forecast.
 
 The idea is simple: We have button and event listeners to do something
 once a user clicks the buttons. The aforementioned buttons call the
-`prepareData``()` method. This is its definition:
+`prepareData()` method. This is its definition:
 
     const openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP',
       openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
@@ -765,9 +753,9 @@ once a user clicks the buttons. The aforementioned buttons call the
     }
 
 The code should be straightforward. We get the value of the city name
-from the input box, check that it's not empty, and call `getDada``()`,
+from the input box, check that it's not empty, and call `getDada()`,
 which will make the XHR request to the server. You've already seen an
-example of the `$.``ajax` request. Please note that the callback
+example of the `$.ajax` request. Please note that the callback
 function is named `fetchData`. This function will be called after
 the browser gets the response from the OpenWeatherMap API. Needless to
 say, we must pass the city name, app ID, and units as follows:
@@ -819,8 +807,8 @@ the HTML with the city name and the forecast:
     $('#log').html(html)
 
 In a nutshell, there is a button element that triggers
-`prepareData``()`, which calls `getData``()`, in the callback of which
-is `fetchData``()`. If you found that confusing, here's the full code of
+`prepareData()`, which calls `getData()`, in the callback of which
+is `fetchData()`. If you found that confusing, here's the full code of
 the `index.html` file:
 
 ```html
@@ -944,29 +932,47 @@ to [the GitHub repository for the book's projects](https://github.com/azat-co/fu
 jQuery is a good library for getting data from the RESTful servers.
 Sometimes we are not just reading the data from the servers; we also
 want to write it. This way the information persists and can be accessed
-later. Parse.com will allow you to save your data without friction.
+later. Parse will allow you to save your data without friction.
 
-Parse.com
+Parse
 =========
 
 Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1SU8imX>.
 
-[Parse.com](http://parse.com) (http://parse.com) is a service that can
-be a substitute for a database and a server. It started as means to
-support mobile application development. Nevertheless, with the REST API
-and the JavaScript SDK, Parse.com can be used in any web and desktop
-applications for data storage (and much more), making it ideal for rapid
-prototyping.
+[Parse](http://parseplatform.org) (http://parseplatform.org) is a platform which is a collection of server and client libraries that offer a feature-rich backend. With Parse server, developers can focus on building their client apps (web or mobile) because they'll have a substitute for a database and a server. In other words, with Parse, there's no need to build your own server or to maintain a database! 
 
-Go to Parse.com and sign up for a free account. Create an application,
-and copy the Application ID, REST API Key, and JavaScript Key. We'll
-need these keys to access our collection at Parse.com. Please note the
-Data Browser tab, as that's where you can see your collections and
-items.
+Parse started as means to
+support mobile application development. Nevertheless, with the REST API
+and the JavaScript SDK, Parse can be used in any web and desktop
+applications for data storage (and much more), making it ideal for rapid
+prototyping. 
+
+To create a local instance of Parse simply install two npm modules: `parse-server` and `mongodb-runner` using npm:
+
+```
+npm i -g parse-server mongodb-runner
+```
+
+Then launch the mongoDB with `mongodb-runner start`. You'll see this message:
+
+```
+  ◝ Starting a MongoDB deployment to test against...✔  Downloaded MongoDB 3.6.3
+  ◟ Starting a MongoDB deployment to test against...
+```
+
+
+That's it. You can create your own backend locally with the next command which take API key and ID and points to the local DB:
+
+```
+parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb://localhost/test
+```
+
+
+Create your backend Parse server application. Feel free to use your own values for `appId` and `masterKey`. Copy the Application ID, master key into the front end project files such as 03-parse-sdk/app.js because you'll need to use the exact the same value on the front end in order to be able to access your backend server. In other words, we'll need these keys to access our data collection at Parse. 
 
 We'll create a simple application that will save values to the
-collections using the Parse.com JavaScript SDK. Our application will
+collections using the Parse JavaScript SDK. The final solution is in the 03-parse-sdk folder. Our application will
 consist of an `index.html` file and an `app.js` file. Here is the
 structure of our project folder:
 
@@ -978,9 +984,9 @@ structure of our project folder:
         -boostrap.css
 
 The sample is available in the
-[`03-parse-sdk`](https://github.com/azat-co/fullstack-javascript/tree/master/03-parse-sdk)
+[`03-parse-sdk`](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-parse-sdk)
 folder on GitHub
-(https://github.com/azat-co/fullstack-javascript/tree/master/03-parse-sdk),
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/03-parse-sdk),
 but you are encouraged to type your own code from scratch. To start,
 create the `index.html` file:
 
@@ -996,12 +1002,10 @@ download and save it into the folder):
         "jquery.js">
       </script>
 
-Include the Parse.com JavaScript SDK library v1.6.7 from Parse CDN
-location:
+Include the Parse JavaScript SDK library v1.11.7 from this location <https://unpkg.com/parse@1.11.1/dist/parse.js>
+ or from code/libraries:
 
-      <script
-        src="//www.parsecdn.com/js/parse-1.6.7.min.js">
-      </script>
+      <script src="parse-1.11.1.js"></script>
 
 Include our `app.js` file and the Twitter Bootstrap v4.0.0-alpha:
 
@@ -1013,8 +1017,8 @@ Include our `app.js` file and the Twitter Bootstrap v4.0.0-alpha:
     </body>
     </html>
 
-The `<body>` of the HTML page consists of the `<``textarea``>`
-element``. We'll use it to enter JSON:
+The `<body>` of the HTML page consists of the `<textarea>`
+element. We'll use it to enter JSON:
 
     <body>
         <div class="container-fluid">
@@ -1035,11 +1039,11 @@ this element preserves white space and we don't want to have it when we
 process that string into JSON.
 
 After the input area, there's a button that will trigger the saving to
-Parse.com:
+Parse:
 
                                     <p><a class="btn btn-primary btn-large btn-save" >Save object</a></p>
                                     <pre class="log"></pre>
-                                    Go to <a href="https://parse.com/apps/" target="_blank">Parse.com</a> to check the data.
+                                    Go to <a href="http://parseplatform.org/" target="_blank">Parse</a> to check the data.
                                 </div>  *<!-- hero-unit -->*
                             </div>  *<!-- span12 -->*
                         </div> *<!-- row-fluid -->*
@@ -1055,123 +1059,186 @@ Parse.com:
 Create the `app.js` file and use the `$(document).ready` function to
 make sure that the DOM is ready for manipulation:
 
+```js
     $(document).ready(function() {
+```
 
-Change `parseApplicationId` and `parseJavaScriptKey` to values from the
-Parse.com application dashboard (you'll need to sign up for the
-service):
+Change `parseApplicationId` and `parseJavaScriptKey` to values for your own
+Parse server (you define them when you start the Parse server):
 
-    var parseApplicationId = 'GET-YOUR-KEYS-AT-PARSE.COM'
-    var parseJavaScriptKey = 'GET-YOUR-KEYS-AT-PARSE.COM'
+```js
+const parseApplicationId = 'APPLICATION_ID'
+const parseJavaScriptKey = 'MASTER_KEY'	
+```
 
 Because we've included the Parse JavaScript SDK library, we now have
 access to the global object `Parse`. We initialize a connection with the
-keys, and create a reference to a `Test` collection``:
+keys, and create a reference to a `Test` collection:
 
-      Parse.initialize(parseApplicationId, parseJavaScriptKey)
-      var Test = Parse.Object.extend('Test')
-      var test = new Test()
+```js
+Parse.initialize(parseApplicationId, parseJavaScriptKey)
+Parse.serverURL = 'http://localhost:1337/parse'
+```      
 
-This simple code will save an object with the keys `name` and `text` to
-the Parse.com `Test` collection:
+Next, create the collection object. It's like a model for our data. The name is `Test` but it can be any string value. 
 
-    var Test = Parse.Object.extend('Test')
-        var test = new Test()
-        $('.btn-save').click(function(){
+```js
+const Test = Parse.Object.extend('Test')
+const test = new Test()
+const query = new Parse.Query(Test)
+```
 
-The next few statements deal with getting your JSON from the
-`<textarea>` and parsing it into a normal JavaScript object. The
-`try/catch` is crucial because the JSON structure is very rigid. You
-cannot have any extra symbols. Each time there's a syntax error, it will
-break the entire app. Therefore, we need to account for erroneous
+The next step is to implement the code to save an object with the keys `name` and `text` to
+the Parse `Test` collection. We are going to use `test.save()`:
+
+```js
+test.save(obj, {success, error})
+```
+
+But before we can call `save()`, we must get the data from the DOM (browser element `textarea`). The next few statements deal with getting your JSON from the `<textarea>` and parsing it into a normal JavaScript object. The `try/catch` is crucial because the JSON structure is very rigid. You cannot have any extra symbols. Each time there's a syntax error, it will break the entire app. Therefore, we need to account for erroneous
 syntax:
 
-            try {
-                var data = JSON.parse($('textarea').val())
-            } catch (e) {
-                alert('Invalid JSON')
-            }
-            if (!data) return false
+```js
+try {
+    const data = JSON.parse($('textarea').val())
+} catch (e) {
+    alert('Invalid JSON')
+}
+```
 
 Conveniently, the `save()` method accepts the callback parameters
-`success` and `error` just like the `jQuery.ajax``()` function. To get a
-confirmation, we'll just have to look at the `log`` `container``
+`success` and `error` just like the `jQuery.ajax()` function. To get a
+confirmation, we'll just have to look at the `log` container
 (`<pre class="log"></pre>`) on the page:
 
-          success: function(object) {
-            console.log('Parse.com object is saved: ', object)
-            $('.log').html(JSON.stringify(object, null, 2))
-            // Alternatively you could use alert('Parse.com object is saved')
-          },
+    test.save(data, {
+        success: (result) => {
+            console.log('Parse.com object is saved: ', result)
+                $('.log').html(JSON.stringify(result, null, 2))
+            //alternatively you could use alert('Parse object is saved')
+        },
+        error: (error) => {
+            console.log(`Error! Parse.com object is not saved: ${error}`)
+        }
+    })
 
-It's important to know why we failed to save an object:
+It's important to know why we failed to save an object. That's why there's an error callback.
 
-          error: function(object) {
-            console.log('Error! Parse.com object is not saved: ', object)
-          }
-        })
-      })
+We will also implement a method to get all object from Test. We will use `query.find()`.
 
-    })    
 
 Just so you don't have to click on the Github link (or type it from the
 book) to look up the full source code of the `app.js` file, I provide
 it here:
 
-    $(document).ready(function() {
-        var parseApplicationId = 'GET-YOUR-KEYS-AT-PARSE.COM'
-        var parseJavaScriptKey = 'GET-YOUR-KEYS-AT-PARSE.COM'
-        // Change parseApplicationId and parseJavaScriptKey to values from Parse.com application dashboard
+```js
+// Azat's app, change these values to your own keys
+const parseAppID = 'APPLICATION_ID'
+const parseRestKey = 'MASTER_KEY'
+const apiBase = `http://localhost:1337/parse`
 
-        Parse.initialize(parseApplicationId, parseJavaScriptKey)
-
-        var Test = Parse.Object.extend('Test')
-        var test = new Test()
-        $('.btn-save').click(function(){
-            try {
-                var data = JSON.parse($('textarea').val())
-            } catch (e) {
-                alert('Invalid JSON')
-            }
-            if (!data) return false
-            test.save(data, {
-            success: function(object) {
-              console.log('Parse.com object is saved: ', object)
-              $('.log').html(JSON.stringify(object, null, 2))
-            },
-            error: function(object) {
-              console.log('Error! Parse.com object is not saved: ', object)
-            }
-            })
-        })
+$(document).ready(function(){
+  getMessages()
+  $('#send').click(function(){
+    const $sendButton = $(this)
+    $sendButton.html('<img src="img/spinner.gif" width="20"/>')
+    const username = $('input[name=username]').val()
+    const message = $('input[name=message]').val()
+    $.ajax({
+      url: `${apiBase}/classes/MessageBoard`,
+      headers: {
+        'X-Parse-Application-Id': parseAppID,
+        'X-Parse-REST-API-Key': parseRestKey
+      },
+      contentType: 'application/json',
+      dataType: 'json',
+      processData: false,
+      data: JSON.stringify({
+        'username': username,
+        'message': message
+      }),
+      type: 'POST',
+      success: function() {
+        console.log('sent')
+        getMessages()
+        $sendButton.html('SEND')
+      },
+      error: function() {
+        console.log('error')
+        $sendButton.html('SEND')
+      }
     })
+  })
+})
 
-We need to use the JavaScript SDK Key from the Parse.com dashboard with
-this approach. For the jQuery example, we'll be using the REST API Key
-from the same web page.
+function getMessages() {
+  $.ajax({
+    url: `${apiBase}/classes/MessageBoard?limit=1000`,
+    headers: {
+      'X-Parse-Application-Id': parseAppID,
+      'X-Parse-REST-API-Key': parseRestKey
+    },
+    contentType: 'application/json',
+    dataType: 'json',
+    type: 'GET',
+    success: (data) => {
+      console.log('get')
+      updateView(data)
+    },
+    error: () => {
+      console.log('error')
+    }
+  })
+}
+
+function updateView(messages) {
+  // messages.results = messages.results.reverse()
+  const table = $('.table tbody')
+  table.html('')
+  $.each(messages.results, (index, value) => {
+    const trEl = (`<tr><td>
+      ${value.username}
+      </td><td>
+      ${value.message}
+      </td></tr>`)
+    table.append(trEl)
+  })
+  console.log(messages)
+}
+
+```
+
 
 To run the app, start your local web server at the project folder and
 navigate to the address (e.g.,
-[`http://localhost:8080`](http://localhost:8080)) in your browser. If
-you get a 401 Unauthorized error from Parse.com, that's probably because
-you have the wrong API key.
+<http://localhost:8080>) in your browser. Or you can start the static web server from my book repository. The difference is that you'll have to provide the path `code/03-parse-sdk` if you start from the book repository folder (root). If you start from the project folder then you do not provide the path because the index.html file is right in the project folder. Note that if
+you get a 401 Unauthorized error from Parse, that's probably because
+you have the wrong API key. Make sure you use the same key in your JavaScript as you used when you started the parse server from the command line. Of course, if you haven't started your parse serve, do so now because we cannot connect to a server if it's not running (duh!).
 
 If everything was done properly, you should be able to see the `Test` in
-Parse.com's Data Browser populated with values "John" and "hi". Also,
-you should see the proper message with the newly created ID. Parse.com
+Parse's Data Browser populated with values "John" and "hi" (Figure 3-3). Also,
+you should see the proper message with the newly created ID. Parse
 automatically creates object IDs and timestamps, which will be very
 useful in our Message Board application.
 
-Parse.com also has thorough instructions for the Hello World application
-that are available in the Quick Start Guide sections for [new
-projects](https://parse.com/apps/quickstart#js/blank)
-(https://parse.com/apps/quickstart\#js/blank) and [existing
-ones](https://parse.com/apps/quickstart#js/existing)
-(https://parse.com/apps/quickstart\#js/existing) .
+![alt](media/parse-sdk.png)
+
+***Figure 3-4.** Save button will send the object to the backend which will save it to the database.*
+
+If you press on the Get object (green button), then you'll get all the objects which are stored in the database. How to confirm that this data is actually store in the database and won't disappear when we close the browser? Simply, close the browser and open it again. If still not convinced, use Mongo shell/REPL or Compass (Figure 3-4) to go to the local MongoDB database instance and the Test collection. There will be the data just sitting and looking at you.
+
+
+![alt](media/compass.png)
+
+***Figure 3-5.** Compass shows in MongoDB the data which was sent from the browser.*
+
+Parse also has thorough instructions for the various parts of platform including its server and clients libraries: <http://docs.parseplatform.org>. You can deploy parse server into cloud or your own data center. Parse supports containers too.
+
+With Parse we can use browser JavaScript, one command-line (parse-server) and wheyee! We can save to the database straight from the browser!!! 
 
 Let’s move on to the Message Board app.
 
-Message Board with Parse.com Overview
+Message Board with Parse Overview
 =====================================
 
 Supplemental video which walks you through the implementation and
@@ -1179,45 +1246,46 @@ demonstrates the project: <http://bit.ly/1SU8pyS>.
 
 The Message Board will consist of an input field, a list of messages,
 and a send button. We need to display a list of existing messages and be
-able to submit new messages. We'll use Parse.com as a back end for now,
+able to submit new messages. We'll use Parse as a back end for now,
 and later switch to Node.js with MongoDB.
 
-You can get a free account at Parse.com. The JavaScript Guide is
-available at
-[`https://parse.com/docs/js_guide`](https://parse.com/docs/js_guide) and
-the JavaScript API is available at
-[`https://parse.com/docs/js/`](https://parse.com/docs/js/).
+![alt](media/board-1.png)
 
-After signing up for Parse.com, go to the dashboard and create a new app
-if you haven't done so already. Copy your newly created app's
-Application ID and JavaScript key and REST API key. You will need them
-later. There are a few ways to use Parse.com:
+***Figure 3-3.** Save button will send the object to the backend which will save it to the database.*
+
+
+![alt](media/board-2.png)
+
+***Figure 3-4.** Get button will fetch the all objects form the backend.*
+
+You can get a free copy of the parse-server from npm. It's just an open source library which you can run anywhere. Unlike the previous example in which we used Parse SDK in this example we will be making our own AJAX/XHR calls to the backend. This will prepare us for switching to our own backend.
+
+After installing Parse server (`npm i -g parse-server`), launch it with the app ID and the key. Write them down in invisible ink on a newspaper. You will need them
+later. There are a few ways to use Parse:
 
 -   *REST API:* We're going to use this approach with the
     jQuery example.
-
 -   *JavaScript SDK:* We just used this approach in our preceding test
     example, and we'll use it in the Backbone.js example later.
 
-REST API is a more generic approach. Parse.com provides endpoints that
-we can request with the `$.``ajax``(``)` method from the jQuery library.
-The description of available URLs and methods can be found at
-[`parse.com/docs/rest`](https://parse.com/docs/rest).
+REST API is a more generic approach. Parse provides endpoints that
+we can request with the `$.ajax()` method from the jQuery library.
+The description of available URLs and methods can be found at <http://docs.parseplatform.org>.
 
-Message Board with Parse.com: REST API and jQuery Version
+Message Board with Parse: REST API and jQuery Version
 ---------------------------------------------------------
 
 The full code is available in the
-[`04-board-parse-rest`](https://github.com/azat-co/fullstack-javascript/tree/master/04-board-parse-rest)
-(https://github.com/azat-co/fullstack-javascript/tree/master/04-board-parse-rest
+[`03-board-parse-rest`](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-board-parse-rest)
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/03-board-parse-rest
 ) folder, but we encourage you to try to write your own application
 first.
 
-We'll use Parse.com's REST API and jQuery. Parse.com supports different
+We'll use Parse's REST API and jQuery. Parse supports different
 origin domain AJAX calls, so we won't need JSONP.
 
 When you decide to deploy your back-end application, which will act as a
-substitute for Parse.com, on a different domain you'll need to use
+substitute for Parse, on a different domain you'll need to use
 either JSONP on the front end or custom CORS headers on a back end. This
 topic is covered later in the book.
 
@@ -1259,7 +1327,7 @@ local `app.js`, local minified Twitter Bootstrap, and custom stylesheet
             <meta name="viewport" content="width=device-width, initial-scale=1">        
       </head>
 
-The body element will have typical Twitter Boostrap scaffolding elements
+The body element will have typical Twitter Bootstrap scaffolding elements
 defined by classes `container-fluid` and `row-fluid`:
 
       <body>
@@ -1311,9 +1379,9 @@ new messages.
 
 Now we are going to write three main functions:
 
-1.  `getMessages``()`: The function to get the messages
+1.  `getMessages()`: The function to get the messages
 
-2.  `updateView``()`: The function to render the list of messages
+2.  `updateView()`: The function to render the list of messages
 
 3.  `$('#send').click(...)`: The function that triggers sending a new
     message
@@ -1325,8 +1393,11 @@ when your project grows larger.
 Replace these values with your own, and be careful to use the REST API
 key (not the JavaScript SDK key from the previous example):
 
-    var parseID='YOUR_APP_ID'
-    var parseRestKey='YOUR_REST_API_KEY'
+```js
+const parseAppID = 'APPLICATION_ID'
+const parseRestKey = 'MASTER_KEY'
+const apiBase = `http://localhost:1337/parse`
+```
 
 Let's start with `document.ready`. It will have the logic for fetching
 messages, and define the Send button's on-click event:
@@ -1337,29 +1408,25 @@ messages, and define the Send button's on-click event:
 
 Let's save the button object:
 
-            var $sendButton = $(this)
+    const $sendButton = $(this)
 
 We should show a spinner image ("Loading...") on the button because the
 request might take some time and we want users to see that our app is
 working, not just freezing for no apparent reason.
 
-            $sendButton.html('<img src="img/spinner.gif" width="20"/>')
-            var username = $('input[name=username]').val()
-            var message = $('input[name=message]').val()
+    $sendButton.html('<img src="img/spinner.gif" width="20"/>')
+    const username = $('input[name=username]').val()
+    const message = $('input[name=message]').val()
 
-When we submit a new message (a POST request), we make the HTTP call
-with the `jQuery.ajax` function. A full list of parameters for the
-`ajax` function is available at
-[`api.jquery.com/``jQuery.ajax`](http://api.jquery.com/jQuery.ajax/).
-The most important ones are URL, headers, and type parameters.
+When we submit a new message (a POST request), we make the HTTP call with the `jQuery.ajax` function. A full list of parameters for the `ajax` function is available at <http://api.jquery.com/jQuery.ajax>. The most important ones are URL, headers, and type parameters.
 
-        $.ajax({
-          url: 'https://api.parse.com/1/classes/MessageBoard',
-          headers: {
+    $.ajax({
+        url: `${apiBase}/classes/MessageBoard`,
+        headers: {
             'X-Parse-Application-Id': parseAppID,
             'X-Parse-REST-API-Key': parseRestKey
-          },
-          contentType: 'application/json',
+        },
+        contentType: 'application/json',
 
 The type of the data is JSON:
 
@@ -1388,45 +1455,45 @@ before someone clicked the button:
         })
 
 To summarize, clicking the Send button will send a POST request to the
-Parse.com REST API and then, on successful response, get messages
-calling the `getMessages``()` function.
+Parse REST API and then, on successful response, get messages
+calling the `getMessages()` function.
 
-The `getMessages``()` method`` to fetch messages from our remote REST
+The `getMessages()` method to fetch messages from our remote REST
 API server also uses the `jQuery.ajax` function. The URL has the name of
 the collection (`MessageBoard`) and a query string parameter that sets
 the limit at 1,000:
 
     function getMessages() {
         $.ajax({
-            url: 'https://api.parse.com/1/classes/MessageBoard?limit=1000',
+            url: `${apiBase}/classes/MessageBoard?limit=1000`,
 
 We need to pass the keys in a header:
 
-            headers: {
-                'X-Parse-Application-Id': parseAppID,
-                'X-Parse-REST-API-Key': parseRestKey
-            },
-            contentType: 'application/json',
-            dataType: 'json',
-            type: 'GET',
+		headers: {
+			'X-Parse-Application-Id': parseAppID,
+			'X-Parse-REST-API-Key': parseRestKey
+		},
+		contentType: 'application/json',
+		dataType: 'json',
+		type: 'GET',
 
 If the request is completed successfully (status `200/ok` or similar),
 we call the `updateView` function:
 
-            success: function(data) {
-                console.log('get')
-                updateView(data)
-            },
-            error: function() {
-                console.log('error')
-            }
-        })
-    }
+		success: (data) => {
+			console.log('get')
+			updateView(data)
+		},
+		error: () => {
+			console.log('error')
+		}
+	})
+}
 
-Then, on successful response, it will call the `updateView``()`
+Then, on successful response, it will call the `updateView()`
 function, which clears the table `tbody` and iterates through results of
 the response using the `$.each` jQuery function
-([`api.jquery.com/``jQuery.each`](http://api.jquery.com/jQuery.each/)).
+([`api.jquery.com/jQuery.each`](http://api.jquery.com/jQuery.each/)).
 
 This function is rendering the list of messages that we get from the
 server:
@@ -1437,31 +1504,24 @@ We use the jQuery selector `.table` `tbody` to create an object
 referencing that element. Then we clean all the innerHTML of that
 element:
 
-      var table=$('.table tbody')
+      const table=$('.table tbody')
       table.html('')
 
-We use the `jQuery.each` function to iterate through every message:
+We use the `jQuery.each` function to iterate through every message. The following code creates HTML elements (and the jQuery object of those elements) programmatically.
 
-      $.each(messages.results, function (index, value) {
-        var trEl =
-
-The following code creates HTML elements (and the jQuery object of those
-elements) programmatically:
-
-          ('<tr><td>'
-            + value.username
-            + '</td><td>'
-            + value.message +
-            '</td></tr>')
+	$.each(messages.results, (index, value) => {
+		const trEl = (`<tr><td>
+		  ${value.username}
+			</td><td>
+			${value.message}
+			</td></tr>`)
+		table.append(trEl)
+	})
 
 In a sense `trEl` is a string with HTML for each message or row in the
 message board. The next line appends (injects after) the table's `tbody`
-element our row:
+element our row.
 
-        table.append(trEl)
-      })
-      console.log(messages)
-    }
 
 Here is another way to dynamically create an HTML element (e.g., `div`)
 using jQuery:
@@ -1470,77 +1530,81 @@ using jQuery:
 
 For your reference, here is the entire `app.js`:
 
-    var parseAppID='your-parse-app-id'
-    var parseRestKey='your-rest-api-key'
+```js
+// Azat's app, change these values to your own keys
+const parseAppID = 'APPLICATION_ID'
+const parseRestKey = 'MASTER_KEY'
+const apiBase = `http://localhost:1337/parse`
 
-    $(document).ready(function(){
-        getMessages()
-        $('#send').click(function(){
-            var $sendButton = $(this)
-            $sendButton.html('<img src="img/spinner.gif" width="20"/>')
-            var username = $('input[name=username]').val()
-            var message = $('input[name=message]').val()
-            $.ajax({
-                url: 'https://api.parse.com/1/classes/MessageBoard',
-                headers: {
-                    'X-Parse-Application-Id': parseAppID,
-                    'X-Parse-REST-API-Key': parseRestKey
-                },
-                contentType: 'application/json',
-                dataType: 'json',
-                processData: false,
-                data: JSON.stringify({
-                    'username': username,
-                    'message': message
-                }),
-                type: 'POST',
-                success: function() {
-                    console.log('sent')
-                    getMessages()
-                    $sendButton.html('SEND')
-                },
-                error: function() {
-                    console.log('error')
-                    $sendButton.html('SEND')
-                }
-            })
+$(document).ready(function(){
+	getMessages()
+	$('#send').click(function(){
+		const $sendButton = $(this)
+		$sendButton.html('<img src="img/spinner.gif" width="20"/>')
+		const username = $('input[name=username]').val()
+		const message = $('input[name=message]').val()
+		$.ajax({
+			url: `${apiBase}/classes/MessageBoard`,
+			headers: {
+				'X-Parse-Application-Id': parseAppID,
+				'X-Parse-REST-API-Key': parseRestKey
+			},
+			contentType: 'application/json',
+			dataType: 'json',
+			processData: false,
+			data: JSON.stringify({
+				'username': username,
+				'message': message
+			}),
+			type: 'POST',
+			success: function() {
+				console.log('sent')
+				getMessages()
+				$sendButton.html('SEND')
+			},
+			error: function() {
+				console.log('error')
+				$sendButton.html('SEND')
+			}
+		})
+	})
+})
 
-        })
-    })
-    function getMessages() {
-        $.ajax({
-            url: 'https://api.parse.com/1/classes/MessageBoard?limit=1000',
-            headers: {
-                'X-Parse-Application-Id': parseAppID,
-                'X-Parse-REST-API-Key': parseRestKey
-            },
-            contentType: 'application/json',
-            dataType: 'json',
-            type: 'GET',
-            success: function(data) {
-                console.log('get')
-                updateView(data)
-            },
-            error: function() {
-                console.log('error')
-            }
-        })
-    }
+function getMessages() {
+	$.ajax({
+		url: `${apiBase}/classes/MessageBoard?limit=1000`,
+		headers: {
+			'X-Parse-Application-Id': parseAppID,
+			'X-Parse-REST-API-Key': parseRestKey
+		},
+		contentType: 'application/json',
+		dataType: 'json',
+		type: 'GET',
+		success: (data) => {
+			console.log('get')
+			updateView(data)
+		},
+		error: () => {
+			console.log('error')
+		}
+	})
+}
 
-    function updateView(messages) {
-        var table=$('.table tbody')
-        table.html('')
-        $.each(messages.results, function (index, value) {
-            var trEl=('<tr><td>'
-              + value.username
-                + '</td><td>'
-                + value.message
-                + '</td></tr>')
-            table.append(trEl)
-        })
-
-        console.log(messages)
-    }
+function updateView(messages) {
+	// messages.results = messages.results.reverse()
+	const table = $('.table tbody')
+	table.html('')
+	$.each(messages.results, (index, value) => {
+		const trEl = (`<tr><td>
+		  ${value.username}
+			</td><td>
+			${value.message}
+			</td></tr>`)
+		table.append(trEl)
+	})
+	console.log(messages)
+}
+```
 
 Try running the code with your local HTTP server. You should see the
 messages (obviously, there should be no messages for the very first
@@ -1562,7 +1626,7 @@ log in and create a new repository. There will be an SSH address; copy
 it. In your terminal window, navigate to the project folder that you
 would like to push to GitHub.
 
-1.  Create a local Git and `.``git` folder in the root of the project
+1.  Create a local Git and `.git` folder in the root of the project
     folder:
 
 	`$ git init`
@@ -1665,10 +1729,10 @@ procedure.
 
 As with GitHub, there is no need to repeat the first few steps when you
 have updated the files later, as we already should have a local Git
-repository in the form of a `.``git` folder in the root of the project
+repository in the form of a `.git` folder in the root of the project
 folder.
 
-Deployment to Heroku
+Deployment Weather App to Heroku
 ====================
 
 <span id="OLE_LINK28" class="anchor"><span id="OLE_LINK29"
@@ -1678,21 +1742,17 @@ the deployment of the project (Git and Heroku part starts at 9minute and
 
 The only major difference is that Heroku uses Cedar Stack, which doesn't
 support static projects, including plain HTML applications like our
-Parse.com test application or Parse.com version of the Message Board
-application. We can use a "fake" PHP project to get past this
-limitation. Create a file `index.php` on the same level as `index.html`
+Weather app. Create a file `index.php` on the same level as `index.html`
 in the project folder, which you would like to publish or deploy to
 Heroku with the following content:
 
     <?php echo file_get_contents('index.html'); ?>
 
 For your convenience, the `index.php` file is already included in
-`04-board-parse-rest`.
+`03-weather`.
 
 There is an even simpler way to publish static files on Heroku with
-Cedar Stack, which is described in the post [Static Sites on Heroku
-Cedar](http://kennethreitz.com/static-sites-on-heroku-cedar.html)
-(http://kennethreitz.com/static-sites-on-heroku-cedar.html). To make
+Cedar Stack. To make
 Cedar Stack work with your static files, all you need to do is to type
 and execute the following commands in your project folder:
 
@@ -1711,7 +1771,7 @@ would need the following structure:
         ...
 
 The path in `index.html` to CSS and other assets should be relative,
-that is `'``css``/style.css'`. The `config.ru` file should contain the
+that is `css/style.css`. The `config.ru` file should contain the
 following code:
 
     use Rack::Static,
@@ -1730,12 +1790,12 @@ following code:
     }
 
 For more details, you can refer to
-[`devcenter.heroku.com/articles/static-sites-on-``heroku`](https://devcenter.heroku.com/articles/static-sites-on-heroku).
+<https://devcenter.heroku.com/articles/static-sites-on-heroku>.
 
 Once you have all of the support files for Cedar Stack or Bamboo, follow
 these steps:
 
-1.  Create a local Git repository and `.``git` folder if you haven't
+1.  Create a local Git repository and `.git` folder if you haven't
     done so already:
 
     `$ git init`
@@ -1785,7 +1845,7 @@ To update the app with the new code, repeat the following steps only:
     $ git push -f heroku
 
 You'll be assigned a new application URL each time you create a new
-Heroku app with the command: `$ ``heroku`` create`.
+Heroku app with the command: `$ heroku create`.
 
 Updating and Deleting Messages
 ==============================

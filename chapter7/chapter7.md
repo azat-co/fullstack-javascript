@@ -321,7 +321,7 @@ var dbConnUrl = process.env.MONGOLAB_URI ||
 ```
 
 Here is our updated cross-environment ready `app.js` file
-(https://github.com/azat-co/fullstack-javascript/tree/master/10-db-connect-heroku).
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/10-db-connect-heroku).
 I added a method to get the list of collections `listCollections`
 instead of getting the list of the databases (we have only one database
 in MongoLab right now):
@@ -381,7 +381,7 @@ Heroku app, if you know the name of that app.
 
 The project folder needs to have `Procfile` and `package.json`. You can
 copy them from
-https://github.com/azat-co/fullstack-javascript/tree/master/10-db-connect-heroku.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/10-db-connect-heroku.
 
 Now you can push you code to Heroku with:
 
@@ -440,7 +440,7 @@ client.connect(dbConnUrl, {}, function(error, db) {
 ```
 
 The final Heroku-deployment-ready project is located at
-https://github.com/azat-co/fullstack-javascript/tree/master/11-db-serverunder.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/11-db-serverunder.
 
 After the deployment you should be able to open the URL provided by
 Heroku and see the list of collections. If it's a newly created app with
@@ -460,7 +460,7 @@ http://bit.ly/1QnsfoE.
 We should have everything set up for writing the Node.js application
 that will work both locally and on Heroku. The source code is available
 at
-https://github.com/azat-co/fullstack-javascript/tree/master/12-board-api-mongonder.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/12-board-api-mongonder.
 The structure of the application is simple:
 
 ```

@@ -353,7 +353,7 @@ file
     })
 
 This is it. For your reference, the front-end app source code is at
-[https://github.com/azat-co/fullstack-javascript/tree/master/13-board-u](https://github.com/azat-co/fullstack-javascript/tree/master/13-board-ui)
+[https://github.com/azat-co/fullstack-javascript/tree/master/code/13-board-u](https://github.com/azat-co/fullstack-javascript/tree/master/code/13-board-ui)
 in the GitHub folder. I won't list it here because we had only a few
 changes comparing with the Parse SDK project. The next piece of the
 puzzle is the back end.
@@ -366,7 +366,7 @@ through the implementation and demonstrates the project:
 http://bit.ly/1QnsvEb.
 
 The back-end Node.js application source code is at
-<https://github.com/azat-co/fullstack-javascript/tree/master/14-board-api>
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/14-board-api>
 in the GitHub folder, which has this structure:
 
     /14-board-api
@@ -558,9 +558,9 @@ you through the implementation and demonstrates the project:
 http://bit.ly/1QnsvEb.
 
 For your convenience, we have the front-end app at
-https://github.com/azat-co/fullstack-javascript/tree/master/13-board-ui
+https://github.com/azat-co/fullstack-javascript/tree/master/code/13-board-ui
 and the back-end app with CORS is located at
-https://github.com/azat-co/fullstack-javascript/tree/master/14-board-api.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/14-board-api.
 By now, you probably know what to do, but as a reference, below are the
 steps to deploy these examples to Heroku.
 
@@ -731,7 +731,7 @@ Another header that we send back with the response is `Content-Length`:
 So this piece of code goes into the request handler of the server, which
 is inside of the database connect call. Just like the Russian Matreshka
 dolls. Confusing? Just refer to the full source code at
-<https://github.com/azat-co/fullstack-javascript/tree/master/15-board-web>.
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/15-board-web>.
 
 Another, more elegant way is to use Node.js frameworks as Connect
 (<http://www.senchalabs.org/connect/static.html>), or Express

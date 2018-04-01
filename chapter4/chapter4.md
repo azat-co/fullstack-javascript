@@ -59,8 +59,8 @@ including models, subviews, and collections.
 
 Full source code for the Hello World app is available under
 `05``-backbone/hello-world` and on
-[GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/hello-world)
-(https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/hello-world).
+[GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/hello-world)
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/hello-world).
 
 Backbone.js Dependencies
 ------------------------
@@ -236,7 +236,7 @@ demonstrates the project: <http://bit.ly/1O7xRCY>.
 The full source code of this example is under
 `05``-backbone/collections`. It's built on top of the "Hello World"
 example from the Setting up Backbone.js App from Scratch exercise, which
-is available for download at [GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/collections) (https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/collections).
+is available for download at [GitHub](https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/collections) (https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/collections).
 
 We should add some data to play around with, and to hydrate our views.
 To do this, add this right after the `<script>` tag and before the
@@ -727,7 +727,7 @@ Backbone.js Views and Subviews with Underscore.js
 Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1k0ZnUB>. And this example i>s
 available at
-<https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/subview>.
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/subview>.
 
 Subviews are Backbone Views that are created and used inside of another
 Backbone View. A subviews concept is a great way to abstract (separate)
@@ -1353,7 +1353,7 @@ This is the `apple.tpl.js` file:
                   </figure>'
 
 Try to start the application now. The full code is at
-https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/refactor.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/refactor.
 
 
 
@@ -1669,7 +1669,7 @@ the Developers Tool, you can see a difference in how the files are
 loaded.
 
 The old file shown in Figure 4-2
-(https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/refactor/index.html)
+(https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/refactor/index.html)
 loads our JavaScript scripts in a serial manner, whereas the new file
 shown in Figure 4-3
 (https://github.com/azat-co/fullstack-javascript/blob/master/05-backbone/amd/index.html)
@@ -1773,10 +1773,10 @@ For more information, check out the official r.js documentation at
 [`requirejs.org/docs/optimization.html`](http://requirejs.org/docs/optimization.html).
 
 The example code is available at
-https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/r
+https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/r
 
 and
-https://github.com/azat-co/fullstack-javascript/tree/master/05-backbone/r/build.
+https://github.com/azat-co/fullstack-javascript/tree/master/code/05-backbone/r/build.
 
 For uglification of JS files (which decreases the file sizes), we can
 use the [Uglify2](https://github.com/mishoo/UglifyJS2) module. To

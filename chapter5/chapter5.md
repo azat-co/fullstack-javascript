@@ -49,7 +49,7 @@ implementation of user actions by binding them to asynchronous updates
 of the collection.
 
 The application is available at
-<https://github.com/azat-co/fullstack-javascript/tree/master/06-board-backbone-parse-sdk>,
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/06-board-backbone-parse-sdk>,
 but again you are encouraged to start from scratch and try to write your
 own code using the example only as a reference.
 
@@ -634,7 +634,7 @@ something like this:
 
 The full source code of the Backbone.js and Parse.com Message Board
 application is available at
-<https://github.com/azat-co/fullstack-javascript/tree/master/06-board-backbone-parse-sdk>.
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/06-board-backbone-parse-sdk>.
 
 Taking Message Board Further
 ============================
