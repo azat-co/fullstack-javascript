@@ -1,17 +1,17 @@
 $(document).ready(function() {
-	var parseApplicationId = 'GET-YOUR-KEYS-AT-PARSE.COM'
-	var parseJavaScriptKey = 'GET-YOUR-KEYS-AT-PARSE.COM'
-
-	// Azat's app, please don't use it! Get your own keys at Parse.com
-
-	parseApplicationId = 'Zc36GIp6WyzKIB9HvqRBEGnIeMO0X21rDbVwGPvp'
-	parseJavaScriptKey = 'r5zTZ9eydAcnRhAUI6k3XazS1JSnOPLbiaT1cWY6'
-
+	
+	// You define them when you start the Parse server
+	const parseApplicationId = 'APPLICATION_ID'
+	const parseJavaScriptKey = 'MASTER_KEY'
+	
 	//change parseApplicationId and parseJavaScriptKey to values from Parse.com application dashboard
 	Parse.initialize(parseApplicationId, parseJavaScriptKey)
+	Parse.serverURL = 'http://localhost:1337/parse'
 
 	var Test = Parse.Object.extend('Test')
 	var test = new Test()
+	var query = new Parse.Query(Test);
+
 	$('.btn-save').click(function(){
 		try {
 			var data = JSON.parse($('textarea').val())
@@ -31,4 +31,14 @@ $(document).ready(function() {
 		})
 	})
 
+	$('.btn-get').click(function(){
+		query.find({
+			success: function(results) {
+				$('.log').html(JSON.stringify(results, null, 2))
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});		
+	})
 })
