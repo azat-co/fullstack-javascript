@@ -540,9 +540,9 @@ I really like JavaScript because it's so easy to create an object. In Java on th
 
 ```js
 const obj = {
-    name: 'Gala', 
-    url: 'img/gala100x100.jpg', 
-    price: 129
+  name: 'Gala', 
+  url: 'img/gala100x100.jpg', 
+  price: 129
 }
 ```
 

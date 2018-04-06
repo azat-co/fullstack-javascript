@@ -242,13 +242,8 @@ Here are the steps to install and set up Git on your machine:
     version might vary; in our case it's 1.8.3.2, as shown in Figure
     2-9):
 
-	`git version 1.8.3.2`
+	`git version 2.14.3 (Apple Git-98)`
 
-
-	![alt](media/image9.png) 
-
-
-	***Figure 2-9.** Configuring and testing Git installation*
 
 Generating SSH keys and uploading them to SaaS/PaaS web sites will be
 covered later.
@@ -290,12 +285,6 @@ to change configurations and host file settings.
 -   [*XAMPP*](http://www.apachefriends.org/en/xampp.html)
     (<http://www.apachefriends.org/en/xampp.html>): Apache distribution
     containing MySQL, PHP and Perl for Windows, Mac, Linux, and Solaris.
-
-The MAMP for Mac home page is shown in Figure 2-10.
-
-![alt](media/image10.png)
-
-***Figure 2-10.** MAMP for Mac home page.*
 
 Database: MongoDB
 -----------------
@@ -339,13 +328,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
     2-11):
 
 	`$ sudo mkdir -p /data/db`  
-	`$ sudo chown `id -u` /data/db`
-
-	![alt](media/image11.png)
-
-	***Figure 2-11**. Initial setup for MongoDB: Create the data directory*
-
-
+	`$ sudo chown id -u /data/db`
 
 	If you prefer to use a path other than /data/db you could specify it
 	using the --dbpath option to mongod (the main MongoDB service).
@@ -356,7 +339,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 
 	`$ ./bin/mongod`
 
-6.  If you see something like the following (and as in Figure 2-12) it
+6.  If you see something like the following (and as in Figure 2-9) it
     means that the MongoDB database server is running:
 
 	`MongoDB starting: pid =7218 port=27017...`
@@ -372,7 +355,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 
 	![alt](media/image12.png)
 
-	***Figure 2-12.** Starting up the MongoDB server*
+	***Figure 2-9.** Starting up the MongoDB server*
 
 
 	Now, to take it even further, we can test to determine if we have access
@@ -393,12 +376,12 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 	`> db.test.find()`
 
 	If you see that your record is being saved, then everything went well
-	(Figure 2-13).
+	(Figure 2-10).
 
 
 ![alt](media/image13.png)
 
-***Figure 2-13.** Running MongoDB client and storing sample data*
+***Figure 2-10.** Running MongoDB client and storing sample data*
 
 Commands `find` and `save` do exactly what you might think they do.
 
@@ -458,11 +441,11 @@ solutions for that:
 
 The Node.js package already includes [Node Package
 Manager](https://npmjs.org) (https://npmjs.org) (NPM). We'll use NPM
-extensively to install Node.js modules.
+extensively to install Node.js modules—Figure 2-11.
 
 ![alt](media/image14.png)
 
-***Figure 2-14**. Node.js home page*
+***Figure 2-11**. Node.js home page*
 
 ### Browser JavaScript Libraries
 
@@ -502,12 +485,7 @@ without the Internet.
 
 The LESS App is a Mac OS X application for "on-the-fly" compilation of
 LESS to CSS. It's available at
-[incident57.com/less](http://incident57.com/less/) (Figure 2-15).
-
-
-![alt](media/image15.png)
-
-***Figure 2-15**. LESS App for Mac home page*
+[incident57.com/less](http://incident57.com/less).
 
 Cloud Setup
 ===========
@@ -547,13 +525,13 @@ following:
 
 4.  Answer the questions; it is better to keep the default name
     of id_rsa. Then copy the content of the id_rsa.pub file to your
-    clipboard (Figure 2-16):
+    clipboard (Figure 2-12):
 
     $ pbcopy < ~/.ssh/id_rsa.pub
 
 	![alt](media/image16.png)
 
-	***Figure 2-16.** Generating RSA key for SSH and copying public key to clipboard*
+	***Figure 2-12.** Generating RSA key for SSH and copying public key to clipboard*
 
 5.  Alternatively, open id_rsa.pub file in the default editor:
 
@@ -590,11 +568,11 @@ GitHub
 3.  The first time you connect to GitHub, you can receive an
     Authenticity of Host … Can't Be Established warning. Please don't be
     confused with such a message—just proceed by answering Yes as shown
-    in Figure 2-17.
+    in Figure 2-13.
 
 ![alt](media/image17.png)   
 
-***Figure 2-17.** Testing SSH connection to GitHub for the very first
+***Figure 2-13.** Testing SSH connection to GitHub for the very first
 time*
 
 If for some reason you have a different message, please repeat Steps 3
@@ -634,11 +612,11 @@ Here are the steps to set up a Windows Azure account:
 	`Windows Azure: Microsoft's Cloud Platform... Tool Version 0.6.0`
 
 5.  Log in to Windows Azure Portal at <https://windows.azure.com>
-    (Figure 2-18).
+    (Figure 2-14).
 
 	![alt](media/image18.png)
 
-	***Figure 2-18.** Registering on Windows Azure*
+	***Figure 2-14.** Registering on Windows Azure*
 
 6.  Select New, then select Web Site, and Quick Create. Type the name
     that will serve as the URL for your web site, and click OK.
@@ -691,11 +669,11 @@ To set up Heroku, follow these steps:
 
 	It will ask you for Heroku credentials (user name and password), and if
 	you've already created the SSH key, it will automatically upload it to
-	the Heroku web site (Figure 2-19).
+	the Heroku web site (Figure 2-15).
 
 	![alt](media/image19.png)
 
-	***Figure 2-19.** The response to the successful $ heroku login command*
+	***Figure 2-15.** The response to the successful $ heroku login command*
 
 4.  If everything went well, to create a Heroku application inside of
     your specific project folder, you should be able to run this
