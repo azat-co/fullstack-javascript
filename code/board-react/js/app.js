@@ -32,8 +32,8 @@ var Footer = React.createClass({
             "Rapid Prototyping with JavaScript and NodeJS (",
             React.createElement(
               "a",
-              { href: "http://twitter.com/azat_co" },
-              "@azat_co"
+              { href: "http://twitter.com/azatmardan" },
+              "@azatmardan"
             ),
             ")"
           )

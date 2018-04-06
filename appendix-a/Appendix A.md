@@ -61,7 +61,7 @@ Please submit a GitHub issue if you have any feedback; comments;
 suggestions; or you've found typos, bugs, mistakes, or other errata:
 <https://github.com/azat-co/fullstack-javascript/issues>.
 
-Other ways to connect are via: @azat_co (http://twitter.com/azat_co),
+Other ways to connect are via: @azatmardan (http://twitter.com/azatmardan),
 <http://webapplog.com>, <http://azat.co>.
 
 In case you enjoyed Node.js and want to find out more about building
