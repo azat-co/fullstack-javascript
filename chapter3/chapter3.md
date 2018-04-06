@@ -99,19 +99,22 @@ format.
 However, every member of an object can be an array, primitive, or
 another object; for example:
 
-      {
-        "posts": [{
-          "title": "Get your mind in shape!",
-          "votes": 9,
-          "comments": ["nice!", "good link"]
-          }, {
-          "title": "Yet another post",
-          "votes": 0,
-          "comments": []
-          }
-        ],
-        "totalPosts": 2
-      }
+```js
+{
+    "posts": [{
+        "title": "Get your mind in shape!",
+        "votes": 9,
+        "comments": [
+            "nice!", 
+            "good link"
+        ]}, {
+        "title": "Yet another post",
+        "votes": 0,
+        "comments": []
+    }],
+    "totalPosts": 2
+}
+```
 
 In this example, we have an object with the `posts` property. The
 value of the `posts` property is an array of objects with each one of
@@ -303,7 +306,7 @@ Include the Twitter Bootstrap library as a minified CSS file:
 
 Apply scaffolding with `container-fluid` and `row-fluid` classes:
 
-      <body >
+      <body>
         <div class="container-fluid">
           <div class="row-fluid">
           </div>  *<!--row-fluid -->*
@@ -320,7 +323,7 @@ reference is available at
 We'll use the `span12` and `hero-unit` classes for the main content
 block:
 
-        <div class="row-fluid">
+      <div class="row-fluid">
          <div class="span12">
             <div id="content">
               <div class="row-fluid">
@@ -349,35 +352,35 @@ block:
               </div> *<!-- row-fluid -->*
           </div>  *<!-- content -->*
         </div> *<!-- span12 -->*
-        </div>  *<!-- row-fluid -->*
+      </div>  *<!-- row-fluid -->*
 
 This is the full source code of the `index.html` from
 [1-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/1-bootstrap):
 
     <!DOCTYPE html>
     <html lang="en">
-    <head>
+      <head>
         <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-    </head>
-        <body >
-            <div class="container-fluid">
+      </head>
+      <body >
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span12">
+              <div id="content">
                 <div class="row-fluid">
-                    <div class="span12">
-                        <div id="content">
-                            <div class="row-fluid">
-                                <div class="span12">
-                                    <div class="hero-unit">
-                                        <h1>Welcome to Super Simple Backbone Starter Kit</h1>
-                                        <p>This is your home page. To edit it just modify <i>index.html</i> file!</p>
-                                        <p><a class="btn btn-primary btn-large" href="http://twitter.github.com/bootstrap" target="_blank" >Learn more </a></p>
-                                    </div>  *<!-- hero-unit -->*
-                                </div>  *<!-- span12 -->*
-                            </div> *<!-- row-fluid -->*
-                    </div>  *<!-- content -->*
-                </div> *<!-- span12 -->*
-            </div>  *<!-- row-fluid -->*
+                  <div class="span12">
+                    <div class="hero-unit">
+                      <h1>Welcome to Super Simple Backbone Starter Kit</h1>
+                      <p>This is your home page. To edit it just modify <i>index.html</i> file!</p>
+                      <p><a class="btn btn-primary btn-large" href="http://twitter.github.com/bootstrap" target="_blank" >Learn more </a></p>
+                    </div>  *<!-- hero-unit -->*
+                  </div>  *<!-- span12 -->*
+                </div> *<!-- row-fluid -->*
+              </div>  *<!-- content -->*
+            </div> *<!-- span12 -->*
+          </div>  *<!-- row-fluid -->*
         </div>  *<!-- container-fluid -->*
-    </body>
+      </body>
     </html>
 
 This example is available for downloading and pulling from the GitHub
@@ -733,11 +736,11 @@ The idea is simple: We have button and event listeners to do something
 once a user clicks the buttons. The aforementioned buttons call the
 `prepareData()` method. This is its definition:
 
-    const openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP',
-      openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
+    const openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP'
+    const openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
 
     const prepareData = function(units) {
-      var cityName = $('#city-name').val()
+      let cityName = $('#city-name').val()
       if (cityName && cityName != ''){
         cityName = cityName.trim()
         getData(openWeatherUrl, cityName, openWeatherAppId, units)
@@ -809,98 +812,105 @@ the `index.html` file:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-	<script src="js/jquery.js" type="text/javascript"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style type="text/css">
-		.row {
-			padding-top:1.5em;
-		}
-	</style>
-	<script>
-		const openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP',
-		  openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        .row {
+            padding-top:1.5em;
+        }
+    </style>
+    <script>
+      const openWeatherAppId = 'GET-YOUR-KEY-AT-OPENWEATHERMAP'
+      const openWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast'
 
-		const prepareData = function(units) {
-			// Replace loading image
-			let cityName = $('#city-name').val()
-			// Make ajax call, callback
-			if (cityName && cityName != ''){
-				cityName = cityName.trim()
-				getData(openWeatherUrl, cityName, openWeatherAppId, units)
-			}
-			else {
-				alert('Please enter the city name')
-			}
-		}
-		$(document).ready(function(){
-			$('.btn-metric').click(function() {
-				prepareData('metric')
-			})
-			$('.btn-imperial').click(function() {
-				prepareData('imperial')
-			})
+      const prepareData = function(units) {
+        // Replace loading image
+        let cityName = $('#city-name').val()
+        // Make ajax call, callback
+        if (cityName && cityName != ''){
+          cityName = cityName.trim()
+          getData(openWeatherUrl, cityName, openWeatherAppId, units)
+        }
+        else {
+          alert('Please enter the city name')
+        }
+      }
 
-		})
-		function getData (url, cityName, appId, units) {
-			const request = $.ajax({
-				url: url,
-				dataType: "jsonp",
-				data: {q: cityName, appid: appId, units: units},
-				jsonpCallback: "fetchData",
-				type: "GET"
-			}).fail(function(error){
-				console.error(error)
-				alert('Error sending request')
-			})
-		}
-		function fetchData (forecast) {
-			console.log(forecast)
-			let html = '',
-			  cityName = forecast.city.name,
-				country = forecast.city.country
+    $(document).ready(function(){
 
-			html += `<h3> Weather Forecast for ${cityName}, ${country}</h3>`
-			forecast.list.forEach(function(forecastEntry, index, list){
-				html += `<p>${forecastEntry.dt_txt}:${forecastEntry.main.temp}</p>`
-			})
+      $('.btn-metric').click(function() {
+        prepareData('metric')
+      })
+      $('.btn-imperial').click(function() {
+        prepareData('imperial')
+      })
 
-			$('#log').html(html)
-		}
-	</script>
+    })
+
+    function getData (url, cityName, appId, units) {
+      const request = $.ajax({
+        url: url,
+        dataType: "jsonp",
+        data: {q: cityName, appid: appId, units: units},
+        jsonpCallback: "fetchData",
+        type: "GET"
+      }).fail(function(error){
+        console.error(error)
+        alert('Error sending request')
+      })
+    }
+
+    function fetchData (forecast) {
+      console.log(forecast)
+      let html = ''
+      let cityName = forecast.city.name
+      let country = forecast.city.country
+
+      html += `<h3> Weather Forecast for ${cityName}, ${country}</h3>`
+      forecast.list.forEach(function(forecastEntry, index, list){
+        html += `<p>${forecastEntry.dt_txt}:${forecastEntry.main.temp}</p>`
+      })
+
+      $('#log').html(html)
+    }
+
+    </script>
 </head>
 <body>
-	<div class="container">
+    <div class="container">
 
-		<div class="row">
-			<div class="span4 offset 3">
-				<h2>Weather App</h2>
-				<p>Enter city name to get the weather forecast</p>
-			</div>
-			<div class="span6  offset1"><input class="span4" type="text" placeholder="Enter the city name" id="city-name" value=""/>
-			</div>
-
-		</div>
-		<div class="row">
-			<div class="span6 offset1">
+        <div class="row">
+            <div class="span4 offset 3">
+                <h2>Weather App</h2>
+                <p>Enter city name to get the weather forecast</p>
+            </div>
+            <div class="span6  offset1">
+                <input class="span4" type="text" placeholder="Enter the city name"    
+                  id="city-name" value=""/>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="span6 offset1">
                 <input type="button" class="btn-primary btn btn-metric" value="Get forecast in metric"/>
-			<div class="span6 offset1">
+            <div class="span6 offset1">
                 <input type="button" class="btn-danger btn btn-imperial" value="Get forecast in imperial"/>
-			</div>			
-		</div>
+            </div>			
+        </div>
 
-		<div class="row">
-			<div class="span6 offset1">
-				<div id="log">Nothing to show yet</div>
-			</div>
-		</div>
+        <div class="row">
+            <div class="span6 offset1">
+                <div id="log">Nothing to show yet</div>
+            </div>
+        </div>
 
-		<div class="row">
-			<hr/>
-			<p>Azat Mardan (<a href="http://twitter.com/azat_co">@azat_co</a>)</p>
-		</div>
+        <div class="row">
+            <hr/>
+            <p>Azat Mardan (<a href="http://twitter.com/azatmardan">@azatmardan</a>)</p>
+        </div>
 
-	</div>
+    </div>
 
 </body>
 </html>
@@ -1041,20 +1051,18 @@ Parse:
                                 </div>  *<!-- hero-unit -->*
                             </div>  *<!-- span12 -->*
                         </div> *<!-- row-fluid -->*
-                </div>  *<!-- content -->*
-            </div> *<!-- span12 -->*
-        </div>  *<!-- row-fluid -->*
+                    </div>  *<!-- content -->*
+                </div> *<!-- span12 -->*
+            </div>  *<!-- row-fluid -->*
         </div>  *<!-- container-fluid -->*
-
-
-    </body>
+      </body>
     </html>
 
 Create the `app.js` file and use the `$(document).ready` function to
 make sure that the DOM is ready for manipulation:
 
 ```js
-    $(document).ready(function() {
+$(document).ready(function() {
 ```
 
 Change `parseApplicationId` and `parseJavaScriptKey` to values for your own
@@ -1094,9 +1102,9 @@ syntax:
 
 ```js
 try {
-    const data = JSON.parse($('textarea').val())
+  const data = JSON.parse($('textarea').val())
 } catch (e) {
-    alert('Invalid JSON')
+  alert('Invalid JSON')
 }
 ```
 
@@ -1106,14 +1114,13 @@ confirmation, we'll just have to look at the `log` container
 (`<pre class="log"></pre>`) on the page:
 
     test.save(data, {
-        success: (result) => {
-            console.log('Parse.com object is saved: ', result)
-                $('.log').html(JSON.stringify(result, null, 2))
-            //alternatively you could use alert('Parse object is saved')
-        },
-        error: (error) => {
-            console.log(`Error! Parse.com object is not saved: ${error}`)
-        }
+      success: (result) => {
+          console.log('Parse.com object is saved: ', result)
+          $('.log').html(JSON.stringify(result, null, 2))
+      },
+      error: (error) => {
+        console.log(`Error! Parse.com object is not saved: ${error}`)
+      }
     })
 
 It's important to know why we failed to save an object. That's why there's an error callback.
@@ -1126,7 +1133,6 @@ book) to look up the full source code of the `app.js` file, I provide
 it here:
 
 ```js
-// Azat's app, change these values to your own keys
 const parseAppID = 'APPLICATION_ID'
 const parseRestKey = 'MASTER_KEY'
 const apiBase = `http://localhost:1337/parse`
@@ -1199,9 +1205,7 @@ function updateView(messages) {
   })
   console.log(messages)
 }
-
 ```
-
 
 To run the app, start your local web server at the project folder and
 navigate to the address (e.g.,
@@ -1313,12 +1317,12 @@ local `app.js`, local minified Twitter Bootstrap, and custom stylesheet
 
     <!DOCTYPE html>
     <html lang="en">
-        <head>
-            <script src="js/jquery.js" type="text/javascript" language="javascript" ></script>
-            <script src="js/app.js" type="text/javascript" language="javascript" ></script>
-            <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-            <link href="css/style.css" type="text/css" rel="stylesheet" />
-            <meta name="viewport" content="width=device-width, initial-scale=1">        
+      <head>
+        <script src="js/jquery.js" type="text/javascript" language="javascript" ></script>
+        <script src="js/app.js" type="text/javascript" language="javascript" ></script>
+        <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+        <link href="css/style.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
       </head>
 
 The body element will have typical Twitter Bootstrap scaffolding elements
@@ -1458,31 +1462,33 @@ the collection (`MessageBoard`) and a query string parameter that sets
 the limit at 1,000:
 
     function getMessages() {
-        $.ajax({
-            url: `${apiBase}/classes/MessageBoard?limit=1000`,
+      $.ajax({
+        url: `${apiBase}/classes/MessageBoard?limit=1000`,
 
 We need to pass the keys in a header:
 
-		headers: {
-			'X-Parse-Application-Id': parseAppID,
-			'X-Parse-REST-API-Key': parseRestKey
-		},
-		contentType: 'application/json',
-		dataType: 'json',
-		type: 'GET',
+      headers: {
+        'X-Parse-Application-Id': parseAppID,
+        'X-Parse-REST-API-Key': parseRestKey
+      },
+      contentType: 'application/json',
+      dataType: 'json',
+      type: 'GET',
 
 If the request is completed successfully (status `200/ok` or similar),
 we call the `updateView` function:
 
-		success: (data) => {
-			console.log('get')
-			updateView(data)
-		},
-		error: () => {
-			console.log('error')
-		}
-	})
+```js
+    success: (data) => {
+      console.log('get')
+      updateView(data)
+    },
+    error: () => {
+      console.log('error')
+    }
+  })
 }
+```
 
 Then, on successful response, it will call the `updateView()`
 function, which clears the table `tbody` and iterates through results of
@@ -1498,19 +1504,21 @@ We use the jQuery selector `.table` `tbody` to create an object
 referencing that element. Then we clean all the innerHTML of that
 element:
 
-      const table=$('.table tbody')
-      table.html('')
+    const table=$('.table tbody')
+    table.html('')
 
 We use the `jQuery.each` function to iterate through every message. The following code creates HTML elements (and the jQuery object of those elements) programmatically.
 
-	$.each(messages.results, (index, value) => {
-		const trEl = (`<tr><td>
-		  ${value.username}
-			</td><td>
-			${value.message}
-			</td></tr>`)
-		table.append(trEl)
-	})
+```js
+$.each(messages.results, (index, value) => {
+  const trEl = (`<tr><td>
+    ${value.username}
+      </td><td>
+      ${value.message}
+      </td></tr>`)
+  table.append(trEl)
+})
+```
 
 In a sense `trEl` is a string with HTML for each message or row in the
 message board. The next line appends (injects after) the table's `tbody`
@@ -1525,78 +1533,76 @@ using jQuery:
 For your reference, here is the entire `app.js`:
 
 ```js
-// Azat's app, change these values to your own keys
 const parseAppID = 'APPLICATION_ID'
 const parseRestKey = 'MASTER_KEY'
 const apiBase = `http://localhost:1337/parse`
 
 $(document).ready(function(){
-	getMessages()
-	$('#send').click(function(){
-		const $sendButton = $(this)
-		$sendButton.html('<img src="img/spinner.gif" width="20"/>')
-		const username = $('input[name=username]').val()
-		const message = $('input[name=message]').val()
-		$.ajax({
-			url: `${apiBase}/classes/MessageBoard`,
-			headers: {
-				'X-Parse-Application-Id': parseAppID,
-				'X-Parse-REST-API-Key': parseRestKey
-			},
-			contentType: 'application/json',
-			dataType: 'json',
-			processData: false,
-			data: JSON.stringify({
-				'username': username,
-				'message': message
-			}),
-			type: 'POST',
-			success: function() {
-				console.log('sent')
-				getMessages()
-				$sendButton.html('SEND')
-			},
-			error: function() {
-				console.log('error')
-				$sendButton.html('SEND')
-			}
-		})
-	})
+  getMessages()
+  $('#send').click(function(){
+    const $sendButton = $(this)
+    $sendButton.html('<img src="img/spinner.gif" width="20"/>')
+    const username = $('input[name=username]').val()
+    const message = $('input[name=message]').val()
+    $.ajax({
+      url: `${apiBase}/classes/MessageBoard`,
+      headers: {
+        'X-Parse-Application-Id': parseAppID,
+        'X-Parse-REST-API-Key': parseRestKey
+      },
+      contentType: 'application/json',
+      dataType: 'json',
+      processData: false,
+      data: JSON.stringify({
+        'username': username,
+        'message': message
+      }),
+      type: 'POST',
+      success: function() {
+        console.log('sent')
+        getMessages()
+        $sendButton.html('SEND')
+      },
+      error: function() {
+        console.log('error')
+        $sendButton.html('SEND')
+      }
+    })
+  })
 })
 
 function getMessages() {
-	$.ajax({
-		url: `${apiBase}/classes/MessageBoard?limit=1000`,
-		headers: {
-			'X-Parse-Application-Id': parseAppID,
-			'X-Parse-REST-API-Key': parseRestKey
-		},
-		contentType: 'application/json',
-		dataType: 'json',
-		type: 'GET',
-		success: (data) => {
-			console.log('get')
-			updateView(data)
-		},
-		error: () => {
-			console.log('error')
-		}
-	})
+  $.ajax({
+    url: `${apiBase}/classes/MessageBoard?limit=1000`,
+    headers: {
+      'X-Parse-Application-Id': parseAppID,
+      'X-Parse-REST-API-Key': parseRestKey
+    },
+    contentType: 'application/json',
+    dataType: 'json',
+    type: 'GET',
+    success: (data) => {
+      console.log('get')
+      updateView(data)
+    },
+    error: () => {
+      console.log('error')
+    }
+  })
 }
 
 function updateView(messages) {
-	// messages.results = messages.results.reverse()
-	const table = $('.table tbody')
-	table.html('')
-	$.each(messages.results, (index, value) => {
-		const trEl = (`<tr><td>
-		  ${value.username}
-			</td><td>
-			${value.message}
-			</td></tr>`)
-		table.append(trEl)
-	})
-	console.log(messages)
+  const table = $('.table tbody')
+  table.html('')
+  $.each(messages.results, (index, value) => {
+    const trEl = (`<tr><td>
+    ${value.username}
+      </td><td>
+      ${value.message}
+      </td></tr>`)
+    table.append(trEl)
+  })
+  console.log(messages)
 }
 ```
 
@@ -1623,19 +1629,19 @@ would like to push to GitHub.
 1.  Create a local Git and `.git` folder in the root of the project
     folder:
 
-	`$ git init`
+    `$ git init`
 
 2.  Add all of the files to the repository and start tracking them:
 
-	`$ git add .`
+    `$ git add .`
 
 3.  Make the first commit:
 
-	`$ git commit -am "initial commit"`
+    `$ git commit -am "initial commit"`
 
 4.  Add the GitHub remote destination:
 
-	`$ git remote add your-github-repo-ssh-url`
+    `$ git remote add your-github-repo-ssh-url`
 
     It might look something like this:
 
@@ -1644,7 +1650,7 @@ would like to push to GitHub.
 5.  Now everything should be set to push your local Git repository to
     the remote destination on GitHub with the following command:
 
-	`$ git push origin master`
+    `$ git push origin master`
 
 6.  You should be able to see your files at
     [`github.com`](http://github.com) under your account and repository.
@@ -1652,28 +1658,28 @@ would like to push to GitHub.
 Later, when you make changes to the file, there is no need to repeat all
 of these steps. Just execute:
 
-        $ git add .
-        $ git commit -am "some message"
-        $ git push origin master
+    $ git add .
+    $ git commit -am "some message"
+    $ git push origin master
 
 If there are no new untracked files you want to start tracking, use
 this:
 
-        $ git commit -am "some message"
-        $ git push origin master
+    $ git commit -am "some message"
+    $ git push origin master
 
 To include changes from individual files, run:
 
-        $ git commit filename -m "some message"
-        $ git push origin master
+    $ git commit filename -m "some message"
+    $ git push origin master
 
 To remove a file from the Git repository, use:
 
-        $ git rm filename
+    $ git rm filename
 
 For more Git commands, see:
 
-        $ git --help
+    $ git --help
 
 Deploying applications with Windows Azure or Heroku is as simple as
 pushing code and files to GitHub. The last three steps (4–6) would be
@@ -1696,7 +1702,7 @@ procedure.
 2.  Create a local Git repository in the project folder that you would
     like to publish or deploy:
 
- 	`$ git init`
+     `$ git init`
 
 3.  Add all of the files to the repository and start tracking them:
 
@@ -1805,7 +1811,7 @@ these steps:
 4.  Create the Heroku Cedar Stack application and add the remote
     destination:
 
- 	`$ heroku create`
+     `$ heroku create`
 
     If everything went well, it should tell you that the remote has been
     added and the app has been created, and give you the app name.
