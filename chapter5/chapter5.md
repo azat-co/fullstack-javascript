@@ -5,7 +5,7 @@ Backbone.js and Parse
 =========================
 > *Java is to JavaScript what Car is to Carpet.*
 >
-> — [Chris Heilmann](http://christianheilmann.com/)
+> — [Chris Heilmann](http://christianheilmann.com)
 
 In this chapter, we'll explore the practical aspect of leveraging
 Parse for a Backbone.js app. The chapter will illustrate the
@@ -41,8 +41,6 @@ applications more manageable and easier to maintain.
 ![alt](media/board-1.png)
 
 ***Figure 5-1.** Message Board powered by local Parse server.*
-
-
 
 If you felt comfortable with the previous example, let's build upon it
 with the use of the Backbone.js framework. Here we'll go step by step,
