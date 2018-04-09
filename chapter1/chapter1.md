@@ -114,7 +114,7 @@ times you're writing in JavaScript.
 
 HTML is not a real programming language in itself. It is a set of markup tags
 that describe the content and present it in a structured and formatted
-way. We can code too much logic into HTML. There are no variables or loops. HTML is the language of the web because it is ubiquitous and used by all clients (browsers) to interpret the data to users. 
+way. We can not code too much logic into HTML. There are no variables or loops. HTML is the language of the web because it is ubiquitous and used by all clients (browsers) to interpret the data to users. 
 
 HTML tags consist of a tag name inside of the angle brackets
 (`<>`). In most cases, tags surround the content, with the end tag
@@ -830,7 +830,7 @@ The following are the advantages of using Node.js:
 -   With Node.js, you could prototype quickly and go to market to do your customer development and customer acquisition early. This is an important competitive advantage over other companies that use less agile technologies (e.g., PHP and MySQL).
 -   Node.js is built to support real-time applications by utilizing web sockets.
 
-For more information go to Wikipedia (http://en.wikipedia.org/wiki/Nodejs), Nodejs.org (http://nodejs.org/about/ ), and articles on ReadWrite (http://readwrite. com/2011/01/25/wait-whats-nodejs-good-for-aga) and O’Reilly (<http://radar.oreilly.com/2011/07/what-is-node.html>).
+For more information go to Wikipedia (http://en.wikipedia.org/wiki/Nodejs), Nodejs.org (http://nodejs.org/about/ ), and articles on ReadWrite (http://readwrite.com/2011/01/25/wait-whats-nodejs-good-for-aga) and O’Reilly (<http://radar.oreilly.com/2011/07/what-is-node.html>).
 
 For the current state of Node.js (as of this writing), refer to the official Node.js blog (<https://nodejs.org/en/blog>).
 
