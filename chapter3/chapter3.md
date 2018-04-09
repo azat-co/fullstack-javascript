@@ -355,7 +355,7 @@ block:
       </div>  *<!-- row-fluid -->*
 
 This is the full source code of the `index.html` from
-[1-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/1-bootstrap):
+[1-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap):
 
     <!DOCTYPE html>
     <html lang="en">
@@ -661,7 +661,7 @@ the following parameters:
 -   `url` is an endpoint of the API.
 
 -   `dataType` is the type of data we expect from the server; for
-    example, "json", "xml", "jsonp" (JSON with prefix—format for servers
+    example, "json", "xml", "jsonp" (JSON with padding—format for servers
     that don't support CORS).
 
 -   `data` is the data to be sent to the server.
@@ -751,7 +751,7 @@ once a user clicks the buttons. The aforementioned buttons call the
     }
 
 The code should be straightforward. We get the value of the city name
-from the input box (ID `city-name`). Then, we check that the city name is NOT empty, and call `getDada()`. This function `getData()` will make the XHR request to the server (Open Weather API). You've already seen an
+from the input box (ID `city-name`). Then, we check that the city name is NOT empty, and call `getData()`. This function `getData()` will make the XHR request to the server (Open Weather API). You've already seen an
 example of the `$.ajax` request. Please note that the callback
 function is named `fetchData`. This function will be called after
 the browser gets the response from the OpenWeatherMap API. Needless to
@@ -881,7 +881,7 @@ the `index.html` file:
     <div class="container">
 
         <div class="row">
-            <div class="span4 offset 3">
+            <div class="span4 offset3">
                 <h2>Weather App</h2>
                 <p>Enter city name to get the weather forecast</p>
             </div>
@@ -1293,6 +1293,7 @@ Right now the structure of the application should look like this:
       css/bootstrap.min.css
       css/style.css
       js/app.js
+      js/jquery.js
       img/spinner.gif
 
 Let's create a visual representation for the Message Board app. We just
