@@ -65,7 +65,7 @@ Other ways to connect are via: @azatmardan (http://twitter.com/azatmardan),
 <http://webapplog.com>, <http://azat.co>.
 
 In case you enjoyed Node.js and want to find out more about building
-production web services with Express.js—a de factor standard for Node.js
+production web services with Express.js—a de facto standard for Node.js
 web apps—take a look at my book [Pro
 Express.js](http://proexpressjs.com).
 
