@@ -1,106 +1,108 @@
-"use strict";
+'use strict';
+const baseApiUrl = `http://localhost:1337`
+const cEl = React.createElement
 
-var Header = React.createClass({
-  displayName: "Header",
+const Header = React.createClass({
+  displayName: 'Header',
 
-  render: function render() {
-    return React.createElement(
-      "h1",
+  render() {
+    return cEl(
+      'h1',
       null,
-      "Chat"
+      'Chat'
     );
   }
 });
 
-var Footer = React.createClass({
-  displayName: "Footer",
+const Footer = React.createClass({
+  displayName: 'Footer',
 
-  render: function render() {
-    return React.createElement(
-      "div",
+  render() {
+    return cEl(
+      'div',
       null,
-      React.createElement("hr", null),
-      React.createElement(
-        "div",
-        { className: "row-fluid" },
-        React.createElement(
-          "div",
-          { className: "span12" },
-          React.createElement(
-            "div",
+      cEl('hr', null),
+      cEl(
+        'div',
+        { className: 'row-fluid' },
+        cEl(
+          'div',
+          { className: 'span12' },
+          cEl(
+            'div',
             null,
-            "Rapid Prototyping with JavaScript and NodeJS (",
-            React.createElement(
-              "a",
-              { href: "http://twitter.com/azatmardan" },
-              "@azatmardan"
+            'Rapid Prototyping with JavaScript and NodeJS (',
+            cEl(
+              'a',
+              { href: 'http://twitter.com/azatmardan' },
+              '@azatmardan'
             ),
-            ")"
+            ')'
           )
         )
       )
-    );
+    )
   }
-});
+})
 
-var MessageList = React.createClass({
-  displayName: "MessageList",
+const MessageList = React.createClass({
+  displayName: 'MessageList',
 
-  render: function render() {
+  render() {
     var messages = this.props.messages;
     // console.log(messages)
-    if (!messages.length > 0) return React.createElement(
-      "tr",
+    if (!messages.length > 0) return cEl(
+      'tr',
       null,
-      React.createElement(
-        "td",
-        { colspan: "2" },
-        "No messages yet"
+      cEl(
+        'td',
+        { colspan: '2' },
+        'No messages yet'
       )
     );
-    return React.createElement(
-      "div",
-      { className: "span12" },
-      React.createElement(
-        "table",
-        { className: "table table-bordered table-striped" },
-        React.createElement(
-          "caption",
+    return cEl(
+      'div',
+      { className: 'span12' },
+      cEl(
+        'table',
+        { className: 'table table-bordered table-striped' },
+        cEl(
+          'caption',
           null,
-          "Chat"
+          'Chat'
         ),
-        React.createElement(
-          "thead",
+        cEl(
+          'thead',
           null,
-          React.createElement(
-            "tr",
+          cEl(
+            'tr',
             null,
-            React.createElement(
-              "th",
-              { className: "span2" },
-              "Name"
+            cEl(
+              'th',
+              { className: 'span2' },
+              'Name'
             ),
-            React.createElement(
-              "th",
+            cEl(
+              'th',
               null,
-              "Message"
+              'Message'
             )
           )
         ),
-        React.createElement(
-          "tbody",
+        cEl(
+          'tbody',
           null,
-          messages.map(function (message) {
-            return React.createElement(
-              "tr",
+          messages.map((message) => {
+            return cEl(
+              'tr',
               { key: message._id },
-              React.createElement(
-                "td",
+              cEl(
+                'td',
                 null,
                 message.name
               ),
-              React.createElement(
-                "td",
+              cEl(
+                'td',
                 null,
                 message.message
               )
@@ -113,81 +115,84 @@ var MessageList = React.createClass({
 });
 
 var NewMessage = React.createClass({
-  displayName: "NewMessage",
+  displayName: 'NewMessage',
 
-  addMessage: function addMessage() {
+  addMessage() {
     this.props.addMessageCb({
       name: React.findDOMNode(this.refs.username).value,
       message: React.findDOMNode(this.refs.message).value
-    });
-    React.findDOMNode(this.refs.username).value = "";
-    React.findDOMNode(this.refs.message).value = "";
+    })
+    React.findDOMNode(this.refs.username).value = ''
+    React.findDOMNode(this.refs.message).value = ''
   },
-  render: function render() {
-    return React.createElement(
-      "div",
-      { className: "row-fluid", id: "new-message" },
-      React.createElement(
-        "div",
-        { className: "span12" },
-        React.createElement(
-          "form",
-          { className: "well form-inline" },
-          React.createElement("input", { type: "text", name: "username", className: "input-small", placeholder: "Username", ref: "username" }),
-          React.createElement("input", { type: "text", name: "message", className: "input-small", placeholder: "Message Text", ref: "message" }),
-          React.createElement(
-            "a",
-            { id: "send", className: "btn btn-primary", onClick: this.addMessage },
-            "SEND"
+
+  render() {
+    return cEl(
+      'div',
+      { className: 'row-fluid', id: 'new-message' },
+      cEl(
+        'div',
+        { className: 'span12' },
+        cEl(
+          'form',
+          { className: 'well form-inline' },
+          cEl('input', { type: 'text', name: 'username', className: 'input-small', placeholder: 'Username', ref: 'username' }),
+          cEl('input', { type: 'text', name: 'message', className: 'input-small', placeholder: 'Message Text', ref: 'message' }),
+          cEl(
+            'a',
+            { id: 'send', className: 'btn btn-primary', onClick: this.addMessage },
+            'SEND'
           )
         )
       )
     );
   }
-});
+})
 
-var MessageBoard = React.createClass({
-  displayName: "MessageBoard",
+const MessageBoard = React.createClass({
+
+  displayName: 'MessageBoard',
 
   getInitialState: function getInitialState() {
     // return {messages: []}
-    return { messages: [{ _id: 1, name: "Azat", message: "hi" }] };
+    return { messages: [{ _id: 1, name: 'Azat', message: 'hi' }] }
   },
-  componentWillMount: function componentWillMount() {
-    var url = "http://localhost:5000/messages/list.json";
-    var _this = this;
-    $.getJSON(url, function (result) {
-      // console.log(result)
-      if (!result || !result || !result.length) {
-        return;
-      }
-      // console.log(result)
-      _this.setState({ messages: result });
-    });
-  },
-  addMessage: function addMessage(message) {
-    var messages = this.state.messages;
-    // message._id = Math.random()
 
-    var _this = this;
-    $.post("http://localhost:5000/messages/create.json", JSON.stringify(message), function (data) {
+  componentWillMount() {
+    const url = `${baseApiUrl}/messages.json`
+    
+    $.getJSON(url, (result) => {
+      // console.log(result)
       if (!result || !result || !result.length) {
-        return;
+        return
       }
-      messages.push(message);
-      _this.setState({ messages: messages });
-    });
+      // console.log(result)
+      this.setState({ messages: result })
+    })
+  
+  },
+
+  addMessage: function addMessage(message) {
+    const messages = this.state.messages
+    $.post(`${baseApiUrl}/messages.json`, JSON.stringify(message), (result) => {
+      if (!result || !result || !result.length) {
+        console.error('No response')
+        return false
+      }
+      messages.push(message)
+      this.setState({ messages: messages })
+    })
   },
   render: function render() {
-    return React.createElement(
-      "div",
+    return cEl(
+      'div',
       null,
-      React.createElement(MessageList, { messages: this.state.messages }),
-      React.createElement(NewMessage, { messages: this.state.messages, addMessageCb: this.addMessage })
-    );
+      cEl(MessageList, { messages: this.state.messages }),
+      cEl(NewMessage, { messages: this.state.messages, addMessageCb: this.addMessage })
+    )
   }
-});
+})
 
-React.render(React.createElement(Header, null), document.getElementById("header"));
-React.render(React.createElement(Footer, null), document.getElementById("footer"));
-React.render(React.createElement(MessageBoard, null), document.getElementById("message-board"));
+React.render(cEl(Header, null), document.getElementById('header'))
+React.render(cEl(Footer, null), document.getElementById('footer'))
+React.render(cEl(MessageBoard, null), document.getElementById('message-board'))
