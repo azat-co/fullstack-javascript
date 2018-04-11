@@ -1,5 +1,5 @@
-Chapter 4
-=========
+CHAPTER 4
+---------
 
 Intro to Backbone.js
 ====================
