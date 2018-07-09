@@ -92,7 +92,7 @@ following content skeleton:
     </html>
 
 Download the necessary libraries or hot-link them from Google API. Now
-include JavaScript libraries and Twitter Bootstrap style sheets into the
+include JavaScript libraries and Bootstrap style sheets into the
 head element along with other important but not required *meta*
 elements.
 
@@ -121,7 +121,7 @@ with this example:
 
       <script src="js/parse-1.5.0.js"></script>
 
-Twitter Bootstrap CSS inclusion:
+Bootstrap CSS inclusion:
 
       <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
 
@@ -134,7 +134,7 @@ And here's our JS application inclusion:
       <script type="text/javascript" src="app.js"></script>
       </head>
 
-Populate the `<body>` element with Twitter Bootstrap scaffolding (more
+Populate the `<body>` element with Bootstrap scaffolding (more
 about it in the "Basics" chapter):
 
       <body>
@@ -254,7 +254,7 @@ The full code of the `app.js` file:
         'libs/text!header.html',
         // Example of a shim plugin use
         'libs/text!home.html',
-        'libs/text!footer.html'], 
+        'libs/text!footer.html'],
       function (
         headerTpl,
         homeTpl,
@@ -294,9 +294,9 @@ The full code of the `app.js` file:
           this.$el.html(_.template(this.template))
         }
       })
-      
+
       HomeView = Backbone.View.extend({
-        el: '#content',    
+        el: '#content',
         template: homeTpl,
         initialize: function() {
         },
@@ -304,7 +304,7 @@ The full code of the `app.js` file:
           $(this.el).html(_.template(this.template))
         }
       })
-      
+
       app = new ApplicationRouter()
       Backbone.history.start()
     })
@@ -321,7 +321,7 @@ Here is what `home.html` looks like:
 
 -   A new message form
 
-Let's use the Twitter Bootstrap library structure (with its responsive
+Let's use the Bootstrap library structure (with its responsive
 components) by assigning `row-fluid` and `span12` classes:
 
     <div class="row-fluid"  id="message-board">
@@ -523,7 +523,7 @@ The next two lines will get the values of the input fields with names
 `username` and `message`:
 
           const username = newMessageForm.find('[name="username"]').val()
-          const message = newMessageForm.find('[name="message"]').val()      
+          const message = newMessageForm.find('[name="message"]').val()
 
 Once we have the values of a new message (text and author), we can
 invoke the `this.collection.add`:
@@ -551,7 +551,7 @@ something like this:
             headerTpl,
             homeTpl,
             footerTpl) {
-        
+
         Parse.initialize('your-parse-app-id', 'your-parse-js-sdk-key')
 
         const ApplicationRouter = Backbone.Router.extend({

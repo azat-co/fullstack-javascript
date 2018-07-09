@@ -16,7 +16,7 @@ Stack JavaScript touched topics such as the following:
 
 -   jQuery, JSON, and AJAX/XHR
 
--   Twitter Bootstrap, CSS, and LESS
+-   Bootstrap, CSS, and LESS
 
 -   Backbone.js, AMD, and Require.js
 
@@ -91,20 +91,17 @@ reading.
 ### Good JavaScript Books
 
 -   [React Quickly: Painless web apps with React, JSX, Redux, and GraphQL](https://www.amazon.com/React-Quickly-Painless-Redux-GraphQL/dp/1617293342) (<https://amzn.to/2MV6pKG>)
--   [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) (http://shop.oreilly.com/product/9780596517748.do) 
+-   [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) (http://shop.oreilly.com/product/9780596517748.do)
 -   [JavaScript: The Definitive Guide](http://www.amazon.com/dp/0596101996/?tag=stackoverfl08-20) (http://www.amazon.com/dp/0596101996/?tag=stackoverfl08-20)
 -   [Secrets of the JavaScript Ninja](http://www.manning.com/resig/)(http://www.manning.com/resig/)
 -   [Pro JavaScript Techniques](http://www.amazon.com/dp/1590597273/?tag=stackoverfl08-20)(http://www.amazon.com/dp/1590597273/?tag=stackoverfl08-20)
 -   [Eloquent JavaScript](http://eloquentjavascript.net/) (http://eloquentjavascript.net/): a modern introduction to programming
 
-### Node.js Books
+### Good Node.js Books
 
--   [Node.js in Action](http://www.manning.com/cantelon) (http://www.manning.com/cantelon)
--   [Node: Up and Running](http://www.amazon.com/Node-Running-Scalable-Server-Side-JavaScript/dp/1449398588) (http://www.amazon.com/Node-Running-Scalable-Server-Side-JavaScript/dp/1449398588): Scalable Server-Side Code with JavaScript
--   [Node Web Development](http://www.amazon.com/Node-Web-Development-David-Herron/dp/184951514X) (http://www.amazon.com/Node-Web-Development-David-Herron/dp/184951514X): A practical introduction to Node
--   [Node Cookbook](http://www.amazon.com/Node-Cookbook-David-Mark-Clements/dp/1849517185/) (http://www.amazon.com/Node-Cookbook-David-Mark-Clements/dp/1849517185)
 -   [Pro Express.js](http://proexpressjs.com) (http://proexpressjs.com)
 -   [Practical Node.js](https://github.com/azat-co/practicalnode) (https://github.com/azat-co/practicalnode)
+-   [Node.js in Action](http://www.manning.com/cantelon) (http://www.manning.com/cantelon)
 -   [Deep Express.js API Reference](http://amzn.to/1xcHanf) (http://amzn.to/1xcHanf)
 
 ### Interactive Online Classes and Courses

@@ -951,7 +951,7 @@ View. Here's the full code sans the inline comments:
         })
       }
     })
-    ... 
+    ...
 
 You should be able to click the Buy button and populate the cart with
 the apples of your choice. Looking at an individual apple does not
@@ -988,7 +988,7 @@ https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/subview/
             name: 'gala',
             url: 'img/gala.jpg'
           }
-        ] 
+        ]
         let app
         const router = Backbone.Router.extend({
           routes: {
@@ -1048,7 +1048,7 @@ https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/subview/
             this.collection.each(function(apple){
               const appleSubView = new appleItemView({model: apple})
               appleSubView.render()
-              $(view.listEl).append(appleSubView.$el)   
+              $(view.listEl).append(appleSubView.$el)
             })
           }
         })
@@ -1824,8 +1824,7 @@ similar projects:
 -   [Backbone Boilerplate](http://backboneboilerplate.com/) available at
     <http://backboneboilerplate.com>
 
--   [Sample App with Backbone.js and Twitter
-    Bootstrap](http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap/)
+-   [Sample App with Backbone.js and Bootstrap](http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap/)
     available at
     <http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap>
 

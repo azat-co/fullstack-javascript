@@ -48,9 +48,9 @@ Development folder, the path will be
 Documents/Development/fullstack-javascript. You could use the Finder on
 Mac OS X or the following terminal commands on OS X/Linux systems:
 
-`$ cd ~/Documents`  
-`$ mkdir Development`  
-`$ cd Development`  
+`$ cd ~/Documents`
+`$ mkdir Development`
+`$ cd Development`
 `$ mkdir fullstack-javascript`
 
 ![alt](media/image1.png)
@@ -161,7 +161,7 @@ development:
 -   [*Sublime Text*](http://www.sublimetext.com)
     (<http://www.sublimetext.com>): Mac OS X and Windows versions
     are available. This is an even better alternative to TextMate, with
-    an unlimited evaluation period  
+    an unlimited evaluation period
     (Figure  2-5 ).
 
 -   [*Coda*](http://panic.com/coda) (<http://panic.com/coda>):
@@ -199,7 +199,7 @@ with a GUI: GitX (<http://gitx.frim.nl>), Gitbox
 (<http://www.gitboxapp.com>) or GitHub for Mac (<http://mac.github.com>).
 
 Subversion is a nondistributed version control system. This article
-compares Git vs. Subversion  
+compares Git vs. Subversion
 (<https://git.wiki.kernel.org/index.php/GitSvnComparison>).
 
 Here are the steps to install and set up Git on your machine:
@@ -207,7 +207,7 @@ Here are the steps to install and set up Git on your machine:
 1.  Download the latest version for your OS at
     <http://git-scm.com/downloads> (Figure 2-7).
 
-	![alt](media/image7.png) 
+	![alt](media/image7.png)
 
 	***Figure 2-7.** Downloading latest release of Git*
 
@@ -218,11 +218,11 @@ Here are the steps to install and set up Git on your machine:
 3.  Find the terminal app by using Command + Space, a.k.a. Spotlight
     (Figure 2-8), on OS X. For Windows you could use
     [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty)
-    (<http://www.chiark.greenend.org.uk/~sgtatham/putty>)  
+    (<http://www.chiark.greenend.org.uk/~sgtatham/putty>)
     or Cygwin (<http://www.cygwin.com>).
 
 
-	![alt](media/image8.png) 
+	![alt](media/image8.png)
 
 
 	***Figure 2-8.** Using Spotlight to find and run an application*
@@ -231,7 +231,7 @@ Here are the steps to install and set up Git on your machine:
 4.  In your terminal, type these commands, substituting "John Doe" and
     johndoe@example.com with your name and e-mail:
 
-	`$ git config --global user.name "John Doe"`  
+	`$ git config --global user.name "John Doe"`
 	`$ git config --global user.email johndoe@example.com`
 
 5.  To check the installation, run command:
@@ -279,7 +279,7 @@ to change configurations and host file settings.
 
 -   [*MAMP Stack*](http://bitnami.com/stack/mamp)
     (<http://bitnami.com/stack/mamp>): Mac app with PHP, Apache, MySQL,
-    and phpMyAdmin stack build by BitNami (Apple App Store)  
+    and phpMyAdmin stack build by BitNami (Apple App Store)
     (<https://itunes.apple.com/es/app/mamp-stack/id571310406?l=en>).
 
 -   [*XAMPP*](http://www.apachefriends.org/en/xampp.html)
@@ -327,7 +327,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
     it, type and execute the following commands in the terminal (Figure
     2-11):
 
-	`$ sudo mkdir -p /data/db`  
+	`$ sudo mkdir -p /data/db`
 	`$ sudo chown id -u /data/db`
 
 	If you prefer to use a path other than /data/db you could specify it
@@ -372,7 +372,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 
 8.  Then type and execute:
 
-	`> db.test.save( { a: 1 } )`  
+	`> db.test.save( { a: 1 } )`
 	`> db.test.find()`
 
 	If you see that your record is being saved, then everything went well
@@ -386,7 +386,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 Commands `find` and `save` do exactly what you might think they do.
 
 Detailed instructions are also available at MongoDB.org: Install MongoDB
-on OS X  
+on OS X
 (<http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x>). For
 Windows users there is a good walk-through article at Installing MongoDB
 (<http://www.tuanleaded.com/blog/2011/10/installing-mongodb>).
@@ -458,7 +458,7 @@ comments development one.
 
 Another approach is to hot-link these scripts from CDNs such as [Google
 Hosted
-Libraries](https://developers.google.com/speed/libraries/devguide)  
+Libraries](https://developers.google.com/speed/libraries/devguide)
 (https://developers.google.com/speed/libraries/devguide), CDNJS
 (http://cdnjs.com ), Microsoft Ajax Content Delivery Network
 (<http://www.asp.net/ajaxlibrary/cdn.ashx> ), and others. By doing so
@@ -469,7 +469,7 @@ without the Internet.
     [lesscss.org](http://lesscss.org). You could unpack it into your
     development folder (~/Documents/Development) or any other folder.
 
--   Twitter Bootstrap is a CSS/LESS framework. It's available at
+-   Bootstrap is a CSS/LESS framework. It's available at
     [twitter.github.com/bootstrap](http://twitter.github.com/bootstrap).
 
 -   jQuery is available at [jquery.com](http://jquery.com).
@@ -560,7 +560,7 @@ GitHub
 
 	If you see something like this:
 
-	`Hi your-GitHub-username! You've successfully authenticated,`  
+	`Hi your-GitHub-username! You've successfully authenticated,`
 	`but GitHub does not provide shell access.`
 
 	then everything is set up.
@@ -570,7 +570,7 @@ GitHub
     confused with such a message—just proceed by answering Yes as shown
     in Figure 2-13.
 
-![alt](media/image17.png)   
+![alt](media/image17.png)
 
 ***Figure 2-13.** Testing SSH connection to GitHub for the very first
 time*
@@ -582,7 +582,7 @@ your \*.pub file to GitHub.
 	Warning Keep your id_rsa file private and don't share it with anybody!
 
 More instructions are available at GitHub: [Generating SSH
-Keys](https://help.github.com/articles/generating-ssh-keys)  
+Keys](https://help.github.com/articles/generating-ssh-keys)
 (<https://helpgithub.com/articles/generating-ssh-keys>).
 
 Windows users might find the SSH key generator feature in \[PuTTY\]
