@@ -73,18 +73,18 @@ These are the approaches to mobile development, each with its own advantages and
 2.  *Abstracted native*: Native apps built with JavaScript with, [React Native](https://facebook.github.io/react-native) (<https://facebook.github.io/react-native>), NativeScript, [Appcelerator](https://www.appcelerator.com) (<https://www.appcelerator.com>), [Xamarin](https://xamarin.com), (<https://xamarin.com>), [Smartface](https://www.smartface.io) (<https://www.smartface.io>), or similar tools, and then compiled into native Objective-C or Java.
 3.  *Responsive*: Mobile websites tailored for smaller screens with responsive design, CSS frameworks like [Bootstrap](https://getbootstrap.com) (<https://twitter.github.io/bootstrap>) or [Foundation](https://foundation.zurb.com) (<https://foundation.zurb.com>), regular CSS, or different templates. You might use some JavaScript frameworks for the development like Backbone.js, Angular.js, Ember.js, or React.js.
 4.  *Hybrid*: HTML5 apps which consist of HTML, CSS, and JavaScript, and
-    are usually built with frameworks like [Sencha Touch](https://www.sencha.com/products/touch) (<https://www.sencha.com/products/touch>), [Trigger.io](https://trigger.io) (<https://trigger.io>), or [Ionic](https://ionicframework.com) (<https://ionicframework.com>) and then wrapped into a native app with [PhoneGap](https://phonegap.com) (<https://phonegap.com>). As in the third approach, you probably will want to use a JavaScript framework for the development such as Backbone.js, Angular.js, Ember.js or React.js.
+    are usually built with frameworks like [Sencha Touch](https://www.sencha.com/products/touch) (<https://www.sencha.com/products/touch>), [Trigger.io](https://trigger.io) (<https://trigger.io>), or [Ionic](https://ionicframework.com) (<https://ionicframework.com>) and then wrapped into a native app with [PhoneGap](https://phonegap.com) (<https://phonegap.com>). As in the third approach, you probably will want to use a JavaScript framework for the development such as Backbone.js, Angular.js, Ember.js, or React.js.
 
-My personal favorites are the second and fourth approaches which are abstracted and hybrid ones. The second approach doesn't require a different code base. A minimal viable product (MVP) can be built across multiple platforms by sharing a lot of the code. I recommend React Native. Check out [my book](https://amzn.to/2H2Rhbk) and [course](https://node.university/p/react-native-quickly) React Native Quickly to get started with mobile development using the abstracted approach.
+My personal favorites are the second and fourth approaches, which are abstracted and hybrid ones. The second approach doesn't require a different code base. A minimal viable product (MVP) can be built across multiple platforms by sharing a lot of the code. I recommend React Native. Check out [my book](https://amzn.to/2H2Rhbk) and [course](https://node.university/p/react-native-quickly) *React Native Quickly* (https://node.university/p/react-native-quickly) to get started with mobile development using the abstracted approach.
 
 The fourth approach is more powerful and provides more scalable (in a development sense) UIs. This is better suited for complex apps. Code reuse between cross-platform mobile and web is easy because most of the times you're writing in JavaScript.
 
 <span id="hypertext-markup-language" class="anchor"><span id="HTML" class="anchor"></span></span>HyperText Markup Language
 --------------------------------------------------------------------------------------------------------------------------
 
-HTML is not a real programming language in itself. It is a set of markup tags that describe the content and present it in a structured and formatted way. We can not code too much logic into HTML. There are no variables or loops. HTML is the language of the web because it is ubiquitous and used by all clients (browsers) to interpret the data to users.
+HTML is not a real programming language in itself. It is a set of markup tags that describe the content and present it in a structured and formatted way. We cannot code much logic into HTML. There are no variables or loops. HTML is the language of the web because it is ubiquitous and used by all clients (browsers) to interpret the data to users.
 
-HTML tags consist of a tag name inside of the angle brackets (`<>`). In most cases, tags surround the content, with the end tag having forward slash before the tag name. Tags create hierarchy of content. Each tag has a meaning, purpose and a default display representation in a browser. For example, there are tags for headings, paragraphs, bullet points, images, links, and many more.
+HTML tags consist of a tag name inside of the angle brackets (`<>`). In most cases, tags surround the content, with the end tag having a forward slash before the tag name. Tags create hierarchy of content. Each tag has a meaning, purpose, and a default display representation in a browser. For example, there are tags for headings, paragraphs, bullet points, images, links, and many more items.
 In this example, each line is an HTML element:
 
 ```html
@@ -93,7 +93,7 @@ In this example, each line is an HTML element:
 <link rel="stylesheet" type="text/css" href="style.css" />
 ```
 
-An HTML document itself is an element of the `<html>` tag, and all other elements such as `head`, `body`, `h2` and `p` are children of that `<html>` tag. The tag `head` is for meta data of the page (info of the page itself without the visible to the user content), while `body` is for the content (visible to the user). Developers use 4-space indentation to signify and mark the nested elements. The element `link` is two level nested in the `html` element. (It includes/imports the CSS style.)
+An HTML document itself is an element of the `<html>` tag, and all other elements such as `head`, `body`, `h2`, and `p` are children of that `<html>` tag. The tag `head` is for metadata of the page—info of the page itself, not visible to the user content, while `body` is for the content (visible to the user). Developers use four-space indentation to signify and mark the nested elements. The element `link` is two levels nested in the `html` element. (It includes/imports the CSS style.)
 
 ```html
 <!DOCTYPE html>
@@ -108,16 +108,15 @@ An HTML document itself is an element of the `<html>` tag, and all other element
 </html>
 ```
 
-Notice that the closing tags have slash `/` inside the angle braces `<>` but before the name of the tag, e.g., `</html>`. This is important for proper rendering (interpretation and displaying) of elements by the browser.
+Notice that the closing tags have a slash (`/`) inside the angle brackets (`<>`), but before the name of the tag, e.g., `</html>`. This is important for proper rendering (interpretation and displaying) of elements by the browser.
 
-There are different flavors and versions of HTML, such as DHTML, XHTML 1.0, XHTML 1.1, XHTML 2, HTML 4, and HTML 5. This comic strip does a good
-job of explaining the differences: [Misunderstanding Markup: XHTML 2/HTML 5](http://coding.smashingmagazine.com/2009/07/29/misunderstanding-markup-xhtml-2-comic-strip) (http://coding.smashingmagazine.com/2009/07/29/misunderstanding-markup-xhtml-2-comic-strip/). Before web developers had to use the appropriate version, but now just drop `<!DOCTYPE html>` and modern browsers will understand your markup.
+There are different flavors and versions of HTML, such as DHTML, XHTML1.0, XHTML1.1, XHTML2, HTML4, and HTML5. This comic strip does a good job of explaining the differences: [Misunderstanding Markup: XHTML 2/HTML 5](http://coding.smashingmagazine.com/2009/07/29/misunderstanding-markup-xhtml-2-comic-strip) (<http://bit.ly/2N5WTUl>). Before HTML5 web developers had to use the appropriate version, but now just write `<!DOCTYPE html>` and modern browsers will understand your markup.
 
-Any HTML element can have attributes. You already saw `link` with `rel`, `type` and `href`. Attributes are like extra information which is not directly visible by the user (not content) and which is not some nested elements (more content). The most important attributes which are applicable to almost all elements and tags are `class`, `id`, `style`, `data-name`. Then there are event attributes `onclick`, `onmouseover`, `onkeyup`, and so on.
+Any HTML element can have attributes. You already saw `link` with `rel`, `type` and `href`. Attributes are typically extra information that is not directly visible by the user. Attributes are not content and they are different in this sense from nested elements, which are content. The most important attributes which are applicable to almost all elements and tags are `class`, `id`, `style`, and `data-name`. Then there are event attributes such as `onclick`, `onmouseover`, `onkeyup`, and so on.
 
 ### `class`
 
-The class attribute defines a class that is used for styling in CSS or Domain Object Model (DOM) manipulation; for example:
+The `class` attribute defines a class that is used for styling in CSS or Domain Object Model (DOM) manipulation; for example:
 
 ```html
 <p class="normal">…</p>
@@ -125,7 +124,7 @@ The class attribute defines a class that is used for styling in CSS or Domain Ob
 
 ### `id`
 
-The id attribute defines an ID that is similar in purpose to element class, but it has to be unique; for example:
+The `id` attribute defines an ID that is similar in purpose to element class, but it has to be unique; for example:
 
 ```html
 <div id="footer">...</div>
@@ -133,7 +132,7 @@ The id attribute defines an ID that is similar in purpose to element class, but 
 
 ### `style`
 
-The style attribute defines inline CSS to style an element; for example:
+The `style` attribute defines inline CSS to style an element; for example:
 
 ```html
 <font style="font-size:20px">…</font>
@@ -141,7 +140,7 @@ The style attribute defines inline CSS to style an element; for example:
 
 ### `title`
 
-The title attribute specifies additional information that is usually presented in tooltips by most browsers; for example:
+The `title` attribute specifies additional information that is usually presented in tooltips by most browsers; for example:
 
 ```html
 <a title="Up-vote the answer">…</a>
@@ -149,7 +148,7 @@ The title attribute specifies additional information that is usually presented i
 
 ### `data-name`
 
-The data-name attribute allows for metadata to be stored in the DOM; for example:
+The `data-name` attribute allows for metadata to be stored in the DOM; for example:
 
 ```html
 <tr data-token="fa10a70c–21ca–4e73-aaf5-d889c7263a0e">…</tr>
@@ -157,7 +156,7 @@ The data-name attribute allows for metadata to be stored in the DOM; for example
 
 ### `onclick`
 
-The onclick attribute calls inline JavaScript code when a click event happens; for example:
+The `onclick` attribute calls inline JavaScript code when a click event happens; for example:
 
 ```html
 <input type="button"
@@ -166,7 +165,7 @@ The onclick attribute calls inline JavaScript code when a click event happens; f
 
 ### `onmouseover`
 
-The onmouseover attribute is similar to onclick but for mouse hover events; for example:
+The `onmouseover` attribute is similar to `onclick` but for mouse hover events; for example:
 
 ```html
 <a onmouseover="javascript:
@@ -177,27 +176,21 @@ The onmouseover attribute is similar to onclick but for mouse hover events; for 
 
 Other HTML element attributes for inline JavaScript code are as follows:
 
--   onfocus: When the browser focuses on an element
+-   `onfocus`: When the browser focuses on an element
+-   `onblur`: When the browser focus leaves an element
+-   `onkeydown`: When a user presses a keyboard key
+-   `ondblclick`: When a user double-clicks the mouse
+-   `onmousedown`: When a user presses a mouse button
+-   `onmouseup`: When a user releases a mouse button
+-   `onmouseout`: When a user moves mouse out of the element area
+-   `oncontextmenu`: When a user opens a context menu
 
--   onblur: When the browser focus leaves an element
+The full list of such events and a browser compatibility table are presented in ["Event compatibility tables"](http://www.quirksmode.org/dom/events/index.html) (<http://www.quirksmode.org/dom/events/index.html>).
 
--   onkeydown: When a user presses a keyboard key
+We'll use classes extensively with the [Bootstrap](https://getbootstrap.com) framework (<https://getbootstrap.com>), but the use of inline CSS and JavaScript code is generally a bad idea, so we'll try to avoid it. However, it's good to know the names of the JavaScript events because they are used all over the place in jQuery, Backbone.js, and, of course, plain JavaScript. To convert the list of attributes to a list of JS events, just remove the prefixes on; for example, `onclick` attribute means click event.
 
--   ondblclick: When a user double-clicks the mouse
+More information is available at [MDN: Getting Started with JS](https://developer.mozilla.org/en-US/docs/JavaScript/Getting_Started) (<https://developer.mozilla.org/en-US/docs/JavaScript/Getting_Started>)
 
--   onmousedown: When a user presses a mouse button
-
--   onmouseup: When a user releases a mouse button
-
--   onmouseout: When a user moves mouse out of the element area
-
--   oncontextmenu: When a user opens a context menu
-
-The full list of such events and a browser compatibility table are presented in [Event compatibility tables](http://www.quirksmode.org/dom/events/index.html) (http://www.quirksmode.org/dom/events/index.html).
-
-We'll use classes extensively with Bootstrap framework, but the use of inline CSS and JavaScript code is generally a bad idea, so we'll try to avoid it. However, it's good to know the names of the JavaScript events because they are used all over the place in jQuery, Backbone.js, and, of course, plain JavaScript. To convert the list of attributes to a list of JS events, just remove the prefixes on; for example, `onclick` attribute means click event.
-
-More information is available at Example: [Getting Started with JS](https://developer.mozilla.org/en-US/docs/JavaScript/Getting_Started) (https://developer.mozilla.org/en-US/docs/JavaScript/Getting_Started), [Wikipedia](http://en.wikipedia.org/wiki/HTML) (http://en.wikipedia.org/wiki/HTML) and [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML) (https://developer.mozilla.org/en-US/docs/Web/HTML).
 
 Cascading Style Sheets
 ----------------------
@@ -212,7 +205,7 @@ Cascading Style Sheets
 </style>
 ```
 
-Each HTML element can have id attributes, class attributes, or both:
+Each HTML element can have `id` attributes, `class` attributes, or both:
 
 ```html
 <div id="main" class="large">
@@ -231,7 +224,7 @@ p {
 }
 ```
 
-This sets padding of a `<div>` element with the id attribute of main:
+This sets padding of a `<div>` element with the `id` attribute of `main`:
 
 ```css
 div#main {
@@ -240,7 +233,7 @@ div#main {
 }
 ```
 
-This sets the font size to 14 pixels for all elements with a class large:
+This sets the font size to 14 pixels for all elements with a `class` attribute `large`:
 
 ```css
 .large {
@@ -256,7 +249,7 @@ body > div {
 }
 ```
 
-This sets the width to 150 pixels for input which the name attribute is email:
+This sets the width to 150 pixels for input for which the `name` attribute is `email`:
 
 ```css
 input[name="email"] {
@@ -265,22 +258,22 @@ input[name="email"] {
 ```
 
 
-More information is available at Wikipedia (http://en.wikipedia.org/wiki/Cascading_Style_Sheets) and MDN (https://developer.mozilla.org/en-US/docs/Web/CSS).
+More information about CSS is available at Wikipedia (http://en.wikipedia.org/wiki/Cascading_Style_Sheets) and MDN (https://developer.mozilla.org/en-US/docs/Web/CSS).
 
 CSS3 is an upgrade to CSS that includes new ways of doing things such as rounded corners, borders, and gradients, which were possible in regular CSS only with the help of PNG/GIF images and by using other tricks.
 
-For more information refer to CSS3.info (<http://css3.info>), and [CSS3 vs. CSS comparison article on Smashing](http://coding.smashingmagazine.com/2011/04/21/css3-vs-css-a-speed-benchmark) (http://coding.smashingmagazine.com/2011/04/21/css3-vs-css-a-speed-benchmark).
+For more information refer to CSS3.info (<http://css3.info>), and [CSS3 vs. CSS comparison article on Smashing](http://coding.smashingmagazine.com/2011/04/21/css3-vs-css-a-speed-benchmark) (<http://coding.smashingmagazine.com/2011/04/21/css3-vs-css-a-speed-benchmark>).
 
 JavaScript
 ----------
 
-<span id="JavaSCRIPTS" class="anchor"></span>JavaScript (JS) was crafted in 1995 at Netscape as LiveScript. Guess what another technology got its start in 1995? It's Java. Hence, developers of LiveScript renamed it into JavaScript but the two are very different. JavaScript has the same relationship with Java as a hamster has with a ham. So please don't confuse one with another. JavaScript is interpreted and run by a JavaScript engine (Google Chrome V8 or Microsoft Chakra or SpiderMonkey) from a plain text. Java is compiled to bytecode which is run by the Java Virtual Machine. There are differences in syntax, memory usage, typing and pretty much anything else.
+<span id="JavaSCRIPTS" class="anchor"></span>JavaScript (JS) was crafted in 1995 at Netscape as LiveScript. Guess what other technology got its start in 1995? Java. It was very hyped and popular, so the LiveScript developers renamed it into JavaScript. But Java and JavaScript are very different; they are like ham and hamster 🤡. JavaScript has the same relationship with Java as a hamster has with a ham. So please don't confuse one with another. JavaScript is interpreted and run by a JavaScript engine (Google Chrome V8 or Microsoft Chakra or SpiderMonkey) from a plain text. Java is compiled to bytecode that is run by the Java Virtual Machine. There are differences in syntax, memory usage, typing, and pretty much anything else.
 
-For most beginner programmers, it's easier to get started with JavaScript than with any other language. JavaScript has a very expressive language and very little setup overhead (just open your browser and start coding). JavaScript is the only native language which runs in the browsers (until we have WebAssembly but who wants to do that?). This fact alone makes JS the most popular language by number the runtime environments. Moreover, JavaScript is omnipresent. It can be use almost anywhere!
+For most beginner programmers, it's easier to get started with JavaScript than with any other language. JavaScript has a very expressive language and very little setup overhead (just open your browser and start coding). JavaScript is the only native language that runs in the browsers (until we have WebAssembly, but who wants to do that?). This fact alone makes JS the most popular language by the number of runtime environments. Moreover, JavaScript is omnipresent. It can be used almost anywhere!
 
-These days, JavaScript is used for both client-side and server-side web, as well as in desktop application development, drones, Internet of Things (IoT), and other things. This is the main focus of this book because with JavaScript you can develop across all the layers.
+These days, JavaScript is used for both client-side and server-side web development, as well as in desktop application development, drones, Internet of Things (IoT), and other things. This is the main focus of this book because with JavaScript you can develop across all the layers.
 
-If you are a beginner programmer, then just learn JavaScript and you won't need to learn any other languages. You can just use JavaScript for everything like front end, back end, database and DevOps, and that will make you a full stack JavaScript developer, my friend!
+If you are a beginner programmer, then just learn JavaScript and you won't need to learn any other languages. You can use JavaScript for everything like frontend, backend, database, and DevOps, and that will make you a full stack JavaScript developer, my friend!
 
 Let's start with JavaScript in HTML. Putting JS code into a `<script>` tag is the easiest way to use JavaScript in an HTML document:
 
@@ -290,7 +283,7 @@ Let's start with JavaScript in HTML. Putting JS code into a `<script>` tag is th
 </script>
 ```
 
-Be advised that mixing HTML and JS code is not a good idea, so to separate them we can move the code to an external file, and include it by setting source attribute `src="filename.js"` on a `<script>` tag, for example, for the app.js resource:
+Be advised that mixing HTML and JS code is not a good idea, so to separate them we can move the code to an external file, and include it by setting the source attribute `src="filename.js"` on a `<script>` tag; for example, for the `app.js` resource:
 
 ```html
 <script src="js/app.js" type="text/javascript"
@@ -301,19 +294,17 @@ Be advised that mixing HTML and JS code is not a good idea, so to separate them 
 Note that the closing `<script/>` tag is mandatory even with an empty element like we have where we include the external source file. In other words, just typing `<script src="js/app.js" ...>` will not suffice.
 
 
-Ways, ways when dinosaurs roamed the world, browsers knew how to parse and run VBScript (Microsoft Visual Basic script, the same as one you use in Excel spreadsheets). Hence, developers were required to specify what type of the script is this: JavaScript, VB or something else (Java, Flash and other losers). Luckily, now the modern browsers default to JS because that the only thing they can do and because that's the only thing commonly used by developers. Thus, the `type` and `language` attributes over the years became optional in *modern* browsers due to the overwhelming dominance of JavaScript.
+Ways, ways back when dinosaurs roamed the world, browsers knew how to parse and run VBScript (Microsoft Visual Basic script, the same as you use in Excel spreadsheets). Hence, developers were required to specify what the type of script is this: JavaScript, VB, or something else (Java, Flash, and other front-end losers). Luckily, now the modern browsers default to JS because that is the only thing they can run, and because that's the only thing commonly used by developers. Thus, the `type` and `language` attributes over the years became optional in *modern* browsers due to the overwhelming dominance of JavaScript.
 
 Other ways to run JavaScript include the following:
 
 -   The inline approach already covered
-
 -   WebKit browser Developer Tools and FireBug consoles
-
 -   The interactive Node.js shell
 
-One of the advantages of the JavaScript language is that it's loosely typed. This loose or weak typing, as opposed to strong typing (http://en.wikipedia.org/wiki/Strong_typing) in languages like C and Java, makes JavaScript a better programming language for prototyping. Here are some of the main types of JavaScript objects or classes. I wrote "or" because there are not classes per se in JavaScript. In JS, objects inherit from objects which is called prototypal inheritance. Confusing? Wait until you define some type of inheritance because there are several different ways to do so.
+One of the advantages of the JavaScript language is that it's loosely typed. This loose or weak typing, as opposed to strong typing (<http://en.wikipedia.org/wiki/Strong_typing>) in languages like C and Java, makes JavaScript a better programming language for prototyping. The following section introduce some of the main types of JavaScript objects/classes. I wrote "objects/classes" because JavaScript doesn't have classes per se. In JS, objects inherit from objects, which is called prototypal inheritance. Confusing? Wait until you see other types of inheritance, because there are several different ways to implement inheritance.
 
-Going back to types. There are primitive types. they have wrapper classes which provide extra functionality and static methods.
+Going back to types, JavaScript primitive types have wrapper objects/classes that provide extra functionality and static methods. Each primitive has a object/class.
 
 ### Number Primitives
 
@@ -323,11 +314,13 @@ Number primitives are numerical values; for example:
 const num = 1
 ```
 
-The way we define variables is either with `const` or `let`. They respect scopes created by logical blocks (functions, loops and conditions). The `const` will prevent reassignment. If developer omits `const` or `let` then the bad things will happen. The old way was to use `var`. I immediately raise a red flag when I perform a job interview and I see a candidate use `var`. It was responsible for quite a lot of weird bugs so only developers who are unskilled, not aware of [ES6](https://node.university/p/es6) or those who learned JavaScript from w3schools would use the `var` in 2018.
+The way we define variables is with either `var`, `const` or `let`. `const` and `let` respect scopes created by logical blocks (functions, loops, and conditions), where as `var` does not. The `const`  declaration will prevent reassignment. If a developer omits `var`, `const` or `let`, then bad things will happen such as leaking variables to the global scope and name collisions.
+
+The old way was to use `var`. I immediately raise a red flag when I perform a job interview and I see a candidate use `var`. It was responsible for quite a lot of weird bugs, so only developers who are unskilled, not aware of ES2015/ES6 or those who learned JavaScript from w3schools.com would use the `var` statement in our day and age. To learn about 10 main features of ES2015/ES6 that every web developer should know, read this concise but full of examples post: <https://webapplog.com/es6>. For ES7 and ES8 features, I recommend this eloquent blog post from Node University: <https://node.university/blog/1621685/es7es8>.
 
 ### Number Object
 
-This is the [Number](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number) https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number object and its methods; for example, developers can create a number object with `new`:
+The [Number](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number) https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number object and its methods provide added functionality for working with numerical values (int and floats). For example, developers can create a `Number` object with `new`:
 
 ```js
 const numObj = new Number('123') // Number object
@@ -336,16 +329,24 @@ const numStr = numObj.toString() // string representation
 console.log(numObj === 123) // false
 ```
 
-Notice the last line, the number object is not triple equals the number primitive. This is because primitive and the object are of different types. Conveniently, JavaScript can automatically convert the types to something similar with double equals. Thus, the following code will be print true:
+Notice the last line, the number object is not triple equals the number primitive. (`===` checks for equality in value and type.) This is because primitive and the object are of different types. Conveniently, JavaScript can automatically convert the types to something similar with double equals (`==`). Thus, the following code will be print/output true:
 
 ```js
 const numObj = new Number('123') // Number object
 console.log(numObj === 123) // false
 ```
 
+The `Number` method has useful methods such as `parseInt()` that is used to convert values from strings to numbers:
+
+```js
+17 === "17" // false
+17 === Number.parseInt("17", 10) // true
+```
+
+
 ### String Object
 
-The String object has a lot of useful methods, like length, match, and so on; for example, to create a string object use `new`:
+The String object has a lot of useful methods, like `length`, `match()`, and so on; for example, to create a `String` object use `new`:
 
 ```js
 const strObj = new String("abcde") // String object
@@ -356,7 +357,7 @@ str.match(/ab/) // both call will work
 
 ### String Primitives
 
-String primitives are sequences of characters inside of single or double quotes; for example, we can define a string primitive simply by using single quote `'`:
+String primitives are sequences of characters inside of single quotes (`'`) or double quotes (`"`); for example, we can define a string primitive simply by using single quotes:
 
 ```js
 const str = 'React Quickly' // single quotes
@@ -365,14 +366,14 @@ console.log(str === str1) // true
 const newStr = "abcde".substr(1,2) // newStr is bc
 ```
 
-In JavaScript, double quotes `"` don't have any special power. In my opinion, we should get rid of single quotes and just use double quotes because it will remove a lot of arguments what quotes to use. Typically, developers prefer single quotes because then they can use double quotes inside for HTML attributes values. The downside is that you can't use apostrophe inside of a single quote string unless you escape it with a slash `\`.
+In JavaScript, double quotes don't have any special power in addition to defining strings unlike other languages where double quotes signify interpolation. In my opinion, we should get rid of single quotes and just use double quotes because it will remove a lot of arguments about what quotes to use. Typically, developers prefer single quotes because then they can use double quotes inside for HTML attributes values. The downside is that you can't use an apostrophe inside of a single quote string unless you escape it with a backslash (`\`).
 
 ```js
 'it\'s crazy' // valid string
 'it's crazy' // INVALID string
 ```
 
-For convenience, JavaScript automatically wraps string primitives with String object methods. This is why primitives strings have fancy methods like `substr` too. The triple equals will return false though. String objects and string primitives are not quite the same (https://developer.mozilla.org/enUS/docs/JavaScript/Reference/Global_Objects/String\#Distinction_between_string_primitives_and_String_objects).
+For convenience, JavaScript automatically wraps string primitives with String object methods. This is why string primitives have fancy methods like `substr` too. The triple equals will return false though, because `String` objects and string primitives are not the same types.
 
 ### RegExp Object
 
@@ -384,7 +385,7 @@ const pattern = /[A-Z]+/
 'AB'.match(pattern) // ["AB"]
 ```
 
-The match() method returns an array of matches (`["AB"]`). If all you need is a Boolean true/false, then simply use `pattern.test(str)`. For
+The `match()` method returns an array of matches (`["AB"]`). If all you need is a Boolean true/false, then simply use `pattern.test(str)`. For
 example:
 
 ```js
@@ -404,17 +405,16 @@ const a = 1
 console.log(typeof a) // number
 ```
 
-Here are
-some of the special types used in JS:
+Here are some of the special types used in JS:
 
--   NaN: Not a number
--   null: Null, nada, zip
--   undefined: Undeclared variable
--   function: Function
+-   `NaN`: Not a number
+-   `null`: Null, nada, zip
+-   `undefined`: Undeclared variable
+-   `function`: Function
 
 ### JSON
 
-The JSON library allows us to parse and serialize JavaScript objects; for example, we can take a valid JSON string, convert it to JS object, add a new field `c` and then convert the object back into the string and pretty string (with spaces and new lines):
+The JSON library allows us to parse and serialize JavaScript objects; for example, we can take a valid JSON string, convert it to a JS object, add a new field `c`, and then convert the object back into the string `stringObj2` and a pretty string `stringObj3` (with spaces and new lines):
 
 ```js
 const stringObj = '{"a": 1, "b": "hi"}'
@@ -428,20 +428,18 @@ console.log(stringObj2) // prettified JSON string
 
 ### Array Object
 
-[Arrays](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array) (https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array) are zero-index-based lists. For example, to create an array:
+Arrays are zero-index-based lists. In JavaScript arrays are objects that have sequential indices as keys. The are two way to create an array: `Array` object and array literal. For example:
 
 ```js
-const arr = new Array()
-const arr = ['apple', 'orange', 'kiwi']
+const arr = new Array() // Array object
+const arr = ['apple', 'orange', 'kiwi'] // Array literay
 ```
 
-The Array object has a lot of nice methods, like indexOf, slice, and
-join. Make sure that you're familiar with them, because if used
-correctly, they'll save a lot of time.
+Each array inherits all `Array` methods. The Array object has a lot of very useful methods, like `indexOf()`, `map()`, `slice()`, and `join()`. Knowing and using these methods will save you hours of coding and debugging. Make sure that you're familiar with them!
 
 ### Data Object
 
-I really like JavaScript because it's so easy to create an object. In Java on the other hand, developers have to define a class, maybe an interface too, then have getters and setter in the class, then instantiate the class into an object. In JavaScript, developer just type `{}` and boom! For example, here's an object with name, url and price fields:
+I really like JavaScript because it's so easy to create an object. In Java, on the other hand, developers have to define a class, maybe an interface too, then have getters and setters in the class, then instantiate the class into an object. In JavaScript, developers just type `{}` and boom, they got an object! Using curly brackets (`{}`) is called object literal. For example, here's an object with `name`, `url`, and `price` fields:
 
 ```js
 const obj = {
@@ -451,27 +449,47 @@ const obj = {
 }
 ```
 
-or
+or developers can use the `Object` object:
 
 ```js
-const obj = new Object()
+const obj = new Object({a: 1})
 ```
 
-We provide more on inheritance patterns later.
+But I don't recommend using the `Object` object. Literal is more eloquent.
+
+`Object` has useful methods such as `Object.keys()`, `Object.entries()` and `Object.values()`.
+
+Objects are passed as reference. It better to clone them with `Object.assign()`, otherwise, modifying the original will modify all the references.
+
+```js
+const obj1 = {a:1}
+const obj2 = obj1 // Reference
+console.log(obj2) // { a: 1 }
+obj1.a = 2
+console.log(obj2) // Changed { a: 2 }
+const obj3 = Object.assign({}, obj1) // Clone
+console.log(obj3) // { a: 2 }
+obj1.a = 3
+console.log(obj3) // Unchanged { a: 2 }
+```
+
+Every object inherits from `Object`. Inheritance is done by prototypes, class or function factories. I'll provide more on inheritance patterns later.
 
 ### Boolean Primitives and Objects
 
-Just as with String and Number, [Boolean](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Boolean) (https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Boolean) can be a primitive and an object.
+Just as with `String` and `Number`, `Boolean` object supports and an alternative to the primitive boolean. I do not recommend using `Boolean` object, only primitive. Here are the usages:
 
 ```js
 const bool1 = true
 const bool2 = false
-const boolObj = new ``Boolean``(false)
+const boolObj = new Boolean(false)
+console.log(bool2 === boolObj) // false
+console.log(bool2 == boolObj) // true
 ```
 
 ### Date Object
 
-[Date](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date) (https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date) objects allow us to work with dates and time; for example:
+The `Date` objects allow us to work with dates and time; for example:
 
 ```js
 const timestamp = Date.now() // 1368407802561
@@ -480,7 +498,7 @@ const d = new Date() //Sun May 12 2013 18:17:11 GMT-0700 (PDT)
 
 ### Math Object
 
-These are used for mathematical constants and functions https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math; for example:
+The `Math` object has methods for mathematical constants and functions such as `floor()`, `random()`, `round()`, `sqrt()` and so on; for example:
 
 ```js
 const x = Math.floor(3.4890)
@@ -498,7 +516,7 @@ console.log('test')
 
 ### DOM Objects
 
-DOM objects or DOM (https://developer.mozilla.org/en/docs/Web/API/Node) nodes are the browser interface to the DOM elements rendered on the page. They have properties such as width, height, position, and so on, and, of course, inner content, which can be another element or text. To get a DOM node, you can use its ID; for example:
+DOM objects or DOM nodes are the browser interface to the DOM elements rendered on the page. They have properties such as width, height, position, and so on, and, of course, inner content, which can be another element or text. To get a DOM node, you can use its ID; for example:
 
 ```js
 const transactionsContainer = document.createElement('div')
@@ -514,39 +532,25 @@ console.log(main, main.offsetWidth, main.offsetHeight)
 
 In addition to classes such as `String`, `Array`, `Number`, and `Math`, which have a lot of useful methods, you can call the following methods known as globals, meaning you can invoke them from anywhere in your code:
 
--   encodeURI (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI): Encodes a Uniform Resource Identifier (URI) to give you a URL, e.g., encodeURI ('http://www.webapplog.com/js is awesome')
+-   `encodeURI`: Encodes a Uniform Resource Identifier (URI) to give you a URL, e.g., `encodeURI('http://www.webapplog.com/js is awesome')`
+-   `decodeURI`: Decodes a URI
+-   `encodeURIComponent`: Encodes URI for URL parameters (don’t use it for the entire URL string)
+-   `decodeURIComponent`: Decodes the fragment
+-   `isNaN`: Determines whether a value is a number or not
+-   `JSON`: Parsing (`parse()`) and serializing (`stringify()`) of JSON data
+-   `parseFloat`: Converts a string to a floating number
+-   `parseInt`: Converts a string to a number
+-   `Intl`: Language-specific string comparison methods
+-   `Error`: An error object that you can use to instantiate your own error objects; for example, `throw new Error('This book rocks!')`
+-   `Date`: Various methods to work with dates
 
--   decodeURI (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI): Decodes a URI
+### JavaScript and Node.js Conventions
 
--   encodeURIComponent (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent): Encode URI for URL parameters (don’t use it for the entire URL string)
+JavaScript uses a number of style conventions. One of them is camelCase, in which you type multiple words as one word, capitalizing the first character of the each except the first word.
 
--   decodeURIComponent (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent): Decodes the fragment
-
--   isNaN (<https://developer.mozilla.org/en/docs/Web/>JavaScript/Reference/Global_Objects/isNaN): Determines whether a value is a number or not
-
--   [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON): Parsing (parse()) and serializing (stringify()) of JSON data
-
--   [parseFloat](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/parseFloat): Converts a string to a floating number
-
--   [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt): Converts a string to a number
-
--   [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl): Language-specific string comparison methods
-
--   Error (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error): An error object that you can use to instantiate your own error objects; for example, throw new Error('This book rocks!')
-
--   [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date): Various methods to work with dates
-
-### Conventions
-
-JavaScript uses a number of style conventions. One of them is camelCase, in which you type multiple words as one word, capitalizing the first characters of the each word starting from the second one.
-
-Semicolons are optional. Names starting with an underscore are private methods or attributes, but not because they are protected by the language. We use `_` to simply to alert the developers not to use them because they might change in the future.
+Semicolons are optional. Names starting with an underscore (`_`) are private methods or attributes, but not because they are protected by the language. We use the underscore simply to alert the developers not to use the methods and attributes, because they may change in the future.
 
 JavaScript supports numbers only up to 53 bits in size. Check out large numbers' libraries if you need to deal with numbers larger than that.
-
-The full references for JavaScript and DOM objects are available at [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/JavaScript/Reference) (https://developer.mozilla.org/en-US/docs/JavaScript/Reference) and w3school (http://www.w3schools.com/jsref/default.asp).
-
-For JS resources such as ECMA specs, check out the list at JavaScript Language Resources (<https://developer.mozilla.org/en-US/docs/JavaScript/Language_Resources>). As of this writing, the latest JavaScript specification is ECMA-262 Edition 5.1 (<http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>) and HTML (<http://www.ecma-international.org/ecma-262/5.1>).
 
 Another important distinction of JS is that it's a functional and prototypal language. Typical syntax for function declaration looks like this:
 
@@ -558,7 +562,7 @@ function Sum(a,b) {
 console.log(Sum(1, 2))
 ```
 
-Functions in JavaScript are first-class citizens (http://en.wikipedia.org/wiki/First-class_function) due to the functional programming (http://en.wikipedia.org/wiki/Functional_programming) nature of the language. Therefore, functions can be used as other variables or objects; for example, functions can be passed to other functions as arguments:
+Functions in JavaScript are first-class citizens due to the functional programming nature of the language. Therefore, functions can be used as other variables or objects; for example, functions can be passed to other functions as arguments:
 
 ```js
 const f = function (str1){
@@ -572,7 +576,7 @@ console.log((a('Catty'))
 console.log((b('Doggy'))
 ```
 
-Another way to define a function is to use a fat arrow syntax. The difference is that fat arrow will not use a name so developers need to store the function in a variable.
+Another way to define a function is to use a fat arrow syntax. The difference is that a fat arrow will not use a name, so developers need to store the function in a variable.
 
 ```js
 const Sum = (a,b) => {
@@ -582,7 +586,7 @@ const Sum = (a,b) => {
 console.log(Sum(1, 2))
 ```
 
-Another difference is that fat arrow function syntax preserves the value of `this` from the outer scope which in a way makes the fat arrow syntax equivalent to using a bind method `bind(this)` on a regular function.
+Another difference is that fat arrow function syntax preserves the value of `this` from the outer scope, which in a way makes the fat arrow syntax equivalent to using a bind method `bind(this)` on a regular function.
 
 ```js
 const Sum = function(a, b) {
@@ -591,34 +595,32 @@ const Sum = function(a, b) {
 }.bind(this)
 ```
 
-Of course in this `Sum` example we never use `this` so there's no need. But when you use classes and inheritance you'll use `this` a lot because it's the way to refer the the class instance and its methods and attributes/fields/properties.
+Of course, in the `Sum` example we never use `this` so there's no need. But when you use classes and inheritance, you'll use `this` a lot because it's the way to refer to the class instance and its methods and attributes/fields/properties.
 
-Speaking of instances, classes and inheritance. If you want to be a good full stack developer, then it's very important to know that there are several ways to instantiate an object in JS:
+Speaking of instances, classes and inheritance, if you want to be a *good* full stack developer, then it's very important to know that there are several ways to instantiate an object in JS:
 
--   [Classical inheritance](http://www.crockford.com/javascript/inheritance.html) (http://www.crockford.com/javascript/inheritance.html) pattern
--   [Pseudo-classical inheritance](http://javascript.info/tutorial/pseudo-classical-pattern)
-    (http://javascript.info/tutorial/pseudo-classical-pattern) pattern
+-   [Classical inheritance](http://www.crockford.com/javascript/inheritance.html) (<http://www.crockford.com/javascript/inheritance.html>) pattern
+-   [Pseudo-classical inheritance](http://javascript.info/class-patterns)
+    (<http://javascript.info/class-patterns>) pattern
 -   Functional inheritance pattern
 
-For further reading on inheritance patterns, check out Inheritance Patterns in JavaScript (http://bolinfest.com/javascript/inheritance.php) and Inheritance revisited (https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Inheritance_Revisited).
+For further reading on inheritance patterns, check out "Inheritance Patterns in JavaScript" (<http://bolinfest.com/javascript/inheritance.php>) and Inheritance revisited (<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain>).
 
-The best JavaScript references is available at Mozilla Developer Network (https://developer.mozilla.org/en-US/docs/JavaScript/Reference).
+
+Mozilla Developer Network has *the* best JavaScript and DOM references (<https://developer.mozilla.org/en-US/docs/JavaScript/Reference>). Also, the VS Code editor shows autocomplete prompts and documentation hints. (No matter what, *please* stop using Notepad++.)
+
+As for the ECMAScript specification (standard for JavaScript and Node), visit: <http://www.ecma-international.org>.
+
 
 Agile Methodologies
 ===================
 
-The Agile software development methodology evolved due to the fact that traditional methods like Waterfall weren't good enough in situations of high unpredictability; that is, when [the solution is unknown](http://www.startuplessonslearned.com/2009/03/combining-agile-development-with.html) (http://www.startuplessonslearned.com/2009/03/combining-agile-development-with.html). Agile methodology includes Scrum/sprint, test-driven development, continuous deployment, paired programming, and other practical techniques, many of which were borrowed from extreme programming.
+In modern web development, in addition to full stack JavaScript most teams use Agile. The Agile software development methodology evolved due to the fact that traditional methods like Waterfall weren't good enough in situations of high unpredictability; that is, when [the solution is unknown](http://www.startuplessonslearned.com/2009/03/combining-agile-development-with.html) (<http://www.startuplessonslearned.com/2009/03/combining-agile-development-with.html>). Agile goes hand-in-hand with Scrum/sprint, test-driven development, continuous deployment, paired programming, and other practical techniques, many of which were borrowed from extreme programming.
 
 Scrum
 -----
 
-In regard to management, the Agile methodology uses the Scrum approach. More about Scrum can be read at the following sources:
-
--   [Scrum Guide in PDF](http://www.scrumguides.org/docs/scrumguide/v1/scrum-guide-us.pdf) (http://www.scrumguides.org/docs/scrumguide/v1/scrum-guide-us.pdf)
--   [Scrum.org](http://www.scrum.org/) (http://www.scrum.org)
--   [Scrum development Wikipedia article](http://en.wikipedia.org/wiki/Scrum_(development)) (http://en.wikipedia.org/wiki/Scrum_(development))
-
-The Scrum methodology is a sequence of short cycles, and each cycle is called a *sprint.* One sprint usually lasts from one to two weeks. A typical sprint starts and ends with a sprint planning meeting where new tasks are assigned to team members. New tasks cannot be added to the sprint in progress; they can be added only at the sprint meetings.
+In regard to management, the Agile methodology often uses the Scrum approach. The Scrum methodology is a sequence of short cycles, and each cycle is called a *sprint.* One sprint usually lasts from one to two weeks. A typical sprint starts and ends with a sprint planning meeting where new tasks are assigned to team members. New tasks cannot be added to the sprint in progress; they can be added only at the sprint meetings.
 
 An essential part of the Scrum methodology is the daily scrum meeting, hence the name. Each scrum is a 5- to 15-minute-long meeting, often conducted in a hallway. In scrum meetings, each team member answers three questions:
 
@@ -626,9 +628,16 @@ An essential part of the Scrum methodology is the daily scrum meeting, hence the
 2.  What are you going to do today?
 3.  Do you need anything from other team members?
 
-Flexibility makes Agile an improvement over the Waterfall methodology, especially in situations of high uncertainty (i.e., in startups).
+Like many Agile frameworks (Kanban, XP, SAFE), Scrum offers flexibility to change project requirements during development, which is a *great* improvement over the Waterfall methodology, especially in situations of high uncertainty (i.e., in startups). JavaScript is used in the UI were a lot of these changes often happen. You'll see or already see a lot of front-end teams adopting Scrum and Agile.
 
-The advantage of Scrum methodology is that it is effective where it is hard to plan ahead of time, and also in situations where a feedback loop is used as the main decision-making authority.
+The advantage of Scrum methodology is that it is effective in situations where it is hard to plan ahead of time, and also in situations where a feedback loop is used as the main decision-making authority.
+
+More about Scrum can be read at the following sources:
+
+-   [Scrum Guide in PDF](http://www.scrumguides.org/docs/scrumguide/v1/scrum-guide-us.pdf) (<http://www.scrumguides.org/docs/scrumguide/v1/scrum-guide-us.pdf>)
+-   [Scrum.org](http://www.scrum.org) (<http://www.scrum.org>)
+-   *Succeeding with Agile* by Mike Cohen (Addison-Wesley, 2010)
+
 
 Test-Driven Development
 -----------------------
@@ -657,13 +666,13 @@ Continuous deployment (CD) is a set of techniques to rapidly deliver new feature
 
 The advantages of the CD approach include decreased feedback loop time and manual labor overhead.
 
-The difference between CD and continuous integration is outlined in the post Continuous Delivery vs. Continuous Deployment vs. Continuous Integration - Wait huh? ( <http://blog.assembla.com/assemblablog/tabid/12618/bid/92411/Continuous-Delivery-vs-Continuous-Deployment-vs-Continuous-Integration-Wait-huh.aspx>)
+There are Continuous Delivery, Continuous Deployment and Continuous Integration. There are differences between them but ideally you want to have all three for a faster deployment.
 
 Some of the most popular solutions for continuous integration include the following:
 
--   [*Jenkins*](http://jenkins-ci.org) (http://jenkins-ci.org): An extendable open source continuous integration server
--   [*CircleCI*](https://circleci.com) (https://circleci.com): Ship better code, faster
--   [*Travis CI*](https://travis-ci.org) (https://travis-ci.org): A hosted continuous integration service for the open source community
+-   [*Jenkins*](http://jenkins.io) (<http://jenkins.io>): An extendable open source continuous integration server
+-   [*CircleCI*](https://circleci.com) (<https://circleci.com>): Ship better code, faster
+-   [*Travis CI*](https://travis-ci.org) (<https://travis-ci.org>): A hosted continuous integration service for the open source community
 
 Pair Programming
 ----------------
@@ -678,42 +687,42 @@ The following are the advantages of paired programming:
 Back-End Definitions
 ====================
 
-The back end is another name for the server. It's everything after the browser. It includes server platforms like PHP, Python, Java, Ruby, and of course Node.js, as well as databases and other technologies.
+The backend is another name for the server. It's everything after the browser. It includes server platforms like PHP, Python, Java, Ruby, and of course Node.js, as well as databases and other technologies.
 
-Luckily, with modern back-end-as-a-service solutions you can bypass the back-end development entirely. With just a single &lt;script&gt; tag included, you can get a real-time database with the ability to put some logic into it like access level control (ALC), validation, and so on. I'm talking about Firebase.com and Parse.com.
+Luckily, with modern back-end-as-a-service solutions (BaaS) you can bypass the back-end development entirely. With just a single &lt;script&gt; tag included, you can get a real-time database with the ability to put some logic into it like access level control (ALC), validation, and so on. There are a lot of services offered different levels of BaaS. The most popular and easy-to-use ones are Firebase and Parse (<https://firebase.google.com> and <http://parseplatform.org>).
 
 In those cases where you still need your own custom server code, Node.js is the weapon of choice!
 
 Node.js
 -------
 
-Node.js is an open source, event-driven asynchronous I/O technology for building scalable and efficient web servers. Node.js consists of Google’s V8 JavaScript engine (http://en.wikipedia.org/wiki/V8_(JavaScript_engine)). It was maintained by cloud company Joyent (http://joyent.com), but moved to the Technical Steering Committee governance.
+Node.js is an open source, event-driven asynchronous I/O technology for building scalable and efficient web servers. Node.js consists of Google’s V8 JavaScript engine and a bunch of C++ modules. A cloud company Joyent (now acquired by Samsung) maintained Node.js in the beginning, but now the open-source Node foundation oversees it.
 
-The purpose and use of Node.js is similar to Twisted (<http://twistedmatrix.com/trac>) for Python and EventMachine (<http://rubyeventmachine.com>) for Ruby. The JavaScript implementation of Node was the third one after attempts at using Ruby and C++ programming languages languages.
+The purpose and use of Node.js is to have non-blocking I/O which makes things faster. Non-blocking I/O is not new. It exists in NIO for Java, in Twisted for Python and in EventMachine for Ruby. The big difference is that in Node non-blocking I/O was built from the get-go and thus simple to use, while in other languages its a complex afterthought.
 
-Node.js is not in itself a framework like Ruby on Rails; it's more comparable to the pair of PHP and Apache. I'll provide a list of the top Node.js frameworks chapter 6.
+Funny enough, JavaScript wasn't even the first language for Node.js. The JavaScript implementation of Node was the third one after attempts at using Ruby and C++ programming languages.
+
+Node.js is not in itself a framework like Ruby on Rails; it's more comparable to the pair of PHP and Apache. I'll provide a list of the top Node.js frameworks in Chapter 6.
 
 The following are the advantages of using Node.js:
 
--   Developers have high likelihood of familiarity with JavaScript due to its status as a de facto standard for web and mobile development
+-   Developers have high likelihood of familiarity with JavaScript due to its status as a de facto standard for web and mobile development.
 -   Using one language for front-end and back-end development speeds up the coding process. A developer's brain doesn't have to switch between different syntaxes, a so-called context switch. The learning of methods and classes goes faster.
 -   With Node.js, you could prototype quickly and go to market to do your customer development and customer acquisition early. This is an important competitive advantage over other companies that use less agile technologies (e.g., PHP and MySQL).
 -   Node.js is built to support real-time applications by utilizing web sockets.
 
-For more information go to Wikipedia (http://en.wikipedia.org/wiki/Nodejs), Nodejs.org (http://nodejs.org/about/ ), and articles on ReadWrite (http://readwrite.com/2011/01/25/wait-whats-nodejs-good-for-aga) and O’Reilly (<http://radar.oreilly.com/2011/07/what-is-node.html>).
-
-For the current state of Node.js (as of this writing), refer to the official Node.js blog (<https://nodejs.org/en/blog>).
+Node evolves fast. For the current state of Node.js (as of this writing), refer to the official Node.js blog at <https://nodejs.org/en/blog>.
 
 NoSQL and MongoDB
 -----------------
 
-MongoDB, from huMONGOus, is a high-performance, no-relationship database for huge quantities of data. The NoSQL concept came out when traditional relational database management systems (RDBMSs) were unable to meet the challenges of huge amounts of data.
+MongoDB, from huMONGOus, is a high-performance, no-relationship database for huge quantities of data (<https://mongodb.com>). The NoSQL concept came out when traditional relational database management systems (RDBMSs) were unable to meet the challenges of huge amounts of data.
 
 Here are the advantages of using MongoDB:
 
--   *Scalability:* Due to a distributed nature, multiple servers and data centers can have redundant data.
--   *High performance:* MongoDB is very effective for storing and retrieving data, partially owing to the absence of relationships between elements and collections in the database.
--   *Flexibility:* A key-value store is ideal for prototyping because it doesn't require developers to know the schema and there is no need for fixed data models or complex migrations.
+-   *Scalability*: Due to a distributed nature, multiple servers and data centers can have redundant data.
+-   *High performance*: MongoDB is very effective for storing and retrieving data, partially owing to the absence of relationships between elements and collections in the database.
+-   *Flexibility*: A key-value store is ideal for prototyping because it doesn't require developers to know the schema and there is no need for fixed data models or complex migrations.
 
 Cloud Computing
 ---------------
@@ -721,7 +730,7 @@ Cloud Computing
 Cloud computing consists of the following components:
 
 -   Infrastructure as a Service (IaaS), including Rackspace and Amazon Web Services
--   Platform as a Service (PaaS), including Heroku and Windows Azure
+-   Platform as a Service (PaaS), including Heroku and Microsoft Azure
 -   Back end as a Service (BaaS), the newest, coolest kid on the block, including Compose and Firebase
 -   Software as a Service (SaaS), including Google Apps and Salesforce.com
 
@@ -737,9 +746,9 @@ PaaS and BaaS are ideal for prototyping, building minimal viable products (MVP),
 
 Here is the list of the most popular PaaS solutions:
 
--   [Heroku](http://heroku.com) (http://heroku.com )
--   [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk) (https://aws.amazon.com/elasticbeanstalk)
--   [Windows Azure](http://windowsazure.com)(http://windowsazure.com )
+-   [Heroku](https://heroku.com) (<https://heroku.com>)
+-   [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk) (<https://aws.amazon.com/elasticbeanstalk>)
+-   [Microsoft Azure](https://azure.microsoft.com) (<https://azure.microsoft.com>)
 
 HTTP Requests and Responses
 ---------------------------
@@ -751,42 +760,40 @@ Each HTTP Request and Response consists of the following components:
 
 In addition, the HTTP Request contains these elements:
 
--   *Method:* There are several methods with the most common being GET, POST, PUT`,` and DELETE
--   *URL:* Host, port, path; for example, https://graph.facebook.com/498424660219540
--   *Query string:* Everything after a question mark in the URL (e.g., ?q=rpjs&page=20)
+-   *Method:* There are several methods, with the most common being GET, POST, PUT, and DELETE
+-   *URL:* Protocol, host, port, path; for example, <https://webaplog.com/es6>
+-   *Query string:* Everything after a question mark in the URL (e.g., `?q=rpjs&page=20`)
 
 RESTful API
 -----------
 
-RESTful (REpresentational State Transfer) API became popular due to the demand in distributed systems whereby each transaction needs to include enough information about the state of the client. In a sense, this standard is stateless because no information about the clients' states is stored on the server, thus making it possible for each request to be served by a different system.
+RESTful (REpresentational State Transfer) APIs became popular due to the demand in distributed systems to become stateless because stateless apps are better to scale. This turned into a demand for each transaction/request to include enough information about the state of the client. In a sense, this standard is stateless because no information about the clients' states is stored on the server, thus making it possible for each request to be served by a different system.
 
-Here are some of the distinct characteristics of RESTful API:
+Here are some of the distinct characteristics of RESTful APIs:
 
 -   It has better scalability support due to the fact that different components can be independently deployed to different servers.
--   It replaced Simple Object Access Protocol (SOAP) because of the simpler verb and noun structure.
+-   It is easier to use than to use Simple Object Access Protocol (SOAP) because of the simpler verb and noun structure in REST, that's no need for a verb in the URL.
 -   It uses HTTP methods such as GET, POST, DELETE, PUT, OPTIONS, and so on.
 
-Table 1-1 is an example of a simple Create, Read, Update and Delete (CRUD) RESTful API for Message Collection.
+Table 1-1 is an example of a simple Create, Read, Update, and Delete (CRUD) RESTful API for Message Collection.
 
 ***Table 1-1.** An Example of a CRUD RESTful API*
 
 | **Method** | **URL**         | **Meaning**
 |--------|---------------------|-------------------------------------------------------------------------------|
-| GET    | /messages.json      | Return list of messages in JSON format                                        |
-| PUT    | /messages.json      | Update/replace all messages and return status/error in JSON                   |
-| POST   | /messages.json      | Create new message and return its ID in JSON format                           |
-| GET    | /messages/{id}.json | Return message with ID {id} in JSON format                                    |
-| PUT    | /messages/{id}.json | Update/replace message with ID {id}, if {id} message doesn't exist, create it |
-| DELETE | /messages/{id}.json | Delete message with *id* {id}, return status/error in JSON format             |
+| GET    | `/messages.json`      | Return list of messages in JSON format                                        |
+| PUT    | `/messages.json`      | Update/replace all messages and return status/error in JSON                   |
+| POST   | `/messages.json`      | Create new message and return its ID in JSON format                           |
+| GET    | `/messages/{id}.json` | Return message that has ID `{id}` in JSON format                                    |
+| PUT    | `/messages/{id}.json` | Replace message that has ID `{id}` with payload|
+| PATCH    | `/messages/{id}.json` | Update message that has ID `{id}` with payload|
+| DELETE | `/messages/{id}.json` | Delete message that has ID `{id}`|
 
-REST is not a protocol; it is an architecture in the sense that it's more flexible than SOAP, which is a protocol. Therefore, REST API URLs could look like /messages/list.html or /messages/list.xml in case we want to support these formats.
+REST is not a protocol; it is an architecture in the sense that it's more flexible than SOAP, which is a protocol. Therefore, REST API URLs could look like `/messages/list.html` or `/messages/list.xml` in case we want to support these formats. But most of the time, developers just use JSON without any extensions: `/messages` and `/messages/{id}`.
 
-PUT and DELETE are idempotent methods (http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol\#Idempotent_methods_and_web_applications),
-which means that if the server receives two or more similar requests, the end result will be the same.
+PUT and DELETE are idempotent methods, which means that if the server receives two or more similar requests, the end result will be the same. On the other hand, the GET method is nullipotent because the read operation is safe on repeats. However, POST is not idempotent because it will affect state and cause side effects on repeats.
 
-GET is nullipotent and POST is not idempotent and might affect state and cause side effects.
-
-Further reading on REST API can be found at Wikipedia (http://en.wikipedia.org/wiki/Representational_state_transfer) and A Brief Introduction to REST article(http://www.infoq.com/articles/rest-introduction).
+We will use REST in the next chapters for building Node.js backend and Backbone client.
 
 Summary
 =======
@@ -802,4 +809,4 @@ This concludes the first chapter. In this chapter we've covered some of the core
 -   HTTP Request
 -   RESTful API
 
-Nevertheless, it's good to brush up on them because they are numerous and vast. Theory is not that useful or interesting without understanding how it appl<span id="Editing" class="anchor"></span>ies and benefits the actual code. Therefore, we'll move swiftly to the technical setup to get you to the coding projects fast.
+Nevertheless, it's good to brush up on them because they are numerous and vast. Theory is not that useful or interesting without understanding how it applies and benefits the actual code. Therefore, we'll move swiftly to the technical setup to get you to the coding projects fast.
