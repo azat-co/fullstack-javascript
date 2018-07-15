@@ -17,47 +17,28 @@ In this chapter, we'll cover the following topics:
 
 -   Preparation for the use of cloud services
 
-The proper setup is absolutely crucial to the productive development.
-You need to have everything ready when you embark on a long journey,
-right? The toolset will make you productive, and the other installations
-are dependencies like Node.js or MongoDB. They enable the server-side
-code and persistence, respectively. In addition to that, in the cloud
-section, we cover setup of the services for deployment and development.
-They will enable you to keep your code under version control and deploy
-in a scalable manner.
+The proper setup is absolutely crucial to your productive development. You need to have everything ready when you embark on a long journey, right? The two important things to install are dependencies and the toolset. Dependencies are absolutely necessary and technologies like Node.js or MongoDB. Moreover, the toolset is highly recommended because it will make you more productive. They enable the server-side code and persistence, respectively. In addition to that, in the cloud section, we cover setup of the services for deployment and development. They will enable you to keep your code under version control and deploy it in a scalable manner.
 
 Local Setup
 ===========
 
-Local setup is what we use on our development machines when we work on
-the project. It includes anything from folders, browsers, editors, and
-HTTP servers to databases. Figure 2-1 shows an example of the initial
-development environment setup.
+Local setup is what we use on our development machines when we work on a project. It includes anything from folders, browsers, editors, and HTTP servers to databases. Figure 2-1 shows an example of the initial development environment setup.
 
 Development Folder
 ------------------
 
-If you don't have a specific development folder for your web development
-projects, you could create a Development folder in the Documents folder
-(path will be Documents/Development). To work on the code example,
-create a fullstack-javascript folder inside your web development
-projects folder; for example, if you create a <span id="OLE_LINK1"
-class="anchor"><span id="OLE_LINK2"
-class="anchor"></span></span>fullstack-javascript folder inside of the
-Development folder, the path will be
-Documents/Development/fullstack-javascript. You could use the Finder on
-Mac OS X or the following terminal commands on OS X/Linux systems:
+If you don't have a specific development folder for your web development projects, you could create a `Development` folder in the `Documents` folder (path will be `Documents/Development`). To work on the code example, create a `fullstack-javascript` folder inside your web development projects folder; for example, if you create a `fullstack-javascript` folder inside of the `Development` folder, the path will be `Documents/Development/fullstack-javascript`. You could use the Finder app on macOS or the following terminal commands on Posix (macOS X/Linux) systems:
 
 `$ cd ~/Documents`
 `$ mkdir Development`
 `$ cd Development`
 `$ mkdir fullstack-javascript`
 
-![alt](media/image1.png)
+![](media/image1.png)
 
 ***Figure 2-1.** Initial development environment setup*
 
-		Tip To open Mac OS Finder app in the current directory from Terminal, just type and run the $ open . command. On Windows, Terminal is command prompt.
+**Tip** To open Mac OS Finder app in the current directory from Terminal, just type and run the $ open . command. On Windows, Terminal is command prompt.
 
 To get the list of files and folders, use this UNIX/Linux command:
 
@@ -67,186 +48,100 @@ or to display hidden files and folders, like .git, use this:
 
 `$ ls -lah`
 
-Another alternative to $ ls is $ ls -alt. The difference between the
--lah and the -alt options is that the latter sorts items chronologically
-and the former sorts them alphabetically.
+Another alternative to `$ ls` is `$ ls -alt`. The difference between the `-lah` and the `-alt` options is that the latter sorts items chronologically and the former sorts them alphabetically.
 
 You can use the Tab key to autocomplete names of the files and folders.
 
-Later, you could copy examples into the fullstack-javascript folder as
-well as create apps in that folder.
+Later, you could copy examples into the `fullstack-javascript` folder as well as create apps in that folder.
 
-		Tip Another useful thing is to have the New Terminal at Folder option in 	Finder on Mac OS X. To enable it, open your System Preferences (you could use Command + Space, a.k.a. Spotlight, for it). Find Keyboard and click it. Open Keyboard Shortcuts and click Services. Select the New Terminal at Folder and New Terminal Tab at Folder check boxes. Close the window (optional).
+**Tip** Another useful thing is to have the New Terminal at Folder option in Finder on Mac OS X. To enable it, open your System Preferences (you could use Command + Space, a.k.a. Spotlight, for it). Find Keyboard and click it. Open Keyboard Shortcuts and click Services. Select the New Terminal at Folder and New Terminal Tab at Folder check boxes. Close the window (optional).
 
 Browsers
 --------
 
-We recommend downloading the latest version of the
-[WebKit](http://en.wikipedia.org/wiki/WebKit)
-(http://en.wikipedia.org/wiki/WebKit) or Gecko at
-http://en.wikipedia.org/wiki/Gecko_(layout_engine) browser of your
-choice:
+I recommend downloading the latest version of the WebKit or Gecko browser of your choice:
 
--   [Chrome](http://www.google.com/chrome) (<http://www.google.com/chrome>)
-    (recommended)
+-   [Chrome](https://www.google.com/chrome) (<https://www.google.com/chrome>) (recommended)
+-   [Safari](https://www.apple.com/safari) (<https://www.apple.com/safari>)
+-   [Firefox](https://www.mozilla.org/en-US/firefox/new) (<https://www.mozilla.org/en-US/firefox/new>)
 
--   [Safari](http://www.apple.com/safari) (<http://www.apple.com/safari>)
+Whereas Chrome (Figure 2-2) and Safari already come with built-in developer tools, you'll need the Firebug plug-in for Firefox .
 
--   [Firefox](http://www.mozilla.org/en-US/firefox/new) (<http://www.mozilla.org/en-US/firefox/new>)
-
-Whereas Chrome and Safari already come with built-in developer tools,
-you'll need the Firebug plug-in for Firefox (Figure 2-2).
-
-
-![alt](media/image2.png)
+![](media/image2.png)
 
 ***Figure 2-2.** Chrome Developer Tools in action*
 
-Firebug and developer tools allow developers to do many things,
-including these:
+Firebug and developer tools allow developers to do many things, including these:
 
 -   Debug JavaScript
-
 -   Manipulate HTML and DOM elements
-
 -   Modify CSS on the fly
-
 -   Monitor HTTP requests and responses
-
 -   Run profiles and inspect heap dumps
-
 -   See loaded assets such as images, CSS, and JS files
 
-![alt](media/image3.png)
-
-***Figure 2-3**. Google tutorials for mastering web developer tools*
 
 There are some great Chrome Developer Tools (DevTools) tutorials, such
-as the following and those shown in Figures 2-3 and 2-4:
+as the following:
 
--   Explore and Master Chrome DevTools
-    (<http://discover->devtools.codeschool.com/ ) with Code School
-
+-   Explore and Master Chrome DevTools (<https://discover-devtools.codeschool.com> ) with Code School
 -   Chrome DevTools videos (<https://developers.google.com/chrome-developer-tools/docs/videos>)
+-   Chrome DevTools overview (<https://developers.google.com/chrome-developer-tools>)
 
--   Chrome DevTools overview
-    (<https://developers.google.com/chrome-developer-tools>)
-
-![alt](media/image4.png)
-
-***Figure 2-4.** Mastering Chrome DevTools*
 
 IDEs and Text Editors
 ---------------------
 
-One of the best things about JavaScript is that you don't need to
-compile the code. Because JS lives in and is run in a browser, you can
-do debugging right there, in a browser! It's an interpreted language,
-not a compiled one. Therefore, we highly recommend a lightweight text
-editor instead of a full-blown integrated development environment
-(<http://en.wikipedia.org/wiki/Integrated_development_environment>), or
-IDE, but if you are already familiar and comfortable with the IDE of
-your choice like Eclipse, (<http://www.eclipse.org>) NetBeans (<http://netbeans.org>) or Aptana (<http://aptana.com>), feel free to stick
-with it.
+One of the best things about JavaScript is that you don't need to compile the code. Because JS lives in and is run in a browser, you can do debugging right there, in a browser! It's an interpreted language, not a compiled one. Therefore, I highly recommend a lightweight text editor instead of a full-blown integrated development environment, or IDE, but if you are already familiar and comfortable with the IDE of your choice like Eclipse (<http://www.eclipse.org>), NetBeans (<http://netbeans.org>), or Aptana (<http://aptana.com>), feel free to stick with it.
 
-Here is the list of the most popular text editors and IDEs used in web
+Here is a list of the most popular text editors and IDEs used in web
 development:
 
--   [*MS Visual
-    Studio*](https://www.visualstudio.com/features/node-js-vs)
-    (<https://www.visualstudio.com/features/node-js-vs>): Node.js tools
-    for the famous Visual Studio environment from a small
-    Redmond, Washington-based software startup company.
-- [*Atom*](https://atom.io) (https://atom.io): A web editor built on web technologies from the creators of GitHub the world's largest code storage and collaboration space.
--   [*Sublime Text*](http://www.sublimetext.com)
-    (<http://www.sublimetext.com>): Mac OS X and Windows versions
-    are available. This is an even better alternative to TextMate, with
-    an unlimited evaluation period
-    (Figure  2-5 ).
-
--   [*Coda*](http://panic.com/coda) (<http://panic.com/coda>):
-    All-in-one editor with FTP browser and preview, has support for
-    development with and on an iPad.
-
--   [*Aptana Studio*](http://aptana.com) (<http://aptana.com>):
-    Full-sized IDE with a built-in terminal and many other tools.
-
--   [*WebStorm IDE*](http://www.jetbrains.com/webstorm)
-    (<http://www.jetbrains.com/webstorm>): Feature- rich IDE that allows
-    for Node.js debugging. It is developed by JetBrains and marketed as
-    the smartest JavaScript IDE (Figure  2-6 ).
+- [*VS Code*](https://www.visualstudio.com/features/node-js-vs) (<https://www.visualstudio.com/features/node-js-vs>): Node.js tools for the famous Visual Studio environment from a small Redmond, Washington-based software startup company.
+- [*Atom*](https://atom.io) (<https://atom.io>): A web editor built on web technologies from the creators of GitHub the world's largest code storage and collaboration space.
+-   [*Sublime Text*](https://www.sublimetext.com) (<https://www.sublimetext.com>): Mac OS X and Windows versions are available. This is an even better alternative to TextMate, with an unlimited evaluation period.
+-   [*Coda*](http://panic.com/coda) (<http://panic.com/coda>): All-in-one editor with FTP browser and preview, has support for development with and on an iPad.
+-   [*Aptana Studio*](http://aptana.com) (<http://aptana.com>): Full-sized IDE with a built-in terminal and many other tools.
+-   [*WebStorm*](http://www.jetbrains.com/webstorm) (<http://www.jetbrains.com/webstorm>): Feature-rich IDE that allows for Node.js debugging. It is developed by JetBrains and marketed as the smartest JavaScript IDE.
 
 
-Please, please, please don't use TextEdit or Notepad++! Having code coloring and parenthesis matching will make a great difference when typing and debugging.
+Please, please, please don't use Vim, TextEdit or Notepad++! Having code coloring and parentheses matching will make a great difference when typing and debugging.
 
-![alt](media/image5.png)
-
-***Figure 2-5.** Sublime Text code editor home page*
-
-![alt](media/image6.png)
-
-***Figure 2-6.** WebStorm IDE home page*
 
 Version Control Systems
 -----------------------
 
-A version control system (
-<http://en.wikipedia.org/wiki/Revision_control>) is a must-have even in
-an only-one-developer situation. Also many cloud services (e.g., Heroku)
-require Git for deployment. We also highly recommend getting used to Git
-and Git terminal commands instead of using Git visual clients and apps
-with a GUI: GitX (<http://gitx.frim.nl>), Gitbox
-(<http://www.gitboxapp.com>) or GitHub for Mac (<http://mac.github.com>).
+A version control system is a must-have even in projects with a single developer because such a system keep all the history which makes it easy to restore code or revert changes. Git is the most popular version control system.
 
-Subversion is a nondistributed version control system. This article
-compares Git vs. Subversion
-(<https://git.wiki.kernel.org/index.php/GitSvnComparison>).
+Also, many cloud services (e.g., Heroku) require Git for deployment. I also highly recommend getting used to Git and Git terminal commands instead of using Git visual clients and apps with a GUI: GitX (<http://gitx.frim.nl>), Gitbox (<http://www.gitboxapp.com>), or GitHub for Desktop (<https://desktop.github.com>).
+
+Subversion is a nondistributed version control system. This article compares Git vs. Subversion: <https://git.wiki.kernel.org/index.php/GitSvnComparison>).
 
 Here are the steps to install and set up Git on your machine:
 
-1.  Download the latest version for your OS at
-    <http://git-scm.com/downloads> (Figure 2-7).
-
-	![alt](media/image7.png)
-
-	***Figure 2-7.** Downloading latest release of Git*
+1.  Download the latest version for your OS at <https://git-scm.com/downloads>.
 
 
-2.  Install Git from the downloaded `\*.dmg` package; that is, run the
-    `\*.pkg` file and follow the wizard.
+2.  Install Git from the downloaded `\*.dmg` package; that is, run the `\*.pkg` file and follow the wizard.
 
-3.  Find the terminal app by using Command + Space, a.k.a. Spotlight
-    (Figure 2-8), on OS X. For Windows you could use
-    [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty)
-    (<http://www.chiark.greenend.org.uk/~sgtatham/putty>)
-    or Cygwin (<http://www.cygwin.com>).
+3.  Find the Terminal app by using Command + Space, a.k.a. Spotlight, on macOS. For Windows you could use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) (<http://www.chiark.greenend.org.uk/~sgtatham/putty>) or Cygwin (<http://www.cygwin.com>).
 
 
-	![alt](media/image8.png)
-
-
-	***Figure 2-8.** Using Spotlight to find and run an application*
-
-
-4.  In your terminal, type these commands, substituting "John Doe" and
-    johndoe@example.com with your name and e-mail:
+4.  In your terminal, type these commands, substituting "John Doe" and johndoe@example.com with your name and e-mail:
 
 	`$ git config --global user.name "John Doe"`
 	`$ git config --global user.email johndoe@example.com`
 
-5.  To check the installation, run command:
+5.  To check the installation, run this command:
 
 	`$ git version`
 
-6.  You should see something like this in your terminal window (your
-    version might vary; in our case it's 1.8.3.2, as shown in Figure
-    2-9):
+6.  You should see something like this in your terminal window (your version might vary; in my case it's 1.8.3.2):
 
 	`git version 2.14.3 (Apple Git-98)`
 
 
-Generating SSH keys and uploading them to SaaS/PaaS web sites will be
-covered later.
+Generating SSH keys and uploading them to SaaS/PaaS web sites will be covered later.
 
 Local HTTP Servers
 ==================
@@ -261,22 +156,14 @@ I recommend you use Node-based tools as static web servers. They lack
 GUIs, but they are simple and fast. You can install them with npm (comes
 with Node.js; instructions are later in this chapter):
 
--   [*node-static*](https://github.com/cloudhead/node-static) (
-    <https://github.com/cloudhead/node-static>): Static file server with
-    built-in caching. Run `npm i -g node-static` to install.
+-   [*node-static*](https://github.com/cloudhead/node-static) (<https://github.com/cloudhead/node-static>): Static file server with built-in caching. Run `npm i -g node-static` to install.
 
--   [*http-server*](https://www.npmjs.com/package/http-server)
-    (<https://www.npmjs.com/package/http-server>): Zero-configuration
-    command-line HTTP server. Run `npm i -g htt-server` to install.
+-   [*http-server*](https://www.npmjs.com/package/http-server) (<https://www.npmjs.com/package/http-server>): Zero-configuration command-line HTTP server. Run `npm i -g htt-server` to install.
 
-If you prefer something with GUIs to a command-line interface (CLI), you
-might want to consider the following modifications of the Apache web
-server. MAMP, MAMP Stack, and XAMPP have intuitive GUIs that allow you
-to change configurations and host file settings.
+If you prefer something with GUIs to a command-line interface (CLI), you might want to consider the following modifications of the Apache web server. MAMP, MAMP Stack, and XAMPP have intuitive GUIs that allow you to change configurations and host file settings.
 
 -   [*MAMP*](<http://www.mamp.info/en/index.html>) (<http://www.mamp.info/en/index.html>): Mac, Apache, MySQL,
     PHP personal web server for Mac OS X.
-
 -   [*MAMP Stack*](http://bitnami.com/stack/mamp)
     (<http://bitnami.com/stack/mamp>): Mac app with PHP, Apache, MySQL,
     and phpMyAdmin stack build by BitNami (Apple App Store)
