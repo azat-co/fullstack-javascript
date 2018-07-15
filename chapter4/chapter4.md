@@ -1712,7 +1712,7 @@ Require.js for Backbone.js Production
 =====================================
 
 <span id="requireJS" class="anchor"></span>We'll use the Node Package
-Manager (NPM) to install the `requirejs` library (it's not a typo;
+Manager (npm) to install the `requirejs` library (it's not a typo;
 there's no period in the name). In your project folder, run this command
 in a terminal:
 
@@ -1780,7 +1780,7 @@ https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/r/b
 
 For uglification of JS files (which decreases the file sizes), we can
 use the [Uglify2](https://github.com/mishoo/UglifyJS2) module. To
-install it with NPM, use:
+install it with npm, use:
 
     $ npm install uglify-js
 

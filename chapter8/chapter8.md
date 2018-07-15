@@ -795,7 +795,7 @@ If there's no `epel`, run:
 
     $ rpm -Uvh http://download-i2.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
-Then, try to install both Node.js and NPM again with:
+Then, try to install both Node.js and npm again with:
 
     $ sudo yum install nodejs npm --enablerepo=epel
 

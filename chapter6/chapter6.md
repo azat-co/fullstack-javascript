@@ -112,7 +112,7 @@ Node.js Core Modules
 
 Unlike other programming technologies, Node.js doesn't come with a heavy
 standard library. The core modules of node.js are a bare minimum and the
-rest can be cherry-picked via the Node Package Manager (NPM) registry.
+rest can be cherry-picked via the Node Package Manager (npm) registry.
 The main core modules, classes, methods, and events include:
 
 -   [http](http://nodejs.org/api/http.html)
@@ -215,8 +215,8 @@ The lists of non-core modules can be found at:
 
 -   [npmjs.org](https://npmjs.org): Node Package Manager registry
 
--   Nipster (http://eirikb.github.io/nipster): NPM search
-    [Nipster](http://eirikb.github.com/nipster): NPM search tool for
+-   Nipster (http://eirikb.github.io/nipster): npm search
+    [Nipster](http://eirikb.github.com/nipster): npm search tool for
     Node.js
 
 -   [node-modules(http://node-modules.com): npm search engine
@@ -229,14 +229,14 @@ the article located here:
 npm Node Package Manager
 ------------------------
 
-<span id="manager" class="anchor"></span>Node Package Manager, or NPM,
+<span id="manager" class="anchor"></span>Node Package Manager, or npm,
 manages dependencies and installs modules for you. Node.js installation
-comes with NPM, whose web site is [npmjs.org](http://npmjs.org).
+comes with npm, whose web site is [npmjs.org](http://npmjs.org).
 
 `package.json` contains meta information about our Node.js application
 such as a version number; author name; and, most important, what
 dependencies we use in the application. All of that information is in
-the JSON formatted object, which is read by NPM.
+the JSON formatted object, which is read by npm.
 
 If you would like to install packages and dependencies specified in
 `package.json`, type:
@@ -303,10 +303,10 @@ The only module used in this book's examples—and which does not belong
 to the core Node.js package—is `mongodb`. We'll install it later in the
 book.
 
-Heroku will need `package.json` to run NPM on the server.
+Heroku will need `package.json` to run npm on the server.
 
-For more information on NPM, take a look at the article "[Tour of
-NPM](http://tobyho.com/2012/02/09/tour-of-npm/)"
+For more information on npm, take a look at the article "[Tour of
+npm](http://tobyho.com/2012/02/09/tour-of-npm/)"
 (http://tobyho.com/2012/02/09/tour-of-npm)
 
 Deploying "Hello World" to PaaS
@@ -837,6 +837,6 @@ Summary
 
 In this chapter we've covered important topics that will lay the
 foundation. They exhibit the "Hello World" application in Node.js, list
-of some of its most important core modules, NPM workflow, detailed
+of some of its most important core modules, npm workflow, detailed
 commands for deployment of Node.js apps to Heroku and Windows Azure; and
 an example of a test-driven development practice.

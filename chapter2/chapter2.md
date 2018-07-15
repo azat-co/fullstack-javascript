@@ -146,15 +146,9 @@ Generating SSH keys and uploading them to SaaS/PaaS web sites will be covered la
 Local HTTP Servers
 ==================
 
-Although you can do most of the front-end development without a local
-HTTP server, it is needed for loading files with HTTP Requests/AJAX
-calls. Also, it's just good practice in general to use a local HTTP
-server. This way, your development environment is as close to the
-production environment as possible.
+Although you can do most of the front-end development without a local HTTP server, it is needed for loading files with HTTP Requests/AJAX calls. Also, it's just good practice in general to use a local HTTP server. This way, your development environment is as close to the production environment as possible.
 
-I recommend you use Node-based tools as static web servers. They lack
-GUIs, but they are simple and fast. You can install them with npm (comes
-with Node.js; instructions are later in this chapter):
+I recommend you use Node-based tools as static web servers. They lack GUIs, but they are simple and fast. You can install them with npm (comes with Node.js; instructions are later in this chapter):
 
 -   [*node-static*](https://github.com/cloudhead/node-static) (<https://github.com/cloudhead/node-static>): Static file server with built-in caching. Run `npm i -g node-static` to install.
 
@@ -162,100 +156,60 @@ with Node.js; instructions are later in this chapter):
 
 If you prefer something with GUIs to a command-line interface (CLI), you might want to consider the following modifications of the Apache web server. MAMP, MAMP Stack, and XAMPP have intuitive GUIs that allow you to change configurations and host file settings.
 
--   [*MAMP*](<http://www.mamp.info/en/index.html>) (<http://www.mamp.info/en/index.html>): Mac, Apache, MySQL,
-    PHP personal web server for macOS.
--   [*MAMP Stack*](http://bitnami.com/stack/mamp)
-    (<http://bitnami.com/stack/mamp>): Mac app with PHP, Apache, MySQL,
-    and phpMyAdmin stack build by BitNami (Apple App Store)
-    (<https://itunes.apple.com/es/app/mamp-stack/id571310406?l=en>).
-
--   [*XAMPP*](http://www.apachefriends.org/en/xampp.html)
-    (<http://www.apachefriends.org/en/xampp.html>): Apache distribution
-    containing MySQL, PHP and Perl for Windows, Mac, Linux, and Solaris.
+-   [*XAMPP*](http://www.apachefriends.org) (<http://www.apachefriends.org>): Apache distribution containing MySQL, PHP and Perl for Windows, macOS, Linux, and Solaris.
+-   [*MAMP*](<http://www.mamp.info>) (<http://www.mamp.info>): Apache, MySQL, and PHP personal web server for macOS.
+-   [*MAMP Stack*](https://bitnami.com/stack/mamp) (<https://bitnami.com/stack/mamp>): Another Apache, MySQL, and PHP stack for macOS.
 
 Database: MongoDB
 -----------------
 
-The following steps are better suited for macOS/Linux-based systems,
-but with some modification they can be used for Windows systems as well
-(i.e., $PATH variable, Step 3). Here we describe the MongoDB
-installation from the official package, because we found that this
-approach is more robust and leads to less conflicts. However, there are
-many other ways to install it on Mac (<http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x>), for
-example using Brew, as well as on other systems (<http://docs.mongodb.org/manual/installation>).
+The following steps are better suited for macOS/Linux-based systems, but with some modification they can be used for Windows systems as well (i.e., `$PATH` variable, Step 3). Here I describe the MongoDB installation from the official package, because I found that this approach is more robust and leads to less conflicts. However, there are many other ways to install it on macOS (<http://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x>), for example using Brew, as well as on other systems (<http://docs.mongodb.com/manual/installation>).
 
-1.  MongoDB can be download ed at (<http://www.mongodb.org/downloads>).
-    For the latest Apple laptops, like MacBook Air, select OS X
-    64-bit version. The owners of older Macs shouldbrowse the link at
-    (<http://dl.mongodb.org/dl/osx/i386>).
+1.  Download MongoDB from <http://www.mongodb.com/download-center#community>. For the latest Apple laptops, like MacBook, select macOS X 64-bit version. The owners of older Macs should browse the link at <http://dl.mongodb.com/dl/osx/i386>.
 
-		Tip To figure out the architecture type of your processor, type the $ uname -p at the command line.
+	**Tip** To figure out the architecture type of your processor, type the $ uname -p at the command line.
 
-2.  Unpack the package into your web development folder
-    (~/Documents/Development or any other). If you want, you could
-    install MongoDB into the /usr/local/mongodb folder.
-
-3.  Optional: If you would like to access MongoDB commands from anywhere
-    on your system, you need to add your mongodb path to the
-    $PATH variable. For macOS the open system *paths* file with:
+2.  Unpack the package into your web development folder (`~/Documents/Development` or any other). If you want, you could install MongoDB into the `/usr/local/mongodb` folder.
+3.  Optional: If you would like to access MongoDB commands from anywhere on your system, you need to add your `mongodb` path to the `$PATH` variable. For macOS, open system `/etc/paths` file with:
 
 	`sudo vi /etc/paths`
 
-	or, if you prefer TextMate:
+	or, if you prefer VS Code:
 
-	`mate /etc/paths`
+	`code /etc/paths`
 
 	And add this line to the /etc/paths file:
 
 	`/usr/local/mongodb/bin`
 
-4.  Create a data folder; by default, MongoDB uses /data/db. Please note
-    that this might be different in new versions of MongoDB. To create
-    it, type and execute the following commands in the terminal (Figure
-    2-11):
+4.  Create a `data` folder; by default, MongoDB uses `/data/db`. Please note that this might be different in new versions of MongoDB. To create it, type and execute the following commands in the terminal:
 
 	`$ sudo mkdir -p /data/db`
 	`$ sudo chown id -u /data/db`
 
-	If you prefer to use a path other than /data/db you could specify it
-	using the --dbpath option to mongod (the main MongoDB service).
+	If you prefer to use a path other than `/data/db` you could specify it using the `--dbpath` option to `mongod` (the main MongoDB service).
 
-5.  Go to the folder where you unpacked MongoDB. That location should
-    have a bin folder in it. From there, type the following command in
-    your terminal:
+5.  Go to the folder where you unpacked MongoDB. That location should have a bin folder in it. From there, type the following command in your terminal:
 
 	`$ ./bin/mongod`
 
-6.  If you see something like the following (and as in Figure 2-9) it
-    means that the MongoDB database server is running:
+6.  If you see something like the following (and as in Figure 2-3) it means that the MongoDB database server is running:
 
 	`MongoDB starting: pid =7218 port=27017...`
 
-	By default, it's listening at <http://localhost:27017>. If you go to
-	your browser and type <http://localhost:28017> you should be able to see
-	the version number, logs, and other useful information. In this case the
-	MondoDB server is using two different ports (27017 and 28017): One is
-	primary (native) for the communications with apps and the other is a
-	web-based GUI for monitoring and statistics. In our Node.js code we'll
-	be using only 27017. Don't forget to restart the Terminal window after
-	adding a new path to the $PATH variable.
+	By default, it's listening at <http://localhost:27017>. If you go to your browser and type <http://localhost:28017> you should be able to see	the version number, logs, and other useful information. In this case the MondoDB server is using two different ports (27017 and 28017): One is primary (native) for the communications with apps and the other is a web-based GUI for monitoring and statistics. In our Node.js code we'll be using only 27017. Don't forget to restart the Terminal window after adding a new path to the `$PATH` variable.
 
 	![](media/image12.png)
 
-	***Figure 2-9.** Starting up the MongoDB server*
+	***Figure 2-3.** Starting up the MongoDB server*
 
-
-	Now, to take it even further, we can test to determine if we have access
-	to the MongoDB console/shell, which will act as a client to this server.
-	This means that we'll have to keep the terminal window with the server
-	open and running.
+	Now, to take it even further, we can test to determine if we have access to the MongoDB console/shell, which will act as a client to this server. This means that we'll have to keep the terminal window with the server open and running.
 
 7.  Open another terminal window at the same folder and execute:
 
 	`$ ./bin/mongo`
 
-	You should be able to see something like "MongoDB shell version 2.0.6
-	..."
+	You should see something like "MongoDB shell version..."
 
 8.  Then type and execute:
 
@@ -263,76 +217,60 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 	`> db.test.find()`
 
 	If you see that your record is being saved, then everything went well
-	(Figure 2-10).
+	(Figure 2-4).
 
 
 ![](media/image13.png)
 
-***Figure 2-10.** Running MongoDB client and storing sample data*
+***Figure 2-4.** Running MongoDB client and storing sample data*
 
 Commands `find` and `save` do exactly what you might think they do.
 
-Detailed instructions are also available at MongoDB.org: Install MongoDB
-on OS X
-(<http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x>). For
-Windows users there is a good walk-through article at Installing MongoDB
-(<http://www.tuanleaded.com/blog/2011/10/installing-mongodb>).
+The official MongoDB website has the detailed instructions for installing MongoDB on macOS at: <http://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x>. TK
 
-	Note MAMP and XAMPP applications come with MySQL—an open source traditional SQL database—and phpMyAdmin—a web interface for MySQL database.
+**Note** MAMP and XAMPP applications come with MySQL—an open source traditional SQL database—and phpMyAdmin—a web interface for MySQL database.
 
-On macOS (and most UNIX systems), to close the process use Control +
-C. If you use Control + Z it will put the process to sleep (or detach
-the terminal window); in this case, you might end up with the lock on
-data files and will have to use the kill command or Activity Monitor,
-and manually delete the locked file in the data folder. In vanilla Mac
+On macOS (and most UNIX systems), to close the process use Control + C. If you use Control + Z it will put the process to sleep (or detach the terminal window); in this case, you might end up with the lock on data files and will have to use the `kill` command or Activity Monitor, and manually delete the locked file in the data folder. In vanilla Mac
 Terminal Command + . is an alternative to Control + C.
 
-Other Components
+Required Components
 ----------------
 
-These are required technologies. Please make sure you have them before
+The following are required technologies. Please make sure you have them before
 proceeding to the next chapter.
 
-1.  *Node.js:* We need it for build tools and back-end apps. Get version which has LTS even if the number is lower because LTS is the version which will be supported longer. <https://nodejs.org>
-2.  *Browser JS libraries:* We need them for front-end apps.
-3.  *LESS app:* We need it to compile LESS into CSS (macOS only).
-4.  *Compass*: A desktop client GUI app for working with MongoDB as a replacement of the Mongo shell/REPL. <https://www.mongodb.com/products/compass>
+1.  *Node.js*: We need it for build tools and back-end apps. Get the version that has LTS even if the number is lower than the current NON-LTS version, because the LTS versions have longer support period: <https://nodejs.org>.
+2.  *npm*: The Node package manager that comes bundled with Node (no need to install anything extra).
+3.  *Browser JS libraries*: We need them for front-end apps.
+
+I highly recommend installing other optional but useful components:
+
+1.  *nvm*: The Node version manager, which allows to switch between Node versions quickly.
+2.  *Compass*: A desktop client GUI app for working with MongoDB as a replacement of the Mongo shell/REPL. <https://www.mongodb.com/products/compass>
 
 ### Node.js Installation
 
-Node.js is available at <http://nodejs.org/#download> (Figure 2-14). The
-installation is trivial: Download the archive and run the \*.pkg package
-installer. To check the installation of Node.js, you could type and
-execute:
+Node.js is available at <http://nodejs.org/#download> (Figure 2-5). The installation is trivial: Download the archive and run the `*.pkg` package installer. To check the installation of Node.js, you could type and execute:
 
 `$ node -v`
 
-I use v8.11.1 for this book and tested all examples with v8.11.1. If you
-use another version, do so at your own risk. I cannot guarantee that the
-examples will run.
+I use v8.11.1 for this book and tested all examples with v8.11.1. If you use another version, do so at your own risk. I cannot guarantee that the examples will run.
 
-Assuming you have 8.11.1, it should show something similar to this:
+Assuming you have 8.11.1, it should show something similar to this: `v8.11.1`.
 
-`v8.11.1`
-
-If you want to switch between multiple versions of Node.js, there are
-solutions for that:
+If you want to switch between multiple versions of Node.js, there are solutions for that:
 
 -   [*nvm*](https://github.com/creationix/nvm) (https://github.com/creationix/nvm ): Node.js Version Manager
-
 -   [*Nave*](https://github.com/isaacs/nave)
     (https://github.com/isaacs/nave): Virtual environments for Node.js
-
 -   [*n*](https://github.com/tj/n) ( <https://github.com/tj/n> ): Node.js
     version management
 
-The Node.js package already includes [Node Package
-Manager](https://npmjs.org) (https://npmjs.org) (NPM). We'll use NPM
-extensively to install Node.js modules—Figure 2-11.
+The Node.js package already includes npm—[Node Package Manager](https://npmjs.org) (<https://npmjs.org>). We'll use npm extensively to install Node.js modules.
 
 ![](media/image14.png)
 
-***Figure 2-11**. Node.js home page*
+***Figure 2-5**. Node.js home page that shows LTS and non-LTS versions*
 
 ### Browser JavaScript Libraries
 
