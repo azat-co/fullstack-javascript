@@ -74,7 +74,7 @@ environment or assign 1337 if the environment is not set, use:
 This will create a server, and a callback function will contain the
 response handler code:
 
-    const server = http.createServer((req, res) => { 
+    const server = http.createServer((req, res) => {
 
 To set the right header and status code, use:
 
@@ -324,7 +324,7 @@ the first commit:
     $ git add .
     $ git commit -am "first commit"
 
-Tip: To view hidden files on the Mac OS X Finder app, execute this
+Tip: To view hidden files on the macOS Finder app, execute this
 command in a terminal window:
 `defaults write ``com.apple.finder`` ``AppleShowAllFiles`` -``bool`` true`.
 To change the flag back to hidden:
@@ -613,7 +613,7 @@ We output a message with a newly created object ID:
 
           res.end(message)
           // Out put message, should add object id
-        })      
+        })
 
 If the method is GET and the URL is `/messages/list.json` output a
 list of messages:

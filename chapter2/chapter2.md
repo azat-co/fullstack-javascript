@@ -38,7 +38,7 @@ If you don't have a specific development folder for your web development project
 
 ***Figure 2-1.** Initial development environment setup*
 
-**Tip** To open Mac OS Finder app in the current directory from Terminal, just type and run the $ open . command. On Windows, Terminal is command prompt.
+**Tip** To open macOS Finder app in the current directory from Terminal, just type and run the $ open . command. On Windows, Terminal is command prompt.
 
 To get the list of files and folders, use this UNIX/Linux command:
 
@@ -54,7 +54,7 @@ You can use the Tab key to autocomplete names of the files and folders.
 
 Later, you could copy examples into the `fullstack-javascript` folder as well as create apps in that folder.
 
-**Tip** Another useful thing is to have the New Terminal at Folder option in Finder on Mac OS X. To enable it, open your System Preferences (you could use Command + Space, a.k.a. Spotlight, for it). Find Keyboard and click it. Open Keyboard Shortcuts and click Services. Select the New Terminal at Folder and New Terminal Tab at Folder check boxes. Close the window (optional).
+**Tip** Another useful thing is to have the New Terminal at Folder option in Finder on macOS. To enable it, open your System Preferences (you could use Command + Space, a.k.a. Spotlight, for it). Find Keyboard and click it. Open Keyboard Shortcuts and click Services. Select the New Terminal at Folder and New Terminal Tab at Folder check boxes. Close the window (optional).
 
 Browsers
 --------
@@ -99,7 +99,7 @@ development:
 
 - [*VS Code*](https://www.visualstudio.com/features/node-js-vs) (<https://www.visualstudio.com/features/node-js-vs>): Node.js tools for the famous Visual Studio environment from a small Redmond, Washington-based software startup company.
 - [*Atom*](https://atom.io) (<https://atom.io>): A web editor built on web technologies from the creators of GitHub the world's largest code storage and collaboration space.
--   [*Sublime Text*](https://www.sublimetext.com) (<https://www.sublimetext.com>): Mac OS X and Windows versions are available. This is an even better alternative to TextMate, with an unlimited evaluation period.
+-   [*Sublime Text*](https://www.sublimetext.com) (<https://www.sublimetext.com>): macOS and Windows versions are available. This is an even better alternative to TextMate, with an unlimited evaluation period.
 -   [*Coda*](http://panic.com/coda) (<http://panic.com/coda>): All-in-one editor with FTP browser and preview, has support for development with and on an iPad.
 -   [*Aptana Studio*](http://aptana.com) (<http://aptana.com>): Full-sized IDE with a built-in terminal and many other tools.
 -   [*WebStorm*](http://www.jetbrains.com/webstorm) (<http://www.jetbrains.com/webstorm>): Feature-rich IDE that allows for Node.js debugging. It is developed by JetBrains and marketed as the smartest JavaScript IDE.
@@ -163,7 +163,7 @@ with Node.js; instructions are later in this chapter):
 If you prefer something with GUIs to a command-line interface (CLI), you might want to consider the following modifications of the Apache web server. MAMP, MAMP Stack, and XAMPP have intuitive GUIs that allow you to change configurations and host file settings.
 
 -   [*MAMP*](<http://www.mamp.info/en/index.html>) (<http://www.mamp.info/en/index.html>): Mac, Apache, MySQL,
-    PHP personal web server for Mac OS X.
+    PHP personal web server for macOS.
 -   [*MAMP Stack*](http://bitnami.com/stack/mamp)
     (<http://bitnami.com/stack/mamp>): Mac app with PHP, Apache, MySQL,
     and phpMyAdmin stack build by BitNami (Apple App Store)
@@ -176,7 +176,7 @@ If you prefer something with GUIs to a command-line interface (CLI), you might w
 Database: MongoDB
 -----------------
 
-The following steps are better suited for Mac OS X/Linux-based systems,
+The following steps are better suited for macOS/Linux-based systems,
 but with some modification they can be used for Windows systems as well
 (i.e., $PATH variable, Step 3). Here we describe the MongoDB
 installation from the official package, because we found that this
@@ -197,7 +197,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 
 3.  Optional: If you would like to access MongoDB commands from anywhere
     on your system, you need to add your mongodb path to the
-    $PATH variable. For Mac OS X the open system *paths* file with:
+    $PATH variable. For macOS the open system *paths* file with:
 
 	`sudo vi /etc/paths`
 
@@ -280,7 +280,7 @@ Windows users there is a good walk-through article at Installing MongoDB
 
 	Note MAMP and XAMPP applications come with MySQL—an open source traditional SQL database—and phpMyAdmin—a web interface for MySQL database.
 
-On Mac OS X (and most UNIX systems), to close the process use Control +
+On macOS (and most UNIX systems), to close the process use Control +
 C. If you use Control + Z it will put the process to sleep (or detach
 the terminal window); in this case, you might end up with the lock on
 data files and will have to use the kill command or Activity Monitor,
@@ -295,7 +295,7 @@ proceeding to the next chapter.
 
 1.  *Node.js:* We need it for build tools and back-end apps. Get version which has LTS even if the number is lower because LTS is the version which will be supported longer. <https://nodejs.org>
 2.  *Browser JS libraries:* We need them for front-end apps.
-3.  *LESS app:* We need it to compile LESS into CSS (Mac OS X only).
+3.  *LESS app:* We need it to compile LESS into CSS (macOS only).
 4.  *Compass*: A desktop client GUI app for working with MongoDB as a replacement of the Mongo shell/REPL. <https://www.mongodb.com/products/compass>
 
 ### Node.js Installation
@@ -370,7 +370,7 @@ without the Internet.
 
 ### LESS App
 
-The LESS App is a Mac OS X application for "on-the-fly" compilation of
+The LESS App is a macOS application for "on-the-fly" compilation of
 LESS to CSS. It's available at
 [incident57.com/less](http://incident57.com/less).
 
@@ -389,7 +389,7 @@ used with HTTPS URLs; for example,
 <https://github.com/azat-co/fullstack-javascript.git>; and the former with
 SSH URLs; for example, `git@github.com:azat-co/fullstack-javascript.git`.
 
-To generate SSH keys for GitHub on Mac OS X/UNIX machines do the
+To generate SSH keys for GitHub on macOS/UNIX machines do the
 following:
 
 1.  Check for existing SSH keys:
