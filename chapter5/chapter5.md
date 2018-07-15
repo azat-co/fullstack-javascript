@@ -39,7 +39,7 @@ not there were changes to the data. The Backbone.js
 Model-View-Controller (MVC) framework can be used to make complex
 applications more manageable and easier to maintain.
 
-![alt](media/board-1.png)
+![](media/board-1.png)
 
 ***Figure 5-1.** Message Board powered by local Parse server.*
 

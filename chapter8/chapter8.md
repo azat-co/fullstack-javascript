@@ -726,7 +726,7 @@ Another header that we send back with the response is `Content-Length`:
             response.end(file)
           }
         }
-    ...    
+    ...
 
 So this piece of code goes into the request handler of the server, which
 is inside of the database connect call. Just like the Russian Matreshka
@@ -865,7 +865,7 @@ To list all running processes:
 
     $ pm2 list
 
-![alt](media/image1.png)
+![](media/image1.png)
 
 ***Figure 8-1*** *pm2 running multiple Node processes.*
 

@@ -963,7 +963,7 @@ and attached a specific event to each of them (see Figure 4-1). Those
 events are smart enough to pass the information about the model to other
 objects: views and collections.
 
-![alt](media/image1.png)
+![](media/image1.png)
 
 ***Figure 4-1.*** *The list of apples rendered by subviews*
 
@@ -1676,11 +1676,11 @@ shown in Figure 4-3
 loads them in parallel.
 
 
-![alt](media/image2.png)
+![](media/image2.png)
 
 ***Figure 4-2.*** *The old 04-backbone/refactor/index.html file*
 
-![alt](media/image3.png)
+![](media/image3.png)
 
 ***Figure 4-3.*** *The new 04-backbone/amd/index.html file*
 
@@ -1704,7 +1704,7 @@ Add this to the `apple-app.js` file in front of everything else:
 Notice in Figure 4-4 that each file request now has status 200 instead
 of 304 (not modified).
 
-![alt](media/image4.png)
+![](media/image4.png)
 
 ***Figure 4-4.*** *Network tab with bust parameter added*
 
@@ -1757,7 +1757,7 @@ or
 You should get a list of the r.js processed files, as shown in Figure
 4-5.
 
-![alt](media/image5.png)
+![](media/image5.png)
 
 ***Figure 4-5.*** *A list of the r.js processed files*
 
@@ -1765,7 +1765,7 @@ Open `index.html` from the build folder in a browser window, and check
 if the Network tab shows any improvement now with just one request or
 file to load (Figure 4-6).
 
-![alt](media/image6.png)
+![](media/image6.png)
 
 ***Figure 4-6.*** *Performance improvement with one request or file to load*
 

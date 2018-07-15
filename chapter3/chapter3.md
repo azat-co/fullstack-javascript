@@ -1,4 +1,4 @@
-CHAPTER 3 
+CHAPTER 3
 --------
 
 Getting Data from Backend Using jQuery and Parse
@@ -105,7 +105,7 @@ another object; for example:
         "title": "Get your mind in shape!",
         "votes": 9,
         "comments": [
-            "nice!", 
+            "nice!",
             "good link"
         ]}, {
         "title": "Yet another post",
@@ -271,7 +271,7 @@ this:
       /01-bootstrap
         -index.html
         /css
-          -bootstrap.css    
+          -bootstrap.css
           -bootstrap.min.css
           ... (other files if needed)
         /js
@@ -622,14 +622,14 @@ technologies.
 The idea of this weather application is to show you an input field for
 the city name and buttons for metric and imperial systems. The first page of the Weather application has the input field for the city name and two buttons for metric and imperial forecasts (Figure 3-1).
 
-![alt](media/weather-1.png)
+![](media/weather-1.png)
 
 ***Figure 3-1.** Weather App has a text input field and two button for the forecasts.*
 
 Once you enter the city name and click one of the buttons, the app will fetch the
 forecast from OpenWeatherMap. Depending on what button is pressed, the app will fetch the forecast in metric (C) or imperial (F) degrees. For example, I like in the heart of tech innovation, San Francisco and we use imperial F degrees here so my result will be similar to the one shown in Figure 3-2. The forecast will be for several days with a 3-hour difference between predictions.
 
-![alt](media/weather-2.png)
+![](media/weather-2.png)
 
 ***Figure 3-2.** Weather App show the forecast for San Francisco.*
 
@@ -724,7 +724,7 @@ for the buttons:
         <input type="button" class="btn-primary btn btn-metric" value="Get forecast in metric"/>
       <div class="span6 offset1">
         <input type="button" class="btn-danger btn btn-imperial" value="Get forecast in imperial"/>
-      </div>  
+      </div>
       <div class="span3">
         <p id="info"></p>
       </div>
@@ -886,17 +886,17 @@ the `index.html` file:
                 <p>Enter city name to get the weather forecast</p>
             </div>
             <div class="span6  offset1">
-                <input class="span4" type="text" placeholder="Enter the city name"    
+                <input class="span4" type="text" placeholder="Enter the city name"
                   id="city-name" value=""/>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="span6 offset1">
                 <input type="button" class="btn-primary btn btn-metric" value="Get forecast in metric"/>
             <div class="span6 offset1">
                 <input type="button" class="btn-danger btn btn-imperial" value="Get forecast in imperial"/>
-            </div>			
+            </div>
         </div>
 
         <div class="row">
@@ -944,13 +944,13 @@ Parse
 Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1SU8imX>.
 
-[Parse](http://parseplatform.org) (http://parseplatform.org) is a platform which is a collection of server and client libraries that offer a feature-rich backend. With Parse server, developers can focus on building their client apps (web or mobile) because they'll have a substitute for a database and a server. In other words, with Parse, there's no need to build your own server or to maintain a database! 
+[Parse](http://parseplatform.org) (http://parseplatform.org) is a platform which is a collection of server and client libraries that offer a feature-rich backend. With Parse server, developers can focus on building their client apps (web or mobile) because they'll have a substitute for a database and a server. In other words, with Parse, there's no need to build your own server or to maintain a database!
 
 Parse started as means to
 support mobile application development. Nevertheless, with the REST API
 and the JavaScript SDK, Parse can be used in any web and desktop
 applications for data storage (and much more), making it ideal for rapid
-prototyping. 
+prototyping.
 
 To create a local instance of Parse simply install two npm modules: `parse-server` and `mongodb-runner` using npm:
 
@@ -973,7 +973,7 @@ parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb
 ```
 
 
-Create your backend Parse server application. Feel free to use your own values for `appId` and `masterKey`. Copy the Application ID, master key into the front end project files such as 03-parse-sdk/app.js because you'll need to use the exact the same value on the front end in order to be able to access your backend server. In other words, we'll need these keys to access our data collection at Parse. 
+Create your backend Parse server application. Feel free to use your own values for `appId` and `masterKey`. Copy the Application ID, master key into the front end project files such as 03-parse-sdk/app.js because you'll need to use the exact the same value on the front end in order to be able to access your backend server. In other words, we'll need these keys to access our data collection at Parse.
 
 We'll create a simple application that will save values to the
 collections using the Parse JavaScript SDK. The final solution is in the 03-parse-sdk folder. Our application will
@@ -1070,7 +1070,7 @@ Parse server (you define them when you start the Parse server):
 
 ```js
 const parseApplicationId = 'APPLICATION_ID'
-const parseJavaScriptKey = 'MASTER_KEY'	
+const parseJavaScriptKey = 'MASTER_KEY'
 ```
 
 Because we've included the Parse JavaScript SDK library, we now have
@@ -1080,9 +1080,9 @@ keys, and create a reference to a `Test` collection:
 ```js
 Parse.initialize(parseApplicationId, parseJavaScriptKey)
 Parse.serverURL = 'http://localhost:1337/parse'
-```      
+```
 
-Next, create the collection object. It's like a model for our data. The name is `Test` but it can be any string value. 
+Next, create the collection object. It's like a model for our data. The name is `Test` but it can be any string value.
 
 ```js
 const Test = Parse.Object.extend('Test')
@@ -1219,20 +1219,20 @@ you should see the proper message with the newly created ID. Parse
 automatically creates object IDs and timestamps, which will be very
 useful in our Message Board application.
 
-![alt](media/parse-sdk.png)
+![](media/parse-sdk.png)
 
 ***Figure 3-4.** Save button will send the object to the backend which will save it to the database.*
 
 If you press on the Get object (green button), then you'll get all the objects which are stored in the database. How to confirm that this data is actually store in the database and won't disappear when we close the browser? Simply, close the browser and open it again. If still not convinced, use Mongo shell/REPL or Compass (Figure 3-4) to go to the local MongoDB database instance and the Test collection. There will be the data just sitting and looking at you.
 
 
-![alt](media/compass.png)
+![](media/compass.png)
 
 ***Figure 3-5.** Compass shows in MongoDB the data which was sent from the browser.*
 
 Parse also has thorough instructions for the various parts of platform including its server and clients libraries: <http://docs.parseplatform.org>. You can deploy parse server into cloud or your own data center. Parse supports containers too.
 
-With Parse we can use browser JavaScript, one command-line (parse-server) and wheyee! We can save to the database straight from the browser!!! 
+With Parse we can use browser JavaScript, one command-line (parse-server) and wheyee! We can save to the database straight from the browser!!!
 
 Let’s move on to the Message Board app.
 
@@ -1247,12 +1247,12 @@ and a send button. We need to display a list of existing messages and be
 able to submit new messages. We'll use Parse as a back end for now,
 and later switch to Node.js with MongoDB.
 
-![alt](media/board-1.png)
+![](media/board-1.png)
 
 ***Figure 3-3.** Save button will send the object to the backend which will save it to the database.*
 
 
-![alt](media/board-2.png)
+![](media/board-2.png)
 
 ***Figure 3-4.** Get button will fetch the all objects form the backend.*
 
@@ -1323,7 +1323,7 @@ local `app.js`, local minified Twitter Bootstrap, and custom stylesheet
         <script src="js/app.js" type="text/javascript" language="javascript" ></script>
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
         <link href="css/style.css" type="text/css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
       </head>
 
 The body element will have typical Twitter Bootstrap scaffolding elements

@@ -240,7 +240,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 	be using only 27017. Don't forget to restart the Terminal window after
 	adding a new path to the $PATH variable.
 
-	![alt](media/image12.png)
+	![](media/image12.png)
 
 	***Figure 2-9.** Starting up the MongoDB server*
 
@@ -266,7 +266,7 @@ example using Brew, as well as on other systems (<http://docs.mongodb.org/manual
 	(Figure 2-10).
 
 
-![alt](media/image13.png)
+![](media/image13.png)
 
 ***Figure 2-10.** Running MongoDB client and storing sample data*
 
@@ -330,7 +330,7 @@ The Node.js package already includes [Node Package
 Manager](https://npmjs.org) (https://npmjs.org) (NPM). We'll use NPM
 extensively to install Node.js modules—Figure 2-11.
 
-![alt](media/image14.png)
+![](media/image14.png)
 
 ***Figure 2-11**. Node.js home page*
 
@@ -416,7 +416,7 @@ following:
 
     $ pbcopy < ~/.ssh/id_rsa.pub
 
-	![alt](media/image16.png)
+	![](media/image16.png)
 
 	***Figure 2-12.** Generating RSA key for SSH and copying public key to clipboard*
 
@@ -457,7 +457,7 @@ GitHub
     confused with such a message—just proceed by answering Yes as shown
     in Figure 2-13.
 
-![alt](media/image17.png)
+![](media/image17.png)
 
 ***Figure 2-13.** Testing SSH connection to GitHub for the very first
 time*
@@ -501,7 +501,7 @@ Here are the steps to set up a Windows Azure account:
 5.  Log in to Windows Azure Portal at <https://windows.azure.com>
     (Figure 2-14).
 
-	![alt](media/image18.png)
+	![](media/image18.png)
 
 	***Figure 2-14.** Registering on Windows Azure*
 
@@ -558,7 +558,7 @@ To set up Heroku, follow these steps:
 	you've already created the SSH key, it will automatically upload it to
 	the Heroku web site (Figure 2-15).
 
-	![alt](media/image19.png)
+	![](media/image19.png)
 
 	***Figure 2-15.** The response to the successful $ heroku login command*
 
