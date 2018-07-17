@@ -908,7 +908,7 @@ It’s worth mentioning that AWS supports many other operating systems via
 its AWS Marketplace (<https://aws.amazon.com/marketplace>). Although AWS
 EC2 is a very popular and affordable choice, there other alternatives as
 well: [Joyent](http://www.joyent.com) (<https://www.joyent.com>),
-[Windows Azure](https://azure.microsoft.com/en-us)
+[Microsoft Azure](https://azure.microsoft.com/en-us)
 (https://azure.microsoft.com/en-us), [Rackspace Open
 Cloud](http://www.rackspace.com/cloud) (<http://www.rackspace.com/cloud>),
 and others.

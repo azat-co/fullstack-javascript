@@ -260,11 +260,9 @@ Assuming you have 8.11.1, it should show something similar to this: `v8.11.1`.
 
 If you want to switch between multiple versions of Node.js, there are solutions for that:
 
--   [*nvm*](https://github.com/creationix/nvm) (https://github.com/creationix/nvm ): Node.js Version Manager
--   [*Nave*](https://github.com/isaacs/nave)
-    (https://github.com/isaacs/nave): Virtual environments for Node.js
--   [*n*](https://github.com/tj/n) ( <https://github.com/tj/n> ): Node.js
-    version management
+-   [*nvm*](https://github.com/creationix/nvm) (<https://github.com/creationix/nvm>): Node.js Version Manager
+-   [*Nave*](https://github.com/isaacs/nave) (<https://github.com/isaacs/nave>): Virtual environments for Node.js
+-   [*n*](https://github.com/tj/n) (<https://github.com/tj/n>): Node.js version management
 
 The Node.js package already includes npm—[Node Package Manager](https://npmjs.org) (<https://npmjs.org>). We'll use npm extensively to install Node.js modules.
 
@@ -274,112 +272,77 @@ The Node.js package already includes npm—[Node Package Manager](https://npmjs.
 
 ### Browser JavaScript Libraries
 
-Front-end JavaScript libraries are downloaded and unpacked from their
-respective web sites. Those files are usually put in the Development
-folder (e.g., `∼/Documents/Development`) for future use. Often, there is a
-choice between the minified production version (more on that in the AMD
-and Require.js section of Chapter 4) and the extensively rich in
-comments development one.
+Front-end JavaScript libraries are downloaded and unpacked from their respective web sites. Those files are usually put in the Development folder (e.g., `∼/Documents/Development`) for future use. Often, there is a choice between the minified production version (more on that in the AMD and Require.js section of Chapter 4) and a version that is extensively rich development comments.
 
-Another approach is to hot-link these scripts from CDNs such as [Google
-Hosted
-Libraries](https://developers.google.com/speed/libraries/devguide)
-(https://developers.google.com/speed/libraries/devguide), CDNJS
-(http://cdnjs.com ), Microsoft Ajax Content Delivery Network
-(<http://www.asp.net/ajaxlibrary/cdn.ashx> ), and others. By doing so
-the apps will be faster for some users, but won’t work locally at all
-without the Internet.
+Another approach is to hot-link these scripts from CDNs such as [Google Hosted Libraries](https://developers.google.com/speed/libraries/devguide) (<https://developers.google.com/speed/libraries/devguide>), CDNJS (<http://cdnjs.com>), Microsoft Ajax Content Delivery Network (<https://docs.microsoft.com/en-us/aspnet/ajax/cdn/overview>), and others. By doing so the apps will be faster for some users, but won’t work locally at all without the Internet.
 
--   LESS as a front-end interpreter is available at
-    [lesscss.org](http://lesscss.org). You could unpack it into your
-    development folder (~/Documents/Development) or any other folder.
+Speaking of dependencies, I recommend downloading the following libraries that will be used in the book's project. To keep things simple, we will use just simple `.js` or `.min.js` files and not the npm packages:
 
--   Bootstrap is a CSS/LESS framework. It's available at
-    [twitter.github.com/bootstrap](http://twitter.github.com/bootstrap).
+-   Bootstrap is a CSS/Less framework. It's available at <https://getbootstrap.com>.
+-   jQuery is available at <https://jquery.com>.
+-   Backbone.js is available at <https://backbonejs.org>.
+-   Underscore.js is available at <https://underscorejs.org>.
+-   Require.js is available at <https://requirejs.org>.
 
--   jQuery is available at [jquery.com](http://jquery.com).
+### Less App
 
--   Backbone.js is available at [backbonejs.org](http://backbonejs.org).
+Less as a front-end interpreter is available at [lesscss.org](http://lesscss.org). You could unpack it into your development folder (`~/Documents/Development`) or any other folder.
 
--   Underscore.js is available at
-    [underscorejs.org](http://underscorejs.org).
-
--   Require.js is available at [requirejs.org](http://requirejs.org).
-
-### LESS App
-
-The LESS App is a macOS application for "on-the-fly" compilation of
-LESS to CSS. It's available at
-[incident57.com/less](http://incident57.com/less).
+The Less App is a macOS application for "on-the-fly" compilation of Less to CSS. It's available at [incident57.com/less](http://incident57.com/less). TK
 
 Cloud Setup
 ===========
 
-The Cloud setup discussed in the following sections will allow you to
-keep your code under version control and deploy in a scalable manner.
+The cloud setup discussed in the following sections will allow you to keep your code under version control and deploy it in a scalable manner.
 
 SSH Keys
 --------
 
-SSH keys provide a secure connection without the need to enter user name
-and password every time. For GitHub repositories, the latter approach is
-used with HTTPS URLs; for example,
-<https://github.com/azat-co/fullstack-javascript.git>; and the former with
-SSH URLs; for example, `git@github.com:azat-co/fullstack-javascript.git`.
+For GitHub repositories, developers have to enter username and password every time with HTTPS URLs (looks like <https://github.com/azat-co/fullstack-javascript.git>), unless they use a keychain. SSH keys provide a secure connection without the need to enter a user name
+and password every time. The SSH URLs look like `git@github.com:azat-co/fullstack-javascript.git`.
 
-To generate SSH keys for GitHub on macOS/UNIX machines do the
-following:
+To generate SSH keys for GitHub on macOS/UNIX machines, do the following:
 
 1.  Check for existing SSH keys:
 
     $ cd ~/.ssh
     $ ls -lah
 
-2.  If you see some files like id_rsa (please refer to Figure 2-16 for
-    an example), you could delete them or back them up into a separate
-    folder by using the following commands:
+2.  If you see some files like `id_rsa` (please refer to Figure 2-6 for an example), you could delete them or back them up into a separate folder by using the following commands:
 
 	$ mkdir key_backup
     $ cp id_rsa* key_backup
     $ rm id_rsa*
 
-3.  Now we can generate a new SSH key pair using the ssh-keygen command,
-    assuming we are in the ~/.ssh folder:
+3.  Now generate a new SSH key pair using the `ssh-keygen` command, assuming we are in the `~/.ssh` folder:
 
 	$ ssh-keygen -t rsa -C "your_email@youremail.com"
 
-4.  Answer the questions; it is better to keep the default name
-    of id_rsa. Then copy the content of the id_rsa.pub file to your
-    clipboard (Figure 2-12):
+4.  Answer the questions; it is better to keep the default name of `id_rsa`. Then copy the content of the `id_rsa.pub` file to your clipboard (Figure 2-6):
 
     $ pbcopy < ~/.ssh/id_rsa.pub
 
 	![](media/image16.png)
 
-	***Figure 2-12.** Generating RSA key for SSH and copying public key to clipboard*
+	***Figure 2-6.** Generating RSA key for SSH and copying public key to clipboard*
 
-5.  Alternatively, open id_rsa.pub file in the default editor:
+5.  Alternatively, open `id_rsa.pub` file in the default editor:
 
-	`$ open id_rsa.pub`
+	`$ edit id_rsa.pub`
 
-6.  Or in TextMate:
+    Or in VS Code (recommended):
 
-	`$ mate id_rsa.pub`
-
-
+	`$ code id_rsa.pub`
 
 
 GitHub
 ------
 
-1.  After you have copied the public key, go to
-    [github.com](http://github.com), log in, go to your account
-    settings, select SSH Key, and add the new SSH key. Assign a name,
-    such as the name of your computer, and paste the value of your
-    public key.
+The next steps will show how to connect to GitHub (think of it as a versioned code storage) using SSH and SSH keys:
 
-2.  To check if you have an SSH connection to GitHub, type and execute
-    the following command in your terminal:
+1.  After you have copied the public key, go to <https://github.com>, log in, go to your account settings, select SSH Key, and add the new SSH key. Assign a name, such as the name of your computer, and paste the value of your public key.
+
+2.  To check if you have an SSH connection to GitHub, type and execute the following command in your terminal:
 
 	`$ ssh -T git@github.com`
 
@@ -390,40 +353,31 @@ GitHub
 
 	then everything is set up.
 
-3.  The first time you connect to GitHub, you can receive an
-    Authenticity of Host … Can't Be Established warning. Please don't be
-    confused with such a message—just proceed by answering Yes as shown
-    in Figure 2-13.
+3.  The first time you connect to GitHub, you may receive a message "Authenticity of Host … Can't Be Established warning". Please don't be alarmed with such a message. It confirms that the host you are trying to connect to is trusted. Simply proceed by answering "Yes" as shown in Figure 2-7.
 
 ![](media/image17.png)
 
-***Figure 2-13.** Testing SSH connection to GitHub for the very first
-time*
+***Figure 2-7.** Testing SSH connection to GitHub for the very first time*
 
-If for some reason you have a different message, please repeat Steps 3
-and 4 from the previous section on SSH keys or reupload the content of
-your \*.pub file to GitHub.
+If for some reason you have a different message, please repeat Steps 3 and 4 from the previous section on SSH keys or reupload the content of your `*.pub` file to GitHub.
 
 	Warning Keep your id_rsa file private and don't share it with anybody!
 
-More instructions are available at GitHub: [Generating SSH
-Keys](https://help.github.com/articles/generating-ssh-keys)
-(<https://helpgithub.com/articles/generating-ssh-keys>).
+More instructions are available at GitHub: [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys) (<https://helpgithub.com/articles/generating-ssh-keys>). TK
 
-Windows users might find the SSH key generator feature in \[PuTTY\]
-useful.
+Windows users might find the SSH key generator feature in PuTTY useful.
 
-Windows Azure
+Microsoft Azure
 -------------
 
-Here are the steps to set up a Windows Azure account:
+Here are the steps to set up a Microsoft Azure account:
 
-1.  You'll need to sign up for Windows Azure Web Site and Virtual
+1.  You'll need to sign up for Microsoft Azure Web Site and Virtual
     Machine previews. Currently they have a 90-day free trial available
     at <https://azure.microsoft.com/en-us>.
 
 2.  Enable Git Deployment and create a user name and password, then
-    upload the SSH public key to Windows Azure.
+    upload the SSH public key to Microsoft Azure.
 
 3.  Install the Node.js SDK, which is available at
     <https://azure.microsoft.com/en-us/develop/nodejs>.
@@ -434,14 +388,14 @@ Here are the steps to set up a Windows Azure account:
 
 	You should be able to see something like this:
 
-	`Windows Azure: Microsoft's Cloud Platform... Tool Version 0.6.0`
+	`Microsoft Azure: Microsoft's Cloud Platform... Tool Version 0.6.0`
 
-5.  Log in to Windows Azure Portal at <https://windows.azure.com>
+5.  Log in to Microsoft Azure Portal at <https://windows.azure.com>
     (Figure 2-14).
 
 	![](media/image18.png)
 
-	***Figure 2-14.** Registering on Windows Azure*
+	***Figure 2-14.** Registering on Microsoft Azure*
 
 6.  Select New, then select Web Site, and Quick Create. Type the name
     that will serve as the URL for your web site, and click OK.
@@ -462,14 +416,14 @@ Here are the steps to set up a Windows Azure account:
 
 9.  Advanced user option: Follow this tutorial to create a virtual
     machine and install MongoDB on it: [Install MongoDB on a virtual
-    machine running CentOS Linux in Windows Azure](https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm) (https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm).
+    machine running CentOS Linux in Microsoft Azure](https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm) (https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm).
 
 
 Heroku
 ------
 
 Heroku is a polyglot agile application deployment platform (see
-<http://www.heroku.com>). Heroku works similarly to Windows Azure in
+<http://www.heroku.com>). Heroku works similarly to Microsoft Azure in
 the sense that you can use Git to deploy applications. There is no need
 to install Virtual Machine for MongoDB because [Heroku has a MongoHQ
 add-on](https://addons.heroku.com/mongohq)

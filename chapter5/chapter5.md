@@ -646,7 +646,7 @@ Taking Message Board Further
 
 Once you are comfortable that your front-end application works well
 locally, with or without a local HTTP server like MAMP or XAMPP, deploy
-it to Windows Azure or Heroku. In-depth deployment instructions are
+it to Microsoft Azure or Heroku. In-depth deployment instructions are
 described in the "jQuery and Parse" chapter.
 
 In the last two examples, Message Board had very basic functionality.

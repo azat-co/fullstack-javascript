@@ -16,7 +16,7 @@ Stack JavaScript touched topics such as the following:
 
 -   jQuery, JSON, and AJAX/XHR
 
--   Bootstrap, CSS, and LESS
+-   Bootstrap, CSS, and Less
 
 -   Backbone.js, AMD, and Require.js
 

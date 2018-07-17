@@ -312,7 +312,7 @@ npm](http://tobyho.com/2012/02/09/tour-of-npm/)"
 Deploying "Hello World" to PaaS
 ===============================
 
-For Heroku and Windows Azure deployment, we'll need a Git repository. To
+For Heroku and Microsoft Azure deployment, we'll need a Git repository. To
 create it from the root of your project, type the following command in
 your terminal:
 
@@ -330,11 +330,11 @@ command in a terminal window:
 To change the flag back to hidden:
 `defaults write ``com.apple.finder`` ``AppleShowAllFiles`` -``bool`` false`.
 
-Deploying to Windows Azure
+Deploying to Microsoft Azure
 ==========================
 
-In order to deploy our "Hello World" application to Windows Azure, we
-must add Git **remote**. You could copy the URL from Windows Azure
+In order to deploy our "Hello World" application to Microsoft Azure, we
+must add Git **remote**. You could copy the URL from Microsoft Azure
 Portal, under Web Site, and use it with this command:
 
     $ git remote add azure yourURL
@@ -344,7 +344,7 @@ Now we should be able to make a push with this command:
     $ git push azure master
 
 If everything went okay, you should see success logs in the terminal and
-"Hello World" in the browser of your Windows Azure Web Site URL.
+"Hello World" in the browser of your Microsoft Azure Web Site URL.
 
 To push changes, just execute:
 
@@ -390,7 +390,7 @@ For this example, we keep `package.json` simple:
 
 After we have all of the files in the project folder, we can use Git to
 deploy the application. The commands are pretty much the same as with
-Windows Azure except that we need to add Git remote, and create Cedar
+Microsoft Azure except that we need to add Git remote, and create Cedar
 stack with:
 
     $ heroku create
@@ -838,5 +838,5 @@ Summary
 In this chapter we've covered important topics that will lay the
 foundation. They exhibit the "Hello World" application in Node.js, list
 of some of its most important core modules, npm workflow, detailed
-commands for deployment of Node.js apps to Heroku and Windows Azure; and
+commands for deployment of Node.js apps to Heroku and Microsoft Azure; and
 an example of a test-driven development practice.

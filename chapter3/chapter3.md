@@ -20,7 +20,7 @@ This chapter covers the following topics:
 
 -   Twitter Bootstrap scaffolding
 
--   Main LESS components
+-   Main Less components
 
 -   Illustrations of JSONP calls on OpenWeatherMap API example
 
@@ -29,13 +29,13 @@ This chapter covers the following topics:
 -   Explanations on how to build a Message Board front-end only
     application with jQuery and Parse
 
--   Step-by-step instructions on deployment to Windows Azure and Heroku
+-   Step-by-step instructions on deployment to Microsoft Azure and Heroku
 
 -   Updating and deleting of messages
 
 This chapter is a basic introduction to front-end web development. It
 covers things important to front-end development of apps such as Twitter
-Bootstrap and LESS. These amazing libraries allow developers to have a
+Bootstrap and Less. These amazing libraries allow developers to have a
 nice user interface in no time.
 
 It covers the terminology and explains JSON, AJAX, and CORS. We then
@@ -255,13 +255,13 @@ class="anchor"></span></span>Supplemental video which walks you through
 the implementation and demonstrates the project: <http://bit.ly/1RKx9uY>.
 
 [Twitter Bootstrap](http://getbootstrap.com) (http://getbootstrap.com)
-is a collection of CSS/LESS rules and JavaScript plug-ins for creating a
+is a collection of CSS/Less rules and JavaScript plug-ins for creating a
 good user interface and user experience without spending a lot of time
 on such details as rounded-edge buttons, cross-compatibility,
 responsiveness, and so on. This collection or framework is perfect for
 rapid prototyping of your ideas. Nevertheless, due to its ability to be
 customized, Twitter Bootstrap is also a good foundation for serious
-projects. The source code is written in [LESS](http://lesscss.org)
+projects. The source code is written in [Less](http://lesscss.org)
 (http://lesscss.org), but plain CSS can be downloaded and used as well.
 
 Here is a simple example of using Twitter Bootstrap scaffolding for the
@@ -403,7 +403,7 @@ preprocessors—worth checking out:
     framework (http://compass-style.org/)
 
 -   [*SASS*](http://sass-lang.com/)*:* Extension of CSS3 and analog to
-    LESS (http://sass-lang.com/)
+    Less (http://sass-lang.com/)
 
 -   [*Blueprint*](http://blueprintcss.org/)*:* CSS
     framework (http://blueprintcss.org/)
@@ -417,45 +417,45 @@ preprocessors—worth checking out:
 -   [*WrapBootstrap*](https://wrapbootstrap.com/)*:* Marketplace for
     customized Bootstrap themes (https://wrapbootstrap.com/)
 
-To work with the Twitter Bootstrap source file, you need to use LESS or
+To work with the Twitter Bootstrap source file, you need to use Less or
 [SASS](https://github.com/twbs/bootstrap-sass) (another CSS framework
-similar to LESS).
+similar to Less).
 
-LESS
+Less
 ====
 
-LESS is a dynamic stylesheet language. Sometimes, and in this case, it's
-true that less is more and more is less. A browser cannot interpret LESS
-syntax, so LESS source code must be compiled to CSS in one of the three
+Less is a dynamic stylesheet language. Sometimes, and in this case, it's
+true that less is more and more is less. A browser cannot interpret Less
+syntax, so Less source code must be compiled to CSS in one of the three
 ways:
 
-1.  In the browser by the LESS JavaScript library
+1.  In the browser by the Less JavaScript library
 
 2.  On the server side by language or framework; for example, for
-    Node.js there is the [LESS
+    Node.js there is the [Less
     module](https://npmjs.org/package/less) (https://www.npmjs.com/package/less)
 
 3.  Locally on your machine by command line (installed with npm by
     running `$ npm install -g less`), [WinLess](http://winless.org)
-    (http://winless.org/), [LESS App](http://incident57.com/less)
+    (http://winless.org/), [Less App](http://incident57.com/less)
     (http://incident57.com/codekit/index.html),
-    [SimpLESS](http://wearekiss.com/simpless)
+    [SimpLess](http://wearekiss.com/simpless)
     (http://wearekiss.com/simpless), or a similar app
 
 The browser option is suitable for a development environment, but
 suboptimal for a production environment.
 
-LESS has variables, mix-ins, and operators that make it faster for
+Less has variables, mix-ins, and operators that make it faster for
 developers to reuse CSS rules.
 
-LESS Variables
+Less Variables
 --------------
 
 Variables reduce redundancy and allow developers to change values
 quickly by having them in one canonical place, and we know that in
 design (and styling) we often have to change values very frequently.
 
-We sometimes have some LESS code with the variable marked by the `@`
+We sometimes have some Less code with the variable marked by the `@`
 sign, such as in `@color`:
 
     @color: #4D926F;
@@ -475,10 +475,10 @@ This code will be compiled to the equivalent in CSS:
       color: #4D926F;
     }
 
-The benefit is that in LESS, you need to update the color value in only
+The benefit is that in Less, you need to update the color value in only
 one place versus two in CSS. This is abstraction at its best.
 
-LESS Mix-ins
+Less Mix-ins
 ------------
 
 This about mix-ins as functions. The syntax for a mix-in is the same as
@@ -549,14 +549,14 @@ That code will compile into this in CSS:
 Whether you use mix-ins without parameters or with multiple parameters,
 they are great at creating abstractions and enabling better code reuse.
 
-LESS Operations
+Less Operations
 ---------------
 
-LESS supports operations. With operations, we can perform math functions
+Less supports operations. With operations, we can perform math functions
 on numbers, colors, or variables. This is useful for sizing, colors, and
 other number-related styles.
 
-Here is an example of an operator in LESS where we perform
+Here is an example of an operator in Less where we perform
 multiplication and addition:
 
     @the-border: 1px;
@@ -586,11 +586,11 @@ variables and operations for the results of the expressions:
       border-color: #7d2717;
     }
 
-As you can see, LESS dramatically improves the reusability of plain CSS.
-It's a time saver in large projects, as you can create LESS modules and
+As you can see, Less dramatically improves the reusability of plain CSS.
+It's a time saver in large projects, as you can create Less modules and
 reuse them in multiple apps.
 
-Other important [LESS features](http://lesscss.org/#docs)
+Other important [Less features](http://lesscss.org/#docs)
 (<http://lesscss.org/#docs>) include the following:
 
 -   Pattern-matching
@@ -1682,18 +1682,18 @@ For more Git commands, see:
 
     $ git --help
 
-Deploying applications with Windows Azure or Heroku is as simple as
+Deploying applications with Microsoft Azure or Heroku is as simple as
 pushing code and files to GitHub. The last three steps (4–6) would be
 substituted with a different remote destination (URL) and a different
 alias.
 
-Deployment to Windows Azure
+Deployment to Microsoft Azure
 ===========================
 
-You should be able to deploy to Windows Azure with Git using this
+You should be able to deploy to Microsoft Azure with Git using this
 procedure.
 
-1.  Go to the Windows Azure Portal at
+1.  Go to the Microsoft Azure Portal at
     [`https://windows.azure.com/`](https://windows.azure.com/)`1`, log
     in with your Live ID and create a web site if you haven't done
     so already. Enable Set Up Git Publishing by providing a user name
@@ -1713,7 +1713,7 @@ procedure.
 
     `$ git commit -am "initial commit"`
 
-5.  Add Windows Azure as a remote Git repository destination:
+5.  Add Microsoft Azure as a remote Git repository destination:
 
     `$ git remote add azure your-url-for-remote-repository`
 
@@ -1723,7 +1723,7 @@ procedure.
 
     `> azure https://azatazure@azat.scm.azurewebsites.net/azat.git`
 
-6.  Push your local Git repository to the remote Windows Azure
+6.  Push your local Git repository to the remote Microsoft Azure
     repository, which will deploy the files and application:
 
     `$ git push azure master`
@@ -1864,6 +1864,6 @@ This chapter was a handful. Hopefully you got some helpful ideas about
 JSON, AJAX, and cross-domain calls. Remember, when accessing servers
 you'll need to make sure they support CORS or JSONP.
 
-We've covered some of the meatiest LESS features and worked with Parse
+We've covered some of the meatiest Less features and worked with Parse
 to persist the data. We also deployed our app to the <span id="Editing"
 class="anchor"></span>cloud using the Git version system.
