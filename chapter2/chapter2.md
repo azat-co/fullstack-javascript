@@ -372,110 +372,71 @@ Microsoft Azure
 
 Here are the steps to set up a Microsoft Azure account:
 
-1.  You'll need to sign up for Microsoft Azure Web Site and Virtual
-    Machine previews. Currently they have a 90-day free trial available
-    at <https://azure.microsoft.com/en-us>.
+1.  You'll need to sign up for Microsoft Azure Web Site and Virtual Machine previews. Currently Microsoft has a 90-day free trial available at <https://azure.microsoft.com/en-us>.
 
-2.  Enable Git Deployment and create a user name and password, then
-    upload the SSH public key to Microsoft Azure.
+2.  Enable Git Deployment and create a user name and password, then upload the SSH public key to Microsoft Azure.
 
-3.  Install the Node.js SDK, which is available at
-    <https://azure.microsoft.com/en-us/develop/nodejs>.
+3.  Install the Node.js SDK, which is available at <https://azure.microsoft.com/en-us/develop/nodejs>. TK
 
 4.  To check your installation type:
 
 	`$ azure -v`
 
-	You should be able to see something like this:
+	You should see something like this:
 
 	`Microsoft Azure: Microsoft's Cloud Platform... Tool Version 0.6.0`
 
-5.  Log in to Microsoft Azure Portal at <https://windows.azure.com>
-    (Figure 2-14).
+5.  Log in to Microsoft Azure Portal at <https://azure.microsoft.com> (Figure 2-8).
 
 	![](media/image18.png)
 
-	***Figure 2-14.** Registering on Microsoft Azure*
+	***Figure 2-8.** Registering on Microsoft Azure*
 
-6.  Select New, then select Web Site, and Quick Create. Type the name
-    that will serve as the URL for your web site, and click OK.
+6.  Select New, then select Web Site, and Quick Create. Type the name that will serve as the URL for your web site, and click OK.
 
-7.  Go to this newly created web site's Dashboard and select Set Up
-    Git Publishing. Come up with a user name and password. This
-    combination can be used to deploy to any web site in your
-    subscription, meaning that you do not need to set credentials for
-    every web site you create. Click OK.
+7.  Go to this newly created web site's Dashboard and select Set Up Git Publishing. Come up with a user name and password. This combination can be used to deploy to any web site in your
+    subscription, meaning that you do not need to set credentials for every web site you create. Click OK.
 
-8.  On the follow-up screen, it should show you the Git URL to push to,
-    something like this:
+8.  On the follow-up screen, it should show you the Git URL to push to, something like this:
 
 	`https://azatazure@azat.scm.azurewebsites.net/azat.git`
 
-	You will also see instructions on how to proceed with deployment. We'll
-	cover them later.
+	You will also see instructions on how to proceed with deployment. We'll cover them later.
 
-9.  Advanced user option: Follow this tutorial to create a virtual
-    machine and install MongoDB on it: [Install MongoDB on a virtual
-    machine running CentOS Linux in Microsoft Azure](https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm) (https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm).
+9.  Advanced user option: Follow this tutorial to create a virtual machine and install MongoDB on it: [Install MongoDB on a virtual machine running CentOS Linux in Microsoft Azure](https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm) (https://www.windowsazure.com/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm). TK
 
 
 Heroku
 ------
 
-Heroku is a polyglot agile application deployment platform (see
-<http://www.heroku.com>). Heroku works similarly to Microsoft Azure in
-the sense that you can use Git to deploy applications. There is no need
-to install Virtual Machine for MongoDB because [Heroku has a MongoHQ
-add-on](https://addons.heroku.com/mongohq)
-(https://addons.heroku.com/mongohq).
+Heroku is a polyglot agile application deployment platform (see <https://www.heroku.com>). Heroku works similarly to Microsoft Azure in the sense that you can use Git to deploy applications. There is no need to install Virtual Machine for MongoDB because [Heroku has a MongoHQ add-on](https://addons.heroku.com/mongohq) (https://addons.heroku.com/mongohq). TK
 
 To set up Heroku, follow these steps:
 
-1.  Sign up at <http://heroku.com>. Currently they have a free account;
-    to use it, select all options as minimum (0) and database as shared.
+1.  Sign up at <https://heroku.com>. Currently they have a free account; to use it, select all options as minimum (0) and database as shared.
 
-2.  Download Heroku Toolbelt at (https://toolbelt.heroku.com) Toolbelt
-    is a package of tools; that is, libraries that consist of Heroku,
-    Git, and Foreman ( <https://github.com/ddollar> foreman). For users
-    of older Macs, get this client ( <https://github.com/heroku/heroku> )
-    directly. If you utilize another OS, browse Heroku Client
-    GitHub (https://github.com/heroku/heroku) .
+2.  Download Heroku Toolbelt at (https://toolbelt.heroku.com) TK.  Toolbelt is a package of tools; that is, libraries that consist of Heroku, Git, and Foreman (<https://github.com/ddollar/foreman>). For users of older Macs, get this client (<https://github.com/heroku/heroku>) TK directly. If you utilize another OS, browse Heroku Client GitHub (<https://github.com/heroku/heroku>) TK.
 
-3.  After the installation is done, you should have access to the
-    heroku command. To check it and log in to Heroku, type:
+3.  After the installation is done, you should have access to the `heroku` command. To check it and log in to Heroku, type:
 
 	`$ heroku login`
 
-	It will ask you for Heroku credentials (user name and password), and if
-	you've already created the SSH key, it will automatically upload it to
-	the Heroku web site (Figure 2-15).
+	It will ask you for Heroku credentials (user name and password), and if	you've already created the SSH key, it will automatically upload it to	the Heroku web site (Figure 2-9).
 
 	![](media/image19.png)
 
-	***Figure 2-15.** The response to the successful $ heroku login command*
+	***Figure 2-9.** The response to the successful $ heroku login command*
 
-4.  If everything went well, to create a Heroku application inside of
-    your specific project folder, you should be able to run this
-    command:
+4.  If everything went well, to create a Heroku application inside of your specific project folder, you should be able to run this command:
 
 	`$ heroku create`
 
 
-
-More [^1]detailed step-by-step instructions are available at Heroku:
-Quickstart ( <https://devcenter.heroku.com> articles/quickstart ) and
-Heroku: Node.js ( <https://devcenter.heroku.com/articles/nodejs>).
+More instructions for getting started with Node.js and other languages are available from Heroku at <https://devcenter.heroku.com/start>.
 
 Summary
 =======
 
-In this chapter, we've covered the technical setup of the version
-control system, cloud clients as well as installed various tools and
-libraries. We'll use these libraries and tools in the books, for this
-reason it's important to have them installed and ready to go. In
-addition, the chapter provided a few links to external resources which
-can make you understand and learn web development tools better. One of
-the most useful of such resources is DevTools.
+In this chapter, we've covered the technical setup of the version control system, cloud clients, and the installation of various tools and libraries. We'll use these libraries and tools throughout the book, for this reason it's important to have them installed and ready to go. In addition, the chapter provided a few links to external resources that will help you understand and learn web development tools better. One of the most useful of such resources is DevTools.
 
-You must be dying to get started with the actual coding. The wait is
-over. Meet the first fullstack JavaScript code in the next chapter.
+You must be dying to get started with the actual coding. The wait is over. Meet the first full stack JavaScript code in the next chapter.
