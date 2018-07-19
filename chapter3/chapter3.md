@@ -9,8 +9,7 @@ Getting Data from Backend Using jQuery and Parse
 > other way is to make it so complicated that there are no obvious
 > deficiencies. The first method is far more difficult.*
 >
-> — [Tony
-> Hoare](http://en.wikipedia.org/wiki/Charles_Antony_Richard_Hoare)
+> — [Tony Hoare](http://en.wikipedia.org/wiki/Charles_Antony_Richard_Hoare)
 
 This chapter covers the following topics:
 
@@ -26,7 +25,7 @@ This chapter covers the following topics:
 
 -   Parse overview
 
--   Explanations on how to build a Message Board front-end only
+-   Explanations on how to build a Message Board front-end-only
     application with jQuery and Parse
 
 -   Step-by-step instructions on deployment to Microsoft Azure and Heroku
@@ -38,7 +37,7 @@ covers things important to front-end development of apps such as Twitter
 Bootstrap and Less. These amazing libraries allow developers to have a
 nice user interface in no time.
 
-It covers the terminology and explains JSON, AJAX, and CORS. We then
+This chapter also covers the terminology and explains JSON, AJAX, and CORS. We then
 explore the example of a weather app.
 
 We use Parse as our back end to streamline things and make
@@ -62,10 +61,8 @@ Here is the definition of JavaScript Object Notation (JSON) from
 > JavaScript Object Notation, or JSON, is a lightweight data-interchange
 > format. It is easy for humans to read and write. It is easy for
 > machines to parse and generate. It is based on a subset of the
-> JavaScript Programming Language, [Standard ECMA-262 3rd Edition -
-> December
-> 1999](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf)
-> ([www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf)).
+> JavaScript Programming Language, [Standard ECMA-262](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf)
+> (<http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf>).
 >
 > JSON is a text format that is completely language independent but uses
 > conventions that are familiar to programmers of the C-family of
@@ -90,7 +87,7 @@ are on the right side of colons (`:`). In computer science terminology,
 JSON is equivalent to a hash table, a keyed list, or an associative
 array (depending on the particular language). The only big difference
 between JSON and JS object literal notation (native JS objects) is that
-the former is more stringent and requires double quotes (`"`) for key
+JSON is more stringent and requires double quotes (`"`) for key
 identifiers and string values. Both types can be serialized into a
 string representation with `JSON.stringify()` and deserialized with
 `JSON.parse()`, assuming we have a valid JSON object in a string
@@ -117,16 +114,14 @@ another object; for example:
 ```
 
 In this example, we have an object with the `posts` property. The
-value of the `posts` property is an array of objects with each one of
-them having `title`, `votes`, and `comments` keys. The `votes` property
-holds a number primitive, whereas `comments` is an array of strings. We cannot have function as fields. JSON is strictly a data structure. (We can have function in JS objects though.)
+value of the `posts` property is an array of objects, each of which has `title`, `votes`, and `comments` keys. The `votes` property
+holds a number primitive, whereas `comments` is an array of strings. We cannot have functions as fields. JSON is strictly a data structure. (We can have functions in JS objects though.)
 
 JSON is much more flexible and compact than XML or other data formats,
-as outlined in this article: [JSON: The Fat-Free Alternative to
-XML](http://www.json.org/xml.html) (www.json.org/xml.html).
+as outlined in this article: ["JSON: The Fat-Free Alternative to
+XML"](http://www.json.org/xml.html) (www.json.org/xml.html).
 Conveniently, MongoDB uses a JSON-like format called Binary JSON
-(`http://bsonspec.org`) (BSON), discussed further in BSON later in
-Chapter 7.
+(<http://bsonspec.org>) (BSON), discussed further in the Chapter 7 section BSON.
 
 AJAX
 ----
@@ -143,17 +138,14 @@ tag inclusion.
 Cross-Domain Calls
 ------------------
 
-For security reasons, the initial implementation of an XMLHTTPRequest
-object did not allow for cross-domain calls, when a client-side code and
-a server-side one are on different domains. There are methods to work
-around this issue.
+For security reasons, the implementation of an `XMLHTTPRequest` object does not allow for cross-domain calls, that is when a client-side code and a server-side one are on different domains. There are methods to work around this issue.
 
 One of them is to use [JSONP](http://en.wikipedia.org/wiki/JSONP)
 (http://en.wikipedia.org/wiki/JSONP), JSON with padding/prefix. It's
-basically a dynamic manipulation via DOM generated `<script>` tag.
-Script tags don't fall into the same domain limitation. The JSONP
+basically a dynamic manipulation via DOM-generated `<script>` tags.
+The `<script>` tags don't fall into the same domain limitation. The JSONP
 request includes the name of a callback function in a request query
-string. For example, the `jQuery.ajax() function` automatically
+string. For example, the `jQuery.ajax()` function automatically
 generates a unique function name and appends it to the request (which is
 one string broken into multiple lines for readability):
 
@@ -164,29 +156,25 @@ one string broken into multiple lines for readability):
       &callback=jQuery16207184716751798987_1368412972614&_=1368412984735
 
 The second approach is to use cross-origin resource sharing
-([CORS](http://www.w3.org/TR/cors) (<http://www.w3.org/TR/cors>),
+([CORS](http://www.w3.org/TR/cors): <http://www.w3.org/TR/cors>),
 which is a better solution, but it requires control over the server side
 to modify response headers. We use this technique in the final version
-of the Message Board example application. Here is an example of a CORS
-server response header:
+of the Message Board example application, which we build throughout the book. Here is an example of a CORS server response header:
 
     Access-Control-Allow-Origin: *
 
-More about CORS is available at [Resources by Enable
-CORS](http://enable-cors.org/resources.html)
-(http://enable-cors.org/resources.html) and Using CORS by HTML5 Rocks
-Tutorials (`http://www.html5rocks.com/en/tutorials/cors/`). You can test
-CORS requests at
-[`test-cors.org`](http://client.cors-api.appspot.com/client).
+More about CORS is available on the [Resources tab of the Enable CORS website](https://enable-cors.org/resources.html)
+(<https://enable-cors.org/resources.html>) and in the article "Using CORS" by Monsur Hossain (<https://www.html5rocks.com/en/tutorials/cors>). You can test
+CORS requests at <http://test-cors.org>.
+
+If some server does not support CORS but you want to use its API, then you can use this amazing proxy service <https://cors-anywhere.herokuapp.com>. To use it, simple append your non-CORS API URL to the <https://cors-anywhere.herokuapp.com/>. For example, to fetch the weather forecast Montevideo, Uruguay via the proxy, use this URL in `fetch()`, `XHR` or other browser library (won't work when just navigating in the browser and may not work because of the invalidated API key in the future): <https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?q=montevideo,uy&appid=cb7c76071b4d2f7f2baf9dd426181785&units=metric>
 
 jQuery Functions
 ================
 
-During the training we'll be using jQuery
-([http://jquery.com](http://jquery.com)) for DOM manipulations, HTTP
-Requests, and JSONP calls. jQuery became a de facto standard because of
-its `$` object or function, which provides a simple yet efficient way to
-access any HTML DOM element on a page by its ID, class, tag name,
+Throughout the book we'll be using jQuery
+(<http://jquery.com>) for DOM manipulations, HTTP
+Requests, and JSONP calls. React is a more modern technology and I wrote one of the biggest and most comprehensive books on it called React Quickly (Manning, 2017). But jQuery is still very popular and wide-spread. I can even say that jQuery became a de facto standard of the web development because of a straightforward yet versatile and powerful API and a rich collection of UI widgets. jQuery uses the `$` object or function, which is a selector and which provides a simple yet efficient way to access any HTML DOM element on a page by its ID, class, tag name,
 attribute value, structure, or any combination thereof. The syntax is
 very similar to CSS, where we use `#` for id and `.` for class
 selection. For example:
@@ -195,46 +183,21 @@ selection. For example:
     $('p.large').attr('style','color:red')
     $('#main').show().html('<div>new div</div>')
 
-Here is the list of most commonly used jQuery API functions:
+Here is the list of most commonly used jQuery API functions, full description for which are available at <http://api.jquery.com>:
 
--   `find()(http://api.jquery.com/find)`: Selects elements based on
-    the provided selector string
-
--   `hide()(http://api.jquery.com/hide)`: Hides an element if it was
-    visible
-
--   `show()(http://api.jquery.com/show)`: Shows an element if it was
-    hidden
-
--   `html()(http://api.jquery.com/html)`: Gets or sets an inner HTML
-    of an element
-
--   `append()(http://api.jquery.com/append)` Injects an element into
-    the DOM after the selected element
-
--   `prepend()(http://api.jquery.com/prepend)` Injects an element
-    into the DOM before the selected element
-
--   `on()(http://api.jquery.com/on)`: Attaches an event listener to an
-    element
-
--   `off()(http://api.jquery.com/off)` Detaches an event listener from
-    an element
-
--   `css()(http://api.jquery.com/css)`: Gets or sets the style
-    attribute value of an element
-
--   `attr()(http://api.jquery.com/attr)` Gets or sets any attribute
-    of an element
-
--   `val()(http://api.jquery.com/val)`: Gets or sets the value
-    attribute of an element
-
--   `text()(http://api.jquery.com/text)`: Gets the combined text of
-    an element and its children
-
--   `each()(http://api.jquery.com/each)`: Iterates over a set of
-    matched elements
+-   `find()`: Selects elements based on the provided selector string
+-   `hide()` Hides an element if it was visible
+-   `show()` Shows an element if it was hidden
+-   `html()` Gets or sets an inner HTML (content) of an element
+-   `append()` Injects an element into the DOM after the selected element
+-   `prepend()` Injects an element into the DOM before the selected element
+-   `on()` Attaches an event listener to an element
+-   `off()` Detaches an event listener from an element
+-   `css()` Gets or sets the style attribute value of an element
+-   `attr()` Gets or sets any attribute of an element
+-   `val()` Gets or sets the value attribute of an element
+-   `text()` Gets the combined text of an element and its children
+-   `each()` Iterates over a set of matched elements
 
 Most jQuery functions act not only on a single element, on which they
 are called, but on a set of matched elements if the result of the
@@ -247,15 +210,10 @@ rich user interface or other functionality. For example:
 -   [jQuery UI](http://jqueryui.com/) (http://jqueryui.com)
 -   [jQuery Mobile](http://jquerymobile.com/) (http://jquerymobile.com)
 
-Twitter Bootstrap
+Bootstrap
 =================
 
-<span id="OLE_LINK26" class="anchor"><span id="OLE_LINK27"
-class="anchor"></span></span>Supplemental video which walks you through
-the implementation and demonstrates the project: <http://bit.ly/1RKx9uY>.
-
-[Twitter Bootstrap](http://getbootstrap.com) (http://getbootstrap.com)
-is a collection of CSS/Less rules and JavaScript plug-ins for creating a
+This section explains how to set up the Bootstrap scaffolding for the projects in the book. What is Bootstrap? [Bootstrap](http://getbootstrap.com) (<http://getbootstrap.com>), or Twitter Bootstrap, is a collection of CSS/Less rules and JavaScript plug-ins for creating a
 good user interface and user experience without spending a lot of time
 on such details as rounded-edge buttons, cross-compatibility,
 responsiveness, and so on. This collection or framework is perfect for
@@ -264,7 +222,7 @@ customized, Twitter Bootstrap is also a good foundation for serious
 projects. The source code is written in [Less](http://lesscss.org)
 (http://lesscss.org), but plain CSS can be downloaded and used as well.
 
-Here is a simple example of using Twitter Bootstrap scaffolding for the
+Here is a simple example of using Bootstrap scaffolding for the
 version v4.0.0-alpha. The structure of the project should look like
 this:
 
@@ -313,21 +271,19 @@ Apply scaffolding with `container-fluid` and `row-fluid` classes:
         </div>  *<!-- container-fluid -->*
       </body>
 
-Twitter Bootstrap uses a 12-column grid. The size of an individual cell
-could be specified by classes `spanN`, for example, `span1`, `span2`,
-`span12`. There are also classes `offsetN`, for example, `offset1`,
-`offset2`, ... `offset12`, to move cells to the right. A complete
-reference is available at
-[`http://twitter.github.com/bootstrap/scaffolding.html`](http://twitter.github.com/bootstrap/scaffolding.html).
+Bootstrap uses a 12-column grid. The size of an individual cell
+could be specified by classes `col-size-N`, for example, `col-sm-1`, `col-lg-1`,
+`col-md-6`. There are also classes `offset-size-N`, for example, `offset-md-3`,
+`offset-lg-1`, ... `offset-sm-6`, to move cells to the right.
 
-We'll use the `span12` and `hero-unit` classes for the main content
+We'll use the `col-md-12` and `hero-unit` classes for the main content
 block:
 
       <div class="row-fluid">
-         <div class="span12">
+         <div class="col-md-12">
             <div id="content">
               <div class="row-fluid">
-                <div class="span12">
+                <div class="col-md-12">
                   <div class="hero-unit">
                     <h1>
                       Welcome to Super
@@ -348,10 +304,10 @@ block:
                       </a>
                     </p>
                   </div>  *<!-- hero-unit -->*
-                </div>  *<!-- span12 -->*
+                </div>  *<!-- col-md-12 -->*
               </div> *<!-- row-fluid -->*
           </div>  *<!-- content -->*
-        </div> *<!-- span12 -->*
+        </div> *<!-- col-md-12 -->*
       </div>  *<!-- row-fluid -->*
 
 This is the full source code of the `index.html` from
@@ -365,19 +321,19 @@ This is the full source code of the `index.html` from
       <body >
         <div class="container-fluid">
           <div class="row-fluid">
-            <div class="span12">
+            <div class="col-md-12">
               <div id="content">
                 <div class="row-fluid">
-                  <div class="span12">
+                  <div class="col-md-12">
                     <div class="hero-unit">
                       <h1>Welcome to Super Simple Backbone Starter Kit</h1>
                       <p>This is your home page. To edit it just modify <i>index.html</i> file!</p>
                       <p><a class="btn btn-primary btn-large" href="http://twitter.github.com/bootstrap" target="_blank" >Learn more </a></p>
                     </div>  *<!-- hero-unit -->*
-                  </div>  *<!-- span12 -->*
+                  </div>  *<!-- col-md-12 -->*
                 </div> *<!-- row-fluid -->*
               </div>  *<!-- content -->*
-            </div> *<!-- span12 -->*
+            </div> *<!-- col-md-12 -->*
           </div>  *<!-- row-fluid -->*
         </div>  *<!-- container-fluid -->*
       </body>
@@ -1027,10 +983,10 @@ element. We'll use it to enter JSON:
     <body>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span12">
+                <div class="col-md-12">
                     <div id="content">
                         <div class="row-fluid">
-                            <div class="span12">
+                            <div class="col-md-12">
                                 <div class="hero-unit">
                                     <h1>Parse JavaScript SDK demo</h1>
                                     <textarea cols="60" rows="7">{
@@ -1049,10 +1005,10 @@ Parse:
                                     <pre class="log"></pre>
                                     Go to <a href="http://parseplatform.org/" target="_blank">Parse</a> to check the data.
                                 </div>  *<!-- hero-unit -->*
-                            </div>  *<!-- span12 -->*
+                            </div>  *<!-- col-md-12 -->*
                         </div> *<!-- row-fluid -->*
                     </div>  *<!-- content -->*
-                </div> *<!-- span12 -->*
+                </div> *<!-- col-md-12 -->*
             </div>  *<!-- row-fluid -->*
         </div>  *<!-- container-fluid -->*
       </body>

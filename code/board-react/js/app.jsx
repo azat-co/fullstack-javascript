@@ -12,7 +12,7 @@ var Footer = React.createClass({
       <div>
         <hr />
         <div className="row-fluid">
-          <div className="span12">
+          <div className="col-md-12">
             <div>Rapid Prototyping with JavaScript and NodeJS (<a href="http://twitter.com/azatmardan">@azatmardan</a>)</div>
           </div>
         </div>
@@ -32,7 +32,7 @@ var MessageList = React.createClass({
       </tr>
     )
     return (
-      <div className="span12">
+      <div className="col-md-12">
         <table className="table table-bordered table-striped">
           <caption>Chat</caption>
           <thead>
@@ -70,7 +70,7 @@ var NewMessage = React.createClass({
   render: function(){
     return (
       <div className="row-fluid" id="new-message">
-        <div className="span12">
+        <div className="col-md-12">
           <form className="well form-inline" >
             <input type="text" name="username" value="{this.state.}" className="input-small" placeholder="Username" ref="username"/>
             <input type="text" name="message" className="input-small" placeholder="Message Text" ref="message" />

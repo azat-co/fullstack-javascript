@@ -27,7 +27,7 @@ const Footer = React.createClass({
         { className: 'row-fluid' },
         cEl(
           'div',
-          { className: 'span12' },
+          { className: 'col-md-12' },
           cEl(
             'div',
             null,
@@ -62,7 +62,7 @@ const MessageList = React.createClass({
     );
     return cEl(
       'div',
-      { className: 'span12' },
+      { className: 'col-md-12' },
       cEl(
         'table',
         { className: 'table table-bordered table-striped' },
@@ -132,7 +132,7 @@ var NewMessage = React.createClass({
       { className: 'row-fluid', id: 'new-message' },
       cEl(
         'div',
-        { className: 'span12' },
+        { className: 'col-md-12' },
         cEl(
           'form',
           { className: 'well form-inline' },
@@ -160,7 +160,7 @@ const MessageBoard = React.createClass({
 
   componentWillMount() {
     const url = `${baseApiUrl}/messages.json`
-    
+
     $.getJSON(url, (result) => {
       // console.log(result)
       if (!result || !result || !result.length) {
@@ -169,7 +169,7 @@ const MessageBoard = React.createClass({
       // console.log(result)
       this.setState({ messages: result })
     })
-  
+
   },
 
   addMessage: function addMessage(message) {

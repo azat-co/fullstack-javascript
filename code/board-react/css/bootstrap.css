@@ -200,7 +200,7 @@ a:hover {
   width: 940px;
 }
 
-.span12 {
+.col-md-12 {
   width: 940px;
 }
 
@@ -328,7 +328,7 @@ a:hover {
   margin-left: 0;
 }
 
-.row-fluid .span12 {
+.row-fluid .col-md-12 {
   width: 99.99999998999999%;
   *width: 99.94680850063828%;
 }
@@ -997,9 +997,9 @@ textarea,
   margin-left: 0;
 }
 
-input.span12,
-textarea.span12,
-.uneditable-input.span12 {
+input.col-md-12,
+textarea.col-md-12,
+.uneditable-input.col-md-12 {
   width: 930px;
 }
 
@@ -1692,7 +1692,7 @@ table .span11 {
   margin-left: 0;
 }
 
-table .span12 {
+table .col-md-12 {
   float: none;
   width: 924px;
   margin-left: 0;

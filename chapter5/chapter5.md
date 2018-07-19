@@ -140,19 +140,19 @@ about it in the "Basics" chapter):
       <body>
       <div class="container-fluid">
         <div class="row-fluid">
-          <div class="span12">
+          <div class="col-md-12">
             <div id="header">
             </div>
           </div>
         </div>
         <div class="row-fluid">
-          <div class="span12">
+          <div class="col-md-12">
             <div id="content">
             </div>
           </div>
         </div>
         <div class="row-fluid">
-          <div class="span12">
+          <div class="col-md-12">
             <div id="footer">
             </div>
           </div>
@@ -322,10 +322,10 @@ Here is what `home.html` looks like:
 -   A new message form
 
 Let's use the Bootstrap library structure (with its responsive
-components) by assigning `row-fluid` and `span12` classes:
+components) by assigning `row-fluid` and `col-md-12` classes:
 
     <div class="row-fluid"  id="message-board">
-    <div class="span12">
+    <div class="col-md-12">
       <table class="table table-bordered table-striped">
         <caption>Message Board</caption>
         <thead>
@@ -383,7 +383,7 @@ For the new message form, we also use the `row-fluid` class and then
 add `<input>` elements:
 
     <div class="row-fluid"  id="new-message">
-      <div class="span12">
+      <div class="col-md-12">
         <form class="well form-inline">
 
 The input element must have the name `username` because that's how we
@@ -412,7 +412,7 @@ in the Backbone's events property on the `HomeView` class:
 For your convenience, here's the full code of the `home.html` template file:
 
     <div class="row-fluid"  id="message-board">
-    <div class="span12">
+    <div class="col-md-12">
       <table class="table table-bordered table-striped">
         <caption>Message Board</caption>
         <thead>
@@ -440,7 +440,7 @@ For your convenience, here's the full code of the `home.html` template file:
     </div>
     </div>
     <div class="row-fluid"  id="new-message">
-      <div class="span12">
+      <div class="col-md-12">
         <form class="well form-inline">
           <input type="text"
             name="username"

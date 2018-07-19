@@ -220,7 +220,7 @@
   .navbar-fixed-bottom .container {
     width: 724px;
   }
-  .span12 {
+  .col-md-12 {
     width: 724px;
   }
   .span11 {
@@ -319,7 +319,7 @@
   .row-fluid [class*="span"]:first-child {
     margin-left: 0;
   }
-  .row-fluid .span12 {
+  .row-fluid .col-md-12 {
     width: 99.999999993%;
     *width: 99.9468085036383%;
   }
@@ -372,9 +372,9 @@
   .uneditable-input {
     margin-left: 0;
   }
-  input.span12,
-  textarea.span12,
-  .uneditable-input.span12 {
+  input.col-md-12,
+  textarea.col-md-12,
+  .uneditable-input.col-md-12 {
     width: 714px;
   }
   input.span11,
@@ -456,7 +456,7 @@
   .navbar-fixed-bottom .container {
     width: 1170px;
   }
-  .span12 {
+  .col-md-12 {
     width: 1170px;
   }
   .span11 {
@@ -555,7 +555,7 @@
   .row-fluid [class*="span"]:first-child {
     margin-left: 0;
   }
-  .row-fluid .span12 {
+  .row-fluid .col-md-12 {
     width: 100%;
     *width: 99.94680851063829%;
   }
@@ -608,9 +608,9 @@
   .uneditable-input {
     margin-left: 0;
   }
-  input.span12,
-  textarea.span12,
-  .uneditable-input.span12 {
+  input.col-md-12,
+  textarea.col-md-12,
+  .uneditable-input.col-md-12 {
     width: 1160px;
   }
   input.span11,
