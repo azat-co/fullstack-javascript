@@ -242,13 +242,13 @@ A typical `package.json` file might look like this:
 While most of the properties in the `package.json` example above like
 `description` and `name` are self-explanatory, others deserve more
 explaining. The `dependencies` property is an object, and each item has the name on the
-left side and the version number on the right side. For example, this statement tells npm to use Express version 2.5.6 or lower (earlier):
+left side and the version number on the right side. For example, this statement tells npm to use Express.js version 2.5.6 or lower (earlier):
 
 ```js
 "express": "<= 2.5.6"
 ```
 
-The version can be exact (recommended). For example, this statement locks the version of Express at 2.5.6.:
+The version can be exact (recommended). For example, this statement locks the version of Express.js at 2.5.6.:
 
 ```js
 "express": "2.5.6,"
