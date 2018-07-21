@@ -6,10 +6,7 @@ CHAPTER 7
 Intro to MongoDB
 ================
 
-> *What is Oracle? A bunch of people. And all of our products were just
-> ideas in the heads of those people - ideas that people typed into a
-> computer, tested, and that turned out to be the best idea for a
-> database or for a programming language.*
+> *What is Oracle? A bunch of people. And all of our products were just ideas in the heads of those people - ideas that people typed into a computer, tested, and that turned out to be the best idea for a database or for a programming language.*
 >
 > — [Larry Ellison](https://en.wikipedia.org/wiki/Larry_Ellison)
 
@@ -39,17 +36,19 @@ For the MongoDB shell, or `mongo`, launch in a new terminal window (**important!
 
 `$ ./bin/mongo`
 
-You should see something like this, depending on your version of the
-MongoDB shell (`$ mongo --version` or after `$ mongo`):
+You should see something like this, depending on your version of the MongoDB shell (`$ mongo --version` or after `$ mongo`):
 
-`MongoDB shell version: 3.0.6`
-`connecting to: test`
+```
+MongoDB shell version: 3.0.6
+connecting to: test
+```
 
-To test the database, use the JavaScript-like interface and commands
-`save` and `find`:
+To test the database, use the JavaScript-like interface and commands `save` and `find`:
 
-`> db.test.save( { a: 1 } )`
-`> db.test.find()`
+```
+> db.test.save( { a: 1 } )
+> db.test.find()
+```
 
 Again, more detailed step-by-step instructions are available in the "Database: MongoDB" section of Chapter 2.
 
@@ -154,9 +153,7 @@ const util = require('util')
 const mongodb = require ('mongodb')
 ```
 
-This is one of the ways to establish a connection to the MongoDB server in
-which the `db` variable will hold a reference to the database at a specified
-host and port:
+This is one of the ways to establish a connection to the MongoDB server in which the `db` variable will hold a reference to the database at a specified host and port:
 
 ```js
 const Db = mongodb.Db
@@ -177,9 +174,7 @@ db.open((error, connection) => {
 })
 ```
 
-To check that we have the connection, we need to handle `error`. Also,
-let's get the admin object with `db.admin()` and fetch the list of
-databases with `listDatabases()`:
+To check that we have the connection, we need to handle `error`. Also, let's get the admin object with `db.admin()` and fetch the list of databases with `listDatabases()`:
 
 ```js
 const db = new Db ('test', new Server(host, port, {}))
@@ -200,8 +195,7 @@ If we run it with `$ node app.js`, it should output "connected" in the terminal.
 console.log(util.inspect(db))
 ```
 
-Now you might want to set up the database in the cloud and test the
-connection from your Node.js script.
+Now you might want to set up the database in the cloud and test the connection from your Node.js script.
 
 MongoDB on Heroku: MongoLab
 ==================================================================================================================================
@@ -214,23 +208,25 @@ In order to connect to the database server, there is a database connection URL (
 
 The database connection string `MONGOLAB_URI` has the following format:
 
-    mongodb://user:pass@server_NAME.mongolab.com:PORT/db_name
+```
+mongodb://user:pass@server_NAME.mongolab.com:PORT/db_name
+```
 
-You could either copy the MongoLab URL string from the Heroku web site
-(and hard-code it) or get the string from the Node.js `process.env`
-object:
+You could either copy the MongoLab URL string from the Heroku web site (and hard-code it) or get the string from the Node.js `process.env` object:
 
-`process.env.MONGOLAB_URI`
+```js
+process.env.MONGOLAB_URI
+```
 
 or
 
-`const connectionUri = url.parse(process.env.MONGOLAB_URI)`
+```js
+const connectionUri = url.parse(process.env.MONGOLAB_URI)
+```
 
 The global object `process` gives access to environment variables via `process.env`. Heroku and Heroku add-ons like mLabs use these environment variables to pass database host names and ports, passwords, API keys, port numbers, and other system information that shouldn't be hard-coded into the main logic.
 
-To make our code work both locally and on Heroku, we can use the logical
-OR operator `||` and assign a local host and port if environment
-variables are undefined:
+To make our code work both locally and on Heroku, we can use the logical OR operator `||` and assign a local host and port if environment variables are undefined:
 
 ```js
 const port = process.env.PORT || 1337
@@ -260,12 +256,9 @@ client.connect(dbConnUrl, {}, (error, db) => {
 })
 ```
 
-Following the modification of `app.js` by addition of `MONGOLAB_URI`, we
-can now initialize the Git repository, create a Heroku app, add the MongoLab
-add-on to it, and deploy the app with Git.
+Following the modification of `app.js` by addition of `MONGOLAB_URI`, we can now initialize the Git repository, create a Heroku app, add the MongoLab add-on to it, and deploy the app with Git.
 
-Utilize the same steps as in the previous examples to create a new Git
-repository:
+Utilize the same steps as in the previous examples to create a new Git repository:
 
 ```
 $ git init
@@ -291,13 +284,9 @@ Add-ons work on a per app basis not on a per account basis. To install the free 
 $ heroku addons:create mongolab:sandbox
 ```
 
-Or log on to Heroku (<https://elements.heroku.com/addons/mongolab>) with
-your Heroku credentials and choose MongoLab Free for that particular
-Heroku app, if you know the name of that app.
+Or log on to Heroku (<https://elements.heroku.com/addons/mongolab>) with your Heroku credentials and choose MongoLab Free for that particular Heroku app, if you know the name of that app.
 
-The project folder needs to have `Procfile` and `package.json`. You can
-copy them from
-https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect-heroku.
+The project folder needs to have `Procfile` and `package.json`. You can copy them from `code/07-db-connect-heroku` or <http://bit.ly/2LeezQT>.
 
 Now you can push your code to Heroku with:
 
@@ -325,8 +314,7 @@ So far you have implemented a local `app.js` file (`code/07-db-connect/app.js` o
 
 Let's enhance the latest `app.js` file by adding an HTTP server. After you get the `app.js` and the modified `app.js` files working, you modify the `app.js` to add a server so that the "connected" message will be displayed in the browser instead of the terminal window. To do so, we'll wrap the server object instantiation in a database connection callback. The final implementation is in the file `code/07-db-server/app.js` or at the book's GitHub repository: <http://bit.ly/2LcTd6K>.
 
-Supplemental video which walks you through the implementation and
-demonstrates the project: <http://bit.ly/1Qnrmwr>.
+Supplemental video which walks you through the implementation and demonstrates the project: <http://bit.ly/1Qnrmwr>.
 
 ```js
 const util = require('util')
@@ -479,9 +467,7 @@ If you would like to use another domain name instead of http://your-app-name.her
 
 Custom domains will hide the fact that your application is hosted on Heroku. For more information on custom domains can be found at <https://devcenter.heroku.com/articles/custom-domains>.
 
-**Tip** For more productive and efficient development we should automate as
-much as possible; that is, use tests instead of CURL commands Use HTTP libraries such as `axios`, `superagent` or `request` to test your REST APIs. They are a timesaver for such tasks. There is
-a chapter on the Mocha library and Node.js testing in my other best-selling book *Practical Node.js, 2nd Edition* (Apress, 2018): <http://bit.ly/2LdCNL3> and <https://github.com/azat-co/practicalnode>.
+**Tip** For more productive and efficient development we should automate as much as possible; that is, use tests instead of CURL commands Use HTTP libraries such as `axios`, `superagent` or `request` to test your REST APIs. They are a timesaver for such tasks. There is a chapter on the Mocha library and Node.js testing in my other best-selling book *Practical Node.js, 2nd Edition* (Apress, 2018): <http://bit.ly/2LdCNL3> and <https://github.com/azat-co/practicalnode>.
 
 Summary
 =======
