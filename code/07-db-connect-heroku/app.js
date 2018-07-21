@@ -10,10 +10,10 @@ const dbConnUrl = process.env.MONGOLAB_URI ||
 console.log('db server: ', dbConnUrl)
 
 client.connect(dbConnUrl, {}, (error, db) => {
-	console.log('error: ', error)
-	db.listCollections().toArray((err, collections) => {
+  console.log('error: ', error)
+  db.listCollections().toArray((err, collections) => {
     console.log('error: ', error)
-		console.log('collections: ', collections)
+    console.log('collections: ', collections)
     db.close()
-	})
+  })
 })

@@ -15,207 +15,147 @@ Intro to MongoDB
 
 In this chapter, we'll explore the following topics:
 
--   MongoDB Shell
-
--   MongoDB Native Driver for Node.js
-
+-   MongoDB shell
+-   MongoDB Native Node.js Driver
 -   MongoDB on Heroku with MongoLab
+-   Message Board: MongoDB version
 
--   Message Board: MongoDB Version
+MongoDB is a NoSQL document-store database. It is scalable and performant. It has no schema so all the logic and relationships are implemented in the application layer. You can use object-document mappers (ODMs) like Waterline or Mongoose for that schema, validation and business logic implementation in Node.js.
 
-MongoDB is a NoSQL document-store database. It is scalable and
-performant. It has no schema so all the logic and relationships are
-implemented in the application layer. You can use ODMs like Waterline or
-Mongoose for that. MongoDB uses JavaScript interface, which completes
-the full stack JavaScript stack puzzle of browser, server, and the
-database layers. With MongoDB we can use one language for all three
-layers. The easiest way to get started with MongoDB is to use its shell,
-a.k.a. REPL (read-eval-print-loop).
+What's good about MongoDB in addition to its scaling and performance is that MongoDB uses a JavaScript interface, which completes the full stack JavaScript stack puzzle of browser, server, and the database layers. With MongoDB we can use one language for all three layers. The easiest way to get started with MongoDB is to use its shell, a.k.a. REPL (read-eval-print-loop).
 
 <span id="mongodb-shell" class="anchor"><span id="shell" class="anchor"></span></span>MongoDB Shell
 ===================================================================================================
 
-If you haven't done so already, please install the latest version of
-MongoDB from [mongodb.org/downloads](http://www.mongodb.org/downloads).
-For more instructions, please refer to the Database:MongoDB section in
-Chapter 2. You might have to create a data folder per instructions.
+If you haven't done so already, please install the latest version of MongoDB from <https://www.mongodb.com/download-center>. For more instructions, please refer to the "Database: MongoDB" section in Chapter 2. You might have to create a data folder per the instructions.
 
-Now from the folder where you unpacked the archive, launch the `mongod`
-service with:
+Now from the folder where you unpacked the archive, launch the `mongod` service with:
 
 `$ ./bin/mongod`
 
-You should be able to see information in your terminal and in the
-browser at localhost:28017.
+You should be able to see information in your terminal and in the browser at localhost:28017.
 
-For the MongoDB shell, or `mongo`, launch in a new terminal window
-(**important!**), and at the same folder this command:
+For the MongoDB shell, or `mongo`, launch in a new terminal window (**important!**) and at the same folder this command:
 
 `$ ./bin/mongo`
 
 You should see something like this, depending on your version of the
-MongoDB shell:
+MongoDB shell (`$ mongo --version` or after `$ mongo`):
 
-`MongoDB shell version: 2.0.6`  
+`MongoDB shell version: 3.0.6`
 `connecting to: test`
 
 To test the database, use the JavaScript-like interface and commands
 `save` and `find`:
 
-`> db.test.save( { a: 1 } )`  
+`> db.test.save( { a: 1 } )`
 `> db.test.find()`
 
-More detailed step-by-step instructions are available in the
-Database:MongoDB section of Chapter 2.
+Again, more detailed step-by-step instructions are available in the "Database: MongoDB" section of Chapter 2.
 
-Some other useful MongoDB shell commands from MongoDB and Mongoose
-cheatsheet (<https://gum.co/mongodb/git-874e6fb4>):
+The following are some other useful MongoDB shell commands, which I've referenced in a MongoDB and Mongoose cheatsheet that you can download in PDF for free at <https://gum.co/mongodb/git-874e6fb4> or view online at <http://bit.ly/2LatWtP>. Here's the short version of the reference:
 
--   `> show dbs`: show databases on the server
+-   `> show dbs`: Show databases on the server
+-   `> use DB_NAME`: Select database `DB_NAME`
+-   `> show collections`: Show collections in the selected database
+-   `> db.COLLECTION_NAME.find()`: Perform the find query on collection with the `COLLECTION_NAME` name to find any items
+-   `> db.COLLECTION_NAME.find({"_id": ObjectId("549d9a3081d0f07866fdaac6")})`: Perform the find query on collection with the `COLLECTION_NAME` name to find item with ID `549d9a3081d0f07866fdaac6`
+-   `> db.COLLECTION_NAME.find({"email": /gmail/})`: Perform the find query on collection with the `COLLECTION_NAME` name to find items with e-mail property matching `/gmail/` regular expression, e.g., `bob@gmail.com` or `john@gmail.in`
+-   `> db.COLLECTION_NAME.update(QUERY_OBJECT, SET_OBJECT)`: Perform the update query on collection with the `COLLECTION_NAME` name to update items that match `QUERY_OBJECT` with `SET_OBJECT`
+-   `> db.COLLECTION_NAME.remove(QUERY_OBJECT)`: Perform remove query for items matching QUERY_OBJECT criteria on the `COLLECTION_NAME` collection
+-   `> db.COLLECTION_NAME.insert(OBJECT)`: Add `OBJECT` to the collection with the COLLECTION_NAME name
 
--   `> use DB_NAME`: select database `DB_NAME`
+So starting from a fresh shell session, you can execute these commands to create a document, change it, and remove it:
 
--   `> show collections`: show collections in the selected database
-
--   `> db.COLLECTION_NAME.find()`: perform the find query on
-    collection with the COLLECTION_NAME name to find any items
-
--   `> db.COLLECTION_NAME.find({"_id": ObjectId("549d9a3081d0f07866fdaac6")})`:
-    perform the find query on collection with the COLLECTION_NAME name
-    to find item with ID 549d9a3081d0f07866fdaac6
-
--   `> db.COLLECTION_NAME.find({"email": /gmail/})`: perform the
-    find query on collection with the COLLECTION_NAME name to find
-    items with e-mail property matching `/gmail/` regular expression, e.g., bob@gmail.com or john@gmail.in 
-
--   `> db.COLLECTION_NAME.update(QUERY_OBJECT, SET_OBJECT)`: perform
-    the update query on collection with the COLLECTION_NAME name to
-    update items that match QUERY_OBJECT with SET_OBJECT
-
--   `> db.COLLECTION_NAME.remove(QUERY_OBJECT)`: perform remove
-    query for items matching QUERY_OBJECT criteria on the
-    COLLECTION_NAME collection
-
--   `> db.COLLECTION_NAME.insert(OBJECT)`: add OBJECT to the
-    collection with the COLLECTION_NAME name
-
-So starting from a fresh shell session, you can execute these commands
-to create a document, change it, and remove:
-
-`> help`  
-`> show dbs`  
-`> use board`  
-`> show collections`  
-`> db.messages.remove();`  
-`> var a = db.messages.findOne();`  
-`> printjson(a);`  
-`> a.message = "hi";`  
-`> a.name = "John";`  
-`> db.messages.save(a);`  
-`> db.messages.find({});`  
-`> db.messages.update({name: "John"},{$set: {message: "bye"}});`  
-`> db.messages.find({name: "John"});`  
+`> help`
+`> show dbs`
+`> use board`
+`> show collections`
+`> db.messages.remove();`
+`> var a = db.messages.findOne();`
+`> printjson(a);`
+`> a.message = "hi";`
+`> a.name = "John";`
+`> db.messages.save(a);`
+`> db.messages.find({});`
+`> db.messages.update({name: "John"},{$set: {message: "bye"}});`
+`> db.messages.find({name: "John"});`
 `> db.messages.remove({name: "John"});`
 
-You can download the MongoDB and Mongoose cheatsheet as a
-[PDF](https://gum.co/mongodb/fsjs-CB07C579)
-(https://gumroad.com/l/mongodb/fsjs-CB07C579\#) or view it
-[online](https://github.com/azat-co/cheatsheets/tree/master/mongodb-mongoose)
-at https://github.com/mongodb/node-mongodb-native/#data-types.
+MongoDB uses a special data format called BSON that has special types and one of them is Object ID. Let's cover it briefly next.
 
-A full overview of the MongoDB interactive shell is available at
-mongodb.org: [Overview – The MongoDB Interactive
-Shell](http://www.mongodb.org/display/DOCS/Overview+-+The+MongoDB+Interactive+Shell)
-(https://docs.mongodb.org/manual/tutorial/getting-started-with-the-mongo-shell/).
-
-BSON
+BSON Object ID
 ====
 
-Binary JSON, or BSON, is a special data type that MongoDB utilizes. It
-is like JSON in notation but has support for additional more
-sophisticated data types such as buffer or date.
+Binary JSON, or BSON, is a special data type that MongoDB utilizes. It is like JSON in notation but has support for additional, more sophisticated data types such as buffer or date.
 
-A word of caution about BSON: ObjectId in MongoDB is an equivalent to
-ObjectID in MongoDB Native Node.js Driver (i.e., make sure to use the
-proper case). Otherwise you'll get an error. More on the types:
-[ObjectId in MongoDB](http://www.mongodb.org/display/DOCS/Object+IDs)
-(http://www.mongodb.org/ display/DOCS/Object+IDs) vs [Data Types in
-MongoDB Native Node.js
-Drier](https://github.com/mongodb/node-mongodb-native/#data-types)
-(https://github.com/mongodb/node-mongodb-native/#data-types ). Example
-of Node.js code with mongodb.ObjectID() : collection.findOne({_id: new
-ObjectID(idString)}, console.log) // ok . On the other hand, in the
-MongoDB shell, we employ: db.messages.findOne({_id:ObjectId(idStr)}); .
+A word of caution about BSON's Object ID: `ObjectId` in MongoDB shell and many other MongoDB driver is an equivalent to `ObjectID` in MongoDB Native Node.js Driver. Make sure to use the proper case and don't confuse the two, otherwise you'll get an error.
+
+For example, in a Node.js code with the native driver use `ObjectID()`:
+
+```js
+const mongodb = require('mongodb')
+const ObjectID = mongodb.ObjectID
+collection.findOne({_id: new ObjectID(idString)}, console.log)
+```
+
+On the other hand, in the MongoDB shell and many other MongoDB libraries like Mongoose, we employ `ObjectId()`. The following is the MongoDB shell code:
+
+```
+db.messages.findOne({_id: ObjectId(idStr)});
+```
+
+The following is a Node.js code with Mongoose:
+
+```js
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
+const Car = new Schema({ driver: ObjectId })
+```
+
+**Note** Mongoose is a very powerful library for Node.js and MongoDB. It has validation, pre and post hooks, schemas and many more features. I wrote a whole chapter on Mongoose in my new book *Practical Node.js, 2nd Edition* (Apress, 2018). Get and read my book to learn more about Mongoose at: <http://bit.ly/2LdCNL3> and <https://github.com/azat-co/practicalnode>.
 
 MongoDB Native Driver
 =====================
 
-<span id="OLE_LINK26" class="anchor"><span id="OLE_LINK27"
-class="anchor"><span id="OLE_LINK36" class="anchor"><span
-id="nativedrive" class="anchor"></span></span></span></span>Supplemental
-video which walks you through the implementation and demonstrates the
-project: http://bit.ly/1QnqZSk.
-
-We'll use Node.js Native Driver for MongoDB
-(<https://github.com/christkv/node-mongodb-native>) to access MongoDB
-from Node.js applications. Full documentation is also available at
-<http://mongodb.github.com/node-mongodb-native/api-generated/db.html>.
-
-To install MongoDB Native driver for Node.js, use:
+We'll use MongoDB Native Node.js Driver (<https://github.com/christkv/node-mongodb-native>) to access MongoDB from Node.js applications. Full documentation is also available at <http://bit.ly/2Lao9UW>. To install MongoDB Native Node.js Driver , use:
 
 `$ npm install mongodb`
 
-More details are at <http://www.mongodb.org/display/DOCS/node.JS>.
+Keep in mind that the preceeding command is to install the driver library, not the database. I taught many workshops and in almost every one of them there would be a person who would confuse installing `mongodb` using npm with installing a database. Don't be this person. We need both, the database and the npm library. I already covered the database installation. If you have any issue with installing the driver, read the details are at <https://mongodb.github.io/node-mongodb-native>.
 
-Don't forget to include the dependency in the `package.json` file as
-well:
+Don't forget to include the dependency in the `package.json` file as well, either with `-SE` or manually, so that you have the file resembling this:
 
-```
-{  
-  "name": "node-example",  
+```json
+{
+  "name": "node-example",
   "version": "0.0.1",
   "dependencies": {
-    "mongodb":"",
+    "mongodb":"3.x",
     ...
   },
   "engines": {
-    "node": ">=0.6.x"
+    "node": ">=8.x"
   }
 }
 ```
 
-Alternatively, for your own development you could use other mappers,
-which are available as an extension of the Native Driver:
+Alternatively, for your own development you could use other mappers, which are available as an extension of the Native Driver:
 
--   [Mongoskin](https://github.com/guileen/node-mongoskin)
-    (<https://github.com/guileen/node-mongoskin>): a future layer for
-    node-mongodb-native
+-   `mongoskin` (<https://npmjs.org/node-mongoskin>): Future layer for `node-mongodb-native`
+-   `mongoose` (<https://npmjs.org/mongoose> and <http://mongoosejs.com>): Asynchronous JavaScript driver with optional support for modeling
+-   `mongolia` (<https://npmjs.org/mongolia>): Lightweight MongoDB ORM/driver wrapper
+-   `monk` (<https://npmjs.org/monk>): Tiny layer that provides simple yet substantial usability improvements for MongoDB usage within Node.js
 
--   [Mongoose](http://mongoosejs.com/) (http://mongoosejs.com/): an
-    asynchronous JavaScript driver with optional support for modeling
-
--   [Mongolia](https://github.com/masylum/mongolia)
-    (<https://github.com/masylum/mongolia>): a lightweight MongoDB
-    ORM/driver wrapper
-
--   [Monk](https://github.com/LearnBoost/monk)
-    (<https://github.com/Automattic/monk>): a tiny layer that provides
-    simple yet substantial usability improvements for MongoDB usage
-    within Node.js
-
-This small example will test if we can connect to local MongoDB instance
-from a Node.js script.
-
-After we install the library, we can include the `mongodb` library in
-our `app.js` file:
+This small example will test if we can connect to a local MongoDB instance from a Node.js script. Create a Node.js file `app.js`. After we install the library with npm, we can include the `mongodb` library in our `app.js` file:
 
 ```js
 const util = require('util')
 const mongodb = require ('mongodb')
 ```
 
-This is one of the ways to establish connection to the MongoDB server in
-which the db variable will hold reference to the database at a specified
+This is one of the ways to establish a connection to the MongoDB server in
+which the `db` variable will hold a reference to the database at a specified
 host and port:
 
 ```js
@@ -254,42 +194,24 @@ db.open((error, connection) => {
 })
 ```
 
-This code snippet is available at
-<https://github.com/mongodb/node-mongodb-native/#data-types>. If we run
-it, it should output "connected" in the terminal. When you're in doubt
-and need to check the properties of an object, there is a useful method
-in the `util` module:
+If we run it with `$ node app.js`, it should output "connected" in the terminal. When you're in doubt and need to check the properties of an object, there is a useful method in the `util` module:
 
-`console.log(util.inspect(db))`
+```js
+console.log(util.inspect(db))
+```
 
 Now you might want to set up the database in the cloud and test the
 connection from your Node.js script.
 
-<span id="mongodb-on-heroku-mongolab." class="anchor"><span id="mongolab" class="anchor"></span></span>MongoDB on Heroku: MongoLab
+MongoDB on Heroku: MongoLab
 ==================================================================================================================================
 
-<span id="OLE_LINK55" class="anchor"><span id="OLE_LINK56"
-class="anchor"></span></span>Supplemental video which walks you through
-the implementation and demonstrates the project: http://bit.ly/1Qnr8Fn.
 
-After you made your application that displays 'connected' work locally,
-it's time to slightly modify it and deploy to the platform as a service
-(i.e., Heroku).
+Now that you've made the application that displays "connected" work locally, it's time to slightly modify it and deploy it to the Heroku PaaS (cloud). The database will also be in the cloud. I recommend using the MongoLab add-on, which provides ready-to-use MongoDB instances that integrate well with Heroku apps (<https://elements.heroku.com/addons/mongolab>). MongoLab (or mLab) also has a very convenient browser-based GUI to look up and manipulate the data and collections.
 
-We recommend using the MongoLab add-on
-(https://elements.heroku.com/addons/mongolab). MongoLab add-on provides
-a browser-based GUI to look up and manipulate the data and collections.
-More information is available at
-<https://elements.heroku.com/addons/mongolab#docs>.
+**Note** You might have to provide your credit card information to use MongoLab even if you select the free version. You should not be charged for a free plan, though.
 
-Note: You might have to provide your credit card information to use
-MongoLab even if you select the free version. You should not be charged,
-though.
-
-In order to connect to the database server, there is a database
-connection URL (a.k.a. MongoLab URL/URI), which is a way to transfer all
-of the necessary information to make a connection to the database in one
-string.
+In order to connect to the database server, there is a database connection URL (a.k.a. MongoLab URL/URI), which is a way to transfer all of the necessary information to make a connection to the database in one string.
 
 The database connection string `MONGOLAB_URI` has the following format:
 
@@ -305,10 +227,7 @@ or
 
 `const connectionUri = url.parse(process.env.MONGOLAB_URI)`
 
-The global object process gives access to environment variables via
-`process.env`. Those variables conventionally used to pass database host
-names and ports, passwords, API keys, port numbers, and other system
-information that shouldn't be hard-coded into the main logic.
+The global object `process` gives access to environment variables via `process.env`. Heroku and Heroku add-ons like mLabs use these environment variables to pass database host names and ports, passwords, API keys, port numbers, and other system information that shouldn't be hard-coded into the main logic.
 
 To make our code work both locally and on Heroku, we can use the logical
 OR operator `||` and assign a local host and port if environment
@@ -320,60 +239,58 @@ const dbConnUrl = process.env.MONGOLAB_URI ||
   'mongodb://127.0.0.1:27017/test'
 ```
 
-Here is our updated cross-environment ready `app.js` file
-(https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect-heroku).
-I added a method to get the list of collections `listCollections`
-instead of getting the list of the databases (we have only one database
-in MongoLab right now):
+Here is our updated cross-environment-ready `app.js` file (<http://bit.ly/2LeezQT>). I added a method to get the list of collections `listCollections` instead of getting the list of the databases (we have only one database in MongoLab right now):
 
 ```js
 const util = require('util')
 const url = require('url')
 const client = require ('mongodb').MongoClient
-  
+
 const dbConnUrl = process.env.MONGOLAB_URI ||
   'mongodb://127.0.0.1:27017/test'
-  
-console.log('db server: ', dbConnUrl)  
-  
-client.connect(dbConnUrl, {}, (error, db) => {  
-  console.log('error: ', error)  
-  db.listCollections().toArray((err, collections) => {  
-    console.log('error: ', error)  
-    console.log('collections: ', collections)  
-    db.close()  
-  })  
+
+console.log('db server: ', dbConnUrl)
+
+client.connect(dbConnUrl, {}, (error, db) => {
+  console.log('error: ', error)
+  db.listCollections().toArray((err, collections) => {
+    console.log('error: ', error)
+    console.log('collections: ', collections)
+    db.close()
+  })
 })
 ```
 
 Following the modification of `app.js` by addition of `MONGOLAB_URI`, we
-can now initialize Git repository, create a Heroku app, add the MongoLab
+can now initialize the Git repository, create a Heroku app, add the MongoLab
 add-on to it, and deploy the app with Git.
 
-Utilize the same steps as in the previous examples to create a new git
+Utilize the same steps as in the previous examples to create a new Git
 repository:
 
 ```
-$ git init  
-$ git add .  
+$ git init
+$ git add .
 $ git commit -am 'initial commit'
 ```
 
-Create the Cedar stack Heroku app:
+Create the Cedar Stack Heroku app:
 
-`$ heroku create`
+```
+$ heroku create
+```
 
-If everything went well you should be able to see a message that tell
-you the new Heroku app name (and URL) along with a message that remote
-was added. Having remote in your local git is crucial; you can always
-check a list of remote by:
+If everything went well you should be able to see a message that tells you the new Heroku app name (and URL) along with a message that the Heroku remote destination was added. Having remote in your local Git project is crucial because that's you'll deploy the app to Heroku. You can always check a list of remotes by executing this command from the root of our project:
 
-`$ git remote show`
+```
+$ git remote show
+```
 
-To install free MongoLab on the existing Heroku app (add-ons work on a
-per app basis), use:
+Add-ons work on a per app basis not on a per account basis. To install the free MongoLab on the existing Heroku app (), use:
 
-`$ heroku addons:create mongolab:sandbox`
+```
+$ heroku addons:create mongolab:sandbox
+```
 
 Or log on to Heroku (<https://elements.heroku.com/addons/mongolab>) with
 your Heroku credentials and choose MongoLab Free for that particular
@@ -383,59 +300,59 @@ The project folder needs to have `Procfile` and `package.json`. You can
 copy them from
 https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect-heroku.
 
-Now you can push you code to Heroku with:
+Now you can push your code to Heroku with:
 
-`$ git push heroku master`
+```
+$ git push heroku master
+```
 
-Enjoy the the log that should tell you that the deploy was successful.
-Now see the output with this command:
+Enjoy seeing the logs that tell you that the deploy was successful. For additional logs and debugging, use this command:
 
-`$ heroku logs`
+```
+$ heroku logs
+```
 
 The result will be something like this:
 
 ```
-2015-12-01T12:34:51.438633+00:00 app[web.1]: db server:  mongodb://heroku_cxgh54g6:9d76gspc45v899i44sm6bn790c@ds035617.mongolab.com:34457/heroku_cxgh54g6  
-2015-12-01T12:34:53.264530+00:00 app[web.1]: error:  null  
-2015-12-01T12:34:53.236398+00:00 app[web.1]: error:  null  
-2015-12-01T12:34:53.271775+00:00 app[web.1]: collections:  [ { name: 'system.indexes', options: {} },  
-2015-12-01T12:34:53.271778+00:00 app[web.1]:   { name: 'test', options: { autoIndexId: true } } ]
+2019-12-01T12:34:51.438633+00:00 app[web.1]: db server:  mongodb://heroku_cxgh54g6:9d76gspc45v899i44sm6bn790c@ds035617.mongolab.com:34457/heroku_cxgh54g6
+2019-12-01T12:34:53.264530+00:00 app[web.1]: error:  null
+2019-12-01T12:34:53.236398+00:00 app[web.1]: error:  null
+2019-12-01T12:34:53.271775+00:00 app[web.1]: collections:  [ { name: 'system.indexes', options: {} },
+2019-12-01T12:34:53.271778+00:00 app[web.1]:   { name: 'test', options: { autoIndexId: true } } ]
 ```
 
-If you get `app.js` and modified `app.js` files working, let's enhance
-by adding a HTTP server, so the 'connected' message will be displayed in
+So far you have implemented a local `app.js` file (`code/07-db-connect/app.js` or <http://bit.ly/2LhLrZm>). You enhanced it to work in the cloud (`code/07-db-connect-heroku/app.js` or <http://bit.ly/2LgX5Dy>). After you get the `app.js` and the modified `app.js` files working, let's enhance the latest `app.js` file by adding an HTTP server, so the "connected" message will be displayed in
 the browser instead of the terminal window. To do so, we'll wrap the
-server object instantiation in a database connection callback (file
-11-db-server/app.js at
-<https://github.com/azat-co/fullstack-javascript/blob/master/11-db/app.js>).
+server object instantiation in a database connection callback. The final implementation is in the file `code/07-db-server/app.js` or at the book's GitHub repository: <http://bit.ly/2LcTd6K>.
 
 Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1Qnrmwr>.
 
 ```js
 const util = require('util')
-const url = require('url')  
-const http = require('http')  
-const mongodb = require ('mongodb')  
-const client = require ('mongodb').MongoClient  
-  
-const port = process.env.PORT || 1337  
-const dbConnUrl = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/test'  
-  
-client.connect(dbConnUrl, {}, function(error, db) {  
-    console.log('error: ', error)  
-    db.listCollections().toArray(function(error, collections) {  
-    console.log('error: ', error)  
-        console.log('collections: ', collections)  
-        const server = http.createServer(function (request, response) { // Creates server  
-          response.writeHead(200, {'Content-Type': 'text/plain'})   // Sets the right header and status code  
-          response.end(util.inspect(collections))  // Outputs string with line end symbol  
-        })  
-        server.listen(port, function() {  
-            console.log('Server is running at %s:%s ', server.address().address, server.address().port) // Sets port and IP address of the server  
-        })  
-    db.close()  
-    })  
+const url = require('url')
+const http = require('http')
+const mongodb = require ('mongodb')
+const client = require ('mongodb').MongoClient
+
+const port = process.env.PORT || 1337
+const dbConnUrl = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/test'
+
+client.connect(dbConnUrl, {}, function(error, db) {
+    console.log('error: ', error)
+    db.listCollections().toArray(function(error, collections) {
+    console.log('error: ', error)
+        console.log('collections: ', collections)
+        const server = http.createServer(function (request, response) { // Creates server
+          response.writeHead(200, {'Content-Type': 'text/plain'})   // Sets the right header and status code
+          response.end(util.inspect(collections))  // Outputs string with line end symbol
+        })
+        server.listen(port, function() {
+            console.log('Server is running at %s:%s ', server.address().address, server.address().port) // Sets port and IP address of the server
+        })
+    db.close()
+    })
 })
 ```
 
@@ -465,7 +382,7 @@ The structure of the application is simple:
 
 ```
 /07-board-api-mongo
-  web.js  
+  web.js
   Procfile
   package.json
 ```
@@ -473,9 +390,9 @@ The structure of the application is simple:
 This is what `web.js` looks like; first we include our libraries:
 
 ```js
-const http = require('http')  
-const util = require('util')  
-const querystring = require('querystring')  
+const http = require('http')
+const util = require('util')
+const querystring = require('querystring')
 const client = require('mongodb').MongoClient
 ```
 
@@ -504,25 +421,25 @@ endpoints/routes. We need to fetch the documents on GET
 `/messages/list.json`:
 
 ```js
-  const app = http.createServer((request, response) => {  
-    if (request.method === 'GET' && request.url === '/messages.json') {  
-      collection.find().toArray((error,results) => {  
-        response.writeHead(200,{ 'Content-Type': 'text/plain'})  
-          console.dir(results)  
-          response.end(JSON.stringify(results))  
+  const app = http.createServer((request, response) => {
+    if (request.method === 'GET' && request.url === '/messages.json') {
+      collection.find().toArray((error,results) => {
+        response.writeHead(200,{ 'Content-Type': 'text/plain'})
+          console.dir(results)
+          response.end(JSON.stringify(results))
       })
 ```
 
 On the POST `/messages.json`, we inserting the document:
 
 ```js
-    } else if (request.method === 'POST' && request.url === '/messages.json') {  
-      request.on('data', function(data) {  
-        collection.insert(querystring.parse(data.toString('utf-8')), {safe:true}, function     (error, obj) {  
-            if (error) throw error  
-            response.end(JSON.stringify(obj))  
-          })  
-        })  
+    } else if (request.method === 'POST' && request.url === '/messages.json') {
+      request.on('data', function(data) {
+        collection.insert(querystring.parse(data.toString('utf-8')), {safe:true}, function     (error, obj) {
+            if (error) throw error
+            response.end(JSON.stringify(obj))
+          })
+        })
     } else {
 ```
 
@@ -532,11 +449,11 @@ to go to the http://localhost:1337 instead of
 <http://localhost:1337/messages.json>:
 
 ```js
-      response.end('Supported endpoints: \n/messages.json\n/messages.json')  
-    }  
-  })  
-  const port = process.env.PORT || 1337  
-  app.listen(port)  
+      response.end('Supported endpoints: \n/messages.json\n/messages.json')
+    }
+  })
+  const port = process.env.PORT || 1337
+  app.listen(port)
 })
 ```
 
@@ -573,8 +490,8 @@ To test the application on Heroku, you could use the same
 or "http://127.0.0.1" with your unique Heroku app's host/URL:
 
 ```
-$ curl http://your-app-name.herokuapp.com/messages.json  
-$ curl -d "username=BOB&message=test"  
+$ curl http://your-app-name.herokuapp.com/messages.json
+$ curl -d "username=BOB&message=test"
   http://your-app-name.herokuapp.com/messages.json
 ```
 
