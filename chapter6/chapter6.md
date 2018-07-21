@@ -13,39 +13,25 @@ Intro to Node.js
 In this chapter, we'll cover the following:
 
 -   Building "Hello World" in Node.js
-
--   Node.js Core Modules
-
--   npm Node Package Manager
-
--   Message Board with Node.js: Memory Store Version
-
--   Unit Testing Node.js
+-   Node.js core modules
+-   npm Node package manager
+-   Message Board with Node.js: memory store version
+-   Unit testing Node.js
 
 Node.js is a non-blocking platform for building web applications. It
-uses JavaScript, so it's a centerpiece in our fullstack JavaScript
-development. We'll start with Hello World and cover core modules and
-npm. Then, we deploy our Hello World app to cloud.
+uses JavaScript, so it's a centerpiece in our full stack JavaScript
+development. We'll start by building our "Hello World" app and then we'll cover core modules and
+npm. Then, we deploy our "Hello World" app to the cloud.
 
 Building "Hello World" in Node.js
 =================================
-
-<span id="OLE_LINK27" class="anchor"><span id="OLE_LINK26"
-class="anchor"><span id="OLE_LINK36" class="anchor"><span
-id="OLE_LINK38" class="anchor"><span id="OLE_LINK39"
-class="anchor"><span id="buildinghelloworld"
-class="anchor"></span></span></span></span></span></span>Supplemental
-video which walks you through the implementation and demonstrates the
-project: http://bit.ly/1QnqFmF.
 
 To check if you have Node.js installed on your computer, type and
 execute this command in your terminal:
 
     $ node -v
 
-As of this writing, the latest version is 8.11.1. If you don't have
-Node.js installed, or if your version is behind, you can download the
-latest version at [nodejs.org/#download](http://nodejs.org/#download).
+Get the version 8 or higher. If you don't have Node.js installed, or if your version is older (behind or lower), you can download the latest version at <http://nodejs.org/#download>.
 You can use one of these tools for version management (i.e., switching
 between Node.js versions):
 
@@ -55,13 +41,13 @@ between Node.js versions):
 
 -   [nvm](https://github.com/creationix/nvm) (<https://github.com/creationix/nvm>)
 
-As usual, you could copy example code at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello, or
+As usual, you could copy the example code at
+https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello, TK or
 write your own program from scratch. If you wish to do the latter,
 create a folder `hello` for your "Hello World" Node.js application. Then
-create file a `server.js` and line by line type the code below.
+create a file `server.js` and line by line type the code below.
 
-This will load the core `http` module for the server (more on the
+This line will load the core `http` module for the server (more on the
 modules later):
 
     const http = require('http')
@@ -98,21 +84,20 @@ the following command:
 
     $ node server.js
 
-Open [localhost:1337](http://localhost:1337/) or
-[127.0.0.1:1337](http://127.0.0.1:1337/) or any other address you see in
-the terminal as a result of `console.log()` function, and you should see
+Open <http://localhost:1337> or <http://127.0.0.1:1337> or any other address you see in
+the terminal as a result of the `console.log()` function, and you should see
 "Hello World" in a browser. To shut down the server, press Control + C.
 
-Note: The name of the main file could be different from server.js (e.g.,
-index.js or app.js). In case you need to launch the `app.js` file, just
+**Note** The name of the main file could be different from `server.js` (e.g.,
+`index.js` or `app.js`). In case you need to launch the `app.js` file, just
 use `$ node app.js`.
 
 Node.js Core Modules
 ====================
 
 Unlike other programming technologies, Node.js doesn't come with a heavy
-standard library. The core modules of node.js are a bare minimum and the
-rest can be cherry-picked via the Node Package Manager (npm) registry.
+standard library. The core modules of Node.js are a bare minimum and the
+rest can be cherry-picked via the npm Node package manager registry.
 The main core modules, classes, methods, and events include:
 
 -   [http](http://nodejs.org/api/http.html)
@@ -124,7 +109,7 @@ The main core modules, classes, methods, and events include:
 
 -   [querystring](http://nodejs.org/api/querystring.html)
     (<https://nodejs.org/api/querystring.html>): Module for parsing query
-    string from the URI
+    strings from the URI
 
 -   [url](http://nodejs.org/api/url.html)
     (<https://nodejs.org/api/url.html>): Module for parsing URI
@@ -134,50 +119,37 @@ The main core modules, classes, methods, and events include:
     (<https://nodejs.org/api/fs.html>): Module for working with the file
     system
 
-These are the most important core modules. Let's cover each of them.
+These are the most important core modules. Let's take a look at each of them.
 
 ### http
 
-
-This is the main module responsible for Node.js HTTP server. Here are
+This is the main module responsible for the Node.js HTTP server. Here are
 the main methods:
 
--   `http.createServer()`: returns a new web server object
-
--   `http.listen()`: begins accepting connections on the specified
+-   `http.createServer()`: Returns a new web server object
+-   `http.listen()`: Begins accepting connections on the specified
     port and hostname
-
--   `http.createClient()`: node app can be a client and make requests
-    to other servers
-
--   `http.ServerRequest()`: incoming requests are passed to request
+-   `http.createClient()`: Node app can be a client and make requests
+    to other servers TK
+-   `http.ServerRequest()`: Passes incoming requests to request
     handlers
+    -   `data`: Emitted when a piece of the message body is received
+    -   `end`: Emitted exactly once for each request
+    -   `request.method()`: The request method as a string
+    -   `request.url()`: Request URL string
 
-    -   `data`: emitted when a piece of the message body is received
+-   `http.ServerResponse()`: Provides response/output of request handlers initiated by an
+    HTTP server—not by the user
 
-    -   `end`: emitted exactly once for each request
-
-    -   `request.method()`: the request method as a string
-
-    -   `request.url()`: request URL string
-
--   `http.ServerResponse()`: this object is created internally by an
-    HTTP server—not by the user, and used as an output of request
-    handlers
-
-    -   `response.writeHead()`: sends a response header to the request
-
-    -   `response.write()`: sends a response body
-
-    -   `response.end()`: sends and ends a response body
+    -   `response.writeHead()`: Sends a response header to the request
+    -   `response.write()`: Sends a response body
+    -   `response.end()`: Sends and ends a response body
 
 ### util
 
+This module provides a utility for debugging:
 
-This module provides utilities for debugging. Some of the methods
-include:
-
--   `util.inspect()`: Return a string representation of an object,
+-   `util.inspect()`: Returns a string representation of an object,
     which is useful for debugging
 
 ### querystring
@@ -185,26 +157,23 @@ include:
 This module provides utilities for dealing with query strings. Some of
 the methods include:
 
--   `querystring.stringify()`: Serialize an object to a query string
-
--   `querystring.parse()`: Deserialize a query string to an object
+-   `querystring.stringify()`: Serializes an object to a query string
+-   `querystring.parse()`: Deserializes a query string to an object
 
 ### url
 
-This module has utilities for URL resolution and parsing. Some of the
-methods include:
+This module has a utility for URL resolution and parsing:
 
--   `parse()`: Take a URL string, and return an object
+-   `url.parse()`: Takes a URL string, and returns an object which has URL information broken down into parts
 
 ### fs
 
-fs handles file system operations such as reading and writing to/from
+`fs` handles file system operations such as reading and writing to/from
 files. There are synchronous and asynchronous methods in the library.
 Some of the methods include:
 
--   `fs.readFile()`: reads file asynchronously
-
--   `fs.writeFile()`: writes data to file asynchronously
+-   `fs.readFile()`: Reads file asynchronously
+-   `fs.writeFile()`: Writes data to file asynchronously
 
 There is no need to install or download core modules. To include them in
 your application, all you need is to follow the syntax:
@@ -214,13 +183,9 @@ your application, all you need is to follow the syntax:
 The lists of non-core modules can be found at:
 
 -   [npmjs.org](https://npmjs.org): Node Package Manager registry
-
--   Nipster (http://eirikb.github.io/nipster): npm search
-    [Nipster](http://eirikb.github.com/nipster): npm search tool for
+-   Nipster (<http://eirikb.github.io/nipster>): npm search tool for
     Node.js
-
--   [node-modules(http://node-modules.com): npm search engine
-    ](node-modules(http://node-modules.com):%20npm%20search%20engine%20%20%20%20%20)
+-   node-modules (<http://node-modules.com>): npm search engine
 
 If you would like to know how to code your own modules, take a look at
 the article located here:
@@ -276,18 +241,32 @@ A typical `package.json` file might look like this:
 
 While most of the properties in the `package.json` example above like
 `description` and `name` are self-explanatory, others deserve more
-explaining. Dependencies is an object, and each item has the name on the
-left side and the version number on the right side (e.g., "express":
-"&gt;= 2.5.6"). The version can be exact: for example, "express":
-"2.5.6," or greater than, or wild-card, for example, "express": "\*" (a
-great way to blow up your app in production with new untested
-dependencies: therefore not recommended).
+explaining. The `dependencies` property is an object, and each item has the name on the
+left side and the version number on the right side. For example, this statement tells npm to use Express version 2.5.6 or lower (earlier):
+
+```js
+"express": "<= 2.5.6"
+```
+
+The version can be exact (recommended). For example, this statement locks the version of Express at 2.5.6.:
+
+```js
+"express": "2.5.6,"
+```
+
+The versions can be specified to be greater-than (`>`), less-than (`<`), or any/wildcard (`*`). For example, this statement tell npm to use any version which usually means npm will get the latest stable version:
+
+```js
+"express": "*"
+```
+
+A wild card is a great way to blow up your app in production with new untested
+dependencies: therefore not recommended.
 
 The `bin` property is for command-line utilities. It tells the system
 what file to launch. And the `scripts` object has scripts that you can
-launch with `$ ``npm` `run SCRIPT_NAME`. The `start` script and test are
-exceptions. You can run them with `$ ``npm`` start` and
-`$ ``npm`` test`.
+launch with `$ npm run SCRIPT_NAME`. The `start` and `test` scripts are
+exceptions. You can run them with `$ npm start` and `$ npm test`.
 
 To update a package to its current latest version or the latest version
 that is allowable by the version specification defined in
@@ -300,14 +279,14 @@ Or for single module installation:
     $ npm install name-of-the-package
 
 The only module used in this book's examples—and which does not belong
-to the core Node.js package—is `mongodb`. We'll install it later in the
-book.
+to the core Node.js package—is `mongodb`. We'll install it in the next chapter.
 
-Heroku will need `package.json` to run npm on the server.
+However, Heroku will need `package.json` to run npm on the server. The easiest way to create `package.json` is to execute:
 
-For more information on npm, take a look at the article "[Tour of
-npm](http://tobyho.com/2012/02/09/tour-of-npm/)"
-(http://tobyho.com/2012/02/09/tour-of-npm)
+```
+$ npm init -y
+```
+
 
 Deploying "Hello World" to PaaS
 ===============================
@@ -318,26 +297,31 @@ your terminal:
 
     $ git init
 
-Git will create a hidden `.``git` folder. Now we can add files and make
+Git will create a hidden `.git` folder. Now we can add files and make
 the first commit:
 
     $ git add .
     $ git commit -am "first commit"
 
-Tip: To view hidden files on the macOS Finder app, execute this
+**Tip** To view hidden files on the macOS Finder app, execute this
 command in a terminal window:
-`defaults write ``com.apple.finder`` ``AppleShowAllFiles`` -``bool`` true`.
+
+```
+defaults write com.apple.finder AppleShowAllFiles -bool true
+```
+
 To change the flag back to hidden:
-`defaults write ``com.apple.finder`` ``AppleShowAllFiles`` -``bool`` false`.
+
+```
+defaults write com.apple.finder AppleShowAllFiles -bool false
+```
 
 Deploying to Microsoft Azure
 ==========================
 
-In order to deploy our "Hello World" application to Microsoft Azure, we
-must add Git **remote**. You could copy the URL from Microsoft Azure
-Portal, under Web Site, and use it with this command:
+In order to deploy our "Hello World" application to Microsoft Azure, we must add a Git remote destination that belongs to Azure. You could copy the URI/URL from the Microsoft Azure Portal, and use it with this command:
 
-    $ git remote add azure yourURL
+    $ git remote add azure YOUR_AZURE_URI
 
 Now we should be able to make a push with this command:
 
@@ -352,15 +336,14 @@ To push changes, just execute:
     $ git commit -m "changing to hello azure"
     $ git push azure master
 
-A more meticulous guide can be found in the tutorial
-https://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac.
+A more meticulous guide can be found in the tutorial <https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs>. TK
 
 Deploying to Heroku
 ===================
 
 For Heroku deployment, we need to create two extra files: `Procfile` and
 `package.json`. You could get the source code from
-https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello or
+<https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello> TK or
 write your own one.
 
 The structure of the "Hello World" application looks like this:
@@ -370,9 +353,9 @@ The structure of the "Hello World" application looks like this:
       -Procfile
       -server.js
 
-Procfile is a mechanism for declaring what commands are run by your
+`Procfile` is a mechanism for declaring what commands are run by your
 application’s dynos on the Heroku platform. Basically, it tells Heroku
-what processes to run. Procfile has only one line in this case:
+what processes to run. `Procfile` has only one line in this case:
 
     web: node server.js
 
@@ -391,7 +374,7 @@ For this example, we keep `package.json` simple:
 After we have all of the files in the project folder, we can use Git to
 deploy the application. The commands are pretty much the same as with
 Microsoft Azure except that we need to add Git remote, and create Cedar
-stack with:
+Stack with:
 
     $ heroku create
 
@@ -408,12 +391,8 @@ If everything went okay, you should see success logs in the terminal and
 Message Board with Node.js: Memory Store Version
 ------------------------------------------------
 
-Supplemental video which walks you through the implementation and
-demonstrates the project: http://bit.ly/1QnqO9P.
-
 The first version of the Message Board back-end application will store
-messages only in runtime memory storage for the sake of KISS
-(http://en.wikipedia.org/wiki/KISS_principle). That means that each
+messages only in runtime memory storage for the sake of the KISS principle—keep it simple stupid (<http://azat.co/blog/kiss>). That means that each
 time we start/reset the server, the data will be lost.
 
 We'll start with a simple test case first to illustrate the Test-Driven

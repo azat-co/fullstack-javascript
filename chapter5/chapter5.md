@@ -4,9 +4,9 @@ CHAPTER 5
 
 Backbone.js and Parse
 =========================
-> *Java is to JavaScript what Car is to Carpet.*
+> *When in doubt—console log.*
 >
-> — [Chris Heilmann](http://christianheilmann.com)
+> — [Azat Mardan](http://azat.co)
 
 In this chapter, we'll explore the practical aspect of leveraging
 Parse for a Backbone.js app. The chapter will illustrate the following:
