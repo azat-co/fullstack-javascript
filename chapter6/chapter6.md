@@ -35,17 +35,12 @@ Get the version 8 or higher. If you don't have Node.js installed, or if your ver
 You can use one of these tools for version management (i.e., switching
 between Node.js versions):
 
--   [n](https://github.com/tj/n) (<https://github.com/tj/n>)
+-   `n`: <https://npmjs.com/n>
+-   `nave`: <https://npmjs.com/nave>
+-   `nvm`: <https://npmjs.com/nvm>
+-   `nvm-windows`: <https://github.com/coreybutler/nvm-windows>
 
--   [nave](https://github.com/isaacs/nave) (<https://github.com/isaacs/nave>)
-
--   [nvm](https://github.com/creationix/nvm) (<https://github.com/creationix/nvm>)
-
-As usual, you could copy the example code at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello, TK or
-write your own program from scratch. If you wish to do the latter,
-create a folder `hello` for your "Hello World" Node.js application. Then
-create a file `server.js` and line by line type the code below.
+As usual, you could copy the example code at <http://bit.ly/2Lbvxzr>, or write your own program from scratch. If you wish to do the latter, create a folder `hello` for your "Hello World" Node.js application. Then create a file `server.js` and line by line type the code below.
 
 This line will load the core `http` module for the server (more on the
 modules later):
@@ -129,8 +124,6 @@ the main methods:
 -   `http.createServer()`: Returns a new web server object
 -   `http.listen()`: Begins accepting connections on the specified
     port and hostname
--   `http.createClient()`: Node.js app can be a client and make requests
-    to other servers TK
 -   `http.ServerRequest()`: Passes incoming requests to request
     handlers
     -   `data`: Emitted when a piece of the message body is received
@@ -336,15 +329,12 @@ To push changes, just execute:
     $ git commit -m "changing to hello azure"
     $ git push azure master
 
-A more meticulous guide can be found in the tutorial <https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs>. TK
+A more meticulous guide can be found in the tutorial <http://bit.ly/2LbXQOi>.
 
 Deploying to Heroku
 ===================
 
-For Heroku deployment, we need to create two extra files: `Procfile` and
-`package.json`. You could get the source code from
-<https://github.com/azat-co/fullstack-javascript/tree/master/code/06-hello> TK or
-write your own one.
+For Heroku deployment, we need to create two extra files: `Procfile` and `package.json`. You could get the source code from <http://bit.ly/2Lbvxzr> or write your own one.
 
 The structure of the "Hello World" application looks like this:
 
@@ -713,40 +703,26 @@ frameworks like Express.js or Restify but there are many powerful and useful fra
 -   [Restify](http://mcavage.github.com/node-restify) (<http://restify.com>): Lightweight framework for REST API servers
 -   [Sails](http://sailsjs.org) (<http://sailsjs.org>): MVC Node.js framework with rich scaffolding
 -   [hapi](https://hapijs.com) (<https://hapijs.com>): Node.js framework built on top of Express.js
--   [Connect](http://www.senchalabs.org/connect) (<https://github.com/senchalabs/connect#readme>): a middleware framework for Node.js, shipping with over 18 bundled middlewares and a rich selection of third-party middleware
--   [GeddyJS](http://geddyjs.org) (<http://geddyjs.org>): a simple, structured MVC web framework for Node
--   [CompoundJS](http://compoundjs.com) (<http://compoundjs.com>) (ex-RailswayJS): Node.JS MVC framework based on ExpressJS
--   [Tower.js](http://towerjs.org) (<http://tower.github.io>): a full stack web framework for Node.js and the browser
--   [Meteor](http://meteor.com) (<https://www.meteor.com>): open-source platform for building top-quality web apps in a fraction of the time
+-   [Connect](http://www.senchalabs.org/connect) (<https://github.com/senchalabs/connect>): Middleware framework for Node.js, shipping with over 18 bundled middlewares and a rich selection of third-party middleware
+-   [GeddyJS](http://geddyjs.org) (<http://geddyjs.org>): Simple, structured MVC web framework for Node
+-   [CompoundJS](http://compoundjs.com) (<http://compoundjs.com>) (ex-RailswayJS): Node.js MVC framework based on Express.js
+-   [Tower.js](http://towerjs.org) (<http://tower.github.io>): Full stack web framework for Node.js and the browser
+-   [Meteor](http://meteor.com) (<https://www.meteor.com>): Open-source platform for building top-quality web apps in a fraction of the time
 
-For a list of hand-picked frameworks, take a look at
-(<http://nodeframeworks.com>). Ways to improve the application:
+For a list of hand-picked Node.js frameworks, take a look at <http://nodeframeworks.com>.
 
--   Improve existing test cases by adding object comparison instead of a
-    string one
+Next, I will explain a few ways to improve the REST API application. These are your assignments to give you more practice and make the learning more effective:
 
+-   Improve existing test cases by adding object comparison instead of a string one
 -   Move the seed data to `test.js` from `mb-server.js`
+-   Add test cases to support your frontend (e.g., up vote, user login)
+-   Add methods to support your frontend (e.g., up-vote, user login)
+-   Generate unique IDs for each message and store them in a Hash instead of an Array
+-   Install Mocha and re-factor `test.js` so it uses this library
 
--   Add test cases to support your front-end (e.g., up-vote, user
-    log in)
-
--   Add methods to support your front-end (e.g., up-vote, user log in)
-
--   Generate unique IDs for each message and store them in a Hash
-    instead of an Array
-
--   Install Mocha and re-factor test.js so it uses this library
-
-So far we've been storing our messages in the application memory, so
-each time the application is restarted, we lose it. To fix it, we need
-to add a persistence, and one of the ways is to use a database like
-MongoDB.
+So far we've been storing our messages in the application memory, so each time the application is restarted, we lose our messages. To fix it, we need to add persistence (more permanent store), and one of the best ways is to use a database like MongoDB, introduced in the next chapter.
 
 Summary
 -------
 
-In this chapter we've covered important topics that will lay the
-foundation. They exhibit the "Hello World" application in Node.js, list
-of some of its most important core modules, npm workflow, detailed
-commands for deployment of Node.js apps to Heroku and Microsoft Azure; and
-an example of a test-driven development practice.
+In this chapter we've covered important topics that will lay the foundation for all of your future Node.js development. This chapter taught the "Hello World" application in Node.js, listed of some of its most important Node.js core modules, explained the npm workflow, covered test-driven development practice, and provided detailed commands for deployment of Node.js apps to the Heroku and Microsoft Azure cloud services.
