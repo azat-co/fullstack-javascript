@@ -24,7 +24,7 @@ MongoDB is a NoSQL document-store database. It is scalable and performant. It ha
 
 What's good about MongoDB in addition to its scaling and performance is that MongoDB uses a JavaScript interface, which completes the full stack JavaScript stack puzzle of browser, server, and the database layers. With MongoDB we can use one language for all three layers. The easiest way to get started with MongoDB is to use its shell, a.k.a. REPL (read-eval-print-loop).
 
-<span id="mongodb-shell" class="anchor"><span id="shell" class="anchor"></span></span>MongoDB Shell
+MongoDB Shell
 ===================================================================================================
 
 If you haven't done so already, please install the latest version of MongoDB from <https://www.mongodb.com/download-center>. For more instructions, please refer to the "Database: MongoDB" section in Chapter 2. You might have to create a data folder per the instructions.
@@ -118,11 +118,11 @@ const Car = new Schema({ driver: ObjectId })
 MongoDB Native Driver
 =====================
 
-We'll use MongoDB Native Node.js Driver (<https://github.com/christkv/node-mongodb-native>) to access MongoDB from Node.js applications. Full documentation is also available at <http://bit.ly/2Lao9UW>. To install MongoDB Native Node.js Driver , use:
+We'll use MongoDB Native Node.js Driver (<https://github.com/christkv/node-mongodb-native>) to access MongoDB from Node.js applications. This will add persistence to Node.js apps meaning apps will save and retrieve data from a permanent location instead of relying on an ephemeral in-memory store. To install MongoDB Native Node.js Driver , use:
 
 `$ npm install mongodb`
 
-Keep in mind that the preceeding command is to install the driver library, not the database. I taught many workshops and in almost every one of them there would be a person who would confuse installing `mongodb` using npm with installing a database. Don't be this person. We need both, the database and the npm library. I already covered the database installation. If you have any issue with installing the driver, read the details are at <https://mongodb.github.io/node-mongodb-native>.
+Keep in mind that the preceding command is to install the driver library, not the database. I taught many workshops and in almost every one of them there would be a person who would confuse installing `mongodb` using npm with installing a database. Don't be this person. We need both, the database and the npm library. I already covered the database installation. If you have any issue with installing the driver, read the details are at <https://mongodb.github.io/node-mongodb-native>.
 
 Don't forget to include the dependency in the `package.json` file as well, either with `-SE` or manually, so that you have the file resembling this:
 
