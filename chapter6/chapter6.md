@@ -14,7 +14,7 @@ In this chapter, we'll cover the following:
 
 -   Building "Hello World" in Node.js
 -   Node.js core modules
--   npm Node package manager
+-   npm Node.js package manager
 -   Message Board with Node.js: memory store version
 -   Unit testing Node.js
 
@@ -97,7 +97,7 @@ Node.js Core Modules
 
 Unlike other programming technologies, Node.js doesn't come with a heavy
 standard library. The core modules of Node.js are a bare minimum and the
-rest can be cherry-picked via the npm Node package manager registry.
+rest can be cherry-picked via the npm Node.js package manager registry.
 The main core modules, classes, methods, and events include:
 
 -   [http](http://nodejs.org/api/http.html)
@@ -129,7 +129,7 @@ the main methods:
 -   `http.createServer()`: Returns a new web server object
 -   `http.listen()`: Begins accepting connections on the specified
     port and hostname
--   `http.createClient()`: Node app can be a client and make requests
+-   `http.createClient()`: Node.js app can be a client and make requests
     to other servers TK
 -   `http.ServerRequest()`: Passes incoming requests to request
     handlers
@@ -182,7 +182,7 @@ your application, all you need is to follow the syntax:
 
 The lists of non-core modules can be found at:
 
--   [npmjs.org](https://npmjs.org): Node Package Manager registry
+-   [npmjs.org](https://npmjs.org): Node.js Package Manager registry
 -   Nipster (<http://eirikb.github.io/nipster>): npm search tool for
     Node.js
 -   node-modules (<http://node-modules.com>): npm search engine
@@ -191,10 +191,10 @@ If you would like to know how to code your own modules, take a look at
 the article located here:
 <https://quickleft.com/blog/creating-and-publishing-a-node-js-module>.
 
-npm Node Package Manager
+npm Node.js Package Manager
 ------------------------
 
-<span id="manager" class="anchor"></span>Node Package Manager, or npm,
+<span id="manager" class="anchor"></span>Node.js Package Manager, or npm,
 manages dependencies and installs modules for you. Node.js installation
 comes with npm, whose web site is [npmjs.org](http://npmjs.org).
 
@@ -396,8 +396,7 @@ messages only in runtime memory storage for the sake of the KISS principle—kee
 time we start/reset the server, the data will be lost.
 
 We'll start with a simple test case first to illustrate the Test-Driven
-Development approach. The full code is available at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/06-test.
+Development approach. The full code is available at the book's GitHub repository in the `code/06-test` folder: <http://bit.ly/2LcnHWv>.
 
 Unit Testing Node.js
 --------------------
@@ -407,7 +406,7 @@ We should have two methods:
 1.  Get all of the messages as an array of JSON objects for the GET
     `/message` endpoint using the `getMessages()` method
 
-2.  Add a new message with properties `name` and `message` for POST
+2.  Add a new message with properties `name` and `message` for the POST
     `/messages` route via the `addMessage()` function
 
 We'll start by creating an empty `mb-server.js` file. After it's there,
@@ -435,66 +434,42 @@ object with:
 
     JSON.parse(str)
 
-For testing our assumptions, we use core the Node.js module
+For testing our assumptions, we use the core Node.js module
 [assert](http://nodejs.org/api/assert.html). It provides a bunch of
 useful methods like `equal()`, `deepEqual()`, etc.
 
 More advanced libraries include alternative interfaces with TDD and/or
 BDD approaches:
 
--   [Expect](https://github.com/LearnBoost/expect.js): Minimalistic
-    BDD-style assertion library:, for example,
-    `expect(user.name).to.eql('azat')`
+-   `expect.js` (<https://www.npmjs.com/expect.js>): Minimalistic BDD-style assertion library: for example, `expect(user.name).to.eql('azat')`
 
--   [Should](https://github.com/shouldjs/should.js)
-    (<https://github.com/shouldjs/should.js>): BDD-style assertion library
-    that works by modifying `Object.prototype`: for example,
-    `user.name.should.be.eql``('azat')`
+-   `should` (<https://www.npmjs.com/should> and <http://shouldjs.github.io>): BDD-style assertion library that works by modifying `Object.prototype`: for example, `user.name.should.be.eql('azat')`
 
 For more Test-Driven Development and cutting-edge automated testing, you
 could use the following libraries and modules:
 
--   [Mocha](https://mochajs.org) (<https://mochajs.org>): Feature-rich
-    testing framework (my default choice)
-
--   [NodeUnit](https://github.com/caolan/nodeunit)
-    (<https://github.com/caolan/nodeunit>): Simple assert-style unit
-    testing library
-
--   [Jasmine](https://github.com/jasmine/jasmine)
-    (<https://github.com/jasmine/jasmine>): BDD testing framework with
-    built-in assertion and spy (for mocking) libraries
-
--   [Vows](http://vowsjs.org) (<http://vowsjs.org>): BDD framework for
-    Node.js tailored to testing asynchronous code
-
--   [Chai](http://chaijs.com) (<http://chaijs.com>): BDD/TDD assertion
-    library that can be paired with a testing framework and has its own
-    versions of Should, Expect, and Assert
-
--   [Tape](https://github.com/substack/tape)
-    (<https://github.com/substack/tape>): A minimalistic TAP (Test
-    Anything Protocol) library
-
--   [Jest](https://facebook.github.io/jest)
-    (<http://facebook.github.io/jest>): Jasmine-and-Expect-like testing
-    library with automatic mocks
+-   `mocha` (<https://www.npmjs.com/mocha> and <https://mochajs.org>): Feature-rich testing framework (my default choice)
+-   `jasmine` (<https://www.npmjs.com/jasmine> <https://jasmine.github.io>): BDD testing framework with built-in assertion and spy (for mocking) libraries
+-   `vows` (<https://www.npmjs.com/vows> and <http://vowsjs.org>): BDD framework for Node.js tailored to testing asynchronous code
+-   `chai` (<https://www.npmjs.com/chaijs> and <http://chaijs.com>): BDD/TDD assertion library that can be paired with a testing framework and has its own versions of Should, Expect, and Assert
+-   `tape` (<https://www.npmjs.com/tape>): A minimalistic TAP (Test Anything Protocol) library
+-   `jest` (<https://www.npmjs.com/jest> and <https://jestjs.io>): Jasmine-and-Expect-like testing library with automatic mocks
 
 You could copy the "Hello World" script into the `mb-server.js` file for
 now or even keep it empty. If we run `test.js` by the terminal command:
 
     $ node test.js
 
-We should see an error. Probably something like this one:
+we should see an error, probably something like this one:
 
     TypeError: Object #<Object> has no method 'getMessages'
 
-That's totally fine, because we haven't written `getMessages()`
+That's totally fine, because we haven't written the `getMessages()`
 method yet. So let's do it and make our application more useful by
 adding two new methods: to get the list of the messages for Chat and to
 add a new message to the collection.
 
-`mb-server.js` file with global `exports` object:
+Here's the `mb-server.js` file with the global `exports` object:
 
     exports.getMessages = function() {
       return JSON.stringify(messages)
@@ -516,8 +491,7 @@ We import dependencies:
     const querystring = require('querystring')
     // Loads querystring module, we'll need it to serialize and deserialize objects and query strings
 
-And set the port. If it's set in the env var, we use that value; and if
-it's not set, we use a hard-coded value of 1337:
+And set the port. If it's set in the environment variable `PORT` (e.g., `$ PORT=3000 node server.js`), we use that value; and if it's not set, we use a hard-coded value of 1337:
 
     const port = process.env.PORT || 1337
 
@@ -535,18 +509,14 @@ an array:
 Generally, fixtures like dummy data belong to the test/spec files and
 not to the main application code base.
 
-Our server code will look slightly more interesting. For getting the
-list of messages, according to REST methodology, we need to make a GET
-request. For creating/adding a new message, it should be a POST request.
-So in our createServer object, we should add `req.method()` and
+Our server code will look slightly more interesting. For getting the list of messages, according to REST methodology, we need to make a GET request. For creating/adding a new message, it should be a POST request. So in our `createServer` object, we should add `req.method()` and
 `req.url()` to check for an HTTP request type and a URL path.
 
-Let's load the http module:
+Let's load the `http` module:
 
     const http = require('http')
 
-We'll need some of the handy functions from the `util` and `querystring`
-modules (to serialize and deserialize objects and query strings):
+We'll need some of the handy functions from the `util` and `querystring` modules (to serialize and deserialize objects and query strings):
 
     const util= require('util')
     // Usefull functions
@@ -558,15 +528,12 @@ To create a server and expose it to outside modules (i.e., `test.js`):
     exports.server=http.createServer(function (req, res) {
     // Creates server
 
-Inside of the request handler callback, we should check if the request
-method is POST and the URL is `messages/create.json`:
+Inside of the request handler callback, we should check if the request method is POST and the URL is `messages/create.json`:
 
       if (req.method == 'POST' && req.url == '/messages/create.json') {
         // If method is POST and URL is messages/ add message to the array
 
-If the condition above is true, we add a message to the array. However,
-`data` must be converted to a string type (with encoding UTF-8) prior to
-the adding, because it is a type of Buffer:
+If the condition above is true, we add a message to the array. However, `data` must be converted to a string type (with encoding UTF-8) prior to the adding, because it is a type of `Buffer`:
 
         let message = ''
         req.on('data', function(data, msg){
@@ -594,11 +561,9 @@ We output a message with a newly created object ID:
           // Out put message, should add object id
         })
 
-If the method is GET and the URL is `/messages/list.json` output a
-list of messages:
+If the method is GET and the URL is `/messages/list.json`, output a list of messages:
 
-      } else
-      if (req.method == 'GET' && req.url == '/messages/list.json') {
+      } else if (req.method == 'GET' && req.url == '/messages/list.json') {
       // If method is GET and URL is /messages output list of messages
 
 Fetch a list of messages:
@@ -614,8 +579,7 @@ The response body will hold our output:
         })
         res.end(body)
 
-The next `else` is for when there's not matches for any of the previous
-conditions. This sets the right header and status code:
+The next `else` is for when there's not a match for any of the previous conditions. This sets the right header and status code:
 
       } else {
         res.writeHead(200, {'Content-Type': 'text/plain'})
@@ -637,27 +601,24 @@ Now, we should set a port and IP address of the server:
 
     console.log('Server running at http://127.0.0.1:%s/', port)
 
-We expose methods for the unit testing in `test.js` (exports keyword),
-and this function returns an array of messages as a string/text:
+We expose methods for the unit testing in `test.js` (`exports` keyword), and this function returns an array of messages as a string/text:
 
     exports.getMessages = function() {
       return JSON.stringify(messages)
     }
 
 `addMessage()` converts a string into a JavaScript object with the
-parse/deserializer method from querystring:
+`parse()` deserializer method from `querystring`:
 
     exports.addMessage = function (data){
       messages.push(querystring.parse(data))
 
-Also returning a new message in a JSON-as-a-string format:
+We also return a new message in a JSON-as-a-string format:
 
       return JSON.stringify(querystring.parse(data))
     }
 
-Here is the full code of `mb-server.js` minus the comments. It's
-also available at
-[06-test](https://github.com/azat-co/fullstack-javascript/tree/master/code/06-test):
+Here is the full code of `mb-server.js` minus the comments. It's also available in the [code/06-test](https://github.com/azat-co/fullstack-javascript/tree/master/code/06-test) folder.
 
     const http = require('http')
     // Loads http module
@@ -729,11 +690,7 @@ also available at
       // Output new message in JSON as a string
     }
 
-To check it, go to
-[localhost:1337/messages/list.json](http://localhost:1337/messages/list.json).
-You should see an example message.
-
-Alternatively, you could use the terminal command to fetch the messages:
+To check it, go to <http://localhost:1337/messages/list.json>. You should see an example message. Alternatively, you could use the terminal command to fetch the messages:
 
     $ curl http://127.0.0.1:1337/messages/list.json
 
@@ -742,51 +699,25 @@ To make the POST request by using a command-line interface:
     $ curl -d "name=BOB&message=test" http://127.0.0.1:1337/messages/create.json
 
 And you should get the output in a server terminal window and a new
-message "test" when you refresh
-[localhost:1337/messages/list.json](http://localhost:1337/messages/list.json).
+message "test" when you refresh <http://localhost:1337/messages/list.json>.
 Needless to say, all three tests should pass.
 
-Your application might grow bigger with more methods, URL paths to parse
+Your application might grow bigger with more methods, URL paths to parse,
 and conditions. That is where frameworks come in handy. They provide
 helpers to process requests and other nice things like static file
 support, sessions, etc. In this example, we intentionally didn't use any
-frameworks like Express (<http://expressjs.com>) or Restify
-(<http://mcavage.github.com/node-restify>). Other notable Node.js
-frameworks:
+frameworks like Express.js or Restify but there are many powerful and useful frameworks for Node. Here's the list of the most popular and notable Node.js frameworks:
 
--   [Derby](http://derbyjs.com) (<http://derbyjs.com>):MVC framework
-    making it easy to write real-time, collaborative applications that
-    run in both Node.js and browsers
-
--   [Express.js](http://expressjs.com)
-    (<http://expressjs.com/en/index.html>): the most robust, tested and
-    used Node.js framework
-
--   [Restify](http://mcavage.github.com/node-restify)
-    (<http://restify.com>): lightweight framework for REST API servers
-
--   [Sails.js](http://sailsjs.org) (<http://sailsjs.org>): MVC Node.js
-    framework
-
--   [hapi](https://hapijs.com) (<https://hapijs.com>): Node.js
-    framework built on top of Express.js
-
--   [Connect](http://www.senchalabs.org/connect)
-    (<https://github.com/senchalabs/connect#readme>): a middleware
-    framework for node, shipping with over 18 bundled middlewares and a
-    rich selection of third-party middleware
-
--   [GeddyJS](http://geddyjs.org) (<http://geddyjs.org>): a simple,
-    structured MVC web framework for Node
-
--   [CompoundJS](http://compoundjs.com) (<http://compoundjs.com>)
-    (ex-RailswayJS): Node.JS MVC framework based on ExpressJS
-
--   [Tower.js](http://towerjs.org) (<http://tower.github.io>): a full
-    stack web framework for Node.js and the browser
-
--   [Meteor](http://meteor.com) (<https://www.meteor.com>): open-source
-    platform for building top-quality web apps in a fraction of the time
+-   [Derby](http://derbyjs.com) (<http://derbyjs.com>): MVC framework makes it easy to write real-time, collaborative applications that run in both Node.js and browsers
+-   [Express.js](http://expressjs.com) (<http://expressjs.com>): The most robust, tested and used Node.js framework
+-   [Restify](http://mcavage.github.com/node-restify) (<http://restify.com>): Lightweight framework for REST API servers
+-   [Sails](http://sailsjs.org) (<http://sailsjs.org>): MVC Node.js framework with rich scaffolding
+-   [hapi](https://hapijs.com) (<https://hapijs.com>): Node.js framework built on top of Express.js
+-   [Connect](http://www.senchalabs.org/connect) (<https://github.com/senchalabs/connect#readme>): a middleware framework for Node.js, shipping with over 18 bundled middlewares and a rich selection of third-party middleware
+-   [GeddyJS](http://geddyjs.org) (<http://geddyjs.org>): a simple, structured MVC web framework for Node
+-   [CompoundJS](http://compoundjs.com) (<http://compoundjs.com>) (ex-RailswayJS): Node.JS MVC framework based on ExpressJS
+-   [Tower.js](http://towerjs.org) (<http://tower.github.io>): a full stack web framework for Node.js and the browser
+-   [Meteor](http://meteor.com) (<https://www.meteor.com>): open-source platform for building top-quality web apps in a fraction of the time
 
 For a list of hand-picked frameworks, take a look at
 (<http://nodeframeworks.com>). Ways to improve the application:

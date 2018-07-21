@@ -769,7 +769,7 @@ install all system updates with `yum`:
 
     $ sudo yum update
 
-You can try installing Node with `yum`. It should be available in the
+You can try installing Node.js with `yum`. It should be available in the
 Extra Packages for Enterprise Linux repository
 (<https://fedoraproject.org/wiki/EPEL>):
 
@@ -786,7 +786,7 @@ the following:
     $ node –V
     $ npm –v
 
-If the yum Node installation fails, see if you have EPEL (just see if
+If the yum Node.js installation fails, see if you have EPEL (just see if
 the command below says `epel`):
 
     $ yum repolist
@@ -799,7 +799,7 @@ Then, try to install both Node.js and npm again with:
 
     $ sudo yum install nodejs npm --enablerepo=epel
 
-Alternatively, you can compile Node from the source. To do so, install
+Alternatively, you can compile Node.js from the source. To do so, install
 C++ compiler (again with `yum`):
 
     $ sudo yum install gcc-c++ make
@@ -812,7 +812,7 @@ Then install Git with yum:
 
     $ sudo yum install git
 
-Finally, clone Node repository straight from GitHub:
+Finally, clone Node.js repository straight from GitHub:
 
     $ git clone git://github.com/joyent/node.git
 
@@ -867,7 +867,7 @@ To list all running processes:
 
 ![](media/image1.png)
 
-***Figure 8-1*** *pm2 running multiple Node processes.*
+***Figure 8-1*** *pm2 running multiple Node.js processes.*
 
 That's pretty much all you need to do. Ideally you want to automate the
 deployment. Also, you might want to add some `d.init` or `upstart`

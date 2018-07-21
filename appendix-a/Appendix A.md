@@ -74,7 +74,7 @@ Further Reading
 Here is a list of resources, courses, books, and blogs for further
 reading.
 
-### Free JavaScript and Node Resources
+### Free JavaScript and Node.js Resources
 
 -   [Node University Blog](https://node.university/blog) (https://node.university/blog)
 -   [ES6 Cheatsheet](https://gumroad.com/l/LDwVU/git-1CC81D40) (https://gumroad.com/l/LDwVU/git-1CC81D40)

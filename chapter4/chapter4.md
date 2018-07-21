@@ -1667,7 +1667,7 @@ of 304 (not modified).
 Require.js for Backbone.js Production
 =====================================
 
-<span id="requireJS" class="anchor"></span>We'll use the Node Package
+<span id="requireJS" class="anchor"></span>We'll use the Node.js Package
 Manager (npm) to install the `requirejs` library (it's not a typo;
 there's no period in the name). In your project folder, run this command
 in a terminal:

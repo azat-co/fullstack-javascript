@@ -698,9 +698,9 @@ Node.js
 
 Node.js is an open source, event-driven asynchronous I/O technology for building scalable and efficient web servers. Node.js consists of Google’s V8 JavaScript engine and a bunch of C++ modules. A cloud company Joyent (now acquired by Samsung) maintained Node.js in the beginning, but now the open-source Node foundation oversees it.
 
-The purpose and use of Node.js is to have non-blocking I/O which makes things faster. Non-blocking I/O is not new. It exists in NIO for Java, in Twisted for Python and in EventMachine for Ruby. The big difference is that in Node non-blocking I/O was built from the get-go and thus simple to use, while in other languages its a complex afterthought.
+The purpose and use of Node.js is to have non-blocking I/O which makes things faster. Non-blocking I/O is not new. It exists in NIO for Java, in Twisted for Python and in EventMachine for Ruby. The big difference is that in Node.js non-blocking I/O was built from the get-go and thus simple to use, while in other languages its a complex afterthought.
 
-Funny enough, JavaScript wasn't even the first language for Node.js. The JavaScript implementation of Node was the third one after attempts at using Ruby and C++ programming languages.
+Funny enough, JavaScript wasn't even the first language for Node.js. The JavaScript implementation of Node.js was the third one after attempts at using Ruby and C++ programming languages.
 
 Node.js is not in itself a framework like Ruby on Rails; it's more comparable to the pair of PHP and Apache. I'll provide a list of the top Node.js frameworks in Chapter 6.
 
@@ -711,7 +711,7 @@ The following are the advantages of using Node.js:
 -   With Node.js, you could prototype quickly and go to market to do your customer development and customer acquisition early. This is an important competitive advantage over other companies that use less agile technologies (e.g., PHP and MySQL).
 -   Node.js is built to support real-time applications by utilizing web sockets.
 
-Node evolves fast. For the current state of Node.js (as of this writing), refer to the official Node.js blog at <https://nodejs.org/en/blog>.
+Node.js evolves fast. For the current state of Node.js (as of this writing), refer to the official Node.js blog at <https://nodejs.org/en/blog>.
 
 NoSQL and MongoDB
 -----------------

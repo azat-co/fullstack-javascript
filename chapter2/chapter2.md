@@ -240,12 +240,12 @@ The following are required technologies. Please make sure you have them before
 proceeding to the next chapter.
 
 1.  *Node.js*: We need it for build tools and back-end apps. Get the version that has LTS even if the number is lower than the current NON-LTS version, because the LTS versions have longer support period: <https://nodejs.org>.
-2.  *npm*: The Node package manager that comes bundled with Node (no need to install anything extra).
+2.  *npm*: The Node.js package manager that comes bundled with Node.js (no need to install anything extra).
 3.  *Browser JS libraries*: We need them for front-end apps.
 
 I highly recommend installing other optional but useful components:
 
-1.  *nvm*: The Node version manager, which allows to switch between Node versions quickly.
+1.  *nvm*: The Node.js version manager, which allows to switch between Node.js versions quickly.
 2.  *Compass*: A desktop client GUI app for working with MongoDB as a replacement of the Mongo shell/REPL. <https://www.mongodb.com/products/compass>
 
 ### Node.js Installation
@@ -264,7 +264,7 @@ If you want to switch between multiple versions of Node.js, there are solutions 
 -   [*Nave*](https://github.com/isaacs/nave) (<https://github.com/isaacs/nave>): Virtual environments for Node.js
 -   [*n*](https://github.com/tj/n) (<https://github.com/tj/n>): Node.js version management
 
-The Node.js package already includes npm—[Node Package Manager](https://npmjs.org) (<https://npmjs.org>). We'll use npm extensively to install Node.js modules.
+The Node.js package already includes npm—[Node.js Package Manager](https://npmjs.org) (<https://npmjs.org>). We'll use npm extensively to install Node.js modules.
 
 ![](media/image14.png)
 
