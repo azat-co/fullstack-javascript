@@ -310,8 +310,8 @@ block:
         </div> *<!-- col-md-12 -->*
       </div>  *<!-- row-fluid -->*
 
-This is the full source code of the `index.html` from
-[1-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap):
+This is the full source code of the `index.html` from the
+[1-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap) folder (<http://bit.ly/2JCbSTv>):
 
     <!DOCTYPE html>
     <html lang="en">
@@ -339,50 +339,38 @@ This is the full source code of the `index.html` from
       </body>
     </html>
 
-This example is available for downloading and pulling from the GitHub
-public [repository at
-`github.com/azat-co/fullstack-javascript`](https://github.com/azat-co/fullstack-javascript)
-under the [01-bootstrap
-folder](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap)
-(https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap).
-If you prefer to watch screencasts, I recorded one on YouTube
-(http://bit.ly/1RKx9uY).
+This example is available for downloading and pulling from the GitHub public repository at <https://github.com/azat-co/fullstack-javascript> under the [01-bootstrap folder](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap) (<http://bit.ly/2JCbSTv>).
 
-This and other videos, will walk you through the same steps as outlined
-in the book. So if you are reading this book in print, no worries. The
-information in the book is enough.
+CSS is not a real programming language. It does not have dependency mechanism, variables or functions. That's why some developers invented CSS frameworks and a lot of developers use them to a much success over plain CSS. There frameworks allow for a better CSS reuse and composition. Here are some other useful tools—CSS frameworks and CSS preprocessors—worth checking out:
 
-Here are some other useful tools—CSS frameworks and CSS
-preprocessors—worth checking out:
+-   [*Compass*](http://compass-style.org): CSS
+    framework (<http://compass-style.org>)
 
--   [*Compass*](http://compass-style.org/)*:* CSS
-    framework (http://compass-style.org/)
+-   [*Sass*](http://sass-lang.com): Extension of CSS3 and analog to
+    Less (<http://sass-lang.com>)
 
--   [*SASS*](http://sass-lang.com/)*:* Extension of CSS3 and analog to
-    Less (http://sass-lang.com/)
+-   [*Blueprint*](http://blueprintcss.io): CSS
+    framework (<http://blueprintcss.io>)
 
--   [*Blueprint*](http://blueprintcss.org/)*:* CSS
-    framework (http://blueprintcss.org/)
+-   [*Foundation*](http://foundation.zurb.com): Responsive front-end
+    framework (<http://foundation.zurb.com>)
 
--   [*Foundation*](http://foundation.zurb.com/)*:* Responsive front-end
-    framework (http://foundation.zurb.com/)
+-   [*Bootswatch*](http://bootswatch.com): Collection of customized
+    Twitter Bootstrap themes (<http://bootswatch.com>)
 
--   [*Bootswatch*](http://bootswatch.com/)*:* Collection of customized
-    Twitter Bootstrap themes (http://bootswatch.com/)
+-   [*WrapBootstrap*](https://wrapbootstrap.com): Marketplace for
+    customized Bootstrap themes (<https://wrapbootstrap.com>)
 
--   [*WrapBootstrap*](https://wrapbootstrap.com/)*:* Marketplace for
-    customized Bootstrap themes (https://wrapbootstrap.com/)
-
-To work with the Twitter Bootstrap source file, you need to use Less or
-[SASS](https://github.com/twbs/bootstrap-sass) (another CSS framework
-similar to Less).
+To work with the Bootstrap source files or its theme files, you need to use Less or
+[SASS](https://github.com/twbs/bootstrap-sass).
 
 Less
 ====
 
-Less is a dynamic stylesheet language. Sometimes, and in this case, it's
+Less is a dynamic stylesheet language. Less has variables, mix-ins, and operators that make it faster for
+developers to reuse CSS rules. Sometimes, and in this case, it's
 true that less is more and more is less. A browser cannot interpret Less
-syntax, so Less source code must be compiled to CSS in one of the three
+syntax, so Less source code must be compiled to CSS in one of three
 ways:
 
 1.  In the browser by the Less JavaScript library
@@ -392,17 +380,14 @@ ways:
     module](https://npmjs.org/package/less) (https://www.npmjs.com/package/less)
 
 3.  Locally on your machine by command line (installed with npm by
-    running `$ npm install -g less`), [WinLess](http://winless.org)
-    (http://winless.org/), [Less App](http://incident57.com/less)
-    (http://incident57.com/codekit/index.html),
-    [SimpLess](http://wearekiss.com/simpless)
-    (http://wearekiss.com/simpless), or a similar app
+    running `$ npm install -g less`), or a desktop app such as [WinLess](http://winless.org)
+    (<http://winless.org>), [CodeKit](https://codekitapp.com/index.html)
+    (<https://codekitapp.com/index.html>),
+    [SimpLess](https://github.com/Paratron/SimpLESS)
+    (<https://github.com/Paratron/SimpLESS>)
 
-The browser option is suitable for a development environment, but
+The browser option (on the fly compilation) is suitable for a development environment but
 suboptimal for a production environment.
-
-Less has variables, mix-ins, and operators that make it faster for
-developers to reuse CSS rules.
 
 Less Variables
 --------------
@@ -437,8 +422,8 @@ one place versus two in CSS. This is abstraction at its best.
 Less Mix-ins
 ------------
 
-This about mix-ins as functions. The syntax for a mix-in is the same as
-for creating a class selector. For example this is a `.border` mix-in:
+This section is about mix-ins. They are like functions in JavaScript. The syntax for a mix-in is the same as
+for creating a class selector. For example, this is a `.border` mix-in:
 
     .border {
         border-top: dotted 1px black;
@@ -549,7 +534,7 @@ reuse them in multiple apps.
 Other important [Less features](http://lesscss.org/#docs)
 (<http://lesscss.org/#docs>) include the following:
 
--   Pattern-matching
+-   Pattern matching
 
 -   Nested rules
 
@@ -566,24 +551,19 @@ Other important [Less features](http://lesscss.org/#docs)
 An Example Using a Third-Party API (OpenWeatherMap) and jQuery
 ==============================================================
 
-Supplemental video which walks you through the implementation and
-demonstrates the project: <http://bit.ly/1RKxyxA>.
+In this section we will look at a Weather app example. It is a standalone example that is not a part of
+the main Message Board application introduced in this chapter and covered in details in later chapters.
 
-This example is for purely demonstrative purposes. It is not a part of
-the main Message Board application covered in later chapters. The goal
-is to just illustrate the combination of jQuery, JSONP, and REST API
-technologies.
-
-
-The idea of this weather application is to show you an input field for
-the city name and buttons for metric and imperial systems. The first page of the Weather application has the input field for the city name and two buttons for metric and imperial forecasts (Figure 3-1).
+The goal of the Weather app is to just illustrate the combination of jQuery, JSONP, and REST API
+technologies. The idea of this weather application is to show you an input field for
+the city name and buttons for metric and imperial systems (C or F degrees). The first view of the Weather application is shown in Figure 3-1. The view has the input field for the city name and two buttons for metric and imperial forecasts (Figure 3-1).
 
 ![](media/weather-1.png)
 
-***Figure 3-1.** Weather App has a text input field and two button for the forecasts.*
+***Figure 3-1.** Weather App has a text input field and two buttons for the forecasts.*
 
 Once you enter the city name and click one of the buttons, the app will fetch the
-forecast from OpenWeatherMap. Depending on what button is pressed, the app will fetch the forecast in metric (C) or imperial (F) degrees. For example, I like in the heart of tech innovation, San Francisco and we use imperial F degrees here so my result will be similar to the one shown in Figure 3-2. The forecast will be for several days with a 3-hour difference between predictions.
+forecast from OpenWeatherMap. Depending on which button you press, the app will fetch the forecast in metric (C) or imperial (F) degrees. For example, I live in the heart of all the tech innovations, San Francisco, and we use imperial F degrees here, so my result will be similar to the one shown in Figure 3-2. The forecast will be for several days with a 3-hour difference between predictions.
 
 ![](media/weather-2.png)
 
@@ -595,7 +575,7 @@ API](http://openweathermap.org) 2.5. The API requires an authentication
 (an app ID) for REST calls. You can get the necessary keys at
 <http://openweathermap.org/appid>. The API
 documentation is available at
-<http://openweathermap.org/api>. If you are starting the weather app from the code folder of the repository for this book, then make sure you update the API key as you might have my API key there which might not work in the future.
+<http://openweathermap.org/api>. If you are starting the weather app from the code folder of the repository for this book, then make sure you update the API key, because the key in the provided code may be my key and it may not work in the future.
 
 In this example, we'll use jQuery's `$.ajax()` function. It has
 the following syntax:
@@ -611,13 +591,13 @@ the following syntax:
         alert('Error sending request')
       })
 
-In the code fragment of an `ajax()` function just shown, we used
+In the code fragment of the `ajax()` function just shown, we used
 the following parameters:
 
 -   `url` is an endpoint of the API.
 
 -   `dataType` is the type of data we expect from the server; for
-    example, "json", "xml", "jsonp" (JSON with padding—format for servers
+    example, `json`, `xml`, `jsonp` (JSON with padding—format for servers
     that don't support CORS).
 
 -   `data` is the data to be sent to the server.
@@ -626,23 +606,22 @@ the following parameters:
     called after the request comes back; by default jQuery will create
     a name.
 
--   `type` is HTTP method of the request; for example, "GET", "POST".
+-   `type` is the HTTP method of the request; for example, `GET`, `POST`.
 
 There is also a chained method `.fail`, which has logic for what to do
 when the request has an error (i.e., it fails).
 
-For more parameters and examples of the `ajax()` function, go to
-[`api.jquery.com/jQuery.ajax`](http://api.jquery.com/jQuery.ajax/).
+For more parameters and examples of the `ajax()` function, go to <http://api.jquery.com/jQuery.ajax>.
 
 To assign our function to a user-triggered event, we need to use the
-`click` function from the jQuery library. The syntax is very simple:
+`click()` function from the jQuery library. The syntax is very simple:
 
     $('#btn').click(function() {
       ...
     }
 
 `$('#btn')` is a jQuery object that points to an HTML element
-in the DOM with the `id` of `btn`.
+in the DOM with the element ID (`id`) of `btn`.
 
 To make sure that all of the elements we want to access and use are in
 the DOM, we need to enclose all of the DOM manipulation code inside of
@@ -659,7 +638,7 @@ DOM.
 We must put the event handlers for the buttons in the
 `$(document).ready()` callback. Otherwise, the code might try to
 attach an event listener to a nonexisting DOM element. The
-`$(document).ready()` ensures that the browser rendered all the DOM
+`$(document).ready()` callback ensures that the browser rendered all the DOM
 elements.
 
     $(document).ready(function(){
@@ -731,7 +710,7 @@ say, we must pass the city name, app ID, and units as follows:
     }
 
 The JSONP fetching function magically (thanks to jQuery) makes
-cross-domain calls by injecting script tag, and appending the callback
+cross-domain calls by injecting `<script>` tags and appending the callback
 function name to the request query string.
 
 At this point, we need to implement `fetchData` and update the view with
@@ -875,17 +854,17 @@ the `index.html` file:
 Try launching it and see if it works with or without the local HTTP
 server (just opening `index.html` in the browser). It should not work
 without an HTTP server because of its reliance on JSONP technology. You
-can get `http-static` or `http-server` command-line tools as described
+can get `node-static` or `http-server` command-line tools as described
 in Chapter 2.
 
 The source code is available in the
 [`03-weather`](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather)
-folder and on GitHub (https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather). Don't forget that there's a [screencast video on YouTube](http://bit.ly/1RKxyxA) which walks you through the implementation and demonstrates the app.
+folder and on GitHub (https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather).
 
 This example was built with OpenWeatherMap API v2.5 and might not work
 with later versions. Also, you need the API key called app ID. You can
 get the necessary keys at
-[`openweathermap.org/appid`](http://openweathermap.org/appid). If you
+<http://openweathermap.org/appid>. If you
 feel that there must be a working example, please submit your feedback
 to [the GitHub repository for the book's projects](https://github.com/azat-co/fullstack-javascript) (https://github.com/azat-co/fullstack-javascript).
 
