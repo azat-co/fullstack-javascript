@@ -206,7 +206,6 @@ connection from your Node.js script.
 MongoDB on Heroku: MongoLab
 ==================================================================================================================================
 
-
 Now that you've made the application that displays "connected" work locally, it's time to slightly modify it and deploy it to the Heroku PaaS (cloud). The database will also be in the cloud. I recommend using the MongoLab add-on, which provides ready-to-use MongoDB instances that integrate well with Heroku apps (<https://elements.heroku.com/addons/mongolab>). MongoLab (or mLab) also has a very convenient browser-based GUI to look up and manipulate the data and collections.
 
 **Note** You might have to provide your credit card information to use MongoLab even if you select the free version. You should not be charged for a free plan, though.
@@ -322,9 +321,9 @@ The result will be something like this:
 2019-12-01T12:34:53.271778+00:00 app[web.1]:   { name: 'test', options: { autoIndexId: true } } ]
 ```
 
-So far you have implemented a local `app.js` file (`code/07-db-connect/app.js` or <http://bit.ly/2LhLrZm>). You enhanced it to work in the cloud (`code/07-db-connect-heroku/app.js` or <http://bit.ly/2LgX5Dy>). After you get the `app.js` and the modified `app.js` files working, let's enhance the latest `app.js` file by adding an HTTP server, so the "connected" message will be displayed in
-the browser instead of the terminal window. To do so, we'll wrap the
-server object instantiation in a database connection callback. The final implementation is in the file `code/07-db-server/app.js` or at the book's GitHub repository: <http://bit.ly/2LcTd6K>.
+So far you have implemented a local `app.js` file (`code/07-db-connect/app.js` or <http://bit.ly/2LhLrZm>). You enhanced it to work in the cloud (`code/07-db-connect-heroku/app.js` or <http://bit.ly/2LgX5Dy>). You learned how to build Node.js programs which work with MongoDB. Great work!
+
+Let's enhance the latest `app.js` file by adding an HTTP server. After you get the `app.js` and the modified `app.js` files working, you modify the `app.js` to add a server so that the "connected" message will be displayed in the browser instead of the terminal window. To do so, we'll wrap the server object instantiation in a database connection callback. The final implementation is in the file `code/07-db-server/app.js` or at the book's GitHub repository: <http://bit.ly/2LcTd6K>.
 
 Supplemental video which walks you through the implementation and
 demonstrates the project: <http://bit.ly/1Qnrmwr>.
@@ -356,29 +355,16 @@ client.connect(dbConnUrl, {}, function(error, db) {
 })
 ```
 
-The final Heroku-deployment-ready project is located at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-serverunder.
+After the deployment you should be able to open the URL provided by Heroku and see the list of collections. If it's a newly created app with an empty database, there would be no collections. You can create a collection using the MongoLab web interface in Heroku, then check in your app. You can use Mongo shell to connect to mLab too, e.g.,
 
-After the deployment you should be able to open the URL provided by
-Heroku and see the list of collections. If it's a newly created app with
-an empty database, there would be no collections. You can create a
-collection using the MongoLab web interface in Heroku.
-
-For more information on the native MongoDB driver, check out
-http://mongodb.github.io/node-mongodb-native/api-articles/nodekoarticle1.html
+```
+mongo --username alice --password dolphin --host mongodb0.herokuserverapp.com --port 28015
+```
 
 Message Board: MongoDB Version
 ==============================
 
-<span id="board" class="anchor"></span>Supplemental video which walks
-you through the implementation and demonstrates the project:
-http://bit.ly/1QnsfoE.
-
-We should have everything set up for writing the Node.js application
-that will work both locally and on Heroku. The source code is available
-at
-<https://github.com/azat-co/fullstack-javascript/tree/master/code/07-board-api-mongo>.
-The structure of the application is simple:
+We should have everything set up for writing the Node.js application that will work both locally and on Heroku. The source code is available in the folder `code/07-board-api-mongo` and at <http://bit.ly/2LbCtfX>. The structure of the application is as simple as:
 
 ```
 /07-board-api-mongo
@@ -400,12 +386,9 @@ Then put out a magic string to connect to MongoDB:
 
 `const uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'`
 
-Note: The URI/URL format contains the optional database name in which
-our collection will be stored. Feel free to change it to something else:
-for example, 'rpjs' or 'test'.
+**Note** The URI/URL format contains the optional database name in which our collection will be stored. Feel free to change it to something else: for example, `rpjs` or `test`.
 
-We put all the logic inside of an open connection in the form of a
-callback function:
+We put all the logic inside of an open connection in the form of a callback function:
 
 ```js
 client.connect(uri, (error, db) => {
@@ -414,11 +397,11 @@ client.connect(uri, (error, db) => {
 
 We are getting the collection with the next statement:
 
-`const collection = db.collection('messages')`
+```js
+const collection = db.collection('messages')
+```
 
-Now we can instantiate the server and set up logic to process our
-endpoints/routes. We need to fetch the documents on GET
-`/messages/list.json`:
+Now we can instantiate the server and set up logic to process our endpoints/routes. We need to fetch the documents on GET `/messages.json`:
 
 ```js
   const app = http.createServer((request, response) => {
@@ -430,11 +413,11 @@ endpoints/routes. We need to fetch the documents on GET
       })
 ```
 
-On the POST `/messages.json`, we inserting the document:
+On the POST `/messages.json`, we insert the document:
 
 ```js
     } else if (request.method === 'POST' && request.url === '/messages.json') {
-      request.on('data', function(data) {
+      request.on('data', (data) => {
         collection.insert(querystring.parse(data.toString('utf-8')), {safe:true}, function     (error, obj) {
             if (error) throw error
             response.end(JSON.stringify(obj))
@@ -443,10 +426,7 @@ On the POST `/messages.json`, we inserting the document:
     } else {
 ```
 
-This will be shown in the event that the client request is not matching
-any of the conditions above. This is a good reminder for us when we try
-to go to the http://localhost:1337 instead of
-<http://localhost:1337/messages.json>:
+This will be shown in the event that the client request does not match any of the conditions above. This is a good reminder for us when we try to go to <http://localhost:1337> instead of <http://localhost:1337/messages.json> and there are no messages:
 
 ```js
       response.end('Supported endpoints: \n/messages.json\n/messages.json')
@@ -457,10 +437,7 @@ to go to the http://localhost:1337 instead of
 })
 ```
 
-Note: We don't have to use additional words after the collection/entity
-name; that is, instead of `/messages.json` it's perfectly fine to have just `/messages` for
-all the HTTP methods such as GET, POST, PUT, DELETE. The main reason why many developers and I use `.json` is to be explicit with the format which needs to be returned back. If you change them in your application code make sure to use the updated CURL commands and
-front-end code.
+**Note** We don't have to use additional words after the collection/entity name; that is, instead of `/messages.json` it's perfectly fine to have just `/messages` for all the HTTP methods such as GET, POST, PUT, and DELETE. The main reason why many developers and I use `.json` is to be explicit with the format that needs to be returned back. Another way to be explicit is to use `Accept` header set to `application/json`. If you change the endpoints to just `/messages` in your Node.js application code, make sure you update URLs in the provided CURL commands and the supplied Message Board front-end code.
 
 To test via CURL terminal commands run:
 
@@ -468,44 +445,30 @@ To test via CURL terminal commands run:
 
 Or open your browser at the <http://locahost:1337/messages.json> location.
 
-It should give you an empty array: `[]`, which is fine. Then POST a
-new message:
+It should give you an empty array (`[]`), which is fine. Then POST a new message:
 
 `$ curl  -d "username=BOB&message=test" http://localhost:5000/messages.json`
 
-Now we must see a response containing an ObjectID of a newly created
-element, for example:
+Now we must see a response containing an ObjectID of a newly created element, for example:
 
 ```
 [{"username":"BOB","message":"test","_id":"51edcad45862430000000001"}]
 ```
 
-Your ObjectId will be different. :-)
+Your `ObjectId` will be different. :-)
 
 If everything works as it should locally, try to deploy it to Heroku.
 
-To test the application on Heroku, you could use the same
-[CURL](http://curl.haxx.se/docs/manpage.html) commands
-(http://curl.haxx.se/docs/manpage.html), substituting http://localhost
-or "http://127.0.0.1" with your unique Heroku app's host/URL:
+To test the application on Heroku, you could use the same [CURL](https://curl.haxx.se/docs/manpage.html) commands (https://curl.haxx.se/docs/manpage.html), substituting <http://localhost> or <http://127.0.0.1> with your unique Heroku app's host/URL:
 
 ```
 $ curl http://your-app-name.herokuapp.com/messages.json
-$ curl -d "username=BOB&message=test"
-  http://your-app-name.herokuapp.com/messages.json
+$ curl -d "username=BOB&message=test" http://your-app-name.herokuapp.com/messages.json
 ```
 
-It's also nice to double check the database either via Mongo shell:
-`$ mongo` terminal command and then `use twitter-clone` and
-`db.messages.find()`; or via MongoHub
-(<https://github.com/bububa/MongoHub-Mac>), mongoui
-(<https://github.com/azat-co/mongoui>),
-mongo-express (<https://github.com/andzdroid/mongo-express>) or in case of
-MongoLab through its web interface accessible at the heroku.com web
-site.
+It's also nice to double check the database either via Mongo shell: `$ mongo` terminal command and then `use twitter-clone` and `db.messages.find()`; or via Compass (<http://bit.ly/2Lft3Qs>), my tool `mongoui` (<https://github.com/azat-co/mongoui>), `mongo-express` (<https://npmjs.org/mongo-express>) or in case of MongoLab through its web interface accessible at the Heroku website.
 
-If you would like to use another domain name instead of
-http://your-app-name.herokuapp.com, you'll need to do two things:
+If you would like to use another domain name instead of http://your-app-name.herokuapp.com, you'll need to do two things:
 
 1.  Tell Heroku your domain name:
 
@@ -514,22 +477,13 @@ http://your-app-name.herokuapp.com, you'll need to do two things:
 2.  Add the CNAME DNS record in your DNS manager to point
     to http://your-app-name.herokuapp.com.
 
-More information on custom domains can be found at
-[devcenter.heroku.com/articles/custom-domains](https://devcenter.heroku.com/articles/custom-domains)
+Custom domains will hide the fact that your application is hosted on Heroku. For more information on custom domains can be found at <https://devcenter.heroku.com/articles/custom-domains>.
 
-Tip: For more productive and efficient development we should automate as
-much as possible; that is, use tests instead of CURL commands. There is
-an article on the Mocha library in the BONUS chapter that, along with
-the `superagent` or `request` libraries, is a timesaver for such tasks.
+**Tip** For more productive and efficient development we should automate as
+much as possible; that is, use tests instead of CURL commands Use HTTP libraries such as `axios`, `superagent` or `request` to test your REST APIs. They are a timesaver for such tasks. There is
+a chapter on the Mocha library and Node.js testing in my other best-selling book *Practical Node.js, 2nd Edition* (Apress, 2018): <http://bit.ly/2LdCNL3> and <https://github.com/azat-co/practicalnode>.
 
 Summary
 =======
 
-In this chapter we've covered the MongoDB database and its shell.
-MongoDB uses an extended version of JSON, which is called BSON. Then we
-switched to Node.js with the native MongoDB driver. Many other MongoDB
-Node.js libraries depend on the native driver and build on top of it.
-For this reason, it's good to know it. To use MongoDB on Heroku, we
-utilized MongoLab add-on (the magical `MONGOLAB_URI`). Finally, we use
-the acquired knowledge to add persistence to the Message Boards
-application.
+In this chapter we covered the MongoDB database and its shell. MongoDB uses an extended version of JSON, which is called BSON. Then we switched to Node.js with the native MongoDB driver. Many other MongoDB Node.js libraries depend on the native driver and build on top of it. For this reason, it's good to know it. To use MongoDB on Heroku, we utilized the MongoLab add-on (the magical `MONGOLAB_URI`). Finally, we used the acquired knowledge to add database store (persistence) to the Message Boards application.
