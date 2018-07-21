@@ -51,94 +51,94 @@ TBD
 * **[DevelopIntelligence](http://www.developintelligence.com): Managed learning solutions including training design and development, program delivery and management** - $500
 * Matthew Amacker - $200
 * Jordan Horiuchi - $200
-* Tim Chen - $175 
-* Alexey Bushnev - $175 
-* Aleksey Maksimov - $175 
-* Maurice van Cooten - $175 
-* Ryan - $175 
+* Tim Chen - $175
+* Alexey Bushnev - $175
+* Aleksey Maksimov - $175
+* Maurice van Cooten - $175
+* Ryan - $175
 * Ng Yao Min - $175
-* Kommana Karteek - $160 
-* Elias Yousef - $150 
-* Arhuman - $150 
-* Javier Armendariz - $150 
-* Dave Anderson - $150 
-* Edithson Abelard - $150 
-* Ron Male - $145 
-* Win - $145 
-* Harold Avilez - $145 
-* Moe Joe - $145 
-* Guest 1871315922 - $145 
-* Philipp Jauss - $145 
-* Judy Herilla - $145 
-* Jaydev Dhinoja - $145 
-* Carlos Rodriguez - $145 
-* Pak - $145 
-* Jim Texter - $145 
-* David Wolff - $145 
-* German Yesid Rubiano Romero - $125 
-* shannon Johnstone - $125 
-* Mani Rana - $125 
-* Jeff Anderson - $125 
-* Tajinder Pal Singh - $125 
-* Sridhar Domakonda - $125 
-* Dieter - $125 
-* Felix Wang - $125 
-* Dan Jensen - $125 
-* Joel Register - $125 
-* Edgar Sanchez - $125 
-* Alexey - $125 
-* Peter Sjölin - $125 
-* Sksamy - $125 
-* Manuel Padrón Martínez - $125 
-* William Bartholomew - $125 
-* Sukesh Kumar Dash - $125 
-* Ross Matthews - $125 
-* Elaine David - $125 
-* Phil Aylesworth - $125 
-* 張大寶 - $125 
-* Vishnu - $125 
-* Jonathan Jou - $125 
-* Ernest Weems - $125 
-* Allen Lam - $125 
-* Martinerko - $125 
-* Sharif H. Khan - $125 
-* Larry Statham - $125 
-* Syllie - $125 
-* Eric J. - $125 
-* Jim Tyhurst - $125 
-* Oliver Schoenborn - $125 
-* Benjamin Sweetnam - $75 
-* Ian Partridge - $75 
-* Hafeez Syed - $75 
-* Chuck Huie - $75 
-* Thomas Greenhalgh - $75 
-* Sanghee Kim - $75 
-* JoeL Ivey - $75 
-* Clifford Lum - $75 
-* Ben Altieri - $75 
-* Patrick - $75 
-* Mani S - $75 
-* Simon St-Germain - $75 
-* Jaiyaramakrishnan Mahendran - $75 
-* Kevin Youkhana - $75 
-* Eymard Ventura - $75 
-* Matt Braun - $75 
-* Brent - $75 
-* Helio Alves - $75 
-* Matthew Winter - $75 
-* Omar Gómez Figueroa - $75 
-* Herwin Rey - $75 
-* Laura Steiner - $75 
-* Ben Manning - $75 
-* David le Blanc - $75 
-* Brian Chirgwin - $75 
-* Cédric Donner - $75 
-* Gary Poon - $75 
-* Mitchell Harpur - $75 
-* Beardsley Ruml - $50 
-* Swanand Kriyaban - $50 
-* Suhas - $50 
-* Yong Seok Jeon - $50 
+* Kommana Karteek - $160
+* Elias Yousef - $150
+* Arhuman - $150
+* Javier Armendariz - $150
+* Dave Anderson - $150
+* Edithson Abelard - $150
+* Ron Male - $145
+* Win - $145
+* Harold Avilez - $145
+* Moe Joe - $145
+* Guest 1871315922 - $145
+* Philipp Jauss - $145
+* Judy Herilla - $145
+* Jaydev Dhinoja - $145
+* Carlos Rodriguez - $145
+* Pak - $145
+* Jim Texter - $145
+* David Wolff - $145
+* German Yesid Rubiano Romero - $125
+* shannon Johnstone - $125
+* Mani Rana - $125
+* Jeff Anderson - $125
+* Tajinder Pal Singh - $125
+* Sridhar Domakonda - $125
+* Dieter - $125
+* Felix Wang - $125
+* Dan Jensen - $125
+* Joel Register - $125
+* Edgar Sanchez - $125
+* Alexey - $125
+* Peter Sjölin - $125
+* Sksamy - $125
+* Manuel Padrón Martínez - $125
+* William Bartholomew - $125
+* Sukesh Kumar Dash - $125
+* Ross Matthews - $125
+* Elaine David - $125
+* Phil Aylesworth - $125
+* 張大寶 - $125
+* Vishnu - $125
+* Jonathan Jou - $125
+* Ernest Weems - $125
+* Allen Lam - $125
+* Martinerko - $125
+* Sharif H. Khan - $125
+* Larry Statham - $125
+* Syllie - $125
+* Eric J. - $125
+* Jim Tyhurst - $125
+* Oliver Schoenborn - $125
+* Benjamin Sweetnam - $75
+* Ian Partridge - $75
+* Hafeez Syed - $75
+* Chuck Huie - $75
+* Thomas Greenhalgh - $75
+* Sanghee Kim - $75
+* JoeL Ivey - $75
+* Clifford Lum - $75
+* Ben Altieri - $75
+* Patrick - $75
+* Mani S - $75
+* Simon St-Germain - $75
+* Jaiyaramakrishnan Mahendran - $75
+* Kevin Youkhana - $75
+* Eymard Ventura - $75
+* Matt Braun - $75
+* Brent - $75
+* Helio Alves - $75
+* Matthew Winter - $75
+* Omar Gómez Figueroa - $75
+* Herwin Rey - $75
+* Laura Steiner - $75
+* Ben Manning - $75
+* David le Blanc - $75
+* Brian Chirgwin - $75
+* Cédric Donner - $75
+* Gary Poon - $75
+* Mitchell Harpur - $75
+* Beardsley Ruml - $50
+* Swanand Kriyaban - $50
+* Suhas - $50
+* Yong Seok Jeon - $50
 * Martin Moellenbeck - $45
 * Mikael Wallin - $45
 * Aakash Jain - $35
@@ -158,7 +158,7 @@ TBD
 
 ## Source Code / Projects
 
-* [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap): Twitter Bootstrap scaffolding example
+* [01-bootstrap](https://github.com/azat-co/fullstack-javascript/tree/master/code/01-bootstrap): Bootstrap scaffolding example
 * [03-weather](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-weather): jQuery, OpenWeatherMap API and JSONP example
 * [03-parse-sdk](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-parse-sdk):  Parse JavaScript SDK example
 * [03-board-parse-rest](https://github.com/azat-co/fullstack-javascript/tree/master/code/03-board-parse-rest): Message board front-end: jQuery and Parse.com REST API; ready for deployment.
