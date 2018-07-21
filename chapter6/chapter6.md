@@ -314,20 +314,26 @@ Deploying to Microsoft Azure
 
 In order to deploy our "Hello World" application to Microsoft Azure, we must add a Git remote destination that belongs to Azure. You could copy the URI/URL from the Microsoft Azure Portal, and use it with this command:
 
-    $ git remote add azure YOUR_AZURE_URI
+```
+$ git remote add azure YOUR_AZURE_URI
+```
 
 Now we should be able to make a push with this command:
 
-    $ git push azure master
+```
+$ git push azure master
+```
 
 If everything went okay, you should see success logs in the terminal and
 "Hello World" in the browser of your Microsoft Azure Web Site URL.
 
 To push changes, just execute:
 
-    $ git add .
-    $ git commit -m "changing to hello azure"
-    $ git push azure master
+```
+$ git add .
+$ git commit -m "changing to hello azure"
+$ git push azure master
+```
 
 A more meticulous guide can be found in the tutorial <http://bit.ly/2LbXQOi>.
 
@@ -338,10 +344,12 @@ For Heroku deployment, we need to create two extra files: `Procfile` and `packag
 
 The structure of the "Hello World" application looks like this:
 
-    /06-hello
-      -package.json
-      -Procfile
-      -server.js
+```
+/06-hello
+  -package.json
+  -Procfile
+  -server.js
+```
 
 `Procfile` is a mechanism for declaring what commands are run by your
 application’s dynos on the Heroku platform. Basically, it tells Heroku
@@ -403,19 +411,21 @@ We'll start by creating an empty `mb-server.js` file. After it's there,
 let's switch to tests and create the `test.js` file with the following
 content:
 
-    const http = require('http')
-    const assert = require('assert')
-    const querystring = require('querystring')
-    const util = require('util')
+```js
+const http = require('http')
+const assert = require('assert')
+const querystring = require('querystring')
+const util = require('util')
 
-    const messageBoard = require('./mb-server')
+const messageBoard = require('./mb-server')
 
-    assert.deepEqual('[{"name":"John","message":"hi"}]',
-      messageBoard.getMessages())
-    assert.deepEqual ('{"name":"Jake","message":"gogo"}',
-      messageBoard.addMessage ("name=Jake&message=gogo"))
-    assert.deepEqual('[{"name":"John","message":"hi"},{"name":"Jake","message":"gogo"}]',
-      messageBoard.getMessages())
+assert.deepEqual('[{"name":"John","message":"hi"}]',
+  messageBoard.getMessages())
+assert.deepEqual ('{"name":"Jake","message":"gogo"}',
+  messageBoard.addMessage ("name=Jake&message=gogo"))
+assert.deepEqual('[{"name":"John","message":"hi"},{"name":"Jake","message":"gogo"}]',
+  messageBoard.getMessages())
+```
 
 Please keep in mind that this is a very simplified comparison of strings
 and not JavaScript objects. So every space, quote, and case matters. You
