@@ -321,7 +321,7 @@ This is it. For your reference, the front-end app source code is in the `code/08
 Message Board API
 =================
 
-The back-end Node.js application source code is at <https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-api> in the GitHub folder, which has this structure:
+The back-end Node.js application source code is in `code/08-board-api` and at <http://bit.ly/2LbVY84>, which has this structure:
 
 ```
 /08-board-api
@@ -330,9 +330,9 @@ The back-end Node.js application source code is at <https://github.com/azat-co/f
     -package.json
 ```
 
-The Procfile is for the Heroku deployment, and the `package.json` is for project metadata as well as for Hekoru deployment.
+The `Procfile` file is for the Heroku deployment, and the `package.json` file is for project metadata as well as for Hekoru deployment.
 
-The `web.js` file is very similar to the `08-board-api-mongo,` but has CORS headers and OPTIONS request handler code. The file starts with importation of dependencies:
+The `web.js` file is very similar to the `08-board-api`, but has CORS headers and OPTIONS request handler code. The file starts with importation of dependencies:
 
 ```js
 const http = require('http')
@@ -361,13 +361,13 @@ After we are sure that there were no errors (otherwise the execution flow won't 
   const collection = db.collection('messages')
 ```
 
-The server code follows. We create the server instance and set up the origin variable based on the information from the request. This value will be in the `Access-Control-Allow-Origin`. The idea is that the response will have the value of the client's URL:
+The server code follows. We create the server instance and set up the `origin` variable based on the information from the request. This value will be in the `Access-Control-Allow-Origin` header. The idea is that the response will have the value of the client's URL:
 
 ```js
   const app = http.createServer(function (request, response) {
     const origin = (request.headers.origin || '*')
 ```
-Check for the HTTP method verb. If it's `OPTIONS`, which we must implement for CORS, we start writing headers to the response object:
+Check the HTTP method value in `request.method`. If it's OPTIONS, which we must implement for CORS, we start writing headers to the `response` object:
 
 ```js
     if (request.method == 'OPTIONS') {
@@ -387,7 +387,7 @@ The next header will tell what methods are supported:
       response.end()
 ```
 
-We are done with `OPTIONS`, but we still need to implement `GET` and `POST`:
+We are done with OPTIONS, but we still need to implement GET and POST:
 
 ```js
     } else if (request.method === 'GET' && request.url === '/messages.json') {
@@ -430,7 +430,7 @@ We need to parse `data` to get the object so later we can save it into the datab
           const body = JSON.stringify(obj)
 ```
 
-We add the headers again. Maybe we should write a function and call it instead of writing the headers manually. Wait? Express.js is actually will do some of it for us but it's a topic of [another book](http://proexpressjs.com):
+We add the headers again. Maybe we should write a function and call it instead of writing the headers manually. Wait, Express.js is actually will do some of it for us, but that's a topic for [another book](http://proexpressjs.com) (read my book *Pro Express.js* at <http://amzn.to/1D6qiqk>). The following code supplies the CORS headers for the response:
 
 ```js
           response.writeHead(200,{
@@ -448,7 +448,7 @@ We add the headers again. Maybe we should write a function and call it instead o
 })
 ```
 
-Here is a source code of `web.js`, our Node.js application implemented with CORS headers:
+Here is the source code of `web.js`, our Node.js application implemented with CORS headers:
 
 ```js
 const http = require('http')
@@ -515,11 +515,9 @@ client.connect(uri, function(error, db) {
 Deployment to Heroku
 ====================
 
-For your convenience, I placed the front-end app in `code/08-board-ui` and at <http://bit.ly/2LfD1Bo>, and the back-end app with CORS is located in `code/08-board-api` and at <http://bit.ly/2LbVY84>.
+For your convenience, I placed the front-end app in `code/08-board-ui` and at <http://bit.ly/2LfD1Bo>. I also saved the the back-end app with CORS in the `code/08-board-api` folder, and uploaded to <http://bit.ly/2LbVY84>.
 
-By now, you probably know what to do, but as a reference, below are the steps to deploy these examples to Heroku.
-
-We'll start with the API. In the `08-board-api` folder, execute the following code (`$ heroku login` is optional):
+By now, you probably know what to do, but as a reference, below are the steps to deploy these examples to Heroku. We'll start with the API. In the `08-board-api` folder, execute the following code (`$ heroku login` is optional):
 
     $ git init
     $ git add .
@@ -529,7 +527,7 @@ We'll start with the API. In the `08-board-api` folder, execute the following co
     $ heroku addons:create mongolab:sandbox
     $ git push heroku master
 
-Watch the terminal messages. If the API is successfully deployed, you can test it with CURL or Postman. Then copy the URL from Heroku (e.g., https://guarded-waters-1780.herokuapp.com), and paste it into the `08-board-ui/app.js` file, assigning the value to the URL variable. Then, in the `08-board-ui` folder, execute:
+Watch the terminal messages. If the API is successfully deployed, you can test it with CURL or Postman. Then copy the URL from Heroku (e.g., https://guarded-waters-1780.herokuapp.com) and paste it into the `code/08-board-ui/app.js` file, assigning the value to the URL variable. Then, in the `code/08-board-ui` folder, execute:
 
     $ git init
     $ git add .
@@ -538,21 +536,108 @@ Watch the terminal messages. If the API is successfully deployed, you can test i
     $ git push heroku master
     $ heroku open
 
-That's it. By now you should be able to see Message Board running in the cloud with UI (browser app) on one domain and API on another. In high-trafficked apps, the API will be hiding behind a load balancer so you can have multiple API servers on a single IP/URL. This way they'll handle more traffic and the system will become more resilient. You can take out, restart, or deploy on APIs one at a time with zero down time.
+That's it. By now you should be able to see Message Board running in the cloud with the UI (front-end browser app) on one domain and the API (backend) on another. In high-trafficked apps, the API will be hiding behind a load balancer, so you can have multiple API servers on a single IP/URL. This way they'll handle more traffic and the system will become more resilient. You can take out, restart, or deploy on APIs one at a time with zero downtime.
 
 Same-Domain Deployment Server
 =============================
 
-The same-domain deployment is *not recommended* for serious production applications, because static assets are better served with web servers like Nginx (not Node.js I/O engine), and separating API makes for less complicated testing, increased robustness, and quicker troubleshooting/monitoring. However, the same app/domain approach could be used for staging, testing, development environments, and/or tiny apps.
+The same-domain deployment is *not recommended* for serious production applications, because static assets are better served with web servers like Nginx (not Node.js I/O engine), and separating APIs makes for less complicated testing, increased robustness, and quicker troubleshooting/monitoring. However, the same app/domain approach could be used for staging, testing, development environments, and/or tiny apps.
 
-The idea is that API serves static files for the browser app as well, not just handling dynamic requests to its routes. So you can copy the `08-board-api` code into a new folder `08-board-web`. The beginning of the new server file is the same; we have GET and POST logic (this time CORS is not needed). The last condition in the chain of `if/else` needs to process the static files. Here's how we can do it.
+The idea is that the API serves static files for the browser app as well, not just handling dynamic requests to its routes. So you can copy the `code/08-board-api` code into a new folder `code/08-board-web` (or getting my copy from GitHub). The beginning of the new server file is the same; we have GET and POST logic (this time CORS is not needed). The last condition in the chain of `if/else` needs to process the static files. Here's how we can do a new response/request handler for static assets:
 
 ```js
-...
-  } else {
+const http = require('http'),
+  url = require('url'),
+  path = require('path'),
+  fs = require('fs'),
+  port = process.env.PORT || 1337,
+  staticFolder = 'public',
+  client = require('mongodb').MongoClient
+
+const uri = process.env.MONGOLAB_URI || 'mongodb://@127.0.0.1:27017/messages'
+//MONGOLAB_URI=mongodb://user:pass@server.mongohq.com:port/db_name
+
+client.connect(uri, function(error, db) {
+  if (error) return console.error(error)
+  const collection = db.collection('messages')
+
+  http.createServer(function(request, response) {
+    const origin = (request.headers.origin || '*')
+    if (request.method == 'OPTIONS') {
+      // ...
+    } else if (request.method === 'GET' && request.url === '/messages.json') {
+      // ...
+    } else if (request.method === 'POST' && request.url === '/messages.json') {
+      // ...
+    } else {
+      const uri = url.parse(request.url).pathname
+      console.log('Processing URI: ', uri)
+      if (uri == '' || uri == '/') uri = 'index.html'
+      filename = path.join(__dirname, staticFolder, uri)
+      console.log('Processing file: ', filename)
+      try {
+        stats = fs.statSync(filename)
+      } catch (error) {
+        if (error) {
+          console.error(error)
+          response.writeHead(404, {
+            'Content-Type': 'text/plain'})
+          response.write('404 Not Found\n')
+          return response.end()
+        }
+      }
+      if(!stats.isFile()) {
+        response.writeHead(404, {
+          'Content-Type': 'text/plain'})
+        response.write('404 Not Found\n')
+        return response.end()
+      } else {
+        const file = fs.readFileSync(filename)
+        if (!file) {
+          response.writeHead(500,
+            {'Content-Type': 'text/plain'})
+          response.write(err + '\n')
+          return response.end()
+        }
+        const extname = path.extname(filename)
+        const contentType = 'text/html'
+        switch (extname) {
+            case '.js':
+                contentType = 'text/javascript'
+                break
+            case '.css':
+                contentType = 'text/css'
+                break
+            case '.json':
+                contentType = 'application/json'
+                break
+            case '.png':
+                contentType = 'image/png'
+                break
+            case '.jpg':
+            case '.jpeg':
+                contentType = 'image/jpg'
+                break
+            case '.wav':
+                contentType = 'audio/wav'
+                break
+        }
+        response.writeHead(200, {
+          'Content-Type': contentType,
+          'Content-Length': file.length
+        })
+        response.end(file)
+      }
+    }
+  }).listen(port)
+
+  console.log('Static file server running at\n '+
+  ' => http://localhost:' + port + '/\nCTRL + C to shutdown')
+
+})
 ```
 
-We use [the url v0.11.0 module](https://github.com/defunctzombie/node-url) from <https://github.com/defunctzombie/node-url> to parse the path name from the URL. The path name is everything after the domain; for example, in <http://webapplog.com/es6> the path name is `/es6`. This will be our folder and file names.
+Let me take you through this implementation line-by-line. We use the `url` module (<https://npmjs.org/url>) to parse the path name from the URL. The path name is everything after the domain; for example, in <http://webapplog.com/es6> the path name is `/es6`. This will be our folder and file names.
 
 ```js
       const uri = url.parse(request.url).pathname
@@ -564,7 +649,7 @@ It's good to have some logging to know that our system is working as it should:
       console.log('Processing path: ', uri)
 ```
 
-The next line deals with the root URI; that is, when you go to the web site and the path is empty or a slash. In this case, let's serve the `index.html` (if it exists):
+The next line deals with the root URI; that is, when you go to the website and the path is empty or a slash, you'll get `index.html`. In our app, let's follow the convention and serve the `index.html` file by default (if it exists):
 
 ```js
       if (uri == '' || uri == '/') uri = 'index.html'
@@ -577,7 +662,7 @@ The `path.join()` method will make this code cross-platform by creating a string
       console.log('Processing file: ', filename)
 ```
 
-I always say never use synchronous functions in Node.js, unless you have to. This is such a case. Without the synch methods, we'll get racing conditions on our files meaning some will load faster than the others and cause conflicts:
+I always say never use synchronous functions in Node.js, unless you have to. This is such a case. Without the synch methods, we'll get racing conditions on our files, meaning some will load faster than the others and cause conflicts:
 
 ```js
       stats = fs.statSync(filename)
@@ -617,7 +702,7 @@ Finally, we read the file. We use the synchronous function again for the reasons
       }
 ```
 
-I know that Douglas Crockford dislikes `switch`, but we'll use it here to determine the right content type for the response header. Most browsers will understand the content type okay if you omit the `Content-Type` header, but why not go an extra mile?
+I know that the JavaScript guru Douglas Crockford dislikes `switch`, but we'll use it here to determine the right content type for the response header. Most browsers will understand the content type okay if you omit the `Content-Type` header, but why not go the extra mile?
 
 ```js
         const extname = path.extname(filename)
