@@ -510,14 +510,16 @@ The line `const view = this` after that is just for scoping issues. This give us
 
 Now we can remove extra code from the `render` method and implement the `showSpinner` function:
 
-    render: function(appleName){
-      const appleHtml = this.template(this.model)
-      $('body').html(appleHtml)
-    },
-    showSpinner: function(){
-      $('body').html(this.templateSpinner)
-    }
-    ...
+```js
+render: function(appleName) {
+  const appleHtml = this.template(this.model)
+  $('body').html(appleHtml)
+},
+showSpinner: function() {
+  $('body').html(this.templateSpinner)
+}
+...
+```
 
 That's all! Open `index.html#apples/gala` or `index.html#apples/fuji` in your browser and enjoy the loading animation while waiting for an apple image to load.
 
@@ -638,7 +640,7 @@ We'll refactor our home page to show a nice list of apples. Each list item will 
     render: function() {
       this.$el.html(this.template(this.model.attributes))
     },
-    addToCart: function(){
+    addToCart: function() {
       this.model.collection.trigger('addToCart', this.model)
     }
   })
@@ -976,115 +978,487 @@ Just in case, here is the full code for the subviews example, which is also avai
 </html>
 ```
 
-The link to an individual item, for example,
-`collections/index.html#apples/fuji`, also should work
-independently, by typing it in the browser address bar.
+The link to an individual item, for example, `collections/index.html#apples/fuji`, also should work independently, by typing it in the browser address bar.
 
-<span id="refactoring-backbone.js-code" class="anchor"><span id="refactoring" class="anchor"></span></span>Refactoring Backbone.js Code
+Refactoring Backbone.js Code
 =======================================================================================================================================
 
-At this point you are probably wondering what the benefit is of using
-the framework and still having multiple classes, objects, and elements
-with different functionalities in one single file. This was done for the
-purpose of adhering to the idea of keeping things simple.
+At this point you are probably wondering what the benefit is of using the framework and still having multiple classes, objects, and elements with different functionalities in one single file. This was done for the purpose of adhering to the idea of keeping things simple.
 
-The bigger your application is, the more pain there is in an unorganized
-code base. Let's break down our application into multiple files where
-each file will be one of these types:
+The bigger your application is, the more pain there is in an unorganized code base. Let's break down our application into multiple files where each file will be one of these types:
 
 -   View
-
 -   Template
-
 -   Router
-
 -   Collection
-
 -   Model
 
-Let's write these scripts to include tags into our `index.html` head, or
-body, as noted previously:
+Let's write these scripts to include tags into our `index.html` head, or body, as noted previously:
 
-    <script src="apple-item.view.js"></script>
-    <script src="apple-home.view.js"></script>
-    <script src="apple.view.js"></script>
-    <script src="apples.js"></script>
-    <script src="apple-app.js"></script>
+```html
+<script src="apple-item.view.js"></script>
+<script src="apple-home.view.js"></script>
+<script src="apple.view.js"></script>
+<script src="apples.js"></script>
+<script src="apple-app.js"></script>
+```
 
-The names don't have to follow the convention of dashes and dots, as
-long as it's easy to tell what each file is supposed to do.
+The names don't have to follow the convention of dashes and dots, as long as it's easy to tell what each file is supposed to do.
 
 Now, let's copy our objects and classes into the corresponding files.
 
 Our main `index.html` file should look very minimalistic:
 
-    <!DOCTYPE>
-    <html>
-    <head>
-      <script src="jquery.js"></script>
-      <script src="underscore.js"></script>
-      <script src="backbone.js"></script>
+```html
+<!DOCTYPE>
+<html>
+<head>
+  <script src="jquery.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
 
-      <script src="apple-item.view.js"></script>
-      <script src="apple-home.view.js"></script>
-      <script src="apple.view.js"></script>
-      <script src="apples.js"></script>
-      <script src="apple-app.js"></script>
+  <script src="apple-item.view.js"></script>
+  <script src="apple-home.view.js"></script>
+  <script src="apple.view.js"></script>
+  <script src="apples.js"></script>
+  <script src="apple-app.js"></script>
 
-    </head>
-    <body>
-      <div></div>
-    </body>
-    </html>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
+```
 
 The other files just have the code that corresponds to their file names.
 
 The content of `apple-item.view.js` will have the `appleView` object:
 
-    const appleView = Backbone.View.extend({
-      initialize: function(){
-        this.model = new (Backbone.Model.extend({}))
-        this.model.on('change', this.render, this)
-        this.on('spinner', this.showSpinner, this)
-      },
-      template: _.template('<figure>\
-                <img src="<%= attributes.url %>"/>\
-                <figcaption><%= attributes.name %></figcaption>\
-              </figure>'),
-      templateSpinner: '<img src="img/spinner.gif" width="30"/>',
+```js
+const appleView = Backbone.View.extend({
+  initialize: function(){
+    this.model = new (Backbone.Model.extend({}))
+    this.model.on('change', this.render, this)
+    this.on('spinner', this.showSpinner, this)
+  },
+  template: _.template('<figure>\
+            <img src="<%= attributes.url %>"/>\
+            <figcaption><%= attributes.name %></figcaption>\
+          </figure>'),
+  templateSpinner: '<img src="img/spinner.gif" width="30"/>',
 
-      loadApple:function(appleName){
-        this.trigger('spinner')
-        const view = this
-        // We'll need to access that inside of a closure
-        setTimeout(function(){
-        // Simulates real time lag when fetching
-        // data from the remote server
-          view.model.set(view.collection.where({
-            name: appleName
-          })[0].attributes)
-        }, 1000)
-      },
+  loadApple:function(appleName){
+    this.trigger('spinner')
+    const view = this
+    // We'll need to access that inside of a closure
+    setTimeout(function(){
+    // Simulates real time lag when fetching
+    // data from the remote server
+      view.model.set(view.collection.where({
+        name: appleName
+      })[0].attributes)
+    }, 1000)
+  },
 
-      render: function(appleName){
-        const appleHtml = this.template(this.model)
-        $('body').html(appleHtml)
-      },
-      showSpinner: function(){
-        $('body').html(this.templateSpinner)
-      }
-    })
+  render: function(appleName){
+    const appleHtml = this.template(this.model)
+    $('body').html(appleHtml)
+  },
+  showSpinner: function(){
+    $('body').html(this.templateSpinner)
+  }
+})
 
 The `apple-home.view.js` file has the `homeView` object:
 
-    const homeView = Backbone.View.extend({
+const homeView = Backbone.View.extend({
+  el: 'body',
+  listEl: '.apples-list',
+  cartEl: '.cart-box',
+  template: _.template('Apple data: \
+    <ul class="apples-list">\
+    </ul>\
+    <div class="cart-box"></div>'),
+  initialize: function() {
+    this.$el.html(this.template)
+    this.collection.on('addToCart', this.showCart, this)
+  },
+  showCart: function(appleModel) {
+    $(this.cartEl).append(appleModel.attributes.name + '<br/>')
+  },
+  render: function(){
+    view = this // So we can use view inside of closure
+    this.collection.each(function(apple){
+      const appleSubView = new appleItemView({model:apple})
+      // Create subview with model apple
+      appleSubView.render()
+      // Compiles template and single apple data
+      $(view.listEl).append(appleSubView.$el)
+      // Append jQuery object from
+      // single apple to apples-list DOM element
+    })
+  }
+})
+```
+
+The `apple.view.js` file contains the master apples list:
+
+```js
+const appleView = Backbone.View.extend({
+  initialize: function() {
+    this.model = new (Backbone.Model.extend({}))
+    this.model.on('change', this.render, this)
+    this.on('spinner',this.showSpinner, this)
+  },
+  template: _.template('<figure>\
+          <img src="<%= attributes.url %>"/>\
+          <figcaption><%= attributes.name %></figcaption>\
+        </figure>'),
+  templateSpinner: '<img src="img/spinner.gif" width="30"/>',
+  loadApple:function(appleName) {
+    this.trigger('spinner')
+    const view = this
+    // We'll need to access that inside of a closure
+    setTimeout(function() {
+    // Simulates real time lag when
+    // fetching data from the remote server
+      view.model.set(view.collection.where({
+        name:appleName
+      })[0].attributes)
+    }, 1000)
+  },
+  render: function(appleName) {
+    const appleHtml = this.template(this.model)
+    $('body').html(appleHtml)
+  },
+  showSpinner: function() {
+    $('body').html(this.templateSpinner)
+  }
+})
+```
+
+`apples.js` is an empty collection:
+
+```js
+const Apples = Backbone.Collection.extend({
+})
+```
+
+`apple-app.js` is the main application file with the data, the router, and the starting command:
+
+```js
+const appleData = [
+  {
+    name: 'fuji',
+    url: 'img/fuji.jpg'
+  },
+  {
+    name: 'gala',
+    url: 'img/gala.jpg'
+  }
+]
+let app
+const router = Backbone.Router.extend({
+  routes: {
+    '': 'home',
+    'apples/:appleName': 'loadApple'
+  },
+  initialize: function() {
+    const apples = new Apples()
+    apples.reset(appleData)
+    this.homeView = new homeView({collection: apples})
+    this.appleView = new appleView({collection: apples})
+  },
+  home: function() {
+    this.homeView.render()
+  },
+  loadApple: function(appleName) {
+    this.appleView.loadApple(appleName)
+  }
+})
+$(document).ready(function() {
+  app = new router
+  Backbone.history.start()
+})
+```
+
+Now let's try to open the application. It should work exactly the same as in the previous Subviews example.
+
+It's a far better code organization, but it's still far from perfect, because we still have HTML templates directly in the JavaScript code. The problem is that designers and developers can't work on the same files, and any change to the presentation requires a change in the main code base.
+
+We can add a few more JS files to our `index.html` file:
+
+```html
+<script src="apple-item.tpl.js"></script>
+<script src="apple-home.tpl.js"></script>
+<script src="apple-spinner.tpl.js"></script>
+<script src="apple.tpl.js"></script>
+```
+
+Usually, one Backbone View has one template, but in the case of our `appleView`—a detailed view of an apple in a separate window—we also have a spinner, a "loading" GIF animation.
+
+The contents of the files are just global variables that are assigned some string values. Later we can use these variables in our views, when we call the Underscore.js helper method `_.template()`.
+
+Here is the `apple-item.tpl.js` file:
+
+```js
+const appleItemTpl = '\
+      <a href="#apples/<%=name%>" target="_blank">\
+    <%=name%>\
+    </a>&nbsp;<a class="add-to-cart" href="#">buy</a>\
+    '
+```
+
+This is the `apple-home.tpl.js` file:
+
+```js
+const appleHomeTpl = 'Apple data: \
+        <ul class="apples-list">\
+        </ul>\
+        <div class="cart-box"></div>'
+```
+
+Here is the `apple-spinner.tpl.js` file:
+
+```js
+const appleSpinnerTpl = '<img src="img/spinner.gif" width="30"/>'
+```
+
+This is the `apple.tpl.js` file:
+
+```js
+const appleTpl = '<figure>\
+                <img src="<%= attributes.url %>"/>\
+                <figcaption><%= attributes.name %></figcaption>\
+              </figure>'
+```
+
+Try to start the application now. The full code is at <http://bit.ly/2LdEtEy>.
+
+As you can see in the previous example, we used global scoped variables (without the keyword `window`).
+
+Be careful when you introduce a lot of variables into the global namespace (`window` keyword). There might be conflicts and other unpredictable consequences. For example, if you wrote an open source library and other developers started using the methods and properties directly, instead of using the interface, what would happen later when you decide to finally remove or deprecate those global leaks? To prevent this, properly written libraries and applications use [JavaScript closures](https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures) (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+
+Here is an example of using closure and a global variable module definition:
+
+```js
+;(function() {
+  const apple = function() {
+  ...// Do something useful like return apple object
+  }
+  window.Apple = apple
+}())
+```
+
+In a case when we need to access the `app` object (which creates a dependency on that object):
+
+```js
+;(function() {
+  let app = this.app
+  // Equivalent of window.application
+  // in case we need a dependency (app)
+  this.apple = function() {
+    ...
+    // Return apple object/class
+    // Use app variable
+  }
+  // Equivalent of window.apple = function(){...}
+}())
+```
+
+As you can see, we've created the function and called it immediately while also wrapping everything in parentheses `()`.
+
+AMD and Require.js for Backbone.js Development
+==============================================
+
+AMD allows us to organize development code into modules, manage dependencies, and load them asynchronously. The article ["Why AMD"](http://requirejs.org/docs/whyamd.html) does a great job at explaining benefits of AMD: <http://requirejs.org/docs/whyamd.html>.
+
+Start your local HTTP server, for example, [MAMP](https://www.mamp.info/en) (<https://www.mamp.info>) or `node-static` (<https://npmjs.com/node-static>).
+
+Let's enhance our code by using the Require.js library.
+
+Our `index.html` will shrink even more:
+
+```html
+<!DOCTYPE>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="underscore.js"></script>
+    <script src="backbone.js"></script>
+    <script src="require.js"></script>
+    <script src="apple-app.js"></script>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>
+```
+
+We only included libraries and the single JavaScript file with our application. This file has the following structure:
+
+```js
+require([...],function(...){...})
+```
+
+In a more explanatory way:
+
+```js
+require([
+  'name-of-the-module',
+  ...
+  'name-of-the-other-module'
+  ],function(referenceToModule, ..., referenceToOtherModule){
+  // Some useful code...
+  referenceToModule.someMethod()
+})
+```
+
+Basically, we tell a browser to load the files from the array of file names—the first parameter of the `require()` function—and then pass our modules from those files to the anonymous callback function (second argument) as variables. Inside of the main function (anonymous callback) we can use our modules by referencing those variables. Therefore, our `apple-app.js` metamorphoses into:
+
+```js
+require([
+  'apple-item.tpl', // Can use shim plug-in
+  'apple-home.tpl',
+  'apple-spinner.tpl',
+  'apple.tpl',
+  'apple-item.view',
+  'apple-home.view',
+  'apple.view',
+  'apples'
+],function(
+  appleItemTpl,
+  appleHomeTpl,
+  appleSpinnerTpl,
+  appleTpl,
+  appleItemView,
+  homeView,
+  appleView,
+  Apples
+  ){
+  const appleData = [
+    {
+      name: 'fuji',
+      url: 'img/fuji.jpg'
+    },
+    {
+      name: 'gala',
+      url: 'img/gala.jpg'
+    }
+  ]
+  let app
+  const router = Backbone.Router.extend({
+  // Check if need to be required
+    routes: {
+      '': 'home',
+      'apples/:appleName': 'loadApple'
+    },
+    initialize: function() {
+      const apples = new Apples()
+      apples.reset(appleData)
+      this.homeView = new homeView({collection: apples})
+      this.appleView = new appleView({collection: apples})
+    },
+    home: function() {
+      this.homeView.render()
+    },
+    loadApple: function(appleName) {
+      this.appleView.loadApple(appleName)
+    }
+  })
+
+  $(document).ready(function() {
+    app = new router
+    Backbone.history.start()
+  })
+})
+```
+
+We put all of the code inside the function that is a second argument of `require()`, mentioned modules by their file names, and used dependencies via corresponding parameters. Now we should define the module itself. This is how we can do it with the `define()` method:
+
+```js
+define([...],function(...) {...})
+```
+
+The meaning is similar to the `require()` function: Dependencies are strings of file names (and paths) in the array that is passed as the first argument. The second argument is the main function that accepts other libraries as parameters (the order of parameters and modules in the array is important):
+
+```js
+define(['name-of-the-module'],function(nameOfModule) {
+  const b = nameOfModule.render()
+  return b
+})
+```
+
+Note that there is no need to append `.js` to file names. Require.js does it automatically. The Shim plug-in is used for importing text files such as HTML templates.
+
+Let's start with the templates and convert them into the Require.js modules.
+
+Here is the new `apple-item.tpl.js` file:
+
+```js
+define(function() {
+  return '\
+              <a href="#apples/<%=name%>" target="_blank">\
+            <%=name%>\
+            </a>&nbsp;<a class="add-to-cart" href="#">buy</a>\
+            '
+})
+```
+
+This is the `apple-home.tpl` file:
+
+```js
+define(function() {
+  return 'Apple data: \
+        <ul class="apples-list">\
+        </ul>\
+        <div class="cart-box"></div>'
+})
+```
+
+Here is the `apple-spinner.tpl.js` file:
+
+```js
+define(function() {
+  return '<img src="img/spinner.gif" width="30"/>'
+})
+```
+
+This is the `apple.tpl.js` file:
+
+```js
+define(function() {
+  return '<figure>\
+          <img src="<%= attributes.url %>"/>\
+          <figcaption><%= attributes.name %></figcaption>\
+        </figure>'
+  })
+```
+
+Here is the `apple-item.view.js` file:
+
+```js
+define(function() {
+  return '\
+              <a href="#apples/<%=name%>" target="_blank">\
+            <%=name%>\
+            </a>&nbsp;<a class="add-to-cart" href="#">buy</a>\
+            '
+})
+```
+
+In the `apple-home.view.js` file, we need to declare dependencies on
+`apple-home.tpl` and `apple-item.view.js` files:
+
+```js
+define(['apple-home.tpl', 'apple-item.view'], function(
+  appleHomeTpl,
+  appleItemView){
+return  Backbone.View.extend({
       el: 'body',
       listEl: '.apples-list',
       cartEl: '.cart-box',
-      template: _.template('Apple data: \
-        <ul class="apples-list">\
-        </ul>\
-        <div class="cart-box"></div>'),
+      template: _.template(appleHomeTpl),
       initialize: function() {
         this.$el.html(this.template)
         this.collection.on('addToCart', this.showCart, this)
@@ -1092,7 +1466,7 @@ The `apple-home.view.js` file has the `homeView` object:
       showCart: function(appleModel) {
         $(this.cartEl).append(appleModel.attributes.name + '<br/>')
       },
-      render: function(){
+      render: function() {
         view = this // So we can use view inside of closure
         this.collection.each(function(apple){
           const appleSubView = new appleItemView({model:apple})
@@ -1101,456 +1475,64 @@ The `apple-home.view.js` file has the `homeView` object:
           // Compiles template and single apple data
           $(view.listEl).append(appleSubView.$el)
           // Append jQuery object from
-          // single apple to apples-list DOM element
+          // a single apple to apples-list DOM element
         })
       }
     })
-
-The `apple.view.js` file contains the master apples list:
-
-    const appleView = Backbone.View.extend({
-      initialize: function(){
-        this.model = new (Backbone.Model.extend({}))
-        this.model.on('change', this.render, this)
-        this.on('spinner',this.showSpinner, this)
-      },
-      template: _.template('<figure>\
-              <img src="<%= attributes.url %>"/>\
-              <figcaption><%= attributes.name %></figcaption>\
-            </figure>'),
-      templateSpinner: '<img src="img/spinner.gif" width="30"/>',
-      loadApple:function(appleName){
-        this.trigger('spinner')
-        const view = this
-        // We'll need to access that inside of a closure
-        setTimeout(function(){
-        // Simulates real time lag when
-        // fetching data from the remote server
-          view.model.set(view.collection.where({
-            name:appleName
-          })[0].attributes)
-        }, 1000)
-      },
-      render: function(appleName){
-        const appleHtml = this.template(this.model)
-        $('body').html(appleHtml)
-      },
-      showSpinner: function(){
-        $('body').html(this.templateSpinner)
-      }
-    })
-
-`apples.js` is an empty collection:
-
-    const Apples = Backbone.Collection.extend({
-    })
-
-`apple-app.js` is the main application file with the data, the router,
-and the starting command:
-
-    const appleData = [
-      {
-        name: 'fuji',
-        url: 'img/fuji.jpg'
-      },
-      {
-        name: 'gala',
-        url: 'img/gala.jpg'
-      }
-    ]
-    let app
-    const router = Backbone.Router.extend({
-      routes: {
-        '': 'home',
-        'apples/:appleName': 'loadApple'
-      },
-      initialize: function(){
-        const apples = new Apples()
-        apples.reset(appleData)
-        this.homeView = new homeView({collection: apples})
-        this.appleView = new appleView({collection: apples})
-      },
-      home: function(){
-        this.homeView.render()
-      },
-      loadApple: function(appleName){
-        this.appleView.loadApple(appleName)
-      }
-    })
-    $(document).ready(function(){
-      app = new router
-      Backbone.history.start()
-    })
-
-Now let's try to open the application. It should work exactly the same
-as in the previous Subviews example.
-
-It's a far better code organization, but it's still far from perfect,
-because we still have HTML templates directly in the JavaScript code.
-The problem is that designers and developers can't work on the same
-files, and any change to the presentation requires a change in the main
-code base.
-
-We can add a few more JS files to our `index.html` file:
-
-      <script src="apple-item.tpl.js"></script>
-      <script src="apple-home.tpl.js"></script>
-      <script src="apple-spinner.tpl.js"></script>
-      <script src="apple.tpl.js"></script>
-
-Usually, one Backbone View has one template, but in the case of our
-`appleView`—a detailed view of an apple in a separate window—we also
-have a spinner, a "loading" GIF animation.
-
-The contents of the files are just global variables that are assigned
-some string values. Later we can use these variables in our views, when
-we call the Underscore.js helper method `_.template()`.
-
-Here is the `apple-item.tpl.js` file:
-
-    const appleItemTpl = '\
-         <a href="#apples/<%=name%>" target="_blank">\
-        <%=name%>\
-        </a>&nbsp;<a class="add-to-cart" href="#">buy</a>\
-        '
-
-This is the `apple-home.tpl.js` file:
-
-    const appleHomeTpl = 'Apple data: \
-            <ul class="apples-list">\
-            </ul>\
-            <div class="cart-box"></div>'
-
-Here is the `apple-spinner.tpl.js` file:
-
-    const appleSpinnerTpl = '<img src="img/spinner.gif" width="30"/>'
-
-This is the `apple.tpl.js` file:
-
-    const appleTpl = '<figure>\
-                    <img src="<%= attributes.url %>"/>\
-                    <figcaption><%= attributes.name %></figcaption>\
-                  </figure>'
-
-Try to start the application now. The full code is at
-https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/refactor.
-
-
-
-As you can see in the previous example, we used global scoped variables
-(without the keyword `window`).
-
-Be careful when you introduce a lot of variables into the global
-namespace (`window` keyword). There might be conflicts and other
-unpredictable consequences. For example, if you wrote an open source
-library and other developers started using the methods and properties
-directly, instead of using the interface, what would happen later when
-you decide to finally remove or deprecate those global leaks? To prevent
-this, properly written libraries and applications use [JavaScript
-closures](https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures)
-(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
-
-Here is an example of using closure and a global variable module
-definition:
-
-    ;(function() {
-      const apple = function() {
-      ...// Do something useful like return apple object
-      }
-      window.Apple = apple
-    }())
-
-In a case when we need to access the `app` object (which creates a
-dependency on that object):
-
-    ;(function() {
-      let app = this.app
-      // Equivalent of window.application
-      // in case we need a dependency (app)
-      this.apple = function() {
-        ...
-        // Return apple object/class
-        // Use app variable
-      }
-      // Equivalent of window.apple = function(){...}
-    }())
-
-As you can see, we've created the function and called it immediately
-while also wrapping everything in parentheses `()`.
-
-AMD and Require.js for Backbone.js Development
-==============================================
-
-AMD allows us to organize development code into modules, manage
-dependencies, and load them asynchronously. The article ["Why AMD"](http://requirejs.org/docs/whyamd.html) does a great
-job at explaining benefits of AMD: <http://requirejs.org/docs/whyamd.html>.
-
-Start your local HTTP server, for example,
-[MAMP](https://www.mamp.info/en) (https://www.mamp.info/en) or
-node-static (https://github.com/cloudhead/node-static).
-
-Let's enhance our code by using the Require.js library.
-
-Our `index.html` will shrink even more:
-
-    <!DOCTYPE>
-    <html>
-      <head>
-        <script src="jquery.js"></script>
-        <script src="underscore.js"></script>
-        <script src="backbone.js"></script>
-        <script src="require.js"></script>
-        <script src="apple-app.js"></script>
-      </head>
-      <body>
-        <div></div>
-      </body>
-    </html>
-
-We only included libraries and the single JavaScript file with our
-application. This file has the following structure:
-
-    require([...],function(...){...})
-
-In a more explanatory way:
-
-    require([
-      'name-of-the-module',
-      ...
-      'name-of-the-other-module'
-      ],function(referenceToModule, ..., referenceToOtherModule){
-      ...// Some useful code
-      referenceToModule.someMethod()
-    })
-
-Basically, we tell a browser to load the files from the array of file
-names—the first parameter of the `require()` function—and then pass
-our modules from those files to the anonymous callback function (second
-argument) as variables. Inside of the main function (anonymous callback)
-we can use our modules by referencing those variables. Therefore, our
-`apple-app.js` metamorphoses into:
-
-      require([
-        'apple-item.tpl', // Can use shim plug-in
-        'apple-home.tpl',
-        'apple-spinner.tpl',
-        'apple.tpl',
-        'apple-item.view',
-        'apple-home.view',
-        'apple.view',
-        'apples'
-      ],function(
-        appleItemTpl,
-        appleHomeTpl,
-        appleSpinnerTpl,
-        appleTpl,
-        appleItemView,
-        homeView,
-        appleView,
-        Apples
-        ){
-       const appleData = [
-          {
-            name: 'fuji',
-            url: 'img/fuji.jpg'
-          },
-          {
-            name: 'gala',
-            url: 'img/gala.jpg'
-          }
-        ]
-        let app
-        const router = Backbone.Router.extend({
-        // Check if need to be required
-          routes: {
-            '': 'home',
-            'apples/:appleName': 'loadApple'
-          },
-          initialize: function(){
-            const apples = new Apples()
-            apples.reset(appleData)
-            this.homeView = new homeView({collection: apples})
-            this.appleView = new appleView({collection: apples})
-          },
-          home: function(){
-            this.homeView.render()
-          },
-          loadApple: function(appleName){
-            this.appleView.loadApple(appleName)
-          }
-        })
-
-        $(document).ready(function(){
-          app = new router
-          Backbone.history.start()
-        })
-    })
-
-We put all of the code inside the function that is a second argument of
-`require()`, mentioned modules by their file names, and used
-dependencies via corresponding parameters. Now we should define the
-module itself. This is how we can do it with the `define()` method:
-
-    define([...],function(...){...})
-
-The meaning is similar to the `require()` function: Dependencies are
-strings of file names (and paths) in the array that is passed as the
-first argument. The second argument is the main function that accepts
-other libraries as parameters (the order of parameters and modules in
-the array is important):
-
-    define(['name-of-the-module'],function(nameOfModule){
-      const b = nameOfModule.render()
-      return b
-    })
-
-Note that there is no need to append `.js` to file names. Require.js
-does it automatically. The Shim plug-in is used for importing text files
-such as HTML templates.
-
-Let's start with the templates and convert them into the Require.js
-modules.
-
-Here is the new `apple-item.tpl.js` file:
-
-    define(function() {
-      return '\
-                 <a href="#apples/<%=name%>" target="_blank">\
-                <%=name%>\
-                </a>&nbsp;<a class="add-to-cart" href="#">buy</a>\
-                '
-    })
-
-This is the `apple-home.tpl` file:
-
-    define(function(){
-      return 'Apple data: \
-            <ul class="apples-list">\
-            </ul>\
-            <div class="cart-box"></div>'
-    })
-
-Here is the `apple-spinner.tpl.js` file:
-
-    define(function(){
-      return '<img src="img/spinner.gif" width="30"/>'
-    })
-
-This is the `apple.tpl.js` file:
-
-    define(function(){
-      return '<figure>\
-              <img src="<%= attributes.url %>"/>\
-              <figcaption><%= attributes.name %></figcaption>\
-            </figure>'
-     })
-
-Here is the `apple-item.view.js` file:
-
-    define(function() {
-      return '\
-                 <a href="#apples/<%=name%>" target="_blank">\
-                <%=name%>\
-                </a>&nbsp;<a class="add-to-cart" href="#">buy</a>\
-                '
-    })
-
-In the `apple-home.view.js` file, we need to declare dependencies on
-`apple-home.tpl` and `apple-item.view.js` files:
-
-    define(['apple-home.tpl', 'apple-item.view'], function(
-      appleHomeTpl,
-      appleItemView){
-    return  Backbone.View.extend({
-          el: 'body',
-          listEl: '.apples-list',
-          cartEl: '.cart-box',
-          template: _.template(appleHomeTpl),
-          initialize: function() {
-            this.$el.html(this.template)
-            this.collection.on('addToCart', this.showCart, this)
-          },
-          showCart: function(appleModel) {
-            $(this.cartEl).append(appleModel.attributes.name + '<br/>')
-          },
-          render: function(){
-            view = this // So we can use view inside of closure
-            this.collection.each(function(apple){
-              const appleSubView = new appleItemView({model:apple})
-              // Create subview with model apple
-              appleSubView.render()
-              // Compiles template and single apple data
-              $(view.listEl).append(appleSubView.$el)
-              // Append jQuery object from
-              // a single apple to apples-list DOM element
-            })
-          }
-        })
-    })
+})
+```
 
 The `apple.view.js` file depends on two templates:
 
-    define([
-      'apple.tpl',
-      'apple-spinner.tpl'
-    ], function(appleTpl,appleSpinnerTpl){
-      return  Backbone.View.extend({
-        initialize: function(){
-          this.model = new (Backbone.Model.extend({}))
-          this.model.on('change', this.render, this)
-          this.on('spinner',this.showSpinner, this)
-        },
-        template: _.template(appleTpl),
-        templateSpinner: appleSpinnerTpl,
-        loadApple:function(appleName){
-          this.trigger('spinner')
-          const view = this
-          // We'll need to access that inside of a closure
-          setTimeout(function(){
-          // Simulates real time lag when
-          // fetching data from the remote server
-            view.model.set(view.collection.where({
-              name:appleName
-            })[0].attributes)
-          }, 1000)
-        },
-        render: function(appleName){
-          const appleHtml = this.template(this.model)
-          $('body').html(appleHtml)
-        },
-        showSpinner: function(){
-          $('body').html(this.templateSpinner)
-        }
-      })
-    })
+```js
+define([
+  'apple.tpl',
+  'apple-spinner.tpl'
+], function(appleTpl,appleSpinnerTpl){
+  return  Backbone.View.extend({
+    initialize: function(){
+      this.model = new (Backbone.Model.extend({}))
+      this.model.on('change', this.render, this)
+      this.on('spinner',this.showSpinner, this)
+    },
+    template: _.template(appleTpl),
+    templateSpinner: appleSpinnerTpl,
+    loadApple:function(appleName){
+      this.trigger('spinner')
+      const view = this
+      // We'll need to access that inside of a closure
+      setTimeout(function(){
+      // Simulates real time lag when
+      // fetching data from the remote server
+        view.model.set(view.collection.where({
+          name:appleName
+        })[0].attributes)
+      }, 1000)
+    },
+    render: function(appleName){
+      const appleHtml = this.template(this.model)
+      $('body').html(appleHtml)
+    },
+    showSpinner: function(){
+      $('body').html(this.templateSpinner)
+    }
+  })
+})
+```
 
 This is the `apples.js` file:
 
-    define(function(){
-      return Backbone.Collection.extend({})
-    })
+```js
+define(function() {
+  return Backbone.Collection.extend({})
+})
+```
 
-I hope you can see the pattern by now. All of our code is split into the
-separate files based on the logic (e.g., view class, collection class,
-template). The main file loads all of the dependencies with the
-`require()` function. If we need some module in a non-main file, then
-we can ask for it in the `define()` method. Usually, in modules we
-want to return an object; for example, in templates we return strings
-and in views we return Backbone View classes and objects.
+I hope you can see the pattern by now. All of our code is split into the separate files based on the logic (e.g., view class, collection class, template). The main file loads all of the dependencies with the `require()` function. If we need some module in a non-main file, then we can ask for it in the `define()` method. Usually, in modules we want to return an object; for example, in templates we return strings and in views we return Backbone View classes and objects.
 
-Try launching the example located at
-https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/amd/. TK
-Visually, there shouldn't be any changes. If you open the Network tab in
-the Developers Tool, you can see a difference in how the files are
-loaded.
+Try launching the example located in `code/04-backbone/amd` and at <http://bit.ly/2LhEmb9>. Visually, there shouldn't be any changes. If you open the Network tab in the Developers Tool, you can see a difference in how the files are loaded.
 
-The old file shown in Figure 4-2
-(https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/refactor/index.html) TK
-loads our JavaScript scripts in a serial manner, whereas the new file
-shown in Figure 4-3
-(https://github.com/azat-co/fullstack-javascript/blob/master/04-backbone/amd/index.html)
-loads them in parallel.
-
+The old file shown in Figure 4-2 (`code/04-backbone/refactor/index.html` and <http://bit.ly/2Lfi7lT>) loads our JavaScript scripts in a serial manner, whereas the new file shown in Figure 4-3 (`code/04-backbone/amd/index.html`) loads them in parallel.
 
 ![](media/image2.png)
 
@@ -1560,24 +1542,21 @@ loads them in parallel.
 
 ***Figure 4-3.*** *The new 04-backbone/amd/index.html file*
 
-Require.js has a lot of configuration options that are defined through
-the `requirejs.config()` call in the top level of an HTML page. More
-information can be found at <http://requirejs.org/docs/api.html#config>.
+Require.js has a lot of configuration options that are defined through the `requirejs.config()` call in the top level of an HTML page. More information can be found at <http://requirejs.org/docs/api.html#config>.
 
-Let's add a bust parameter to our example. The bust argument will be
-appended to the URL of each file, preventing a browser from caching the
-files. This is perfect for development and terrible for production.
+Let's add a bust parameter to our example. The bust argument will be appended to the URL of each file, preventing a browser from caching the files. This is perfect for development and terrible for production.
 
 Add this to the `apple-app.js` file in front of everything else:
 
-    requirejs.config({
-      urlArgs: 'bust=' +  (new Date()).getTime()
-    })
-    require([
-    ...
+```js
+requirejs.config({
+  urlArgs: 'bust=' +  (new Date()).getTime()
+})
+require([
+// ...
+```
 
-Notice in Figure 4-4 that each file request now has status 200 instead
-of 304 (not modified).
+Notice in Figure 4-4 that each file request now has status 200 instead of 304 (not modified).
 
 ![](media/image4.png)
 
@@ -1586,10 +1565,7 @@ of 304 (not modified).
 Require.js for Backbone.js Production
 =====================================
 
-<span id="requireJS" class="anchor"></span>We'll use the Node.js Package
-Manager (npm) to install the `requirejs` library (it's not a typo;
-there's no period in the name). In your project folder, run this command
-in a terminal:
+We'll use the Node.js package manager (npm) to install the `requirejs` library (it's not a typo; there's no period in the name). In your project folder, run this command in a terminal:
 
     $ npm init
 
@@ -1614,14 +1590,9 @@ Create a file named `app.build.js`:
         ]
     })
 
-Move the script files into the `js` folder (`appDir` property). The
-builded files will be placed in the `build` folder (`dir` parameter).
-For more information on the build file, check out the extensive example
-with comments available at
-[https://github.com/jrburke/r.js/blob/master/build/example.build.js](https://github.com/jrburke/r.js/blob/master/build/example.build.js).
+Move the script files into the `js` folder (`appDir` property). The builded files will be placed in the `build` folder (`dir` parameter). For more information on the build file, check out the extensive example with comments available at <http://bit.ly/2LdFSuO>.
 
-Now everything should be ready for building one gigantic JavaScript file
-that will include all of our dependencies and modules:
+Now everything should be ready for building one gigantic JavaScript file that will include all of our dependencies and modules:
 
     $ r.js -o app.build.js
 
@@ -1635,28 +1606,21 @@ You should get a list of the `r.js` processed files, as shown in Figure 4-5.
 
 ***Figure 4-5.*** *A list of the r.js processed files*
 
-Open `index.html` from the build folder in a browser window, and check
-if the Network tab shows any improvement now with just one request or
-file to load (Figure 4-6).
+Open `index.html` from the build folder in a browser window, and check if the Network tab shows any improvement now with just one request or file to load (Figure 4-6).
 
 ![](media/image6.png)
 
 ***Figure 4-6.*** *Performance improvement with one request or file to load*
 
-For more information, check out the official `r.js` documentation at
-<http://requirejs.org/docs/optimization.html>.
+For more information, check out the official `r.js` documentation at <http://requirejs.org/docs/optimization.html>.
 
-The example code is available at https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/r TK and
-https://github.com/azat-co/fullstack-javascript/tree/master/code/04-backbone/r/build TK.
+The example code is available at <http://bit.ly/2LiMuYM> and <http://bit.ly/2Lg6efx>.
 
-For uglification of JS files (which decreases the file sizes), we can
-use the [Uglify2](https://github.com/mishoo/UglifyJS2) module. To
-install it with npm, use:
+For uglification of JS files (which decreases the file sizes), we can use the [Uglify2](https://github.com/mishoo/UglifyJS2) module. To install it with npm, use:
 
     $ npm install uglify-js
 
-Then update the `app.build.js` file with the `optimize: "uglify2"`
-property:
+Then update the `app.build.js` file with the `optimize: "uglify2"` property:
 
     ({
         appDir: "./js",
@@ -1678,29 +1642,16 @@ You should get something like this:
 
     define("apple-item.tpl",[],function(){return'             <a href="#apples/<%=name%>" target="_blank">            <%=name%>            </a>&nbsp;<a class="add-to-cart" href="#">buy</a>            '}),define("apple-home.tpl",[],function(){return 'Apple data:         <ul class="apples-list">        </ul>        <div class="cart-box"></div>'}),define("apple-spinner.tpl",[],function(){return'<img src="img/spinner.gif" width="30"/>'}),define("apple.tpl",[],function(){return'<figure>                              <img src="<%= attributes.url %>"/>                              <figcaption><%= attributes.name %></figcaption>                            </figure>'}),define("apple-item.view",["apple-item.tpl"],function(e){return Backbone.View.extend({tagName:"li",template:_.template(e),events:{"click .add-to-cart":"addToCart"},render:function(){this.$el.html(this.template(this.model.attributes))},addToCart:function(){this.model.collection.trigger("addToCart",this.model)}})}),define("apple-home.view",["apple-home.tpl","apple-item.view"],function(e,t){return Backbone.View.extend({el:"body",listEl:".apples-list",cartEl:".cart-box",template:_.template(e),initialize:function(){this.$el.html(this.template),this.collection.on("addToCart",this.showCart,this)},showCart:function(e){$(this.cartEl).append(e.attributes.name+"<br/>")},render:function(){view=this,this.collection.each(function(e){const i=new t({model:e});i.render(),$(view.listEl).append(i.$el)})}})}),define("apple.view",["apple.tpl","apple-spinner.tpl"],function(e,t){return Backbone.View.extend({initialize:function(){this.model=new(Backbone.Model.extend({})),this.model.on("change",this.render,this),this.on("spinner",this.showSpinner,this)},template:_.template(e),templateSpinner:t,loadApple:function(e){this.trigger("spinner");const t=this;setTimeout(function(){t.model.set(t.collection.where({name:e})[0].attributes)},1e3)},render:function(){const e=this.template(this.model);$("body").html(e)},showSpinner:function(){$("body").html(this.templateSpinner)}})}),define("apples",[],function(){return Backbone.Collection.extend({})}),requirejs.config({urlArgs:"bust="+(new Date).getTime()}),require(["apple-item.tpl","apple-home.tpl","apple-spinner.tpl","apple.tpl","apple-item.view","apple-home.view","apple.view","apples"],function(e,t,i,n,a,l,p,o){const r,s=[{name:"fuji",url:"img/fuji.jpg"},{name:"gala",url:"img/gala.jpg"}],c=Backbone.Router.extend({routes:{"":"home","apples/:appleName":"loadApple"},initialize:function(){const e=new o;e.reset(s),this.homeView=new l({collection:e}),this.appleView=new p({collection:e})},home:function(){this.homeView.render()},loadApple:function(e){this.appleView.loadApple(e)}});$(document).ready(function(){r=new c,Backbone.history.start()})}),define("apple-app",function(){});
 
-The file is intentionally not formatted to show how Uglify2
-(https://github.com/mishoo/UglifyJS2 ) works. Without the line break
-escape symbols, the code is on one line. Also notice that variables’ and
-objects’ names are shortened.
+The file is intentionally not formatted to show how Uglify2 (https://github.com/mishoo/UglifyJS2 ) works. Without the line break escape symbols, the code is on one line. Also notice that variables’ and objects’ names are shortened.
 
 Super Simple Backbone.js Starter Kit
 ====================================
 
-To jump-start your Backbone.js development, consider using [Super Simple
-Backbone Starter
-Kit](https://github.com/azat-co/super-simple-backbone-starter-kit)
-(<https://github.com/azat-co/super-simple-backbone-starter-kit>) or
-similar projects:
+To jump-start your Backbone.js development, consider using Super Simple Backbone Starter Kit (<http://bit.ly/2LhjDE4>) or similar projects:
 
--   [Backbone Boilerplate](http://backboneboilerplate.com/) available at
-    <http://backboneboilerplate.com>
-
--   [Sample App with Backbone.js and Bootstrap](http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap/)
-    available at
-    <http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap>
-
--   More Backbone.js tutorials available at
-    <https://github.com/documentcloud/backbone/wiki/Tutorials%2C-blog-posts-and-example-sites> TK
+-   [Backbone Boilerplate](http://backboneboilerplate.com) available at <http://backboneboilerplate.com>
+-   [Sample App with Backbone.js and Bootstrap](http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap) available at <http://coenraets.org/blog/2012/02/sample-app-with-backbone-js-and-twitter-bootstrap>
+-   More Backbone.js tutorials available at <http://bit.ly/2LfBifE>
 
 Summary
 =======
@@ -1712,8 +1663,4 @@ So far we've covered how to:
 -   Use AMD and Require.js on the example of the apple
     database application.
 
-In this chapter, you've learned enough about Backbone.js to make sure
-you can start using it in your web or mobile apps. Without a framework
-like Backbone, your code will become exponentially more complex as it
-grows. On the other hand, with Backbone or a similar MVC architecture, you can scale
-the code better.<span id="Editing" class="anchor"></span>
+In this chapter, you've learned enough about Backbone.js to make sure you can start using it in your web or mobile apps. Without a framework like Backbone, your code will become exponentially more complex as it grows. On the other hand, with Backbone or a similar MVC architecture, you can scale the code better.
