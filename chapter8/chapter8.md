@@ -745,20 +745,20 @@ Another header that we send back with the response is `Content-Length`:
 
 So this piece of code goes into the request handler of the server, which is inside of the database connect call. Just like the Russian Matreshka dolls. Confusing? Just refer to the full source code at <http://bit.ly/2LdCK20>.
 
-Another, more elegant way is to use Node.js frameworks as Connect (<http://www.senchalabs.org/connect/static.html>), or Express (<http://expressjs.com>); because there is a special `static` middleware for JS and CSS assets. But those frameworks deserve a book on their own.
+Another, more elegant way is to use Node.js frameworks such as Connect or Express; because there is a special `static` middleware for JS and CSS assets. But those frameworks deserve a book on their own.
 
-Now after you mastered basics of Node.js, MongoDB, Backbone.js, and Heroku, there's one bonus step to take. Check out the cloud solution Amazon Web Services known as EC2 (Infrastructure as a Service category of cloud computing).
+Now that you've mastered the basics of Node.js, MongoDB, Backbone.js, and Heroku, there's one bonus step to take: deployment to the cloud. Check out the cloud solution Amazon Web Services known as EC2 (Infrastructure as a Service category of cloud computing).
 
 Deployment to Amazon Web Services
 ============================================================================================================================================
 
-Cloud is eating the world of computing. There are private and public clouds. AWS, probably the most popular choice among the public cloud offerings, falls under the IaaS category. The advantages of using an IaaS such as AWS over PaaS-like Heroku are as follows:
+Cloud is eating the world of computing. You can say that cloud has taken the world of IT by storm. There are private and public clouds. AWS, probably the most popular choice among the public cloud options, offers Elastic Compute Cloud (EC2) in the infrastructure as a Service (IaaS) category of cloud solutions. The advantages of using an IaaS such as AWS EC2 over PaaS-like Heroku are as follows:
 
 -   It’s more configurable (any services, packages, or operation systems).
 -   It’s more controllable. There are no restrictions or limitations.
 -   It’s cheaper to maintain. PaaS can quickly cost a fortune for high-performance resources.
 
-In this tutorial, we'll be using 64-bit Amazon Linux AMI (<http://aws.amazon.com/amazon-linux-ami>) with CentOS (<http://aws.amazon.com/amazon-linux-ami>).
+In this tutorial, we'll be using the 64-bit Amazon Linux AMI (<http://aws.amazon.com/amazon-linux-ami>) with CentOS (<http://aws.amazon.com/amazon-linux-ami>).
 
 Assuming you have your EC2 instance up and running, SSH into it and install all system updates with `yum`:
 
@@ -779,7 +779,7 @@ You probably know this, but just in case, to check installations, type the follo
     $ node –V
     $ npm –v
 
-If the yum Node.js installation fails, see if you have EPEL (just see if the command below says `epel`):
+If the `yum` Node.js installation fails, see if you have EPEL (just see if the command below says `epel`):
 
     $ yum repolist
 
@@ -791,7 +791,7 @@ Then, try to install both Node.js and npm again with:
 
     $ sudo yum install nodejs npm --enablerepo=epel
 
-Alternatively, you can compile Node.js from the source. To do so, install C++ compiler (again with `yum`):
+Alternatively, you can compile Node.js from the source. To do so, install the C++ compiler (again with `yum`):
 
     $ sudo yum install gcc-c++ make
 
@@ -799,11 +799,11 @@ Same with openSSL:
 
     $ sudo yum install openssl-devel
 
-Then install Git with yum:
+Then install Git with `yum`:
 
     $ sudo yum install git
 
-Finally, clone Node.js repository straight from GitHub:
+Finally, clone the Node.js repository straight from GitHub:
 
     $ git clone git://github.com/joyent/node.git
 
@@ -815,7 +815,7 @@ And build Node.js:
     $ make
     $ sudo make install
 
-Note: For a different version of Node.js, you can list them all with `$ git tag -l` and checkout the one you need.
+**Note** For a different version of Node.js, you can list all versions with `$ git tag -l` and check out the one you need.
 
 To install npm, run:
 
@@ -823,13 +823,7 @@ To install npm, run:
     $ cd npm
     $ sudo make install
 
-More information on using yum can be found at the following locations:
-
--   [Managing Software with yum](https://www.centos.org/docs/5/html/yum) (<https://www.centos.org/docs/5/html/yum>)
--   [Installing Node.js via package managers](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager) (<https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager>)
--   [Tips on securing your EC2 instance](http://aws.amazon.com/articles/1233) (<http://aws.amazon.com/articles/1233>)
-
-Once you have Git and npm and Node, you are good to deploy your code (manually). Pull the code from the repository. You might need to provide credentials or upload your SSH keys to the AWS. Then start the Node server with [pm2](https://github.com/Unitech/pm2) (<https://github.com/Unitech/pm2>) or similar process manager (Figure 8-1). `pm2` is good because it has a lot of features not only to keep the process running but also to scale it; it even has load balancing.
+Once you have Git and npm and Node.js, you are good to deploy your code (manually). Pull the code from the repository. You might need to provide credentials or upload your SSH keys to AWS. Then start the Node.js server with `pm2` (<https://npmjs.com/pm2> and <https://pm2.io>) or similar process manager. `pm2` is good because it has a lot of features not only to keep the process running but also to scale it as show in Figure 8-1. `pm2` also has load balancing.
 
 To install pm2:
 
@@ -845,11 +839,11 @@ To list all running processes:
 
 ![](media/image1.png)
 
-***Figure 8-1*** *pm2 running multiple Node.js processes.*
+***Figure 8-1.*** *pm2 running multiple Node.js processes*
 
-That's pretty much all you need to do. Ideally you want to automate the deployment. Also, you might want to add some `d.init` or `upstart` scripts to launch your `pm2` or another process manager automatically.
+That's pretty much all you need to do. Ideally, you want to automate the deployment. Also, you might want to add some `d.init` or `upstart` scripts to launch your `pm2` or another process manager automatically.
 
-Steps for other OS on AWS are similar. You would use their package manager to install Node, Git, and npm, then get the code (Git or rsync) and launch it with the process manager. You don't need the process manager. You can launch with `node` itself, but it's better to use some process manager.
+Steps for other OSs on AWS are similar. You would use their package manager to install Node.js, Git, and npm, then get the code (Git or rsync) and launch it with the process manager. You don't need the process manager. You can launch with `node` itself, but it's better to use some process manager.
 
 Now, while the Node.js app is running, executing `$ netstat -apn | grep 80`, the remote machine should show the process. For example, for a Node.js app listening on port 80:
 
@@ -861,17 +855,17 @@ On the EC2 instance, either configure the firewall to redirect connections (e.g.
 
     $ service iptables save$ service iptables stop$ chkconfig iptables off
 
-In the AWS console, find your EC2 instance and apply a proper rule to allow for inbound traffic, for example,
+In the AWS console, find your EC2 instance and apply a proper rule to allow for inbound traffic; for example:
 
     Protocol: TCPPort Range: 80Source: 0.0.0.0/0
 
-And from your local machine, that is, your development computer, you can either use the public IP or the public DNS (the Domain Name System) domain, which is found and copied from the AWS console under that instance’s description. For example,
+And from your local machine, that is, your development computer, you can either use the public IP address or the public DNS (the Domain Name System) domain, which is found and copied from the AWS console under that instance’s description. For example,
 
     $ curl XXX.XXX.XXX.XXX –v
 
-It’s worth mentioning that AWS supports many other operating systems via its AWS Marketplace (<https://aws.amazon.com/marketplace>). Although AWS EC2 is a very popular and affordable choice, there other alternatives as well: [Joyent](http://www.joyent.com) (<https://www.joyent.com>), [Microsoft Azure](https://azure.microsoft.com/en-us) (https://azure.microsoft.com/en-us), [Rackspace Open Cloud](http://www.rackspace.com/cloud) (<http://www.rackspace.com/cloud>), and others.
+It’s worth mentioning that AWS supports many other operating systems via its AWS Marketplace (<https://aws.amazon.com/marketplace>). Although AWS EC2 is a very popular and affordable choice, there are other alternatives as well: Google Cloud (<https://cloud.google.com>), Microsoft Azure (<https://azure.microsoft.com>), IBM Cloud (<https://www.ibm.com/cloud>), and others.
 
 Summary
 =======
 
-This chapter deals with descriptions of different deployment approaches, the final version of Message Board application, and its deployment with two approaches: different and the same domains. We covered deployment using the Git and Heroku command-line interfaces to deploy to PaaS. And we worked through examples of installing and building a Node.js environment on AWS EC2 and running Node.js apps on AWS with CentOS.
+This chapter presented the descriptions of different deployment approaches, the final version of the Message Board application, and its deployment with two approaches: on different domains and on the same domains. We covered deployment using the Git and Heroku command-line interfaces to deploy to PaaS. And we worked through examples of installing and building a Node.js environment on AWS EC2 and running Node.js apps on AWS with CentOS.
