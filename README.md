@@ -23,7 +23,7 @@ If you'd like to contribute financially towards the effort (or any of my other o
 * [Chapter 5: Backbone.js and Parse.com](https://github.com/azat-co/fullstack-javascript/tree/master/chapter5/chapter5.md)
 * [Chapter 6: Intro to Node.js](https://github.com/azat-co/fullstack-javascript/tree/master/chapter6/chapter6.md)
 * [Chapter 7: Intro to MongoDB](https://github.com/azat-co/fullstack-javascript/tree/master/chapter7/chapter7.md)
-* [Chapter 8: Putting It All Together](https://github.com/azat-co/fullstack-javascript/tree/master/chapter8/chapter8.md)
+* [Chapter 8: Putting Frontend and Backend Together](https://github.com/azat-co/fullstack-javascript/tree/master/chapter8/chapter8.md)
 * Conclusion and Further Reading
 
 (It's work in progress and the draft will be completed in the end of 2017.)
@@ -170,7 +170,7 @@ TBD
 * [07-db-connect-heroku](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-connect-heroku): Heroku database connection test with MongoDB Native Driver
 * [07-db-server](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-db-server): Server to list MongoDB collections
 * [07-board-api-mongo](https://github.com/azat-co/fullstack-javascript/tree/master/code/07-board-api-mongo): Message Board API with MongoDB
-* [08-board-ui](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-ui): Message Board UI (front-end) without back end
+* [08-board-ui](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-ui): Message Board UI (front-end) without backend
 * [08-board-api](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-api): Message Board back-end with CORS
 * [board-react](https://github.com/azat-co/fullstack-javascript/tree/master/code/board-react): Message Board with React.js view layer - BONUS PROJECT
 

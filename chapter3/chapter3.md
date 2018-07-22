@@ -25,7 +25,7 @@ This chapter is a basic introduction to front-end web development. It covers thi
 
 This chapter also covers the terminology and explains JSON, AJAX, and CORS. We then explore the example of a weather app.
 
-We use Parse as our back end to streamline things and make development faster while still keeping it realistic. The cornerstone of this chapter is a persistent message board application built with Parse and jQuery.
+We use Parse as our backend to streamline things and make development faster while still keeping it realistic. The cornerstone of this chapter is a persistent message board application built with Parse and jQuery.
 
 Definitions
 ===========
@@ -991,10 +991,7 @@ Let’s move on to the Message Board app.
 Message Board with Parse Overview
 =====================================
 
-The Message Board will consist of an input field, a list of messages,
-and a "SEND" button (see Figure 3-5). We need to display a list of existing messages and be
-able to submit new messages. We'll use Parse as a back end for now,
-and later switch to Node.js with MongoDB.
+The Message Board will consist of an input field, a list of messages, and a "SEND" button (see Figure 3-5). We need to display a list of existing messages and be able to submit new messages. We'll use Parse as a backend for now, and later switch to Node.js with MongoDB.
 
 ![](media/board-1.png)
 
@@ -1030,7 +1027,7 @@ origin domain AJAX calls, so we won't need JSONP.
 
 When you decide to deploy your back-end application, which will act as a
 substitute for Parse, on a different domain you'll need to use
-either JSONP on the front end or custom CORS headers on a back end. This
+either JSONP on the front end or custom CORS headers on a backend. This
 topic is covered later in the book.
 
 Right now the structure of the application should look like this:

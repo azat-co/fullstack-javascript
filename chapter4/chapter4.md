@@ -234,7 +234,7 @@ endpoint substitute, which provides us with names and image URLs of the
 apples (data models).
 
 Note that this mock data set can be easily substituted by assigning REST
-API endpoints of your back end to `url` properties in Backbone.js
+API endpoints of your backend to `url` properties in Backbone.js
 collections, models, or both, and calling the `fetch()` method on them.
 
 Now to make the user experience a little bit better, we can add a new

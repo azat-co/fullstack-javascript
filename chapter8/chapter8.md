@@ -3,7 +3,7 @@
 CHAPTER 8
 ---------
 
-Putting It All Together
+Putting Frontend and Backend Together
 =======================
 
 > *Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.*
@@ -12,19 +12,21 @@ Putting It All Together
 
 In this chapter, we'll cover:
 
--   Adding CORS for Different Domain Deployment
+-   Adding CORS for a different-domain deployment
 -   Message Board UI
 -   Message Board API
 -   Deployment to Heroku
--   Same Domain Deployment Server
+-   Same-domain deployment server
 -   Deployment to Amazon Web Services
 
-Now, it would be good if we could put our front-end and back-end applications so they could work together. There are a few ways to do it:
+Now, it's a good time to configure our front-end and back-end applications so they could work together. There are a few ways to do it:
 
--   Different domains (Heroku apps) for front-end and back-end apps: make sure there are no cross-domain issues by using CORS or JSONP. This approach is covered in detail later.
--   Same domain deployment: make sure Node.js process static resources and assets for front-end application—not recommended for serious production applications.
+-   Different-domain deployment: deploy two separate apps (Heroku apps) for front-end and back-end apps. Developers need to be implement CORS or JSONP to mitigate cross-domain request issues.
+-   Same-domain deployment: deploy frontend and backend on the same webapp. Developers need to implement a static Node.js server to serve static assets for the front-end application. This approach is not recommended for serious production applications.
 
-Adding CORS for Different Domain Deployment
+I cover both approaches in this in detail in this chapter starting with the recommended approach —different-domain deployment.
+
+Adding CORS for Different-Domain Deployment
 ===========================================
 
 This is, so far, the best practice for the production environment. Back-end applications are usually deployed at the `http://app.` or `http://api.` subdomains.
@@ -41,30 +43,30 @@ const request = $.ajax({
 })
 ```
 
-The other, and better, way to do it is to add the OPTIONS method, and special headers, which are called [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) or CORS (<https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>), to the Node.js server app before the output:
+The other, and better, way to do it is to add the cross-origin resource sharing or CORS support on the server (<https://mzl.la/2LcH9lZ>). It will require to add the OPTIONS method request handler and special headers to other request handlers to the Node.js server app before the output/response. This is a special header that needs to be added to all request handlers. The `origin` is the domain but can be open to anything with `*`:
 
 ```js
     ...
     response.writeHead(200,{
       'Access-Control-Allow-Origin': origin,
-      'Content-Type':'text/plain',
-      'Content-Length':body.length
+      'Content-Type': 'text/plain',
+      'Content-Length': body.length
     })
     ...
 ```
 
-or
+or `origin` value can be locked to only your front-end app location (recommended):
 
 ```js
     ...
     res.writeHead(200, {
-      'Access-Control-Allow-Origin', 'your-domain-name',
+      'Access-Control-Allow-Origin', 'your-fe-app-domain-name',
       ...
     })
     ...
 ```
 
-The need for the OPTIONS method is outlined in [HTTP access control (https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)](https://developer.mozilla.org/en-US/docs/HTTP_access_control). The OPTIONS request can be dealt with in the following manner:
+We need a new response (route or request handler) with the OPTIONS method to tell the client (browser) what methods are supported on the server. The OPTIONS request can be implemented in the following manner:
 
 ```js
     ...
@@ -74,7 +76,7 @@ The need for the OPTIONS method is outlined in [HTTP access control (https://dev
         "Access-Control-Allow-Methods":
           "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "content-type, accept",
-        "Access-Control-Max-Age": 10, // Seconds.
+        "Access-Control-Max-Age": 10, // In seconds
         "Content-Length": 0
       })
       response.end();
@@ -85,16 +87,16 @@ The need for the OPTIONS method is outlined in [HTTP access control (https://dev
 Message Board UI
 ================
 
-Our front-end application used Parse.com as a replacement for a back-end application. Now we can switch to our own back end replacing the endpoints along with a few other painless changes. Let me walk you through them.
+Our front-end application used Parse.com as a replacement for a back-end application. Now we can switch to our own backend by replacing the endpoints along with making a few other painless changes. Let me walk you through them.
 
-In the beginning of the `app.js` file, uncomment the first line for running locally, or replace the URL values with your Heroku or Windows Azure back-end application public URLs:
+In the beginning of the `app.js` file, uncomment the first line for running locally, or replace the URL values with your Heroku or Microsoft Azure back-end application public URLs:
 
 ```js
 // const URL = 'http://localhost:1337/'
 const URL ='http://your-app-name.herokuapp.com/'
 ```
 
-Most of the code in `app.js` and the folder structure remained intact from the `06-board-backbone-parse-sdk` project, with the exception of replacing Parse.com models and collections with original Backbone.js ones. So go ahead and type or copy the RequireJS block for loading of the dependencies (templates in this case):
+Most of the code in `app.js` and the folder structure remained intact from the `code/05-board-backbone-parse-sdk` project (<http://bit.ly/2LfB9IQ>), with the exception of replacing Parse models and collections with original Backbone.js ones. So go ahead and type or copy the RequireJS block for loading of the dependencies (templates in this case):
 
 ```js
 require([
@@ -107,9 +109,9 @@ require([
         footerTpl) {
 ```
 
-The `ApplicationRouter`, `HeaderView``,` and `FooterView` are the same as in the `06-board-backbone-parse-sdk` project so I won't list them here again.
+The `ApplicationRouter`, `HeaderView,` and `FooterView` are the same as in the `code/05-board-backbone-parse-sdk` project so I won't list them here again.
 
-We need to change the the model and collection to this from using `Parse.Object` and `Parse.Collection`. Those are the places where Backbone.js looks up for REST API URLs corresponding to the specific collection and model:
+We need to change the model and collection to this from using `Parse.Object` and `Parse.Collection`. Those are the places where Backbone.js looks up for REST API URLs corresponding to the specific collection and model:
 
 ```js
     Message = Backbone.Model.extend({
@@ -132,14 +134,16 @@ Next is the `HomeView` where most of the logic resides. I made a few enhancement
         },
 ```
 
-Now, in the constructor of the view set the `homeView` to `this` so we can use `this` later by the name inside of the closures (otherwise, `this` can mutate inside of the closures):
+Now, in the constructor of the view, set the `homeView` to `this` so we can use `this` later by the name inside of the callbacks/closures or use fat arrow functions `()=>{}` (otherwise, `this` can mutate inside of the callbacks/closures):
 
 ```js
 initialize: function() {
     const homeView = this
 ```
 
-Then, I attached an event listener `refresh` that will do the rendering. Prior to that we had the `all` event, which wasn't very good, because it triggered re-rendering the addition of each message. You see, `fetch` will trigger `add` as many times as there are messages (10, 100, 1000, etc.) and if we use `all` event listener, `add` is part of `all`. While with this custom event `refresh` we can trigger rendering in the appropriate places (you'll see them later).
+Next, I attach an event listener `refresh` that will do the rendering. Prior to that we had the `all` event, which wasn't very good, because it triggered re-rendering multiple times on the addition of each message. The reason is that `fetch()` triggers `add()` as many times as there are messages (10, 100, 1000, etc.). So if we use the `all` event listener for `render()`, our app will unnecessarily render multiple times. A better way is to use a custom event `refresh` that we will trigger manually and only in the appropriate places (you'll see them later). This will prevent multiple re-rendering.
+
+The following code creates the collection, creates the `refresh` event and starts the `fetch` request to populate the messages from the backend:
 
 ```js
 homeView.collection = new MessageBoard()
@@ -147,7 +151,7 @@ homeView.collection.bind('refresh', homeView.render, homeView)
 homeView.collection.fetch({
 ```
 
-The `fetch` method will perform GET XHR request and it has `success` and `error` callbacks (indentation removed):
+The `fetch` method will perform a GET XHR request, and it has `success` and `error` callbacks (indentation removed):
 
 ```js
 success: function(collection, response, options){
@@ -165,7 +169,7 @@ The next line will trigger rendering only after all the messages are in the coll
 })
 ```
 
-This event listener will be triggered by the SEND button as well as by the `fetch`. To avoid persisting existing records with `message.save()`, we add the check for the `message.attributes._id`. In other words, if this an existing message and it comes from the server (`fetch`), then it will have `_id` and we stop the execution flow. Otherwise, we persist the message and trigger rendering on success:
+This event listener will be triggered by the "SEND" button as well as by the `fetch`(). To avoid persisting existing records with `message.save()`, we add the check for the `message.attributes._id`. In other words, if this is an existing message and it comes from the server (`fetch`), then it will have `_id` and we stop the execution flow. Otherwise, we persist the message and trigger rendering on success:
 
 ```js
       homeView.collection.on('add', function(message) {
@@ -183,7 +187,7 @@ This event listener will be triggered by the SEND button as well as by the `fetc
   },
 ```
 
-The rest of the `HomeView` object is the same as in the `06-board-parse-sdk` project. In the `saveMessage` we get the values of the username and the message text and add the new message object to the collection with `collection.add()`. This will call the event listener `add`, which we implemented in the `initialize`.
+The rest of the `HomeView` object is the same as in the `05-board-parse-sdk` project. In the `saveMessage` we get the values of the username and the message text and add the new message object to the collection with `collection.add()`. This will call the event listener `add`, which we implemented in the `initialize`.
 
 ```js
       saveMessage: function(){
@@ -211,8 +215,7 @@ Last, we write or copy the `render` method that takes the template and the colle
 })
 ```
 
-Here is the full source code of the [08-board-ui/app.js](https://github.com/azat-co/fullstack-javascript/blob/master/code/08-board-ui/app.js)
-file (https://github.com/azat-co/fullstack-javascript/blob/master/code/08-board-ui/app.js):
+Here is the full source code of the `code/08-board-ui/app.js` file (<http://bit.ly/2LaHhCp>):
 
 ```js
 const URL = 'http://localhost:1337/'
@@ -313,7 +316,7 @@ require([
 })
 ```
 
-This is it. For your reference, the front-end app source code is at [https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-u](https://github.com/azat-co/fullstack-javascript/tree/master/code/08-board-ui) in the GitHub folder. I won't list it here because we had only a few changes comparing with the Parse SDK project. The next piece of the puzzle is the back end.
+This is it. For your reference, the front-end app source code is in the `code/08-board-ui` folder and on GitHub at <http://bit.ly/2LfD1Bo>. I won't list it here because we had only a few changes comparing with the Parse SDK project. The next piece of the puzzle is the backend.
 
 Message Board API
 =================

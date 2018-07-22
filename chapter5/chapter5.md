@@ -658,7 +658,7 @@ Summary
 This short chapter gives you yet another way of building apps with
 nothing but JavaScript (and HTML and CSS, obviously). With Parse or
 a similar back-end-as-a-service (BaaS) solution, it is straightforward
-to persist the data without having to code your own back end. BaaS
+to persist the data without having to code your own backend. BaaS
 solutions take it a step further by allowing for access-level
 controls, authentications, server-side logic, and third-party
 integrations.
