@@ -15,7 +15,7 @@ require([
   appleHomeTpl,
   appleSpinnerTpl,
   appleTpl,
-  appelItemView,
+  appleItemView,
   homeView,
   appleView,
   Apples

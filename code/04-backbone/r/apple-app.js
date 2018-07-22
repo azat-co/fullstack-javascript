@@ -15,7 +15,7 @@ requirejs.config({
     appleHomeTpl,
     appleSpinnerTpl,
     appleTpl,
-    appelItemView,
+    appleItemView,
     homeView,
     appleView,
     Apples
