@@ -1,4 +1,5 @@
 <span id="backbone.js-and-Parse" class="anchor"></span>
+
 CHAPTER 5
 ---------
 
@@ -8,8 +9,7 @@ Backbone.js and Parse
 >
 > — [Azat Mardan](http://azat.co)
 
-In this chapter, we'll explore the practical aspect of leveraging
-Parse for a Backbone.js app. The chapter will illustrate the following:
+In this chapter, we'll explore the practical aspect of leveraging Parse for a Backbone.js app. The chapter will illustrate the following:
 
 * Backbone.js and Parse usage
 * Modifying Message Board with Parse and JavaScript SDK

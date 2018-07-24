@@ -1,4 +1,5 @@
 <span id="intro-to-node.js" class="anchor"></span>
+
 CHAPTER 6
 ---------
 
@@ -698,15 +699,9 @@ To make the POST request by using a command-line interface:
 
     $ curl -d "name=BOB&message=test" http://127.0.0.1:1337/messages/create.json
 
-And you should get the output in a server terminal window and a new
-message "test" when you refresh <http://localhost:1337/messages/list.json>.
-Needless to say, all three tests should pass.
+And you should get the output in a server terminal window and a new message "test" when you refresh <http://localhost:1337/messages/list.json>. Needless to say, all three tests should pass.
 
-Your application might grow bigger with more methods, URL paths to parse,
-and conditions. That is where frameworks come in handy. They provide
-helpers to process requests and other nice things like static file
-support, sessions, etc. In this example, we intentionally didn't use any
-frameworks like Express.js or Restify but there are many powerful and useful frameworks for Node. Here's the list of the most popular and notable Node.js frameworks:
+Your application might grow bigger with more methods, URL paths to parse, and conditions. That is where frameworks come in handy. They provide helpers to process requests and other nice things like static file support, sessions, etc. In this example, we intentionally didn't use any frameworks like Express.js or Restify but there are many powerful and useful frameworks for Node. Here's the list of the most popular and notable Node.js frameworks:
 
 -   [Derby](http://derbyjs.com) (<http://derbyjs.com>): MVC framework makes it easy to write real-time, collaborative applications that run in both Node.js and browsers
 -   [Express.js](http://expressjs.com) (<http://expressjs.com>): The most robust, tested and used Node.js framework
