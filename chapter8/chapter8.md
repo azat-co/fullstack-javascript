@@ -853,7 +853,9 @@ tcp        0      0 0.0.0.0:80                  0.0.0.0:*                   LIST
 
 On the EC2 instance, either configure the firewall to redirect connections (e.g., port to Node.js 3000, but this is too advanced for our example) or disable the firewall (okay for our quick demonstration and development purposes):
 
-    $ service iptables save$ service iptables stop$ chkconfig iptables off
+    $ service iptables save
+    $ service iptables stop
+    $ chkconfig iptables off
 
 In the AWS console, find your EC2 instance and apply a proper rule to allow for inbound traffic; for example:
 
